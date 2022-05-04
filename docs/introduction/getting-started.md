@@ -1,6 +1,6 @@
 # Getting Started
 
-## Welcome to Bill Pay! This is a test!
+## Welcome to Bill Pay!
 
 To get started with the Bill Pay APIs, follow these steps:
 This is a test!
@@ -41,7 +41,7 @@ To renew the access token the standard OAuth refresh token process should be use
 
 ## Session Termination
 
-To end a session before the token expires, initiate a token revocation request: test123
+To end a session before the token expires, initiate a token revocation request.
 
 
 ___
