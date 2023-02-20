@@ -40,7 +40,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutomaticTransactionList'
-              example: {
+              examples: {
   "automaticTransactions": [
     {
       "modifiableFields": [
@@ -554,6 +554,8 @@ paths:
     get:
       tags:
         - BankAccounts
+      x-group-name: BankAccounts
+      x-proxy-name: Get Financial Institution
       summary: Get Financial Institution Name when the routing number is sent.
       operationId: GetFinancialInstitutionName
       parameters:
@@ -590,6 +592,8 @@ paths:
     get:
       tags:
         - BankAccounts
+      x-group-name: BankAccounts
+      x-proxy-name: List Bank Accounts
       summary: Retrieves bank accounts list.
       operationId: GetBankAccountsAsync
       parameters:
@@ -733,6 +737,8 @@ paths:
     post:
       tags:
         - BankAccounts
+      x-group-name: BankAccounts
+      x-proxy-name: Add Bank Account
       summary: Add a untrusted bank account as a funding account.
       operationId: PostUntrustedBankAccount
       requestBody:
@@ -938,6 +944,8 @@ paths:
     get:
       tags:
         - BankAccounts
+      x-group-name: BankAccounts
+      x-proxy-name: List User Bank Accounts
       summary: Returns all bank accounts for a given tenant/user combination
       operationId: GetBankAccountsByTenantsAsync
       parameters:
@@ -1093,6 +1101,8 @@ paths:
     post:
       tags:
         - BankAccounts
+      x-group-name: BankAccounts
+      x-proxy-name: Add User Bank Account
       summary: Add a trusted bank account as a funding account for a specific user
       operationId: PostBankAccount
       parameters:
