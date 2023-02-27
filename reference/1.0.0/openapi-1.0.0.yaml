@@ -1194,6 +1194,8 @@ paths:
     get:
       tags:
         - BankAccounts
+      x-group-name: BankAccounts
+      x-proxy-name: Get Bank Account
       summary: Retrieves the bank account information given a bankAccountId.
       operationId: GetBankAccountAsync
       parameters:
@@ -1295,6 +1297,8 @@ paths:
     delete:
       tags:
         - BankAccounts
+      x-group-name: BankAccounts
+      x-proxy-name: Delete Bank Account
       summary: Delete a trusted bank account for a user
       operationId: DeleteBankAccount
       parameters:
@@ -1348,6 +1352,8 @@ paths:
     patch:
       tags:
         - BankAccounts
+      x-group-name: BankAccounts
+      x-proxy-name: Modify Bank Account
       summary: To Patch Bank Account By User
       operationId: PatchBankAccountByUser
       parameters:
@@ -1421,6 +1427,8 @@ paths:
     get:
       tags:
         - BankAccounts
+      x-group-name: BankAccounts
+      x-proxy-name: Get User Bank Account
       summary: Retrieves the bank account information given a bankAccountId.
       operationId: GetBankAccountByTenantsAsync
       parameters:
@@ -1540,6 +1548,8 @@ paths:
     delete:
       tags:
         - BankAccounts
+      x-group-name: BankAccounts
+      x-proxy-name: Delete User Bank Account
       summary: Delete a trusted bank account for a user
       operationId: DeleteBankAccountByTenant
       parameters:
@@ -1605,6 +1615,8 @@ paths:
     patch:
       tags:
         - BankAccounts
+      x-group-name: BankAccounts
+      x-proxy-name: Modify User Bank Account
       operationId: PatchBankAccountByTenant
       parameters:
         - name: userId
@@ -1684,6 +1696,8 @@ paths:
     get:
       tags:
         - BankAccounts
+      x-group-name: BankAccounts
+      x-proxy-name: Get Account Number
       operationId: GetAccountNumberAsync
       parameters:
         - name: bankCommonId
@@ -1724,6 +1738,8 @@ paths:
     get:
       tags:
         - BankAccounts
+      x-group-name: BankAccounts
+      x-proxy-name: Get Verification Info
       operationId: GetAccountVerificationInfoAsync
       parameters:
         - name: id
@@ -1773,6 +1789,8 @@ paths:
     post:
       tags:
         - BankAccounts
+      x-group-name: BankAccounts
+      x-proxy-name: Verify Bank Account
       summary: The POST complete verification API enables the UI application to know the status of account verification through VerifyNow.
       operationId: PostCompleteVerification
       parameters:
