@@ -1857,6 +1857,8 @@ paths:
     get:
       tags:
         - Bills
+      x-group-name: Bills
+      x-proxy-name: Get Bills
       summary: Get list of bills
       operationId: Get
       parameters:
@@ -2360,6 +2362,8 @@ paths:
     get:
       tags:
         - Bills
+      x-group-name: Bills
+      x-proxy-name: Get Bill
       summary: Retrieves bill item based on bill id
       operationId: GetEbillById
       parameters:
@@ -2582,6 +2586,8 @@ paths:
     patch:
       tags:
         - Bills
+      x-group-name: Bills
+      x-proxy-name: File Bill
       summary: Allows subscriber to file a bill
       operationId: FileBills
       parameters:
@@ -2655,6 +2661,8 @@ paths:
     get:
       tags:
         - Bills
+      x-group-name: Bills
+      x-proxy-name: Get Bill Details
       summary: Retrieves bill detail uri based on bill item id
       operationId: GetBillDetailUri
       parameters:
@@ -2693,6 +2701,8 @@ paths:
     get:
       tags:
         - CardAccounts
+      x-group-name: CardAccounts
+      x-proxy-name: Get Card Account
       summary: Returns the card account details for a given financial account Id.
       operationId: GetCardAccount
       parameters:
@@ -2748,6 +2758,8 @@ paths:
     patch:
       tags:
         - CardAccounts
+      x-group-name: CardAccounts
+      x-proxy-name: Modify Card Accounts
       summary: Modify card account list
       operationId: PatchCardAccounts
       parameters:
@@ -2817,6 +2829,8 @@ paths:
     delete:
       tags:
         - CardAccounts
+      x-group-name: CardAccounts
+      x-proxy-name: Delete Card Account
       summary: Delete card account for a subscriber
       operationId: DeleteCardAccounts
       parameters:
@@ -2869,6 +2883,8 @@ paths:
     get:
       tags:
         - CardAccounts
+      x-group-name: CardAccounts
+      x-proxy-name: Get Card Account List
       summary: Returns the card account list
       operationId: GetCardAccounts
       responses:
@@ -2969,6 +2985,8 @@ paths:
     post:
       tags:
         - CardAccounts
+      x-group-name: CardAccounts
+      x-proxy-name: Add Card Account
       summary: Add a card account as a funding acount for a Subscriber
       operationId: PostCardAccount
       requestBody:
@@ -3117,6 +3135,8 @@ paths:
     get:
       tags:
         - CardAccounts
+      x-group-name: CardAccounts
+      x-proxy-name: Get Card Account Limits
       summary: Returns the Card account limits
       operationId: GetCardAccountAddLimits
       responses:
@@ -3149,6 +3169,8 @@ paths:
     get:
       tags:
         - Health
+      x-group-name: Health
+      x-proxy-name: Ping
       operationId: Get
       responses:
         '200':
@@ -3157,6 +3179,8 @@ paths:
     get:
       tags:
         - Ldds
+      x-group-name: Ldds
+      x-proxy-name: Get Ldd List
       summary: Retrieves legal document list.
       operationId: Get
       parameters:
@@ -3229,6 +3253,8 @@ paths:
     post:
       tags:
         - Ldds
+      x-group-name: Ldds
+      x-proxy-name: Accept Ldd
       summary: Post LDD for user acceptance.
       operationId: PostLegalDocument
       requestBody:
@@ -3301,6 +3327,8 @@ paths:
     get:
       tags:
         - Ldds
+      x-group-name: Ldds
+      x-proxy-name: Get Ldd
       summary: Get specific legal document.
       operationId: GetLegalDocument
       parameters:
@@ -3331,6 +3359,8 @@ paths:
     get:
       tags:
         - Ldds
+      x-group-name: Ldds
+      x-proxy-name: Get Ldds for Tenant
       summary: Get legal documents for specific tenant.
       operationId: GetLegalDocuments
       parameters:
@@ -3353,6 +3383,8 @@ paths:
     get:
       tags:
         - Merchants
+      x-group-name: Merchants
+      x-proxy-name: Search Merchant
       summary: Search Merchant based on merchant name
       operationId: SearchMerchant
       parameters:
@@ -3440,6 +3472,8 @@ paths:
     get:
       tags:
         - Payees
+      x-group-name: Payees
+      x-proxy-name: Get Paper Suppression Terms
       operationId: GetPaperSuppressionTerms
       parameters:
         - name: id
@@ -3489,6 +3523,8 @@ paths:
     get:
       tags:
         - Payees
+      x-group-name: Payees
+      x-proxy-name: Get Payee List
       operationId: Get
       parameters:
         - name: returnInactivePayees
@@ -3790,6 +3826,8 @@ paths:
     post:
       tags:
         - Payees
+      x-group-name: Payees
+      x-proxy-name: Add Payee
       summary: Creates a new payee using the given payee object
       operationId: Post
       parameters:
@@ -4088,6 +4126,8 @@ paths:
     get:
       tags:
         - Payees
+      x-group-name: Payees
+      x-proxy-name: Get Payee
       operationId: Get
       parameters:
         - name: payeeId
@@ -4142,6 +4182,8 @@ paths:
     delete:
       tags:
         - Payees
+      x-group-name: Payees
+      x-proxy-name: Delete Payee
       summary: Delete payee from users payee list
       operationId: Delete
       parameters:
@@ -4261,6 +4303,8 @@ paths:
     patch:
       tags:
         - Payees
+      x-group-name: Payees
+      x-proxy-name: Modify Payee
       operationId: Patch
       parameters:
         - name: payeeId
@@ -4394,6 +4438,8 @@ paths:
     get:
       tags:
         - Payees
+      x-group-name: Payees
+      x-proxy-name: Get Ebill Capability
       operationId: EbillCapabilityGet
       parameters:
         - name: id
@@ -4531,6 +4577,8 @@ paths:
     post:
       tags:
         - Payees
+      x-group-name: Payees
+      x-proxy-name: Activate eBill Service
       summary: Activate ebill service for a payee
       operationId: PostEbillService
       parameters:
@@ -4709,6 +4757,8 @@ paths:
     delete:
       tags:
         - Payees
+      x-group-name: Payees
+      x-proxy-name: Stop eBill Service
       summary: Delete Ebill service of a payee
       operationId: DeleteEbillService
       parameters:
@@ -4820,6 +4870,8 @@ paths:
     get:
       tags:
         - Payees
+      x-group-name: Payees
+      x-proxy-name: Get eBill Service Details
       operationId: GetEbillService
       parameters:
         - name: id
@@ -4913,6 +4965,8 @@ paths:
     get:
       tags:
         - Payees
+      x-group-name: Payees
+      x-proxy-name: Get Account Number
       operationId: GetPayeeAccountNumber
       parameters:
         - name: payeeId
@@ -5037,6 +5091,8 @@ paths:
     patch:
       tags:
         - Payees
+      x-group-name: Payees
+      x-proxy-name: Modify Paper Suppression
       operationId: PatchEbillServiceSuppressPaper
       parameters:
         - name: id
@@ -5106,6 +5162,8 @@ paths:
     get:
       tags:
         - Payees
+      x-group-name: Payees
+      x-proxy-name: Get Automatic Transaction Options for Payee
       operationId: GetAutomationTransactionOptions
       parameters:
         - name: id
@@ -5215,6 +5273,8 @@ paths:
     get:
       tags:
         - Payees
+      x-group-name: Payees
+      x-proxy-name: Get Visa Payees
       operationId: GetVisaPayees
       parameters:
         - name: returnInactivePayees
@@ -5517,6 +5577,8 @@ paths:
     get:
       tags:
         - PotentialPayees
+      x-group-name: PotentialPayees
+      x-proxy-name: Get Potential Payees
       operationId: GetPotentialPayees
       parameters:
         - name: excludeDormantAccounts
@@ -5623,6 +5685,8 @@ paths:
     get:
       tags:
         - PotentialPayees
+      x-group-name: PotentialPayees
+      x-proxy-name: Get Potential Payee
       operationId: GetPotentialPayeeById
       parameters:
         - name: id
@@ -5708,6 +5772,8 @@ paths:
     put:
       tags:
         - PotentialPayees
+      x-group-name: PotentialPayees
+      x-proxy-name: Add Potential Payees
       operationId: PutPotentialPayee
       parameters:
         - name: id
@@ -5791,6 +5857,8 @@ paths:
     put:
       tags:
         - PotentialPayees
+      x-group-name: PotentialPayees
+      x-proxy-name: Dismiss Potential Payees
       operationId: DismissPotentialPayee
       parameters:
         - name: id
@@ -5840,6 +5908,8 @@ paths:
     get:
       tags:
         - PotentialPayees
+      x-group-name: PotentialPayees
+      x-proxy-name: Get Potential Payee Account Number
       operationId: GetPayeeAccountNumber
       parameters:
         - name: id
@@ -5883,6 +5953,8 @@ paths:
     get:
       tags:
         - PotentialPayees
+      x-group-name: PotentialPayees
+      x-proxy-name: Get Potential Payee Eligibility
       summary: Return the bill discovery user eligibility.
       operationId: GetUserEligibility
       responses:
@@ -5925,6 +5997,8 @@ paths:
     get:
       tags:
         - ToDos
+      x-group-name: ToDos
+      x-proxy-name: Get ToDos
       summary: Get todos
       operationId: Get
       responses:
@@ -6030,6 +6104,8 @@ paths:
     get:
       tags:
         - ToDos
+      x-group-name: ToDos
+      x-proxy-name: Get ToDo
       summary: Get single todo
       operationId: Get
       parameters:
@@ -6088,6 +6164,8 @@ paths:
     patch:
       tags:
         - ToDos
+      x-group-name: ToDos
+      x-proxy-name: Dismiss ToDo
       summary: Dismiss individual Todo
       operationId: Patch
       parameters:
@@ -6142,6 +6220,8 @@ paths:
     get:
       tags:
         - TransactionCalendar
+      x-group-name: TransactionCalendar
+      x-proxy-name: Get Transaction Calendar
       operationId: Get
       parameters:
         - name: transactionDestinationUri
@@ -6432,6 +6512,8 @@ paths:
     post:
       tags:
         - Transactions
+      x-group-name: Transactions
+      x-proxy-name: Add a List of Transactions
       summary: Save a list of transactions
       operationId: PostTransaction
       parameters:
@@ -6481,6 +6563,8 @@ paths:
     get:
       tags:
         - Transactions
+      x-group-name: Transactions
+      x-proxy-name: Get a List of Transactions
       summary: Return a list of transactions
       operationId: GetTransactions
       parameters:
@@ -6571,6 +6655,8 @@ paths:
     post:
       tags:
         - Transactions
+      x-group-name: Transactions
+      x-proxy-name: Add a Visa Transaction
       summary: Schedule a single immediate transaction
       operationId: PostVisaTransaction
       requestBody:
@@ -6616,6 +6702,8 @@ paths:
     patch:
       tags:
         - Transactions
+      x-group-name: Transactions
+      x-proxy-name: Cancel Transaction
       operationId: CancelPatch
       parameters:
         - name: transactionId
@@ -6651,6 +6739,8 @@ paths:
     patch:
       tags:
         - Transactions
+      x-group-name: Transactions
+      x-proxy-name: Modify Transaction
       operationId: Patch
       parameters:
         - name: transactionId
@@ -6708,6 +6798,8 @@ paths:
     post:
       tags:
         - Users
+      x-group-name: Users
+      x-proxy-name: Verify User
       summary: Post Identity Verification
       operationId: CompleteIdentityVerification
       responses:
@@ -6717,6 +6809,8 @@ paths:
     get:
       tags:
         - Users
+      x-group-name: Users
+      x-proxy-name: Get User
       summary: Get user call.
       operationId: Get
       responses:
@@ -6823,6 +6917,8 @@ paths:
     patch:
       tags:
         - Users
+      x-group-name: Users
+      x-proxy-name: Modify User
       summary: Patch D2C user.
       operationId: ModifyUser
       requestBody:
@@ -7079,6 +7175,8 @@ paths:
     get:
       tags:
         - Users
+      x-group-name: Users
+      x-proxy-name: Get User
       summary: V2 Get user call for subscriber.
       operationId: GetV2
       responses:
@@ -7208,6 +7306,8 @@ paths:
     get:
       tags:
         - Users
+      x-group-name: Users
+      x-proxy-name: Get Sensitive Info
       summary: Get sensitive information.
       operationId: GetSensitiveInformation
       responses:
@@ -7245,6 +7345,8 @@ paths:
     post:
       tags:
         - Users
+      x-group-name: Users
+      x-proxy-name: Add Consents
       summary: Post consents.
       operationId: PostConsent
       requestBody:
@@ -7289,6 +7391,8 @@ paths:
     get:
       tags:
         - Users
+      x-group-name: Users
+      x-proxy-name: Get Consents
       summary: Get consent information.
       operationId: GetConsents
       responses:
@@ -7329,6 +7433,8 @@ paths:
     get:
       tags:
         - Users
+      x-group-name: Users
+      x-proxy-name: Get Features
       summary: Get features call.
       operationId: GetFeatures
       responses:
@@ -7396,6 +7502,8 @@ paths:
     post:
       tags:
         - Users
+      x-group-name: Users
+      x-proxy-name: Add User
       summary: Post user.
       operationId: PostUserAsync
       requestBody:
@@ -7440,6 +7548,8 @@ paths:
     post:
       tags:
         - Users
+      x-group-name: Users
+      x-proxy-name: Add User
       summary: Post user v2.
       operationId: PostUserV2Async
       requestBody:
@@ -7484,6 +7594,8 @@ paths:
     delete:
       tags:
         - Users
+      x-group-name: Users
+      x-proxy-name: Delete User Preference
       summary: To delete the user preference.
       operationId: DeletePreference
       parameters:
@@ -7535,6 +7647,8 @@ paths:
     patch:
       tags:
         - Users
+      x-group-name: Users
+      x-proxy-name: Modify User Preference
       summary: To Update the User Preference Based On User Preference Id.
       operationId: PatchUserPreference
       parameters:
@@ -7605,6 +7719,8 @@ paths:
     get:
       tags:
         - Users
+      x-group-name: Users
+      x-proxy-name: Get User Preferences
       summary: To get the user preferences.
       operationId: GetPreferences
       responses:
@@ -7656,6 +7772,8 @@ paths:
     post:
       tags:
         - Users
+      x-group-name: Users
+      x-proxy-name: Add User Preference
       summary: Add user preferences
       operationId: PostUserPreferences
       requestBody:
@@ -7805,6 +7923,8 @@ paths:
     delete:
       tags:
         - Users
+      x-group-name: Users
+      x-proxy-name: Delete User
       summary: Deletes an existing user
       description: "The operation takes an optional query parameter Id Type to determine whether or not User Id Type is specified\r\nIf the query parameter is not submitted, it defaults to CheckFreeNextUserId Type, and no delete operation are canceled."
       operationId: DeleteUser
@@ -7848,6 +7968,8 @@ paths:
     get:
       tags:
         - Users
+      x-group-name: Users
+      x-proxy-name: Get User Info
       summary: Get User Information
       description: This API will return user information.
       operationId: Get
@@ -7965,6 +8087,8 @@ paths:
     delete:
       tags:
         - Users
+      x-group-name: Users
+      x-proxy-name: Delete User
       summary: Deletes an existing user
       description: "The operation takes an optional query parameter Id Type to determine whether or not User Id Type is specified\r\nIf the query parameter is not submitted, it defaults to CheckFreeNextUserId Type, and no delete operation are canceled."
       operationId: DeleteUser
@@ -8008,6 +8132,8 @@ paths:
     get:
       tags:
         - Users
+      x-group-name: Users
+      x-proxy-name: Get User Info
       summary: V2 - Get User Information
       description: This API will return user information.
       operationId: GetV2
@@ -8151,6 +8277,8 @@ paths:
     patch:
       tags:
         - Users
+      x-group-name: Users
+      x-proxy-name: Modify User
       summary: Patch user.
       operationId: ModifyUser
       parameters:
@@ -8208,6 +8336,8 @@ paths:
     patch:
       tags:
         - Users
+      x-group-name: Users
+      x-proxy-name: Modify User
       summary: Patch user V2.
       operationId: ModifyUserV2
       parameters:
@@ -8269,6 +8399,8 @@ paths:
     get:
       tags:
         - Users
+      x-group-name: Users
+      x-proxy-name: Get User Sensitive Info
       summary: Get sensitive information.
       operationId: GetSensitiveInformationV2
       responses:
@@ -8308,6 +8440,8 @@ paths:
     get:
       tags:
         - Users
+      x-group-name: Users
+      x-proxy-name: Get List of Probably Merchants
       summary: Get probable merchants for the user
       operationId: GetProbableMerchants
       responses:
@@ -8460,6 +8594,8 @@ paths:
     post:
       tags:
         - Users
+      x-group-name: Users
+      x-proxy-name: Post Ebill Delivery Failure
       summary: Post Ebill Delivery Failure
       operationId: PostEbillDeliveryFailure
       parameters:

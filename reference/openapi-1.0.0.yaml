@@ -212,6 +212,8 @@ paths:
     post:
       tags:
         - AutomaticTransactions
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Creates a new automatic transaction using the given AutomaticTransaction object
       description: Note that there can be multiple automatic transactions associated with a single payee
       operationId: PostAutomaticTransaction
@@ -342,6 +344,8 @@ paths:
     get:
       tags:
         - AutomaticTransactions
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Gets an automatic transaction given an automatic transaction ID
       operationId: GetAutomaticTransactions
       parameters:
@@ -401,6 +405,8 @@ paths:
     delete:
       tags:
         - AutomaticTransactions
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Deletes an existing automatic transaction model that the user owns.
       description: "Deletes a user's automatic transaction model.\r\nThe operation takes an optional query parameter to determine whether or not spawned, pending transactions should be canceled.\r\nIf the query parameter is not submitted, it defaults to false, and no transactions are canceled."
       operationId: DeleteAutomaticTransaction
@@ -467,6 +473,8 @@ paths:
     patch:
       tags:
         - AutomaticTransactions
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: "The Automatic Transactions Patch API enables changes to be done to an automatic transaction that has been already set up.\r\nOnly the Delta changes are send in the request."
       operationId: PatchAutomaticTransaction
       parameters:
@@ -546,6 +554,8 @@ paths:
     get:
       tags:
         - BankAccounts
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Get Financial Institution Name when the routing number is sent.
       operationId: GetFinancialInstitutionName
       parameters:
@@ -582,6 +592,8 @@ paths:
     get:
       tags:
         - BankAccounts
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Retrieves bank accounts list.
       operationId: GetBankAccountsAsync
       parameters:
@@ -725,6 +737,8 @@ paths:
     post:
       tags:
         - BankAccounts
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Add a untrusted bank account as a funding account.
       operationId: PostUntrustedBankAccount
       requestBody:
@@ -930,6 +944,8 @@ paths:
     get:
       tags:
         - BankAccounts
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Returns all bank accounts for a given tenant/user combination
       operationId: GetBankAccountsByTenantsAsync
       parameters:
@@ -1085,6 +1101,8 @@ paths:
     post:
       tags:
         - BankAccounts
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Add a trusted bank account as a funding account for a specific user
       operationId: PostBankAccount
       parameters:
@@ -1176,6 +1194,8 @@ paths:
     get:
       tags:
         - BankAccounts
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Retrieves the bank account information given a bankAccountId.
       operationId: GetBankAccountAsync
       parameters:
@@ -1277,6 +1297,8 @@ paths:
     delete:
       tags:
         - BankAccounts
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Delete a trusted bank account for a user
       operationId: DeleteBankAccount
       parameters:
@@ -1330,6 +1352,8 @@ paths:
     patch:
       tags:
         - BankAccounts
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: To Patch Bank Account By User
       operationId: PatchBankAccountByUser
       parameters:
@@ -1403,6 +1427,8 @@ paths:
     get:
       tags:
         - BankAccounts
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Retrieves the bank account information given a bankAccountId.
       operationId: GetBankAccountByTenantsAsync
       parameters:
@@ -1522,6 +1548,8 @@ paths:
     delete:
       tags:
         - BankAccounts
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Delete a trusted bank account for a user
       operationId: DeleteBankAccountByTenant
       parameters:
@@ -1587,6 +1615,8 @@ paths:
     patch:
       tags:
         - BankAccounts
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       operationId: PatchBankAccountByTenant
       parameters:
         - name: userId
@@ -1666,6 +1696,8 @@ paths:
     get:
       tags:
         - BankAccounts
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       operationId: GetAccountNumberAsync
       parameters:
         - name: bankCommonId
@@ -1706,6 +1738,8 @@ paths:
     get:
       tags:
         - BankAccounts
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       operationId: GetAccountVerificationInfoAsync
       parameters:
         - name: id
@@ -1755,6 +1789,8 @@ paths:
     post:
       tags:
         - BankAccounts
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: The POST complete verification API enables the UI application to know the status of account verification through VerifyNow.
       operationId: PostCompleteVerification
       parameters:
@@ -1821,6 +1857,8 @@ paths:
     get:
       tags:
         - Bills
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Get list of bills
       operationId: Get
       parameters:
@@ -2324,6 +2362,8 @@ paths:
     get:
       tags:
         - Bills
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Retrieves bill item based on bill id
       operationId: GetEbillById
       parameters:
@@ -2546,6 +2586,8 @@ paths:
     patch:
       tags:
         - Bills
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Allows subscriber to file a bill
       operationId: FileBills
       parameters:
@@ -2619,6 +2661,8 @@ paths:
     get:
       tags:
         - Bills
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Retrieves bill detail uri based on bill item id
       operationId: GetBillDetailUri
       parameters:
@@ -2657,6 +2701,8 @@ paths:
     get:
       tags:
         - CardAccounts
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Returns the card account details for a given financial account Id.
       operationId: GetCardAccount
       parameters:
@@ -2712,6 +2758,8 @@ paths:
     patch:
       tags:
         - CardAccounts
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Modify card account list
       operationId: PatchCardAccounts
       parameters:
@@ -2781,6 +2829,8 @@ paths:
     delete:
       tags:
         - CardAccounts
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Delete card account for a subscriber
       operationId: DeleteCardAccounts
       parameters:
@@ -2833,6 +2883,8 @@ paths:
     get:
       tags:
         - CardAccounts
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Returns the card account list
       operationId: GetCardAccounts
       responses:
@@ -2933,6 +2985,8 @@ paths:
     post:
       tags:
         - CardAccounts
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Add a card account as a funding acount for a Subscriber
       operationId: PostCardAccount
       requestBody:
@@ -3081,6 +3135,8 @@ paths:
     get:
       tags:
         - CardAccounts
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Returns the Card account limits
       operationId: GetCardAccountAddLimits
       responses:
@@ -3113,6 +3169,8 @@ paths:
     get:
       tags:
         - Health
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       operationId: Get
       responses:
         '200':
@@ -3121,6 +3179,8 @@ paths:
     get:
       tags:
         - Ldds
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Retrieves legal document list.
       operationId: Get
       parameters:
@@ -3193,6 +3253,8 @@ paths:
     post:
       tags:
         - Ldds
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Post LDD for user acceptance.
       operationId: PostLegalDocument
       requestBody:
@@ -3265,6 +3327,8 @@ paths:
     get:
       tags:
         - Ldds
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Get specific legal document.
       operationId: GetLegalDocument
       parameters:
@@ -3295,6 +3359,8 @@ paths:
     get:
       tags:
         - Ldds
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Get legal documents for specific tenant.
       operationId: GetLegalDocuments
       parameters:
@@ -3317,6 +3383,8 @@ paths:
     get:
       tags:
         - Merchants
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Search Merchant based on merchant name
       operationId: SearchMerchant
       parameters:
@@ -3404,6 +3472,8 @@ paths:
     get:
       tags:
         - Payees
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       operationId: GetPaperSuppressionTerms
       parameters:
         - name: id
@@ -3453,6 +3523,8 @@ paths:
     get:
       tags:
         - Payees
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       operationId: Get
       parameters:
         - name: returnInactivePayees
@@ -3754,6 +3826,8 @@ paths:
     post:
       tags:
         - Payees
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Creates a new payee using the given payee object
       operationId: Post
       parameters:
@@ -4052,6 +4126,8 @@ paths:
     get:
       tags:
         - Payees
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       operationId: Get
       parameters:
         - name: payeeId
@@ -4106,6 +4182,8 @@ paths:
     delete:
       tags:
         - Payees
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Delete payee from users payee list
       operationId: Delete
       parameters:
@@ -4225,6 +4303,8 @@ paths:
     patch:
       tags:
         - Payees
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       operationId: Patch
       parameters:
         - name: payeeId
@@ -4358,6 +4438,8 @@ paths:
     get:
       tags:
         - Payees
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       operationId: EbillCapabilityGet
       parameters:
         - name: id
@@ -4495,6 +4577,8 @@ paths:
     post:
       tags:
         - Payees
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Activate ebill service for a payee
       operationId: PostEbillService
       parameters:
@@ -4673,6 +4757,8 @@ paths:
     delete:
       tags:
         - Payees
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Delete Ebill service of a payee
       operationId: DeleteEbillService
       parameters:
@@ -4784,6 +4870,8 @@ paths:
     get:
       tags:
         - Payees
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       operationId: GetEbillService
       parameters:
         - name: id
@@ -4877,6 +4965,8 @@ paths:
     get:
       tags:
         - Payees
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       operationId: GetPayeeAccountNumber
       parameters:
         - name: payeeId
@@ -5001,6 +5091,8 @@ paths:
     patch:
       tags:
         - Payees
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       operationId: PatchEbillServiceSuppressPaper
       parameters:
         - name: id
@@ -5070,6 +5162,8 @@ paths:
     get:
       tags:
         - Payees
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       operationId: GetAutomationTransactionOptions
       parameters:
         - name: id
@@ -5179,6 +5273,8 @@ paths:
     get:
       tags:
         - Payees
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       operationId: GetVisaPayees
       parameters:
         - name: returnInactivePayees
@@ -5481,6 +5577,8 @@ paths:
     get:
       tags:
         - PotentialPayees
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       operationId: GetPotentialPayees
       parameters:
         - name: excludeDormantAccounts
@@ -5587,6 +5685,8 @@ paths:
     get:
       tags:
         - PotentialPayees
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       operationId: GetPotentialPayeeById
       parameters:
         - name: id
@@ -5672,6 +5772,8 @@ paths:
     put:
       tags:
         - PotentialPayees
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       operationId: PutPotentialPayee
       parameters:
         - name: id
@@ -5755,6 +5857,8 @@ paths:
     put:
       tags:
         - PotentialPayees
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       operationId: DismissPotentialPayee
       parameters:
         - name: id
@@ -5804,6 +5908,8 @@ paths:
     get:
       tags:
         - PotentialPayees
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       operationId: GetPayeeAccountNumber
       parameters:
         - name: id
@@ -5847,6 +5953,8 @@ paths:
     get:
       tags:
         - PotentialPayees
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Return the bill discovery user eligibility.
       operationId: GetUserEligibility
       responses:
@@ -5889,6 +5997,8 @@ paths:
     get:
       tags:
         - ToDos
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Get todos
       operationId: Get
       responses:
@@ -5994,6 +6104,8 @@ paths:
     get:
       tags:
         - ToDos
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Get single todo
       operationId: Get
       parameters:
@@ -6052,6 +6164,8 @@ paths:
     patch:
       tags:
         - ToDos
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Dismiss individual Todo
       operationId: Patch
       parameters:
@@ -6106,6 +6220,8 @@ paths:
     get:
       tags:
         - TransactionCalendar
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       operationId: Get
       parameters:
         - name: transactionDestinationUri
@@ -6396,6 +6512,8 @@ paths:
     post:
       tags:
         - Transactions
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Save a list of transactions
       operationId: PostTransaction
       parameters:
@@ -6445,6 +6563,8 @@ paths:
     get:
       tags:
         - Transactions
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Return a list of transactions
       operationId: GetTransactions
       parameters:
@@ -6535,6 +6655,8 @@ paths:
     post:
       tags:
         - Transactions
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Schedule a single immediate transaction
       operationId: PostVisaTransaction
       requestBody:
@@ -6580,6 +6702,8 @@ paths:
     patch:
       tags:
         - Transactions
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       operationId: CancelPatch
       parameters:
         - name: transactionId
@@ -6615,6 +6739,8 @@ paths:
     patch:
       tags:
         - Transactions
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       operationId: Patch
       parameters:
         - name: transactionId
@@ -6672,6 +6798,8 @@ paths:
     post:
       tags:
         - Users
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Post Identity Verification
       operationId: CompleteIdentityVerification
       responses:
@@ -6681,6 +6809,8 @@ paths:
     get:
       tags:
         - Users
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Get user call.
       operationId: Get
       responses:
@@ -6787,6 +6917,8 @@ paths:
     patch:
       tags:
         - Users
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Patch D2C user.
       operationId: ModifyUser
       requestBody:
@@ -7043,6 +7175,8 @@ paths:
     get:
       tags:
         - Users
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: V2 Get user call for subscriber.
       operationId: GetV2
       responses:
@@ -7172,6 +7306,8 @@ paths:
     get:
       tags:
         - Users
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Get sensitive information.
       operationId: GetSensitiveInformation
       responses:
@@ -7209,6 +7345,8 @@ paths:
     post:
       tags:
         - Users
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Post consents.
       operationId: PostConsent
       requestBody:
@@ -7253,6 +7391,8 @@ paths:
     get:
       tags:
         - Users
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Get consent information.
       operationId: GetConsents
       responses:
@@ -7293,6 +7433,8 @@ paths:
     get:
       tags:
         - Users
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Get features call.
       operationId: GetFeatures
       responses:
@@ -7360,6 +7502,8 @@ paths:
     post:
       tags:
         - Users
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Post user.
       operationId: PostUserAsync
       requestBody:
@@ -7404,6 +7548,8 @@ paths:
     post:
       tags:
         - Users
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Post user v2.
       operationId: PostUserV2Async
       requestBody:
@@ -7448,6 +7594,8 @@ paths:
     delete:
       tags:
         - Users
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: To delete the user preference.
       operationId: DeletePreference
       parameters:
@@ -7499,6 +7647,8 @@ paths:
     patch:
       tags:
         - Users
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: To Update the User Preference Based On User Preference Id.
       operationId: PatchUserPreference
       parameters:
@@ -7569,6 +7719,8 @@ paths:
     get:
       tags:
         - Users
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: To get the user preferences.
       operationId: GetPreferences
       responses:
@@ -7620,6 +7772,8 @@ paths:
     post:
       tags:
         - Users
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Add user preferences
       operationId: PostUserPreferences
       requestBody:
@@ -7769,6 +7923,8 @@ paths:
     delete:
       tags:
         - Users
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Deletes an existing user
       description: "The operation takes an optional query parameter Id Type to determine whether or not User Id Type is specified\r\nIf the query parameter is not submitted, it defaults to CheckFreeNextUserId Type, and no delete operation are canceled."
       operationId: DeleteUser
@@ -7812,6 +7968,8 @@ paths:
     get:
       tags:
         - Users
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Get User Information
       description: This API will return user information.
       operationId: Get
@@ -7929,6 +8087,8 @@ paths:
     delete:
       tags:
         - Users
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Deletes an existing user
       description: "The operation takes an optional query parameter Id Type to determine whether or not User Id Type is specified\r\nIf the query parameter is not submitted, it defaults to CheckFreeNextUserId Type, and no delete operation are canceled."
       operationId: DeleteUser
@@ -7972,6 +8132,8 @@ paths:
     get:
       tags:
         - Users
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: V2 - Get User Information
       description: This API will return user information.
       operationId: GetV2
@@ -8115,6 +8277,8 @@ paths:
     patch:
       tags:
         - Users
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Patch user.
       operationId: ModifyUser
       parameters:
@@ -8172,6 +8336,8 @@ paths:
     patch:
       tags:
         - Users
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Patch user V2.
       operationId: ModifyUserV2
       parameters:
@@ -8233,6 +8399,8 @@ paths:
     get:
       tags:
         - Users
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Get sensitive information.
       operationId: GetSensitiveInformationV2
       responses:
@@ -8272,6 +8440,8 @@ paths:
     get:
       tags:
         - Users
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Get probable merchants for the user
       operationId: GetProbableMerchants
       responses:
@@ -8424,6 +8594,8 @@ paths:
     post:
       tags:
         - Users
+      x-group-name: AutomaticTransactions
+      x-proxy-name: Add User Bank Account Test
       summary: Post Ebill Delivery Failure
       operationId: PostEbillDeliveryFailure
       parameters:
