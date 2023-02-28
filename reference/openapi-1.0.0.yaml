@@ -363,7 +363,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AutomaticTransactionList'
+                $ref: '#/components/schemas/AutomaticTransactionOutputDetail'
               example: {
   "modifiableFields": [
     "amount",
@@ -8778,7 +8778,7 @@ components:
           $ref: '#/components/schemas/RecurringTransactionSchedule'
       additionalProperties: false
     AutomaticTransactionList:
-      type: array
+      type: object
       properties:
         automaticTransactions:
           type: array
