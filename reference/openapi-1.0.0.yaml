@@ -34,11 +34,12 @@ paths:
             type: string
             nullable: true
       responses:
-        '200':
+        200:
           description: Success
           content:
             application/json:
-              schema: {$ref: '#/components/schemas/AutomaticTransactionList'}
+              schema: 
+                $ref: '#/components/schemas/AutomaticTransactionList'
               example: {
                 "automaticTransactions": [
                     {
