@@ -126,3 +126,18 @@ featuredFeatures:
         description: This service will be used to update the customer demographic details such as Name / Address / Phone Number / Email ID/ Date of Birth of the given customer.  
         type: "patch"        
         path: "/v1/customers/nameAddress"
+  - title: Gary Test 1
+    description:  Gary Test 2
+    featured: true
+    relatedDocs:
+      - relatedDoc: 
+        title: Account Management
+        description: Allows management of an accounts that holds financial information of Credit available/ used.
+        link: ./docs/Account-Management.md
+    relatedAPIs:
+      - relatedAPI: 
+        title: Block-Unblock Account
+        description: This service is used to update the Account Block Code.
+        type: "patch"        
+        path: "/v1/accounts/blockUnblock"
+
