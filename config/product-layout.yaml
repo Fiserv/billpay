@@ -41,27 +41,27 @@ benefits:
     description: blah 2
   - title: Gary Title 3
     description: blah 3
-steps:  
-  learnSteps:
-    - title: Learn
-      description: >
-        Follow our documentation and easy to use examples to build your own mobile or web integrated online applications. 
-      link:
-  buildSteps:
-    - title: Build
-      description: >
-        Get your application up and running with our proprietary integration tools and developer keys. 
-      link:
-  validateSteps:
-    - title: API Explorer
-      description: >
-        Interact with our live api interface for real time responses to the developed application. 
-      link:
-  deploySteps:
-    - title: Deploy
-      description: >
-        Deploy your applications in our testing environment for quality assurance testing.  Once ready promote your application to our production environment. 
-      link:
+#steps:  
+#  learnSteps:
+#    - title: Learn
+#      description: >
+#        Follow our documentation and easy to use examples to build your own mobile or web integrated online applications. 
+#      link:
+#  buildSteps:
+#    - title: Build
+#      description: >
+#        Get your application up and running with our proprietary integration tools and developer keys. 
+#      link:
+#  validateSteps:
+#    - title: API Explorer
+#      description: >
+#        Interact with our live api interface for real time responses to the developed application. 
+#      link:
+#  deploySteps:
+#    - title: Deploy
+#      description: >
+#        Deploy your applications in our testing environment for quality assurance testing.  Once ready promote your application to our production environment. 
+#      link:
 featuredFeatures:
   - title: Credit Issuance
     description:  BillPay solution allows financial Institution to issue and manage the Credit Card products to their end customers. 
@@ -127,7 +127,7 @@ featuredFeatures:
         type: "patch"        
         path: "/v1/customers/nameAddress"
   - title: Gary Test 1
-    description:  Gary Test 2
+    description:  Gary Test 1
     featured: true
     relatedDocs:
       - relatedDoc: 
