@@ -34,6 +34,13 @@ header:
   image: 
     link: "/assets/images/Fiserv_Logo.jpg"
     altText: BillPay™
+benefits:
+  - title: Gary Title 1
+    description: blah 1
+  - title: Gary Title 2
+    description: blah 2
+  - title: Gary Title 3
+    description: blah 3
 steps:  
   learnSteps:
     - title: Learn
