@@ -11,6 +11,7 @@ paths:
         - AutomaticTransactions
       x-group-name: Automatic Transactions
       x-proxy-name: List Automatic Transactions
+      x-child-product-name: AutomaticTransactions
       summary: Gets a list of automatic transactions for the specified tenant/user combination
       operationId: GetAutomaticTransactions
       parameters:
