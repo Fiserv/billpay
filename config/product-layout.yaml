@@ -184,6 +184,7 @@ featuredFeatures:
         type: "patch"        
         path: "/v1/accounts/blockUnblock"
   - title: Gary Test 5
+    groupName: Group 1
     description:  Gary Test 1
     featured: false
     relatedDocs:
@@ -212,6 +213,7 @@ featuredFeatures:
         type: "patch"        
         path: "/v1/accounts/blockUnblock"
   - title: Gary Test 7
+    groupName: Group 1
     description:  Gary Test 1
     featured: false
     relatedDocs:
@@ -226,6 +228,7 @@ featuredFeatures:
         type: "patch"        
         path: "/v1/accounts/blockUnblock"
   - title: Gary Test 8
+    groupName: Group 1
     description:  Gary Test 1
     featured: false
     relatedDocs:
@@ -240,6 +243,7 @@ featuredFeatures:
         type: "patch"        
         path: "/v1/accounts/blockUnblock"
   - title: Gary Test 9
+    groupName: Group 1
     description:  Gary Test 1
     featured: false
     relatedDocs:
@@ -254,6 +258,7 @@ featuredFeatures:
         type: "patch"        
         path: "/v1/accounts/blockUnblock"
   - title: Gary Test 10
+    groupName: Group 1
     description:  Gary Test 1
     featured: false
     relatedDocs:
@@ -268,6 +273,7 @@ featuredFeatures:
         type: "patch"        
         path: "/v1/accounts/blockUnblock"
   - title: Gary Test 11
+    groupName: Group 2
     description:  Gary Test 1
     featured: false
     relatedDocs:
