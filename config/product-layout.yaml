@@ -141,4 +141,130 @@ featuredFeatures:
         description: This service is used to update the Account Block Code.
         type: "patch"        
         path: "/v1/accounts/blockUnblock"
+  - title: Gary Test 2
+    description:  Gary Test 1
+    featured: true
+    relatedDocs:
+      - relatedDoc: 
+        title: Account Management
+        description: Allows management of an accounts that holds financial information of Credit available/ used.
+        link: ./docs/Account-Management.md
+    relatedAPIs:
+      - relatedAPI: 
+        title: Block-Unblock Account
+        description: This service is used to update the Account Block Code.
+        type: "patch"        
+        path: "/v1/accounts/blockUnblock"
+  - title: Gary Test 3
+    description:  Gary Test 1
+    featured: true
+    relatedDocs:
+      - relatedDoc: 
+        title: Account Management
+        description: Allows management of an accounts that holds financial information of Credit available/ used.
+        link: ./docs/Account-Management.md
+    relatedAPIs:
+      - relatedAPI: 
+        title: Block-Unblock Account
+        description: This service is used to update the Account Block Code.
+        type: "patch"        
+        path: "/v1/accounts/blockUnblock"
+  - title: Gary Test 4
+    description:  Gary Test 1
+    featured: true
+    relatedDocs:
+      - relatedDoc: 
+        title: Account Management
+        description: Allows management of an accounts that holds financial information of Credit available/ used.
+        link: ./docs/Account-Management.md
+    relatedAPIs:
+      - relatedAPI: 
+        title: Block-Unblock Account
+        description: This service is used to update the Account Block Code.
+        type: "patch"        
+        path: "/v1/accounts/blockUnblock"
+  - title: Gary Test 5
+    description:  Gary Test 1
+    featured: true
+    relatedDocs:
+      - relatedDoc: 
+        title: Account Management
+        description: Allows management of an accounts that holds financial information of Credit available/ used.
+        link: ./docs/Account-Management.md
+    relatedAPIs:
+      - relatedAPI: 
+        title: Block-Unblock Account
+        description: This service is used to update the Account Block Code.
+        type: "patch"        
+        path: "/v1/accounts/blockUnblock"
+  - title: Gary Test 6
+    description:  Gary Test 1
+    featured: true
+    relatedDocs:
+      - relatedDoc: 
+        title: Account Management
+        description: Allows management of an accounts that holds financial information of Credit available/ used.
+        link: ./docs/Account-Management.md
+    relatedAPIs:
+      - relatedAPI: 
+        title: Block-Unblock Account
+        description: This service is used to update the Account Block Code.
+        type: "patch"        
+        path: "/v1/accounts/blockUnblock"
+  - title: Gary Test 7
+    description:  Gary Test 1
+    featured: true
+    relatedDocs:
+      - relatedDoc: 
+        title: Account Management
+        description: Allows management of an accounts that holds financial information of Credit available/ used.
+        link: ./docs/Account-Management.md
+    relatedAPIs:
+      - relatedAPI: 
+        title: Block-Unblock Account
+        description: This service is used to update the Account Block Code.
+        type: "patch"        
+        path: "/v1/accounts/blockUnblock"
+  - title: Gary Test 8
+    description:  Gary Test 1
+    featured: true
+    relatedDocs:
+      - relatedDoc: 
+        title: Account Management
+        description: Allows management of an accounts that holds financial information of Credit available/ used.
+        link: ./docs/Account-Management.md
+    relatedAPIs:
+      - relatedAPI: 
+        title: Block-Unblock Account
+        description: This service is used to update the Account Block Code.
+        type: "patch"        
+        path: "/v1/accounts/blockUnblock"
+  - title: Gary Test 9
+    description:  Gary Test 1
+    featured: true
+    relatedDocs:
+      - relatedDoc: 
+        title: Account Management
+        description: Allows management of an accounts that holds financial information of Credit available/ used.
+        link: ./docs/Account-Management.md
+    relatedAPIs:
+      - relatedAPI: 
+        title: Block-Unblock Account
+        description: This service is used to update the Account Block Code.
+        type: "patch"        
+        path: "/v1/accounts/blockUnblock"
+  - title: Gary Test 10
+    description:  Gary Test 1
+    featured: true
+    relatedDocs:
+      - relatedDoc: 
+        title: Account Management
+        description: Allows management of an accounts that holds financial information of Credit available/ used.
+        link: ./docs/Account-Management.md
+    relatedAPIs:
+      - relatedAPI: 
+        title: Block-Unblock Account
+        description: This service is used to update the Account Block Code.
+        type: "patch"        
+        path: "/v1/accounts/blockUnblock"
 
