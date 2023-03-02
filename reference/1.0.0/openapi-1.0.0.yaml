@@ -6864,7 +6864,7 @@ paths:
         - Users
       x-group-name: Users
       x-proxy-name: Verify User
-      x-child-product-name: Transactions
+      x-child-product-name: Users
       summary: Post Identity Verification
       operationId: CompleteIdentityVerification
       responses:
