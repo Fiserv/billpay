@@ -30,18 +30,18 @@
 header:
   productName: BillPay
   productionDescription: Bill Pay delivers compelling bill payment experiences in an increasingly competitive space and make it easy for consumers to pay bills and receive and view their bills electronically
-  whoIsItFor:  Provide small businesses with a comprehensive bill pay solution.
-  image: 
-    link: "/assets/images/Fiserv_Logo.jpg"
-    altText: BillPay™
+  #whoIsItFor:  Provide small businesses with a comprehensive bill pay solution.
+  #image: 
+  #  link: "/assets/images/Fiserv_Logo.jpg"
+  #  altText: BillPay™
 getStarted: docs/introduction/getting-started.md
 benefits:
-  - title: Gary Title 1
-    description: blah 1
-  - title: Gary Title 2
-    description: blah 2
-  - title: Gary Title 3
-    description: blah 3
+  - title: Bill Discovery
+    description:  Find bills by using information from credit report and biller statements with the consumer’s consent and select to add payees conveniently.
+  - title: eBills
+    description: Sign up for eBills from eBill capable billers to receive a full eBill statement.
+  - title: Automatic Payments
+    description: Automate payments and never be late with a payment again.
 #steps:  
 #  learnSteps:
 #    - title: Learn
