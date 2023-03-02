@@ -30,7 +30,7 @@
 header:
   productName: BillPay
   productionDescription: Bill Pay delivers compelling bill payment experiences in an increasingly competitive space and make it easy for consumers to pay bills and receive and view their bills electronically
-  #whoIsItFor:  Provide small businesses with a comprehensive bill pay solution.
+  whoIsItFor:  Provide small businesses with a comprehensive bill pay solution.
   #image: 
   #  link: "/assets/images/Fiserv_Logo.jpg"
   #  altText: BillPay™
