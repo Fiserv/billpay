@@ -215,6 +215,7 @@ paths:
         - AutomaticTransactions
       x-group-name: Automatic Transactions
       x-proxy-name: Create Automatic Transaction
+      x-child-product-name: AutomaticTransactions
       summary: Creates a new automatic transaction using the given AutomaticTransaction object
       description: Note that there can be multiple automatic transactions associated with a single payee
       operationId: PostAutomaticTransaction
@@ -347,6 +348,7 @@ paths:
         - AutomaticTransactions
       x-group-name: Automatic Transactions
       x-proxy-name: Get Automatic Transaction 
+      x-child-product-name: AutomaticTransactions
       summary: Gets an automatic transaction given an automatic transaction ID
       operationId: GetAutomaticTransactions
       parameters:
@@ -408,6 +410,7 @@ paths:
         - AutomaticTransactions
       x-group-name: Automatic Transactions
       x-proxy-name: Delete Automatic Transaction  
+      x-child-product-name: AutomaticTransactions
       summary: Deletes an existing automatic transaction model that the user owns.
       description: "Deletes a user's automatic transaction model.\r\nThe operation takes an optional query parameter to determine whether or not spawned, pending transactions should be canceled.\r\nIf the query parameter is not submitted, it defaults to false, and no transactions are canceled."
       operationId: DeleteAutomaticTransaction
@@ -476,6 +479,7 @@ paths:
         - AutomaticTransactions
       x-group-name: Automatic Transactions
       x-proxy-name: Update Automatic Transaction  
+      x-child-product-name: AutomaticTransactions
       summary: "The Automatic Transactions Patch API enables changes to be done to an automatic transaction that has been already set up.\r\nOnly the Delta changes are send in the request."
       operationId: PatchAutomaticTransaction
       parameters:
@@ -557,6 +561,7 @@ paths:
         - BankAccounts
       x-group-name: BankAccounts
       x-proxy-name: Get Financial Institution
+      x-child-product-name: BankAccounts
       summary: Get Financial Institution Name when the routing number is sent.
       operationId: GetFinancialInstitutionName
       parameters:
@@ -595,6 +600,7 @@ paths:
         - BankAccounts
       x-group-name: BankAccounts
       x-proxy-name: List Bank Accounts
+      x-child-product-name: BankAccounts
       summary: Retrieves bank accounts list.
       operationId: GetBankAccountsAsync
       parameters:
@@ -740,6 +746,7 @@ paths:
         - BankAccounts
       x-group-name: BankAccounts
       x-proxy-name: Add Bank Account
+      x-child-product-name: BankAccounts
       summary: Add a untrusted bank account as a funding account.
       operationId: PostUntrustedBankAccount
       requestBody:
@@ -947,6 +954,7 @@ paths:
         - BankAccounts
       x-group-name: BankAccounts
       x-proxy-name: List User Bank Accounts
+      x-child-product-name: BankAccounts
       summary: Returns all bank accounts for a given tenant/user combination
       operationId: GetBankAccountsByTenantsAsync
       parameters:
@@ -1104,6 +1112,7 @@ paths:
         - BankAccounts
       x-group-name: BankAccounts
       x-proxy-name: Add User Bank Account
+      x-child-product-name: BankAccounts
       summary: Add a trusted bank account as a funding account for a specific user
       operationId: PostBankAccount
       parameters:
@@ -1197,6 +1206,7 @@ paths:
         - BankAccounts
       x-group-name: BankAccounts
       x-proxy-name: Get Bank Account
+      x-child-product-name: BankAccounts
       summary: Retrieves the bank account information given a bankAccountId.
       operationId: GetBankAccountAsync
       parameters:
@@ -1300,6 +1310,7 @@ paths:
         - BankAccounts
       x-group-name: BankAccounts
       x-proxy-name: Delete Bank Account
+      x-child-product-name: BankAccounts
       summary: Delete a trusted bank account for a user
       operationId: DeleteBankAccount
       parameters:
@@ -1355,6 +1366,7 @@ paths:
         - BankAccounts
       x-group-name: BankAccounts
       x-proxy-name: Modify Bank Account
+      x-child-product-name: BankAccounts
       summary: To Patch Bank Account By User
       operationId: PatchBankAccountByUser
       parameters:
@@ -1430,6 +1442,7 @@ paths:
         - BankAccounts
       x-group-name: BankAccounts
       x-proxy-name: Get User Bank Account
+      x-child-product-name: BankAccounts
       summary: Retrieves the bank account information given a bankAccountId.
       operationId: GetBankAccountByTenantsAsync
       parameters:
@@ -1551,6 +1564,7 @@ paths:
         - BankAccounts
       x-group-name: BankAccounts
       x-proxy-name: Delete User Bank Account
+      x-child-product-name: BankAccounts
       summary: Delete a trusted bank account for a user
       operationId: DeleteBankAccountByTenant
       parameters:
@@ -1618,6 +1632,7 @@ paths:
         - BankAccounts
       x-group-name: BankAccounts
       x-proxy-name: Modify User Bank Account
+      x-child-product-name: BankAccounts
       operationId: PatchBankAccountByTenant
       parameters:
         - name: userId
@@ -1699,6 +1714,7 @@ paths:
         - BankAccounts
       x-group-name: BankAccounts
       x-proxy-name: Get Account Number
+      x-child-product-name: BankAccounts
       operationId: GetAccountNumberAsync
       parameters:
         - name: bankCommonId
@@ -1741,6 +1757,7 @@ paths:
         - BankAccounts
       x-group-name: BankAccounts
       x-proxy-name: Get Verification Info
+      x-child-product-name: BankAccounts
       operationId: GetAccountVerificationInfoAsync
       parameters:
         - name: id
@@ -1792,6 +1809,7 @@ paths:
         - BankAccounts
       x-group-name: BankAccounts
       x-proxy-name: Verify Bank Account
+      x-child-product-name: BankAccounts
       summary: The POST complete verification API enables the UI application to know the status of account verification through VerifyNow.
       operationId: PostCompleteVerification
       parameters:
@@ -1860,6 +1878,7 @@ paths:
         - Bills
       x-group-name: Bills
       x-proxy-name: Get Bills
+      x-child-product-name: Bills
       summary: Get list of bills
       operationId: Get
       parameters:
@@ -2365,6 +2384,7 @@ paths:
         - Bills
       x-group-name: Bills
       x-proxy-name: Get Bill
+      x-child-product-name: Bills
       summary: Retrieves bill item based on bill id
       operationId: GetEbillById
       parameters:
@@ -2589,6 +2609,7 @@ paths:
         - Bills
       x-group-name: Bills
       x-proxy-name: File Bill
+      x-child-product-name: Bills
       summary: Allows subscriber to file a bill
       operationId: FileBills
       parameters:
@@ -2664,6 +2685,7 @@ paths:
         - Bills
       x-group-name: Bills
       x-proxy-name: Get Bill Details
+      x-child-product-name: Bills
       summary: Retrieves bill detail uri based on bill item id
       operationId: GetBillDetailUri
       parameters:
@@ -2704,6 +2726,7 @@ paths:
         - CardAccounts
       x-group-name: CardAccounts
       x-proxy-name: Get Card Account
+      x-child-product-name: CardAccounts
       summary: Returns the card account details for a given financial account Id.
       operationId: GetCardAccount
       parameters:
@@ -2761,6 +2784,7 @@ paths:
         - CardAccounts
       x-group-name: CardAccounts
       x-proxy-name: Modify Card Accounts
+      x-child-product-name: CardAccounts
       summary: Modify card account list
       operationId: PatchCardAccounts
       parameters:
@@ -2832,6 +2856,7 @@ paths:
         - CardAccounts
       x-group-name: CardAccounts
       x-proxy-name: Delete Card Account
+      x-child-product-name: CardAccounts
       summary: Delete card account for a subscriber
       operationId: DeleteCardAccounts
       parameters:
@@ -2886,6 +2911,7 @@ paths:
         - CardAccounts
       x-group-name: CardAccounts
       x-proxy-name: Get Card Account List
+      x-child-product-name: CardAccounts
       summary: Returns the card account list
       operationId: GetCardAccounts
       responses:
@@ -2988,6 +3014,7 @@ paths:
         - CardAccounts
       x-group-name: CardAccounts
       x-proxy-name: Add Card Account
+      x-child-product-name: CardAccounts
       summary: Add a card account as a funding acount for a Subscriber
       operationId: PostCardAccount
       requestBody:
@@ -3138,6 +3165,7 @@ paths:
         - CardAccounts
       x-group-name: CardAccounts
       x-proxy-name: Get Card Account Limits
+      x-child-product-name: CardAccounts
       summary: Returns the Card account limits
       operationId: GetCardAccountAddLimits
       responses:
@@ -3172,6 +3200,7 @@ paths:
         - Health
       x-group-name: Health
       x-proxy-name: Ping
+      x-child-product-name: Health
       operationId: Get
       responses:
         '200':
@@ -3182,6 +3211,7 @@ paths:
         - Ldds
       x-group-name: Ldds
       x-proxy-name: Get Ldd List
+      x-child-product-name: Ldds
       summary: Retrieves legal document list.
       operationId: Get
       parameters:
@@ -3256,6 +3286,7 @@ paths:
         - Ldds
       x-group-name: Ldds
       x-proxy-name: Accept Ldd
+      x-child-product-name: Ldds
       summary: Post LDD for user acceptance.
       operationId: PostLegalDocument
       requestBody:
@@ -3330,6 +3361,7 @@ paths:
         - Ldds
       x-group-name: Ldds
       x-proxy-name: Get Ldd
+      x-child-product-name: Ldds
       summary: Get specific legal document.
       operationId: GetLegalDocument
       parameters:
@@ -3362,6 +3394,7 @@ paths:
         - Ldds
       x-group-name: Ldds
       x-proxy-name: Get Ldds for Tenant
+      x-child-product-name: Ldds
       summary: Get legal documents for specific tenant.
       operationId: GetLegalDocuments
       parameters:
@@ -3386,6 +3419,7 @@ paths:
         - Merchants
       x-group-name: Merchants
       x-proxy-name: Search Merchant
+      x-child-product-name: Merchants
       summary: Search Merchant based on merchant name
       operationId: SearchMerchant
       parameters:
@@ -3475,6 +3509,7 @@ paths:
         - Payees
       x-group-name: Payees
       x-proxy-name: Get Paper Suppression Terms
+      x-child-product-name: Payees
       operationId: GetPaperSuppressionTerms
       parameters:
         - name: id
@@ -3526,6 +3561,7 @@ paths:
         - Payees
       x-group-name: Payees
       x-proxy-name: Get Payee List
+      x-child-product-name: Payees
       operationId: Get
       parameters:
         - name: returnInactivePayees
@@ -3829,6 +3865,7 @@ paths:
         - Payees
       x-group-name: Payees
       x-proxy-name: Add Payee
+      x-child-product-name: Payees
       summary: Creates a new payee using the given payee object
       operationId: Post
       parameters:
@@ -4129,6 +4166,7 @@ paths:
         - Payees
       x-group-name: Payees
       x-proxy-name: Get Payee
+      x-child-product-name: Payees
       operationId: Get
       parameters:
         - name: payeeId
@@ -4185,6 +4223,7 @@ paths:
         - Payees
       x-group-name: Payees
       x-proxy-name: Delete Payee
+      x-child-product-name: Payees
       summary: Delete payee from users payee list
       operationId: Delete
       parameters:
@@ -4306,6 +4345,7 @@ paths:
         - Payees
       x-group-name: Payees
       x-proxy-name: Modify Payee
+      x-child-product-name: Payees
       operationId: Patch
       parameters:
         - name: payeeId
@@ -4441,6 +4481,7 @@ paths:
         - Payees
       x-group-name: Payees
       x-proxy-name: Get Ebill Capability
+      x-child-product-name: Payees
       operationId: EbillCapabilityGet
       parameters:
         - name: id
@@ -4580,6 +4621,7 @@ paths:
         - Payees
       x-group-name: Payees
       x-proxy-name: Activate eBill Service
+      x-child-product-name: Payees
       summary: Activate ebill service for a payee
       operationId: PostEbillService
       parameters:
@@ -4760,6 +4802,7 @@ paths:
         - Payees
       x-group-name: Payees
       x-proxy-name: Stop eBill Service
+      x-child-product-name: Payees
       summary: Delete Ebill service of a payee
       operationId: DeleteEbillService
       parameters:
@@ -4873,6 +4916,7 @@ paths:
         - Payees
       x-group-name: Payees
       x-proxy-name: Get eBill Service Details
+      x-child-product-name: Payees
       operationId: GetEbillService
       parameters:
         - name: id
@@ -4968,6 +5012,7 @@ paths:
         - Payees
       x-group-name: Payees
       x-proxy-name: Get Account Number
+      x-child-product-name: Payees
       operationId: GetPayeeAccountNumber
       parameters:
         - name: payeeId
@@ -5094,6 +5139,7 @@ paths:
         - Payees
       x-group-name: Payees
       x-proxy-name: Modify Paper Suppression
+      x-child-product-name: Payees
       operationId: PatchEbillServiceSuppressPaper
       parameters:
         - name: id
@@ -5165,6 +5211,7 @@ paths:
         - Payees
       x-group-name: Payees
       x-proxy-name: Get Automatic Transaction Options for Payee
+      x-child-product-name: Payees
       operationId: GetAutomationTransactionOptions
       parameters:
         - name: id
@@ -5276,6 +5323,7 @@ paths:
         - Payees
       x-group-name: Payees
       x-proxy-name: Get Visa Payees
+      x-child-product-name: Payees
       operationId: GetVisaPayees
       parameters:
         - name: returnInactivePayees
@@ -5580,6 +5628,7 @@ paths:
         - PotentialPayees
       x-group-name: PotentialPayees
       x-proxy-name: Get Potential Payees
+      x-child-product-name: PotentialPayees
       operationId: GetPotentialPayees
       parameters:
         - name: excludeDormantAccounts
@@ -5688,6 +5737,7 @@ paths:
         - PotentialPayees
       x-group-name: PotentialPayees
       x-proxy-name: Get Potential Payee
+      x-child-product-name: PotentialPayees
       operationId: GetPotentialPayeeById
       parameters:
         - name: id
@@ -5775,6 +5825,7 @@ paths:
         - PotentialPayees
       x-group-name: PotentialPayees
       x-proxy-name: Add Potential Payees
+      x-child-product-name: PotentialPayees
       operationId: PutPotentialPayee
       parameters:
         - name: id
@@ -5860,6 +5911,7 @@ paths:
         - PotentialPayees
       x-group-name: PotentialPayees
       x-proxy-name: Dismiss Potential Payees
+      x-child-product-name: PotentialPayees
       operationId: DismissPotentialPayee
       parameters:
         - name: id
@@ -5911,6 +5963,7 @@ paths:
         - PotentialPayees
       x-group-name: PotentialPayees
       x-proxy-name: Get Potential Payee Account Number
+      x-child-product-name: PotentialPayees
       operationId: GetPayeeAccountNumber
       parameters:
         - name: id
@@ -5956,6 +6009,7 @@ paths:
         - PotentialPayees
       x-group-name: PotentialPayees
       x-proxy-name: Get Potential Payee Eligibility
+      x-child-product-name: PotentialPayees
       summary: Return the bill discovery user eligibility.
       operationId: GetUserEligibility
       responses:
@@ -6000,6 +6054,7 @@ paths:
         - ToDos
       x-group-name: ToDos
       x-proxy-name: Get ToDos
+      x-child-product-name: ToDos
       summary: Get todos
       operationId: Get
       responses:
@@ -6107,6 +6162,7 @@ paths:
         - ToDos
       x-group-name: ToDos
       x-proxy-name: Get ToDo
+      x-child-product-name: ToDos
       summary: Get single todo
       operationId: Get
       parameters:
@@ -6167,6 +6223,7 @@ paths:
         - ToDos
       x-group-name: ToDos
       x-proxy-name: Dismiss ToDo
+      x-child-product-name: ToDos
       summary: Dismiss individual Todo
       operationId: Patch
       parameters:
@@ -6223,6 +6280,7 @@ paths:
         - TransactionCalendar
       x-group-name: TransactionCalendar
       x-proxy-name: Get Transaction Calendar
+      x-child-product-name: TransactionCalendar
       operationId: Get
       parameters:
         - name: transactionDestinationUri
@@ -6515,6 +6573,7 @@ paths:
         - Transactions
       x-group-name: Transactions
       x-proxy-name: Add a List of Transactions
+      x-child-product-name: Transactions
       summary: Save a list of transactions
       operationId: PostTransaction
       parameters:
@@ -6566,6 +6625,7 @@ paths:
         - Transactions
       x-group-name: Transactions
       x-proxy-name: Get a List of Transactions
+      x-child-product-name: Transactions
       summary: Return a list of transactions
       operationId: GetTransactions
       parameters:
@@ -6658,6 +6718,7 @@ paths:
         - Transactions
       x-group-name: Transactions
       x-proxy-name: Add a Visa Transaction
+      x-child-product-name: Transactions
       summary: Schedule a single immediate transaction
       operationId: PostVisaTransaction
       requestBody:
@@ -6705,6 +6766,7 @@ paths:
         - Transactions
       x-group-name: Transactions
       x-proxy-name: Cancel Transaction
+      x-child-product-name: Transactions
       operationId: CancelPatch
       parameters:
         - name: transactionId
@@ -6742,6 +6804,7 @@ paths:
         - Transactions
       x-group-name: Transactions
       x-proxy-name: Modify Transaction
+      x-child-product-name: Transactions
       operationId: Patch
       parameters:
         - name: transactionId
@@ -6801,6 +6864,7 @@ paths:
         - Users
       x-group-name: Users
       x-proxy-name: Verify User
+      x-child-product-name: Transactions
       summary: Post Identity Verification
       operationId: CompleteIdentityVerification
       responses:
@@ -6812,6 +6876,7 @@ paths:
         - Users
       x-group-name: Users
       x-proxy-name: Get User
+      x-child-product-name: Users
       summary: Get user call.
       operationId: Get
       responses:
@@ -6920,6 +6985,7 @@ paths:
         - Users
       x-group-name: Users
       x-proxy-name: Modify User
+      x-child-product-name: Users
       summary: Patch D2C user.
       operationId: ModifyUser
       requestBody:
@@ -7178,6 +7244,7 @@ paths:
         - Users
       x-group-name: Users
       x-proxy-name: Get User
+      x-child-product-name: Users
       summary: V2 Get user call for subscriber.
       operationId: GetV2
       responses:
@@ -7309,6 +7376,7 @@ paths:
         - Users
       x-group-name: Users
       x-proxy-name: Get Sensitive Info
+      x-child-product-name: Users
       summary: Get sensitive information.
       operationId: GetSensitiveInformation
       responses:
@@ -7348,6 +7416,7 @@ paths:
         - Users
       x-group-name: Users
       x-proxy-name: Add Consents
+      x-child-product-name: Users
       summary: Post consents.
       operationId: PostConsent
       requestBody:
@@ -7394,6 +7463,7 @@ paths:
         - Users
       x-group-name: Users
       x-proxy-name: Get Consents
+      x-child-product-name: Users
       summary: Get consent information.
       operationId: GetConsents
       responses:
@@ -7436,6 +7506,7 @@ paths:
         - Users
       x-group-name: Users
       x-proxy-name: Get Features
+      x-child-product-name: Users
       summary: Get features call.
       operationId: GetFeatures
       responses:
@@ -7505,6 +7576,7 @@ paths:
         - Users
       x-group-name: Users
       x-proxy-name: Add User
+      x-child-product-name: Users
       summary: Post user.
       operationId: PostUserAsync
       requestBody:
@@ -7551,6 +7623,7 @@ paths:
         - Users
       x-group-name: Users
       x-proxy-name: Add User
+      x-child-product-name: Users
       summary: Post user v2.
       operationId: PostUserV2Async
       requestBody:
@@ -7597,6 +7670,7 @@ paths:
         - Users
       x-group-name: Users
       x-proxy-name: Delete User Preference
+      x-child-product-name: Users
       summary: To delete the user preference.
       operationId: DeletePreference
       parameters:
@@ -7650,6 +7724,7 @@ paths:
         - Users
       x-group-name: Users
       x-proxy-name: Modify User Preference
+      x-child-product-name: Users
       summary: To Update the User Preference Based On User Preference Id.
       operationId: PatchUserPreference
       parameters:
@@ -7722,6 +7797,7 @@ paths:
         - Users
       x-group-name: Users
       x-proxy-name: Get User Preferences
+      x-child-product-name: Users
       summary: To get the user preferences.
       operationId: GetPreferences
       responses:
@@ -7775,6 +7851,7 @@ paths:
         - Users
       x-group-name: Users
       x-proxy-name: Add User Preference
+      x-child-product-name: Users
       summary: Add user preferences
       operationId: PostUserPreferences
       requestBody:
@@ -7926,6 +8003,7 @@ paths:
         - Users
       x-group-name: Users
       x-proxy-name: Delete User
+      x-child-product-name: Users
       summary: Deletes an existing user
       description: "The operation takes an optional query parameter Id Type to determine whether or not User Id Type is specified\r\nIf the query parameter is not submitted, it defaults to CheckFreeNextUserId Type, and no delete operation are canceled."
       operationId: DeleteUser
@@ -7971,6 +8049,7 @@ paths:
         - Users
       x-group-name: Users
       x-proxy-name: Get User Info
+      x-child-product-name: Users
       summary: Get User Information
       description: This API will return user information.
       operationId: Get
@@ -8090,6 +8169,7 @@ paths:
         - Users
       x-group-name: Users
       x-proxy-name: Delete User
+      x-child-product-name: Users
       summary: Deletes an existing user
       description: "The operation takes an optional query parameter Id Type to determine whether or not User Id Type is specified\r\nIf the query parameter is not submitted, it defaults to CheckFreeNextUserId Type, and no delete operation are canceled."
       operationId: DeleteUser
@@ -8135,6 +8215,7 @@ paths:
         - Users
       x-group-name: Users
       x-proxy-name: Get User Info
+      x-child-product-name: Users
       summary: V2 - Get User Information
       description: This API will return user information.
       operationId: GetV2
@@ -8280,6 +8361,7 @@ paths:
         - Users
       x-group-name: Users
       x-proxy-name: Modify User
+      x-child-product-name: Users
       summary: Patch user.
       operationId: ModifyUser
       parameters:
@@ -8339,6 +8421,7 @@ paths:
         - Users
       x-group-name: Users
       x-proxy-name: Modify User
+      x-child-product-name: Users
       summary: Patch user V2.
       operationId: ModifyUserV2
       parameters:
@@ -8402,6 +8485,7 @@ paths:
         - Users
       x-group-name: Users
       x-proxy-name: Get User Sensitive Info
+      x-child-product-name: Users
       summary: Get sensitive information.
       operationId: GetSensitiveInformationV2
       responses:
@@ -8443,6 +8527,7 @@ paths:
         - Users
       x-group-name: Users
       x-proxy-name: Get List of Probably Merchants
+      x-child-product-name: Users
       summary: Get probable merchants for the user
       operationId: GetProbableMerchants
       responses:
@@ -8597,6 +8682,7 @@ paths:
         - Users
       x-group-name: Users
       x-proxy-name: Post Ebill Delivery Failure
+      x-child-product-name: Users
       summary: Post Ebill Delivery Failure
       operationId: PostEbillDeliveryFailure
       parameters:
