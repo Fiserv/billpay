@@ -12,7 +12,7 @@ paths:
       x-group-name: AutomaticTransactions
       x-proxy-name: Add User Bank Account Test
       x-child-product-name: AutomaticTransactions
-      summary: Gets a list of automatic transactions for the specified tenant/user combination
+      summary: Gets a list of automatic transactions for the specified tenant/user combination now Gary
       operationId: GetAutomaticTransactions
       parameters:
         - name: pageSize
@@ -8844,6 +8844,15 @@ components:
       properties:
         modifiableFields:
           type: array
+          example: 
+            - amount
+            - maximumTransactionAmount
+            - fundingAccountUri
+            - scheduleDaysBefore
+            - transactionInitiationType
+            - transactionType
+            - transactionScheduledAlert
+            - transactionSentAlert
           items:
             type: string
         id:
