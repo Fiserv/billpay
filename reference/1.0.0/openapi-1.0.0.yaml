@@ -17,6 +17,7 @@ paths:
       parameters:
         - name: pageSize
           in: query
+          example: 10
           schema:
             type: integer
             format: int32
