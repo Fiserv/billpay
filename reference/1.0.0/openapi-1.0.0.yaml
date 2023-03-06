@@ -17,7 +17,7 @@ paths:
       parameters:
         - name: pageSize
           in: query
-          example: 10
+          example: "10"
           schema:
             type: integer
             format: int32
@@ -8845,6 +8845,8 @@ components:
       properties:
         modifiableFields:
           type: array
+          example: ["amount", "maximumTransactionAmount", "fundingAccountUri", "scheduleDaysBefore",
+            "transactionInitiationType", "transactionType", "transactionScheduledAlert", "transactionSentAlert"]
           items:
             type: string
         id:
