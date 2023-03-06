@@ -8845,10 +8845,10 @@ components:
       properties:
         modifiableFields:
           type: array
-          example: ["amount", "maximumTransactionAmount", "fundingAccountUri", "scheduleDaysBefore",
-            "transactionInitiationType", "transactionType", "transactionScheduledAlert", "transactionSentAlert"]
           items:
             type: string
+            example: ["amount", "maximumTransactionAmount", "fundingAccountUri", "scheduleDaysBefore",
+            "transactionInitiationType", "transactionType", "transactionScheduledAlert", "transactionSentAlert"]
         id:
           type: string
         self:
