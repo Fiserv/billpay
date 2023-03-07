@@ -8678,11 +8678,10 @@ components:
       properties:
         transactionsNotModified:
         type: array
-        example:
-          - {"self": "/api/v1/me/transactions/deb3d11843664807aa6982cb7d772380",
-                "id": "deb3d11843664807aa6982cb7d772380"}
         items:
           type: object
+          example: 
+            - {"self": "/api/v1/me/transactions/deb3d11843664807aa6982cb7d772380", "id": "deb3d11843664807aa6982cb7d772380"}
     AutomaticTransactionsIpsResponse:
       type: object
       properties:
