@@ -8673,6 +8673,16 @@ components:
          id:
             type: string
             example: 51E2E6D2AA9345C699CDDD059EC3B49C
+    TransactionsNotModifiedBaseModel:
+      type: object
+      properties:
+        transactionsNotModified:
+        type: array
+        example:
+          - {"self": "/api/v1/me/transactions/deb3d11843664807aa6982cb7d772380",
+                "id": "deb3d11843664807aa6982cb7d772380"}
+        items:
+          type: object
     AutomaticTransactionsIpsResponse:
       type: object
       properties:
@@ -8684,17 +8694,7 @@ components:
       type: object
       properties:
         data:
-          type: object
-          example: {"transactionsNotModified": [{"self": "/api/v1/me/transactions/deb3d11843664807aa6982cb7d772380", "id": "deb3d11843664807aa6982cb7d772380"}]}
-          properties:
-            transactionsNotModified:
-              type: array
-              items:
-                self:
-                  type: string
-                  format: uri
-                id:
-                  type: string
+          $ref: '#/components/schemas/TransactionsNotModifiedBaseModel'
         result:
           $ref: '#/components/schemas/ResultType'
     PendingTransactionsList:
