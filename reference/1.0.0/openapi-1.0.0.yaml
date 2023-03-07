@@ -12,12 +12,11 @@ paths:
       x-group-name: Automatic Transactions
       x-proxy-name: List Automatic Transactions
       x-child-product-name: AutomaticTransactions
-      summary: Gets a list of automatic transactions for the specified tenant/user combination sub Gary
+      summary: Gets a list of automatic transactions for the specified tenant/user combination
       operationId: GetAutomaticTransactions
       parameters:
         - name: pageSize
           in: query
-          example: "10"
           schema:
             type: integer
             format: int32
@@ -48,36 +47,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectIpsResponse'
-              example: {
-  "result": {
-    "success": true,
-    "resultInfo": [
-      {
-        "resultCategory": "Info",
-        "code": "0000",
-        "description": "Success."
-      }
-    ]
-  }
-}
         '403':
           description: Forbidden
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectIpsResponse'
-              example: {
-  "result": {
-    "success": true,
-    "resultInfo": [
-      {
-        "resultCategory": "Info",
-        "code": "0000",
-        "description": "Success."
-      }
-    ]
-  }
-}
+
     post:
       tags:
         - AutomaticTransactions
@@ -93,123 +69,39 @@ paths:
           application/json-patch+json:
             schema:
               $ref: '#/components/schemas/AutomaticTransaction'
-            example: {
-  "fundingAccountUri": "/api/v1/me/bankAccounts/1b66a692-d01e-4a98-85e6-687127a9a564",
-  "destinationUri": "/api/v1/me/payees/7c5671f9-5368-4e8c-91eb-8aacad4f8466",
-  "billTransactionSchedule": {
-    "amount": 19.50,
-    "scheduleDaysBefore": 3,
-    "transactionInitiationType": "DaysBeforeDueDate",
-    "transactionType": "AmountDue",
-    "transactionScheduledAlert": true,
-    "transactionSentAlert": true
-  }
-}
+
           application/json:
             schema:
               $ref: '#/components/schemas/AutomaticTransaction'
-            example: {
-  "fundingAccountUri": "/api/v1/me/bankAccounts/1b66a692-d01e-4a98-85e6-687127a9a564",
-  "destinationUri": "/api/v1/me/payees/7c5671f9-5368-4e8c-91eb-8aacad4f8466",
-  "billTransactionSchedule": {
-    "amount": 19.50,
-    "scheduleDaysBefore": 3,
-    "transactionInitiationType": "DaysBeforeDueDate",
-    "transactionType": "AmountDue",
-    "transactionScheduledAlert": true,
-    "transactionSentAlert": true
-  }
-}
+
           text/json:
             schema:
               $ref: '#/components/schemas/AutomaticTransaction'
-            example: {
-  "fundingAccountUri": "/api/v1/me/bankAccounts/1b66a692-d01e-4a98-85e6-687127a9a564",
-  "destinationUri": "/api/v1/me/payees/7c5671f9-5368-4e8c-91eb-8aacad4f8466",
-  "billTransactionSchedule": {
-    "amount": 19.50,
-    "scheduleDaysBefore": 3,
-    "transactionInitiationType": "DaysBeforeDueDate",
-    "transactionType": "AmountDue",
-    "transactionScheduledAlert": true,
-    "transactionSentAlert": true
-  }
-}
+
           application/*+json:
             schema:
               $ref: '#/components/schemas/AutomaticTransaction'
-            example: {
-  "fundingAccountUri": "/api/v1/me/bankAccounts/1b66a692-d01e-4a98-85e6-687127a9a564",
-  "destinationUri": "/api/v1/me/payees/7c5671f9-5368-4e8c-91eb-8aacad4f8466",
-  "billTransactionSchedule": {
-    "amount": 19.50,
-    "scheduleDaysBefore": 3,
-    "transactionInitiationType": "DaysBeforeDueDate",
-    "transactionType": "AmountDue",
-    "transactionScheduledAlert": true,
-    "transactionSentAlert": true
-  }
-}
+
       responses:
         '201':
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BaseModelIpsResponse'
-              example: {
-  "data": {
-    "self": "/api/v1/me/automaticTransactions/51E2E6D2AA9345C699CDDD059EC3B49C",
-    "id": "51E2E6D2AA9345C699CDDD059EC3B49C"
-  },
-  "result": {
-    "success": true
-  }
-}
+                $ref: '#/components/schemas/AutomaticTransactionsIpsResponse'
         '400':
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/BaseModelIpsResponse'
-              example: {
-  "data": {},
-  "result": {
-    "success": true,
-    "resultInfo": [
-      {
-        "resultCategory": "Error",
-        "code": "string",
-        "field": "string",
-        "fieldPath": "string",
-        "listItemId": "string",
-        "description": "string"
-      }
-    ]
-  }
-}
         '403':
           description: Forbidden
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/BaseModelIpsResponse'
-              example: {
-  "data": {},
-  "result": {
-    "success": true,
-    "resultInfo": [
-      {
-        "resultCategory": "Error",
-        "code": "string",
-        "field": "string",
-        "fieldPath": "string",
-        "listItemId": "string",
-        "description": "string"
-      }
-    ]
-  }
-}
+
   '/api/v1/me/automaticTransactions/{automaticTransactionId}':
     get:
       tags:
@@ -235,44 +127,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutomaticTransactionOutputDetail'
-              example: {
-  "modifiableFields": [
-    "amount",
-    "endTransactionAmount",
-    "fundingAccountUri",
-    "initialTransactionAmount",
-    "memo",
-    "scheduleDaysBefore",
-    "freqeuency",
-    "initiationDate",
-    "transactionScheduledAlert",
-    "maxTransactionCount",
-    "endDate",
-    "transactionSentAlert",
-    "recurringExpireScheduleAlert"
-  ],
-  "id": "5E31EC156F45467B8DFCE0018D1150E0",
-  "self": "/api/v1/me/automaticTransactions/40b5aa64-ec9e-4ab3-87ad-a67dd840b58d",
-  "status": "Active",
-  "fundingAccountUri": "/api/v1/me/bankAccounts/5E31EC156F45467B8DFCE0018D1150E0",
-  "destinationUri": "/api/v1/me/payees/9ea47419-e91f-4eeb-b9f3-95e314e9b308",
-  "recurringTransactionSchedule": {
-    "amount": 25.0,
-    "frequency": "Monthly",
-    "initiationDate": "2022-01-27",
-    "maximumTransactionCount": 24,
-    "remainingTransactionCount": 24,
-    "memo": "I sent you money",
-    "transactionScheduledAlert": true,
-    "transactionSentAlert": true,
-    "recurringScheduleExpireAlert": true,
-    "duration": "XNumberOfPayments"
-  }
-}
         '400':
           description: Bad Request
         '403':
           description: Forbidden
+
     delete:
       tags:
         - AutomaticTransactions
@@ -312,36 +171,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectIpsResponse'
-              example: {
-  "result": {
-    "success": true,
-    "resultInfo": [
-      {
-        "resultCategory": "Info",
-        "code": "0000",
-        "description": "Success."
-      }
-    ]
-  }
-}
         '403':
           description: Forbidden
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectIpsResponse'
-              example: {
-  "result": {
-    "success": true,
-    "resultInfo": [
-      {
-        "resultCategory": "Info",
-        "code": "0000",
-        "description": "Success."
-      }
-    ]
-  }
-}
+
     patch:
       tags:
         - AutomaticTransactions
@@ -365,26 +201,22 @@ paths:
           application/json-patch+json:
             schema:
               $ref: '#/components/schemas/AutomaticTransactionPatch'
-            example: "112233445566"
           application/json:
             schema:
               $ref: '#/components/schemas/AutomaticTransactionPatch'
-            example: "112233445566"
           text/json:
             schema:
               $ref: '#/components/schemas/AutomaticTransactionPatch'
-            example: "112233445566"
           application/*+json:
             schema:
               $ref: '#/components/schemas/AutomaticTransactionPatch'
-            example: "112233445566"
       responses:
         '200':
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TransactionsListIpsResponse'
+                $ref: '#/components/schemas/AutomaticTransactionsPatchIpsResponse'
         '204':
           description: Success
         '400':
@@ -393,36 +225,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectIpsResponse'
-              example: {
-  "result": {
-    "success": true,
-    "resultInfo": [
-      {
-        "resultCategory": "Info",
-        "code": "0000",
-        "description": "Success."
-      }
-    ]
-  }
-}
         '403':
           description: Forbidden
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ObjectIpsResponse'
-              example: {
-  "result": {
-    "success": true,
-    "resultInfo": [
-      {
-        "resultCategory": "Info",
-        "code": "0000",
-        "description": "Success."
-      }
-    ]
-  }
-}
+
   /api/v1/financialInstitution:
     get:
       tags:
@@ -8582,12 +8391,14 @@ components:
         - Completed
         - Pending
       type: string
+      example: Active
     TransactionInitiationType:
       enum:
         - DueDate
         - UponReceipt
         - DaysBeforeDueDate
       type: string
+      example: DaysBeforeDueDate
     TransactionAmountType:
       enum:
         - FixedAmount
@@ -8595,6 +8406,7 @@ components:
         - MinimumAmountDue
         - AccountBalance
       type: string
+      example: AmountDue
     BillTransactionSchedule:
       required:
         - transactionInitiationType
@@ -8605,6 +8417,7 @@ components:
       properties:
         amount:
           type: number
+          example: 19.50
           format: double
           nullable: true
         maximumTransactionAmount:
@@ -8613,6 +8426,7 @@ components:
           nullable: true
         scheduleDaysBefore:
           type: integer
+          example: 3
           format: int32
           nullable: true
         transactionInitiationType:
@@ -8621,8 +8435,10 @@ components:
           $ref: '#/components/schemas/TransactionAmountType'
         transactionScheduledAlert:
           type: boolean
+          example: true
         transactionSentAlert:
           type: boolean
+          example: true
       additionalProperties: false
     TransactionFrequency:
       enum:
@@ -8637,6 +8453,7 @@ components:
         - Every6Months
         - Annually
       type: string
+      example: Monthly
     TransactionDuration:
       enum:
         - UntilSubscriberCancels
@@ -8644,6 +8461,7 @@ components:
         - SpecificEndDate
         - Empty
       type: string
+      example: XNumberOfPayments
     RecurringTransactionSchedule:
       required:
         - amount
@@ -8656,6 +8474,7 @@ components:
       properties:
         amount:
           type: number
+          example: 25.0
           format: double
         endDate:
           type: string
@@ -8672,25 +8491,32 @@ components:
           nullable: true
         initiationDate:
           type: string
+          example: 2022-01-27
         maximumTransactionCount:
           type: integer
+          example: 24
           format: int32
           nullable: true
         remainingTransactionCount:
           type: integer
+          example: 24
           format: int32
           nullable: true
         memo:
           maxLength: 34
           pattern: '^[a-zA-Z0-9_(){}&@!+#.''$,%^ *-]*'
           type: string
+          example: I sent you money
           nullable: true
         transactionScheduledAlert:
           type: boolean
+          example: true
         transactionSentAlert:
           type: boolean
+          example: true
         recurringScheduleExpireAlert:
           type: boolean
+          example: true
         duration:
           $ref: '#/components/schemas/TransactionDuration'
         nextTransactionGenerationDate:
@@ -8719,16 +8545,20 @@ components:
             type: string
         id:
           type: string
+          example: 5E31EC156F45467B8DFCE0018D1150E0
         self:
           type: string
+          example: /api/v1/me/automaticTransactions/40b5aa64-ec9e-4ab3-87ad-a67dd840b58d
           format: uri
         status:
           $ref: '#/components/schemas/AutomaticTransactionStatus'
         fundingAccountUri:
           type: string
+          example: /api/v1/me/bankAccounts/5E31EC156F45467B8DFCE0018D1150E0
           format: uri
         destinationUri:
           type: string
+          example: /api/v1/me/payees/9ea47419-e91f-4eeb-b9f3-95e314e9b308
           format: uri
         billTransactionSchedule:
           $ref: '#/components/schemas/BillTransactionSchedule'
@@ -8750,6 +8580,7 @@ components:
         - Warning
         - Info
       type: string
+      example: Info
     ResultInfo:
       type: object
       properties:
@@ -8757,6 +8588,7 @@ components:
           $ref: '#/components/schemas/ResultCategory'
         code:
           type: string
+          example: 0000
           nullable: true
         field:
           type: string
@@ -8769,6 +8601,7 @@ components:
           nullable: true
         description:
           type: string
+          example: Success.
           nullable: true
       additionalProperties: false
     ResultType:
@@ -8776,6 +8609,7 @@ components:
       properties:
         success:
           type: boolean
+          example: true
         resultInfo:
           type: array
           items:
@@ -8798,9 +8632,11 @@ components:
       properties:
         fundingAccountUri:
           type: string
+          example: /api/v1/me/bankAccounts/1b66a692-d01e-4a98-85e6-687127a9a564
           format: uri
         destinationUri:
           type: string
+          example: /api/v1/me/payees/7c5671f9-5368-4e8c-91eb-8aacad4f8466
           format: uri
         billTransactionSchedule:
           $ref: '#/components/schemas/BillTransactionSchedule'
@@ -8827,6 +8663,41 @@ components:
         result:
           $ref: '#/components/schemas/ResultType'
       additionalProperties: false
+    AutomaticTransactionBaseModel:
+      type: object
+      properties:
+         self:
+            type: string
+            example: /api/v1/me/automaticTransactions/51E2E6D2AA9345C699CDDD059EC3B49C
+            format: uri
+         id:
+            type: string
+            example: 51E2E6D2AA9345C699CDDD059EC3B49C
+    AutomaticTransactionsIpsResponse:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/AutomaticTransactionBaseModel'
+        result:
+          $ref: '#/components/schemas/ResultType'
+    AutomaticTransactionsPatchIpsResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            transactionsNotModified:
+              type: array
+              items:
+                self:
+                  type: string
+                  example: /api/v1/me/transactions/deb3d11843664807aa6982cb7d772380
+                  format: uri
+                id:
+                  type: string
+                  example: deb3d11843664807aa6982cb7d772380
+        result:
+          $ref: '#/components/schemas/ResultType'
     PendingTransactionsList:
       type: object
       properties:
@@ -8916,6 +8787,7 @@ components:
       properties:
         fundingAccountUri:
           type: string
+          example: /api/v1/me/bankAccounts/1b66a692-d01e-4a98-85e6-687127a9a564
           format: uri
           nullable: true
         billTransactionSchedule:

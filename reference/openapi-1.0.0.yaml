@@ -12,7 +12,7 @@ paths:
       x-group-name: AutomaticTransactions
       x-proxy-name: Add User Bank Account Test
       x-child-product-name: AutomaticTransactions
-      summary: Gets a list of automatic transactions for the specified tenant/user combination now Gary
+      summary: Gets a list of automatic transactions for the specified tenant/user combination
       operationId: GetAutomaticTransactions
       parameters:
         - name: pageSize
