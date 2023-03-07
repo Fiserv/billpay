@@ -8685,17 +8685,16 @@ components:
       properties:
         data:
           type: object
+          example: {"transactionsNotModified": [{"self": "/api/v1/me/transactions/deb3d11843664807aa6982cb7d772380", "id": "deb3d11843664807aa6982cb7d772380"}]}
           properties:
             transactionsNotModified:
               type: array
               items:
                 self:
                   type: string
-                  example: /api/v1/me/transactions/deb3d11843664807aa6982cb7d772380
                   format: uri
                 id:
                   type: string
-                  example: deb3d11843664807aa6982cb7d772380
         result:
           $ref: '#/components/schemas/ResultType'
     PendingTransactionsList:
