@@ -8680,8 +8680,7 @@ components:
         type: array
         items:
           type: object
-          example: 
-            - {"self": "/api/v1/me/transactions/deb3d11843664807aa6982cb7d772380", "id": "deb3d11843664807aa6982cb7d772380"}
+          example: {"self": "/api/v1/me/transactions/deb3d11843664807aa6982cb7d772380", "id": "deb3d11843664807aa6982cb7d772380"}
     AutomaticTransactionsIpsResponse:
       type: object
       properties:
