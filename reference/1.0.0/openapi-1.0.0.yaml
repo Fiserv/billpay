@@ -8491,7 +8491,7 @@ components:
           nullable: true
         initiationDate:
           type: string
-          example: 2022-01-27
+          example: "2022-01-27"
         maximumTransactionCount:
           type: integer
           example: 24
