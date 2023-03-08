@@ -8814,6 +8814,7 @@ components:
       properties:
         financialInstitutionName:
           type: string
+          example: First Nation Wide Bank
           nullable: true
       additionalProperties: false
     FinancialInstitutionModelIpsResponse:
