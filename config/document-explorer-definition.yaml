@@ -41,5 +41,5 @@
     open: true
 - sections:
   - title: API Reference
-    link: doc/checkfree-next-api-ref.md
+    link: docs/checkfree-next-api-ref.md
    
