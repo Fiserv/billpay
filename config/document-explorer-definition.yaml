@@ -39,4 +39,7 @@
   - title: Getting Started
     link: docs/introduction/getting-started.md
     open: true
+- sections:
+  - title: API Reference
+    link: doc/CheckFree Next - API_1.20_20221215.md
    
