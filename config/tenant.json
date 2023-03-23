@@ -3,7 +3,7 @@
   "name": "BillPay",
   "brand": "Fiserv",
   "brandLogoURL": "https://raw.githubusercontent.com/Fiserv/Developer-Portal-Tenant-API/develop/assets/images/Fiserv_Logo.jpg",
-  "solution": ["financial-institutions"],
+  "solution": ["financial-institutions, fintech"],
   "brandDescription": "Bill Pay delivers compelling bill payment experiences in an increasingly competitive space and make it easy for consumers to pay bills and receive and view their bills electronically",
   "categories": [
     {
