@@ -2,7 +2,7 @@
 
 API Reference
 
-Dec. 15, 2022 
+December 15, 2022
 
 #####  
 
