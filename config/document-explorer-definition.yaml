@@ -29,16 +29,20 @@
 ################################################################################
 
 - sections:
+  - title: Getting Started
+    link: docs/introduction/getting-started.md
+    open: true
+- sections:
     - title: Introduction
       link:
       open: true
       sections:
         - title: Overview
           link: docs/introduction/overview.md
-- sections:
-  - title: Getting Started
-    link: docs/introduction/getting-started.md
-    open: true
+# - sections:
+#   - title: Getting Started
+#     link: docs/introduction/getting-started.md
+#     open: true
 - sections:
   - title: API Reference
     link: docs/introduction/checkfree-next-api-ref.md
