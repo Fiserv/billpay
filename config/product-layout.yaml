@@ -34,7 +34,7 @@ header:
   #image: 
   #  link: "/assets/images/Fiserv_Logo.jpg"
   #  altText: BillPay™
-getStarted: docs/introduction/getting-started.md
+getStarted: /docs/introduction/getting-started.md
 benefits:
   - title: Bill Discovery
     description:  Find bills by using information from credit report and biller statements with the consumer’s consent and select to add payees conveniently.
