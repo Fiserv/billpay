@@ -7,4 +7,4 @@ Integrate with Bill Pay APIs and enable your consumers to:
 - Receive alerts for due bills without giving up paper.
 - Make a bill payment to a managed or unmanaged business.
 - Signup for eBills from eBill capable billers to receive a full eBill statement.
-- Automate payments and never be late with a payment again.
+- Automate payments and never be late with a payment again .
