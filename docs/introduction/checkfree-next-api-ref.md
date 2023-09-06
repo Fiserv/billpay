@@ -2,7 +2,7 @@
 
 API Reference
 
-December 15, 2022
+August 17, 2023
 
 #####  
 
@@ -45,6 +45,8 @@ December 15, 2022
 [Transactions](#transactions)
 
 [AutomaticTransactions](#automatictransactions)
+
+[Messages](#messages)
 
 [Complex Objects](#complex-objects)
 
@@ -96,13 +98,9 @@ Fiserv Professional services to set up certificates and a client ID.
 Authentication to the CheckFree Next APIs is achieved using OAuth 2.0
 via a custom grant.To obtain an access token, a JSON Web Token (JWT)
 must be constructed with this minimum information. All claims are
-required/conditionally required except for acctbal.
+required/conditionally required.
 
 <table>
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 76%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Claim</th>
@@ -172,44 +170,6 @@ consumer:</p>
 <li><p>checkfreeNext.userId</p></li>
 </ul></td>
 </tr>
-<tr class="even">
-<td>fiserv.identity.billpay.acctbal</td>
-<td><p>Last 4 of account number and corresponding account balance. This
-claim is optional.</p>
-<ul>
-<li><p>The account number (last 4) is hashed with SHA-512 using
-subscriber ID as the salt.</p></li>
-<li><p>The account balance can be positive, negative, or zero.</p></li>
-<li><p>The account balance will not contain a decimal point or a dollar
-sign.</p></li>
-<li><p>The hashed account number (last 4) and account balance will be
-separated by a period (dot).</p></li>
-<li><p>If multiple bank account balances are sent, they will be
-separated by commas.</p></li>
-<li><p>In the following example, the account balance is $200.03</p>
-<p>Example:<br />
-D9FB0F4404D8F91D1A249527A198EE9D7B33F088CE75FCBEE6951EEEE3D98E264A3B6B60B92E19771FF07CDE1C<br />
-B277AE505463A89C84BA16809195CC720A322E.20003</p></li>
-<li><p>If the account balance is negative, a negative sign will be in
-the far-left position of the amount field. In the following example, the
-account balance is -$123.45<br />
-Example:<br />
-0C933649A125E2C06524AE024FA1122D754C274AF45F66CFA5024B71AC697FED5E5443DDC63793F8FB70C7C861<br />
-6BBFD876B3C1C29031F35C2AA0F9AE7E448A1D.-12345</p></li>
-<li><p>In the following example, the account balance is $0<br />
-Example:<br />
-0C933649A125E2C06524AE024FA1122D754C274AF45F66CFA5024B71AC697FED5E5443DDC63793F8FB70C7C861<br />
-6BBFD876B3C1C29031F35C2AA0F9AE7E448A1D.0</p></li>
-<li><p>In the following example, multiple account balances are sent. The
-two accounts are separated by a comma. The account balance for the first
-account is $999.99. The account balance for the second account is
-$5211.45.</p></li>
-<li><p>Example:</p>
-<p>7D419B0B8A5A9D0D865C3DDB84227758B55909BCF23698589E772E9288E24F707EA1EE2238DA59BF26177FB4AE<br />
-0326906CE5A8ADE3AB5843FD5AA15F7CC13E1B.99999,51518D25F15B1C9D3B87073EC2949AC138BF3B95E833A<br />
-3299509DA3AA011B3F9AFBDB4EDE7EB157D44DAF3E76F0AFF3105DEDC2F227327904B691BAB22A01ADB.521145</p></li>
-</ul></td>
-</tr>
 </tbody>
 </table>
 
@@ -224,8 +184,7 @@ Here is a sample JWT payload:
 "fiserv.identity.billpay.sponsorId":"45678",  
 "fiserv.identity.billpay.subscriberId":"98796234567",  
 "fiserv.identity.billpay.originator":"Subscriber",  
-"fiserv.identity.billpay.channel":"Desktop",  
-"fiserv.identity.billpay.acctbal":"D9FB0F4404D8F91D1A249527A198EE9D7B33F088CE75FCBEE6951EEEE3D98E264A3B6B60B92E19771FF07CDE1CB277AE505463A89C84BA16809195CC720A322E.20003"  
+"fiserv.identity.billpay.channel":"Desktop"  
 }
 ```
 The JWT must be signed with your certificate and encrypted with Fiserv’s
@@ -348,7 +307,7 @@ tenantId: 45678
 "access_token":"ee5612220a264169bbb4d42bd88413fa92327a894734031f7f619e8e12dba7d0",
 "expires_in":600,
 "token_type":"Bearer",
-"refresh_token":"d09234ab17c16af6d86cee5355cc91ca7fc4a4070bc80631a8fd7e857ade837f",
+"refresh_token":"d09234ab17c16af6d86cee5355cc91ca7fc4a4070bc80631a8fd7e857ade837f"
 }
 ```
 
@@ -384,7 +343,7 @@ tenantId: 45678
 "access_token":"ee5612220a264169bbb4d42bd88413fa92327a894734031f7f619e8e12dba7d0",
 "expires_in":600,
 "token_type":"Bearer",
-"refresh_token":"d09234ab17c16af6d86cee5355cc91ca7fc4a4070bc80631a8fd7e857ade837f",
+"refresh_token":"d09234ab17c16af6d86cee5355cc91ca7fc4a4070bc80631a8fd7e857ade837f"
 }
 ```
 
@@ -623,15 +582,7 @@ success or failure of an API request.
 CheckFree
 Next offers categories of APIs as shown in the following table.
 
->**Tip:** After you follow a link, press Alt + Left Arrow (Windows) to go
-back to the previous location.
-
 <table>
-<colgroup>
-<col style="width: 18%" />
-<col style="width: 48%" />
-<col style="width: 33%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th><strong>API Name</strong></th>
@@ -742,6 +693,11 @@ payee.</td>
 <td>Provide access to all automatic payment plans for a payee.</td>
 <td>GET, POST, PATCH, DELETE</td>
 </tr>
+<tr class="odd">
+<td><a href="#messages">Messages</a></td>
+<td>Provide access to a consumer’s messages.</td>
+<td>GET, POST, DELETE</td>
+</tr>
 </tbody>
 </table>
 
@@ -830,9 +786,6 @@ This set of APIs allows the calling application to:
 -   [Post eBill Notification Email Delivery
     Failure](#post-ebill-notification-email-delivery-failure)
 
->**Tip:**
-After you follow a link, press Alt + Left Arrow (Windows) to go back to
-the previous location.
 
 ## Enroll a User (Managed User)
 
@@ -883,13 +836,6 @@ any optional parameters in the user profile are consistent with your
 sponsor setup.
 
 <table>
-<colgroup>
-<col style="width: 19%" />
-<col style="width: 4%" />
-<col style="width: 8%" />
-<col style="width: 10%" />
-<col style="width: 56%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -997,8 +943,7 @@ enrollment.</p></td>
 <td>string</td>
 <td><p>Length: 8</p>
 <p>Consumer's password.</p>
-
-`Pattern:((?=.*[@#$&amp;*])(?=.*[a-zA-Z\d])|(?=.*\d)(?=.*[a-zA-Z])(?=.*[a-zA-Z0-9@#$&amp;*])|(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z0-9@#$&amp;*]))[a-zA-Z0-9@#$&amp;*]+`
+<p>Pattern:((?=.*[@#$&amp;*])(?=.*[a-zA-Z\d])|(?=.*\d)(?=.*[a-zA-Z])(?=.*[a-zA-Z0-9@#$&amp;*])|(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z0-9@#$&amp;*]))[a-zA-Z0-9@#$&amp;*]+</p>
 <p>Character types allowed: Uppercase letters, lowercase letters,
 numbers, and special/punctuation characters (i.e., @#$&amp;*)</p>
 <p>Character type required combinations: Must contain at least two of
@@ -1275,13 +1220,6 @@ Examples:
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 17%" />
-<col style="width: 4%" />
-<col style="width: 6%" />
-<col style="width: 10%" />
-<col style="width: 60%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -1315,8 +1253,7 @@ CheckFreeNextUserId is the default.</td>
 <td>string</td>
 <td><p>Length: 8</p>
 <p>Consumer's password.</p>
-
-`Pattern:((?=.*[@#$&;*])(?=.*[a-zA-Z\d])|(?=.*\d)(?=.*[a-zA-Z])(?=.*[a-zA-Z0-9@#$&;*])|(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z0-9@#$&;*]))[a-zA-Z0-9@#$&;*]+`
+<p>Pattern:((?=.*[@#$&;*])(?=.*[a-zA-Z\d])|(?=.*\d)(?=.*[a-zA-Z])(?=.*[a-zA-Z0-9@#$&;*])|(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z0-9@#$&;*]))[a-zA-Z0-9@#$&;*]+</p>
 <p>Character types allowed: Uppercase letters, lowercase letters,
 numbers, and special/punctuation characters (i.e., @#$&;*)</p>
 <p>Character type required combinations: Must contain at least two of
@@ -1587,13 +1524,6 @@ Subscriber](#sample-api-usage-authentication-request-for-subscriber).
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 17%" />
-<col style="width: 4%" />
-<col style="width: 6%" />
-<col style="width: 10%" />
-<col style="width: 60%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -1808,13 +1738,6 @@ Examples:
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 16%" />
-<col style="width: 3%" />
-<col style="width: 8%" />
-<col style="width: 7%" />
-<col style="width: 63%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -1886,13 +1809,6 @@ consumer must be provided in the User Get request.
 ###  Request
 
 <table>
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 4%" />
-<col style="width: 9%" />
-<col style="width: 7%" />
-<col style="width: 63%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -2202,12 +2118,6 @@ potential payees for the consumer.
 ### Response
 
 <table>
-<colgroup>
-<col style="width: 15%" />
-<col style="width: 5%" />
-<col style="width: 12%" />
-<col style="width: 66%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -2455,20 +2365,20 @@ configuration as follows:
 
 <!-- -->
 
--   If the sponsor is configured with eligibility rules, those rules
-    will be taken into account (based on the number of payments made
-    over a period of time). If the consumer is not eligible, the
-    outstandingPotentialPayeesCount is still returned, allowing a
-    consumer to act on any previously found payees. The
-    creditReportEligible and billServiceProviderEligible flags are
-    returned based on consumer eligibility and sponsor configuration.
+        -   If the sponsor is configured with eligibility rules, those rules
+            will be taken into account (based on the number of payments made
+            over a period of time). If the consumer is not eligible, the
+            outstandingPotentialPayeesCount is still returned, allowing a
+            consumer to act on any previously found payees. The
+            creditReportEligible and billServiceProviderEligible flags are
+            returned based on consumer eligibility and sponsor configuration.
 
--   If the sponsor is not configured with eligibility rules, then the
-    creditReportEligible and billServiceProviderEligible flags are
-    returned based on the sponsor configuration for these data sources.
-    The outstandingPotentialPayeesCount reflects the number of potential
-    payees previously found and not acted on for the consumer. In this
-    situation, this call is not necessary.
+        -   If the sponsor is not configured with eligibility rules, then the
+            creditReportEligible and billServiceProviderEligible flags are
+            returned based on the sponsor configuration for these data sources.
+            The outstandingPotentialPayeesCount reflects the number of potential
+            payees previously found and not acted on for the consumer. In this
+            situation, this call is not necessary.
 
 ### Sample API Usage
 
@@ -2509,13 +2419,6 @@ information to add the merchant as a payee.
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 16%" />
-<col style="width: 3%" />
-<col style="width: 8%" />
-<col style="width: 7%" />
-<col style="width: 63%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -2673,10 +2576,35 @@ payee.
 
 ### Request
 
-| Parameter          | Req | Param Type | Data Type                                        | Description                                                                                           |
-|-----------|-----|-------|---------|------------------------------------------|
-| id                 | Req | path       | string                                           | Identifier for the potential payee.                                                                   |
-| verificationTokens | Req | body       | Array of [VerificationToken](#verificationtoken) | Array of verification token information provided by the consumer to verify the merchant relationship. |
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Req</th>
+<th>Param Type</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>id</td>
+<td>Req</td>
+<td>path</td>
+<td>string</td>
+<td>Identifier for the potential payee.</td>
+</tr>
+<tr class="even">
+<td>verificationTokens</td>
+<td>Cond</td>
+<td>body</td>
+<td>Array of <a href="#verificationtoken">VerificationToken</a></td>
+<td><p>Array of verification token information provided by the consumer to verify the merchant relationship. </p>
+<p>Condition: One or more verification tokens are required for this payee.
+If no verification tokens are required, this array is not required.</p></td>
+</tr>
+</tbody>
+</table>
 
 ### Response
 
@@ -2839,13 +2767,6 @@ The Payees Get API returns the list of payees added by the consumer.
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 16%" />
-<col style="width: 3%" />
-<col style="width: 8%" />
-<col style="width: 7%" />
-<col style="width: 63%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -3322,13 +3243,6 @@ list, so that payment transactions can be made to that payee.
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 16%" />
-<col style="width: 4%" />
-<col style="width: 8%" />
-<col style="width: 7%" />
-<col style="width: 62%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -3528,13 +3442,6 @@ require updates.
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 16%" />
-<col style="width: 3%" />
-<col style="width: 8%" />
-<col style="width: 13%" />
-<col style="width: 58%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -3734,13 +3641,6 @@ automatic payment plans associated with the payee.
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 16%" />
-<col style="width: 3%" />
-<col style="width: 8%" />
-<col style="width: 7%" />
-<col style="width: 63%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -3996,13 +3896,6 @@ want to display the group or not.
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 15%" />
-<col style="width: 4%" />
-<col style="width: 8%" />
-<col style="width: 14%" />
-<col style="width: 57%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -4107,13 +4000,6 @@ add the payee to the appropriate group.
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 16%" />
-<col style="width: 3%" />
-<col style="width: 8%" />
-<col style="width: 14%" />
-<col style="width: 57%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -4302,13 +4188,6 @@ Examples:
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 16%" />
-<col style="width: 6%" />
-<col style="width: 8%" />
-<col style="width: 7%" />
-<col style="width: 60%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -4348,12 +4227,6 @@ merchants.</p></td>
 ### Response
 
 <table>
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 4%" />
-<col style="width: 12%" />
-<col style="width: 67%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -4855,13 +4728,6 @@ set up new bill payment reminders for other payees.
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 4%" />
-<col style="width: 8%" />
-<col style="width: 7%" />
-<col style="width: 56%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -5043,13 +4909,6 @@ modify an existing payment reminder
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 3%" />
-<col style="width: 7%" />
-<col style="width: 11%" />
-<col style="width: 52%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -5390,7 +5249,11 @@ This set of APIs allows you to:
 ## Get Bills
 
 The Bills Get API returns the list of all due bills for a given
-consumer. The list will include any unpaid e-bills and bill due alerts
+consumer. The list of bills will contain each bill’s current status 
+(Paid, Unpaid, PaymentFailed, PaymentCanceled, Filed).
+
+The list will include any unpaid e-bills (with the exception of e-bills 
+that are scheduled to be paid via AutoPay) and bill due alerts
 for any active payees associated with the consumer. E-bills are
 delivered for payees with active e-bill service. Bill due alerts are
 delivered for payees that were found through bill discovery and are not
@@ -5423,14 +5286,12 @@ bill.
 
 ### Request
 
+When query parameters are not passed, bills from the last 45 days and 
+future bills for a consumer are returned. If a calling application requires 
+bills more than 45 days old to be displayed to their users, call this API 
+with the parameters numberOfDays and startingDate.
+
 <table>
-<colgroup>
-<col style="width: 13%" />
-<col style="width: 4%" />
-<col style="width: 8%" />
-<col style="width: 8%" />
-<col style="width: 64%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -5454,8 +5315,8 @@ bill.
 <td>query</td>
 <td>string</td>
 <td>Number of days from the StartingDate that the list of bills returned
-will encompass. If a filter is not supplied, all bills for a consumer
-are returned.</td>
+will encompass. If numberOfDays and startingDate are not supplied, bills 
+from the last 45 days and future bills for a consumer are returned.</td>
 </tr>
 <tr class="odd">
 <td>startingDate</td>
@@ -5465,8 +5326,8 @@ are returned.</td>
 <td><p>Date that is the starting point for the list of bills to be
 returned.<br />
 Must contain a valid date in the format yyyy-MM-dd</p>
-<p>If a filter is not supplied, all bills for a consumer are
-returned.</p></td>
+<p>If numberOfDays and startingDate are not supplied, bills from the 
+last 45 days and future bills for a consumer are returned.</p></td>
 </tr>
 </tbody>
 </table>
@@ -5526,13 +5387,6 @@ bill.
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 13%" />
-<col style="width: 4%" />
-<col style="width: 8%" />
-<col style="width: 8%" />
-<col style="width: 64%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -5622,13 +5476,6 @@ The Bills Patch API allows a consumer to file a bill.
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 4%" />
-<col style="width: 8%" />
-<col style="width: 9%" />
-<col style="width: 64%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -5755,12 +5602,6 @@ activate e-bill service as part of that flow.
 ### Response
 
 <table>
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 4%" />
-<col style="width: 14%" />
-<col style="width: 69%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -5988,12 +5829,6 @@ Examples:
 ### Response
 
 <table>
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 4%" />
-<col style="width: 14%" />
-<col style="width: 69%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -6092,12 +5927,6 @@ activation.
 ### Response
 
 <table>
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 4%" />
-<col style="width: 15%" />
-<col style="width: 68%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -6190,36 +6019,24 @@ This set of APIs allows the calling application to:
 
 -   Get a list of bank accounts to be used to fund a payment
 
-<!-- -->
+    - [Managed user](#get-bank-accounts-for-managed-user-list)
 
-- -  [Managed user](#get-bank-accounts-for-managed-user-list)
-
-- -  [Consumer](#get-bank-accounts-for-a-consumer-list)
-
-<!-- -->
+    - [Consumer](#get-bank-accounts-for-a-consumer-list)
 
 -   Get a specific bank account
 
-<!-- -->
+    - [Managed user](#get-a-bank-account-for-a-managed-user-single)
 
-- -  [Managed user](#get-a-bank-account-for-a-managed-user-single)
-
-- -  [Consumer](#get-a-bank-account-for-a-consumer-single)
-
-<!-- -->
+    - [Consumer](#get-a-bank-account-for-a-consumer-single)
 
 -   [Add a bank account for a managed
     user](#add-a-bank-account-for-a-managed-user)
 
 -   Update a bank account
 
-<!-- -->
+    - [Managed user](#update-a-bank-account-for-a-managed-user)
 
-- -   [Managed user](#update-a-bank-account-for-a-managed-user)
-
-- -  [Consumer](#update-a-bank-account-for-a-consumer)
-
-<!-- -->
+    - [Consumer](#update-a-bank-account-for-a-consumer)
 
 -   [Delete a bank account for a managed
     user](#delete-a-bank-account-for-a-managed-user)
@@ -6240,13 +6057,6 @@ given routing number.
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 16%" />
-<col style="width: 4%" />
-<col style="width: 9%" />
-<col style="width: 7%" />
-<col style="width: 61%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -6316,13 +6126,6 @@ consumer must be provided in the BankAccounts Get request.
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 16%" />
-<col style="width: 4%" />
-<col style="width: 9%" />
-<col style="width: 7%" />
-<col style="width: 61%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -6385,6 +6188,7 @@ CheckFreeNextUserId is the default.</td>
 "self":
 "/api/v1/me/users/a8ffbc12db4ae911a83400505689ef1f/bankAccounts/d457a828a84342b2a6e2088b37f3db34",
 "id": "d457a828a84342b2a6e2088b37f3db34",
+"isBilling": true,
 "modifiableFields": [
 "nickname"
 ],
@@ -6433,13 +6237,6 @@ one of the bank accounts for funding a payment.
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 19%" />
-<col style="width: 4%" />
-<col style="width: 8%" />
-<col style="width: 7%" />
-<col style="width: 58%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -6486,6 +6283,7 @@ default.</p></td>
 "self":
 "/api/v1/me/bankAccounts/35ecac78659e48c99e92ff18ec21ca43",
 "id": "35ecac78659e48c99e92ff18ec21ca43",
+"isBilling": true,
 "modifiableFields": [
 "nickname"
 ],
@@ -6542,13 +6340,6 @@ consumer must be provided in the BankAccounts Get request.
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 4%" />
-<col style="width: 9%" />
-<col style="width: 7%" />
-<col style="width: 63%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -6606,6 +6397,7 @@ https://api-checkfreenext-cert.fiservapps.com/api/v1/me/users/
 "self":
 "/api/v1/me/users/1480e4e304e8e811a83000505689ef1f/bankAccounts/57694efd08e548dfb552e639269af6eb",
 "id": "57694efd08e548dfb552e639269af6eb",
+"isBilling": true,
 "modifiableFields": [
 "nickname"
 ],
@@ -6676,6 +6468,7 @@ issued bearer token.
 "self":
 "/api/v1/me/bankAccounts/35ecac78659e48c99e92ff18ec21ca43",
 "id": "35ecac78659e48c99e92ff18ec21ca43",
+"isBilling": true,
 "modifiableFields": [
 "nickname"
 ],
@@ -6731,13 +6524,6 @@ consumer must be provided in the BankAccounts Post request.
 ###  Request
 
 <table>
-<colgroup>
-<col style="width: 18%" />
-<col style="width: 4%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 52%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -6830,6 +6616,20 @@ account.</td>
 business account.</td>
 </tr>
 <tr class="even">
+<td>isBilling</td>
+<td>Cond</td>
+<td>body</td>
+<td>boolean</td>
+<td><p>Establishes whether this account is the account from which user/subscriber 
+billing fees (if billed by Fiserv) will be debited. When moving the billing 
+identifier from one bank account to another, set the IsBilling flag to “true” on 
+the desired account.</p>
+<p>Valid values: </p>
+<p>true (set this account to be the account from which billing fees are debited)</p>
+<p>false (do not debit billing fees from this account)</p>
+<p>Condition: Required if Fiserv is billing the user on behalf of the Sponsor/Tenant.</p></td>
+</tr>
+<tr class="odd">
 <td>businessName</td>
 <td>Cond</td>
 <td>body</td>
@@ -6838,7 +6638,7 @@ business account.</td>
 length: 40</p>
 <p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>primaryAccountOwner</td>
 <td>Opt</td>
 <td>body</td>
@@ -6848,7 +6648,7 @@ value defaults to the consumer’s name.</p>
 <p>Length: 1-35</p>
 <p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>secondaryAccountOwner</td>
 <td>Opt</td>
 <td>body</td>
@@ -6857,7 +6657,7 @@ value defaults to the consumer’s name.</p>
 <p>Length: 1-35</p>
 <p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>checkPrintAddress</td>
 <td>Opt</td>
 <td>body</td>
@@ -6866,7 +6666,7 @@ value defaults to the consumer’s name.</p>
 consumer’s address to be printed in the upper left corner of the
 check.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>bankingOptions</td>
 <td>Opt</td>
 <td>body</td>
@@ -6900,6 +6700,7 @@ check.</td>
 "startingCheckNumber": "014",
 "isPreferred": true,
 "isBusiness": false,
+"isBilling": true,
 "businessName": null,
 "primaryAccountOwner": "arjun",
 "secondaryAccountOwner": "ar",
@@ -6958,13 +6759,6 @@ consumer must be provided in the BankAccounts Patch request.
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 18%" />
-<col style="width: 4%" />
-<col style="width: 8%" />
-<col style="width: 10%" />
-<col style="width: 58%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -7030,6 +6824,22 @@ Cannot be changed to “false”. By making another account the preferred
 account, isPreferred will become false for this account.</td>
 </tr>
 <tr class="odd">
+<td>isBilling</td>
+<td>Cond</td>
+<td>body</td>
+<td>boolean</td>
+<td><p>Establishes whether this account is the account from which 
+user/subscriber billing fees (if billed by Fiserv) will be debited. When 
+moving the billing identifier from one bank account to another, set the 
+IsBilling flag to “true” on the desired account.</p>
+<p>Valid values:</p>
+<p>true (set this account to be the account from which billing fees are 
+debited)</p>
+<p>false (do not debit billing fees from this account)</p>
+<p>Condition: Required if Fiserv is billing the user on behalf of the 
+Sponsor/Tenant.</p></td> 
+</tr>
+<tr class="even">
 <td>isBusiness</td>
 <td>Opt</td>
 <td>body</td>
@@ -7037,7 +6847,7 @@ account, isPreferred will become false for this account.</td>
 <td>Indicates if the account is a business account. True if it is a
 business account.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>businessName</td>
 <td>Cond</td>
 <td>body</td>
@@ -7046,7 +6856,7 @@ business account.</td>
 have a value when isBusiness is “false”. Max length: 40</p>
 <p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>primaryAccountOwner</td>
 <td>Opt</td>
 <td>body</td>
@@ -7054,7 +6864,7 @@ have a value when isBusiness is “false”. Max length: 40</p>
 <td><p>Name of the primary owner of this account. Length: 1-35</p>
 <p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>secondaryAccountOwner</td>
 <td>Opt</td>
 <td>body</td>
@@ -7063,7 +6873,7 @@ have a value when isBusiness is “false”. Max length: 40</p>
 Length: 1-35</p>
 <p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>checkPrintAddress</td>
 <td>Opt</td>
 <td>body</td>
@@ -7072,7 +6882,7 @@ Length: 1-35</p>
 consumer’s address to be printed in the upper left corner of the
 check.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>bankingOptions</td>
 <td>Opt</td>
 <td>body</td>
@@ -7101,6 +6911,7 @@ f16c5320ff7fe911a83600505689ef1f/bankAccounts/ef8017e00843437b8848511979d8071f
 "nickname": "bankaccount",
 "startingCheckNumber": "778",
 "isBusiness": true,
+"isBilling": true,
 "businessName": "new business",
 "primaryAccountOwner": "arjkkkk",
 "secondaryAccountOwner": "noone" }
@@ -7126,13 +6937,6 @@ updated.
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 18%" />
-<col style="width: 4%" />
-<col style="width: 8%" />
-<col style="width: 10%" />
-<col style="width: 58%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -7182,6 +6986,19 @@ Cannot be changed to “false”. By making another account the preferred
 account, isPreferred will become false for this account.</td>
 </tr>
 <tr class="odd">
+<td>isBilling</td>
+<td>Cond</td>
+<td>body</td>
+<td>boolean</td>
+<td><p>Establishes whether this account is the account from which 
+user/subscriber billing fees (if billed by Fiserv) will be debited. When 
+moving the billing identifier from one bank account to another, set the 
+IsBilling flag to “true” on the desired account.</p>
+<p>Valid values:</p>
+<p>true (set this account to be the account from which billing fees are debited)</p>
+<p>false (do not debit billing fees from this account)</p>
+<p>Condition: Required if Fiserv is billing the user on behalf of the Sponsor/Tenant.</p></td>
+<tr class="even">
 <td>isBusiness</td>
 <td>Opt</td>
 <td>body</td>
@@ -7189,7 +7006,7 @@ account, isPreferred will become false for this account.</td>
 <td>Indicates if the account is a business account. True if it is a
 business account.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>businessName</td>
 <td>Cond</td>
 <td>body</td>
@@ -7198,7 +7015,7 @@ business account.</td>
 have a value when isBusiness is “false”. Max length: 40</p>
 <p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>primaryAccountOwner</td>
 <td>Opt</td>
 <td>body</td>
@@ -7206,7 +7023,7 @@ have a value when isBusiness is “false”. Max length: 40</p>
 <td><p>Name of the primary owner of this account. Length: 1-35</p>
 <p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>secondaryAccountOwner</td>
 <td>Opt</td>
 <td>body</td>
@@ -7215,7 +7032,7 @@ have a value when isBusiness is “false”. Max length: 40</p>
 Length: 1-35</p>
 <p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>checkPrintAddress</td>
 <td>Opt</td>
 <td>body</td>
@@ -7224,7 +7041,7 @@ Length: 1-35</p>
 consumer’s address to be printed in the upper left corner of the
 check.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>bankingOptions</td>
 <td>Opt</td>
 <td>body</td>
@@ -7253,6 +7070,7 @@ check.</td>
 "nickname": "bankaccount",
 "startingCheckNumber": "778",
 "isBusiness": true,
+"isBilling": true,
 "businessName": "new business",
 "primaryAccountOwner": "arjkkkk",
 "secondaryAccountOwner": "noone" }
@@ -7285,13 +7103,6 @@ consumer must be provided in the BankAccounts Delete request.
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 16%" />
-<col style="width: 3%" />
-<col style="width: 8%" />
-<col style="width: 7%" />
-<col style="width: 63%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -7591,13 +7402,6 @@ a consumer to enter card account information.
 ###  Request
 
 <table>
-<colgroup>
-<col style="width: 16%" />
-<col style="width: 4%" />
-<col style="width: 8%" />
-<col style="width: 7%" />
-<col style="width: 62%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -7689,12 +7493,6 @@ cards added by FI.)</p></td>
 ### Response
 
 <table>
-<colgroup>
-<col style="width: 16%" />
-<col style="width: 4%" />
-<col style="width: 9%" />
-<col style="width: 69%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -7781,13 +7579,6 @@ consumer-added cards only, and an FI can update FI-added cards.
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 16%" />
-<col style="width: 4%" />
-<col style="width: 8%" />
-<col style="width: 7%" />
-<col style="width: 62%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -7966,13 +7757,6 @@ upcoming dates for which they can schedule a bill payment transaction.
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 15%" />
-<col style="width: 4%" />
-<col style="width: 8%" />
-<col style="width: 9%" />
-<col style="width: 62%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -8145,13 +7929,6 @@ transactions and processes them on the requested due date.
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 11%" />
-<col style="width: 4%" />
-<col style="width: 8%" />
-<col style="width: 8%" />
-<col style="width: 66%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -8221,7 +7998,7 @@ should be sorted in descending order. For example,
 <td>Opt</td>
 <td>query</td>
 <td>string</td>
-<td>The status of the payment transaction.</td>
+<td>The status of the payment transaction. Valid values: Pending, Complete, InProcess, Failed Canceled</td>
 </tr>
 <tr class="even">
 <td>fundingAccountUri</td>
@@ -8417,13 +8194,6 @@ Examples:
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 15%" />
-<col style="width: 3%" />
-<col style="width: 8%" />
-<col style="width: 7%" />
-<col style="width: 63%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -8580,13 +8350,6 @@ To cancel a transaction (does not require Request Body):
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 4%" />
-<col style="width: 8%" />
-<col style="width: 9%" />
-<col style="width: 64%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -8759,13 +8522,6 @@ consumer.
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 4%" />
-<col style="width: 8%" />
-<col style="width: 8%" />
-<col style="width: 64%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -8808,8 +8564,7 @@ default.</p></td>
 <td>Opt</td>
 <td>query</td>
 <td>string</td>
-<td>The destination of the automatic transaction. Can be either a bill
-or a payee.</td>
+<td>The destination of the automatic transaction. This is a URI for a payee.</td>
 </tr>
 </tbody>
 </table>
@@ -8817,12 +8572,6 @@ or a payee.</td>
 ### Response
 
 <table>
-<colgroup>
-<col style="width: 13%" />
-<col style="width: 4%" />
-<col style="width: 13%" />
-<col style="width: 68%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -8960,12 +8709,6 @@ plan.
 ### Response
 
 <table>
-<colgroup>
-<col style="width: 13%" />
-<col style="width: 4%" />
-<col style="width: 13%" />
-<col style="width: 68%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -9054,13 +8797,6 @@ consumer specifies the starting date and frequency of payments.
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 17%" />
-<col style="width: 4%" />
-<col style="width: 8%" />
-<col style="width: 16%" />
-<col style="width: 52%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -9083,8 +8819,7 @@ consumer specifies the starting date and frequency of payments.
 <td>Req</td>
 <td>body</td>
 <td>string</td>
-<td>The destination of the automatic transaction. Can be either a bill
-or a payee.</td>
+<td>The destination of the automatic transaction. This is a URI for a payee.</td>
 </tr>
 <tr class="odd">
 <td>billTransactionSchedule</td>
@@ -9190,13 +8925,6 @@ automatic transaction that has already been set up.
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 17%" />
-<col style="width: 4%" />
-<col style="width: 8%" />
-<col style="width: 16%" />
-<col style="width: 52%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -9293,13 +9021,6 @@ that has been set up to be canceled.
 ### Request
 
 <table>
-<colgroup>
-<col style="width: 16%" />
-<col style="width: 3%" />
-<col style="width: 8%" />
-<col style="width: 7%" />
-<col style="width: 63%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -9351,6 +9072,10 @@ cancelPendingTransactions=true
 | 204 No Content |
 |----------------|
 
+#
+
+# Messages
+
 # 
 
 # Complex Objects
@@ -9379,12 +9104,6 @@ Reserved for future use.
 #### AutomaticTransactionOptions
 
 <table>
-<colgroup>
-<col style="width: 26%" />
-<col style="width: 5%" />
-<col style="width: 26%" />
-<col style="width: 40%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -9455,12 +9174,6 @@ transaction schedule.</p></td>
 #### AutomaticTransactionOutputDetail
 
 <table>
-<colgroup>
-<col style="width: 18%" />
-<col style="width: 7%" />
-<col style="width: 15%" />
-<col style="width: 58%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -9497,13 +9210,10 @@ transaction.</td>
 values:</p>
 <p>Active<br />
 Canceled<br />
-Completed<br />
-Pending</p>
+Completed</p>
 <p>Active and Canceled apply to both recurring models and e-bill
 automatic payments.</p>
-<p>Completed applies to recurring models only.</p>
-<p>Pending applies only to e-bill automatic payments where e-bill
-service activation is awaiting biller confirmation.</p></td>
+<p>Completed applies to recurring models only.</p></td>
 </tr>
 <tr class="odd">
 <td>fundingAccountUri</td>
@@ -9515,8 +9225,7 @@ service activation is awaiting biller confirmation.</p></td>
 <td>destinationUri</td>
 <td>Req</td>
 <td>string</td>
-<td>The destination of the automatic transaction. Can be either a bill
-or a payee.</td>
+<td>The destination of the automatic transaction. This is a URI for a payee.</td>
 </tr>
 <tr class="odd">
 <td>billTransactionSchedule</td>
@@ -9541,12 +9250,6 @@ payee.</p></td>
 #### BankAccount
 
 <table>
-<colgroup>
-<col style="width: 15%" />
-<col style="width: 7%" />
-<col style="width: 10%" />
-<col style="width: 66%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -9674,12 +9377,6 @@ check.</td>
 #### BankAccountAddInfo
 
 <table>
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 4%" />
-<col style="width: 9%" />
-<col style="width: 71%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -9724,12 +9421,6 @@ number.</p></td>
 #### BankAccountGetModel
 
 <table>
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 7%" />
-<col style="width: 10%" />
-<col style="width: 67%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -9752,12 +9443,25 @@ number.</p></td>
 <td>Unique identifier of the object.</td>
 </tr>
 <tr class="odd">
+<td>isBilling</td>
+<td>Req</td>
+<td>boolean</td>
+<td><p>Establishes whether this account is the account from which 
+user/subscriber billing fees (if billed by Fiserv) will be debited.</p>
+<p>Valid values:</p>
+<p>true (this account is set to be the account from which billing fees are 
+debited)</p>
+<p>false (this account is not set to debit billing fees from this account)</p>
+<p>For a Sponsor/Tenant that does NOT have Fiserv bill the user on their 
+behalf, this value will always be returned as false.</p></td>
+</tr>
+<tr class="even">
 <td>modifiableFields</td>
 <td>Req</td>
 <td>Array of string</td>
 <td>List of fields that can be changed for the bank account.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>accountType</td>
 <td>Req</td>
 <td>string</td>
@@ -9765,14 +9469,14 @@ number.</p></td>
 "InstallmentLoan", "IndividualRetirement", "CommercialLoan",
 "MoneyMarket", "LineOfCredit", "Brokerage", "SpecialDeposit"</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>maskedAccountNumber</td>
 <td>Req</td>
 <td>string</td>
 <td>The account number in masked form, for presentment in a user
 interface. For example, “***********4656”</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>nickname</td>
 <td>Opt</td>
 <td>string</td>
@@ -9780,13 +9484,13 @@ interface. For example, “***********4656”</td>
 null.</p>
 <p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$, %*-]{1,30}$</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>accountBalance</td>
 <td>Opt</td>
 <td>double</td>
-<td>The account balance.</td>
+<td>The account balance. Reserved for future use.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>isPreferred</td>
 <td>Req</td>
 <td>boolean</td>
@@ -9794,7 +9498,7 @@ null.</p>
 account flag indicates the consumer’s preferred choice of bank account
 used to fund bill payment transactions.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>unmaskedAccount<br />
 NumberUri</td>
 <td>Req</td>
@@ -9803,35 +9507,35 @@ NumberUri</td>
 href="#get-an-unmasked-bank-account-number">Get an Unmasked Bank Account
 Number.</a>”</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>routingTransitNumber</td>
 <td>Req</td>
 <td>string</td>
 <td><p>Routing and transit number for the bank account. Length: 9</p>
 <p>Pattern: ^[0-9]{9}$</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>isBusiness</td>
 <td>Req</td>
 <td>boolean</td>
 <td>Indicates if the account is a business account. True if it is a
 business account.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>businessName</td>
 <td>Cond</td>
 <td>string</td>
 <td><p>When isBusiness is true, this is the name of the business.</p>
 <p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>primaryAccountOwner</td>
 <td>Opt</td>
 <td>string</td>
 <td><p>Name of the primary owner of this account.</p>
 <p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>secondaryAccount<br />
 Owner</td>
 <td>Opt</td>
@@ -9839,21 +9543,35 @@ Owner</td>
 <td><p>Name of the secondary owner of this account, if applicable.</p>
 <p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>confirmationStatus</td>
-<td>Opt</td>
+<td>Req</td>
 <td>string</td>
 <td>Account’s verification/confirmation status. Valid values: Confirmed,
 Failed, Pending, InProgress</td>
 </tr>
-<tr class="even">
-<td>accountStatus</td>
-<td>Opt</td>
-<td>string</td>
-<td>Account status. Valid values: Active, Inactive, Pending,
-Rejected</td>
-</tr>
 <tr class="odd">
+<td>accountStatus</td>
+<td>Req</td>
+<td>string</td>
+<td><p>Account status. Valid values: Active, Inactive, Pending,
+Rejected, Historical</p>
+<p>Active – Account verification was successful and account is active</p>
+<p>Inactive – Account was deleted</p>
+<p>Pending – Account verification has not been completed</p>
+<p>Rejected – Account verification was completed and failed</p>
+<p>Historical – This status is returned when “returnInactiveBankAccounts” 
+is set to true in the request for a list of bank accounts and either:</p>
+<ul><li>The consumer’s transaction history has been migrated from one 
+sponsor to another sponsor. Only the transaction history is migrated, not 
+the old bank account. However, calling apps are still able to show the 
+bank account information associated with the transaction history.</li></ul>
+<p>or</p>
+<ul><li>The sponsor supports extended transaction history and this bank 
+account is associated with extended transaction history records.</li></ul>
+</td>
+</tr>
+<tr class="even">
 <td>checkPrintAddress</td>
 <td>Opt</td>
 <td><a href="#usaddress">USAddress</a></td>
@@ -9861,7 +9579,7 @@ Rejected</td>
 consumer’s address to be printed in the upper left corner of the
 check.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>bankingOptions</td>
 <td>Opt</td>
 <td><a href="#bankingoptions">BankingOptions</a></td>
@@ -9888,12 +9606,6 @@ check.</td>
 #### Bill
 
 <table>
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 4%" />
-<col style="width: 14%" />
-<col style="width: 57%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -10040,12 +9752,6 @@ values:</p>
 #### BillDiscoveryUserEligibility
 
 <table>
-<colgroup>
-<col style="width: 15%" />
-<col style="width: 4%" />
-<col style="width: 8%" />
-<col style="width: 70%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -10084,12 +9790,6 @@ the consumer).</td>
 #### BillTransactionSchedule
 
 <table>
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 4%" />
-<col style="width: 14%" />
-<col style="width: 57%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -10174,12 +9874,6 @@ This is the default.</p></td>
 #### BillTransactionSchedulePatch
 
 <table>
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 4%" />
-<col style="width: 14%" />
-<col style="width: 57%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -10264,12 +9958,6 @@ This is the default.</p></td>
 #### BillTransactionScheduleTypesSupported
 
 <table>
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 4%" />
-<col style="width: 14%" />
-<col style="width: 57%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -10323,12 +10011,6 @@ transaction options.</td>
 #### CardAccountAddLimits
 
 <table>
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 3%" />
-<col style="width: 8%" />
-<col style="width: 66%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -10421,12 +10103,6 @@ false – Cannot be changed.</p></td>
 #### CardAccountGetModel
 
 <table>
-<colgroup>
-<col style="width: 16%" />
-<col style="width: 3%" />
-<col style="width: 8%" />
-<col style="width: 71%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -10558,12 +10234,6 @@ Name” Visa</td>
 #### ContactEndpoint
 
 <table>
-<colgroup>
-<col style="width: 15%" />
-<col style="width: 8%" />
-<col style="width: 9%" />
-<col style="width: 66%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -10577,7 +10247,7 @@ Name” Visa</td>
 <td>status</td>
 <td>Req</td>
 <td>string</td>
-<td><p>The status of the contact end point.</p>
+<td><p>The status of the contact endpoint.</p>
 <p>Valid values: Unspecified, Active, Inactive, Suspended, NotFound,
 Invalid, Onhold</p></td>
 </tr>
@@ -10585,36 +10255,33 @@ Invalid, Onhold</p></td>
 <td>endPointType</td>
 <td>Req</td>
 <td>string</td>
-<td><p>The type of contact end point.</p>
+<td><p>The type of contact endpoint.</p>
 <p>Valid values: Phone, Email, Address</p></td>
 </tr>
 <tr class="odd">
 <td>address</td>
-<td>Cond</td>
+<td>Req</td>
 <td><a href="#address">Address</a></td>
-<td>The address of the consumer. Condition: A contact endpoint is
-required (address, phone, or email).</td>
+<td>The address of the consumer. At least one address contact endpoint is
+required.</td>
 </tr>
 <tr class="even">
 <td>phone</td>
-<td>Cond</td>
+<td>Req</td>
 <td><a href="#phone">Phone</a></td>
-<td>Contact phone number for the consumer. Condition: A contact endpoint
-is required (address, phone, or email).</td>
+<td>Contact phone number for the consumer. At least one phone contact endpoint
+is required.</td>
 </tr>
 <tr class="odd">
 <td>email</td>
-<td>Cond</td>
+<td>Req</td>
 <td><a href="#email">Email</a></td>
-<td><p>Contract email address for the consumer. Condition: A contact
-endpoint is required (address, phone, or email).</p>
+<td><p>Contact email address for the consumer. At least one email contact
+endpoint is required.</p>
 <p>Length: 5–100</p>
-<p>Note: If the sponsor’s Fiserv profile or the Fiserv product’s profile
-requires email addresses to be collected, then an email address is
-required.</p>
 <p>Pattern:
 ^([_+A-Za-z0-9]+((\.|\-)[_+A-Za-z0-9]+)*@[A-Za-z0-9]+((\.|\-)[A-Za-z0-9]+)*(\.[A-Za-z]{2,8}))$</p>
-<p>If provided, this field must contain a valid Internet-style
+<p>This field must contain a valid Internet-style
 address.</p></td>
 </tr>
 <tr class="even">
@@ -10631,12 +10298,6 @@ user to receive correspondence.</td>
 #### EbillAccountDetail
 
 <table>
-<colgroup>
-<col style="width: 16%" />
-<col style="width: 4%" />
-<col style="width: 8%" />
-<col style="width: 70%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -10857,12 +10518,6 @@ AccountBalance</p></td>
 #### EbillCapability 
 
 <table>
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 5%" />
-<col style="width: 14%" />
-<col style="width: 65%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -10986,12 +10641,6 @@ account number.</td>
 #### EbillServiceActivateInput
 
 <table>
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 4%" />
-<col style="width: 14%" />
-<col style="width: 66%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -11075,12 +10724,6 @@ interaction.</td>
 #### EbillServiceActivateOutput
 
 <table>
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 4%" />
-<col style="width: 14%" />
-<col style="width: 66%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -11152,12 +10795,6 @@ activationState.</td>
 #### Email
 
 <table>
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 5%" />
-<col style="width: 8%" />
-<col style="width: 70%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -11181,12 +10818,6 @@ Pattern:
 #### Features
 
 <table>
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 5%" />
-<col style="width: 8%" />
-<col style="width: 70%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -11259,12 +10890,6 @@ Specifies the types of card funding supported.</td>
 #### FiledBillInfo
 
 <table>
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 5%" />
-<col style="width: 8%" />
-<col style="width: 70%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -11301,12 +10926,6 @@ bill and its resolution. Length 1-80</td>
 #### IdentityValidationInformation
 
 <table>
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 5%" />
-<col style="width: 8%" />
-<col style="width: 70%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -11356,12 +10975,6 @@ code (ISO 3166-1 alpha-3 codes). Length: 3</p>
 #### IndividualName
 
 <table>
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 5%" />
-<col style="width: 8%" />
-<col style="width: 70%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -11451,12 +11064,6 @@ contact.</p></td>
 #### Name
 
 <table>
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 5%" />
-<col style="width: 8%" />
-<col style="width: 70%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -11509,12 +11116,6 @@ Length: 0–6</p>
 #### PaperSuppressionOption
 
 <table>
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 5%" />
-<col style="width: 8%" />
-<col style="width: 70%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -11570,12 +11171,6 @@ false, this URL is presented as a link.</td>
 #### Payee
 
 <table>
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 4%" />
-<col style="width: 12%" />
-<col style="width: 61%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -11892,12 +11487,6 @@ payee. Valid values: true, false</p>
 #### PayeeInfo
 
 <table>
-<colgroup>
-<col style="width: 17%" />
-<col style="width: 4%" />
-<col style="width: 13%" />
-<col style="width: 63%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -11990,12 +11579,6 @@ SocialToken</td>
 #### Phone
 
 <table>
-<colgroup>
-<col style="width: 15%" />
-<col style="width: 3%" />
-<col style="width: 9%" />
-<col style="width: 71%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -12096,12 +11679,6 @@ the area code cannot begin with a 0 or 1).</p></td>
 #### RecurringTransactionSchedule
 
 <table>
-<colgroup>
-<col style="width: 17%" />
-<col style="width: 5%" />
-<col style="width: 8%" />
-<col style="width: 68%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -12248,12 +11825,6 @@ Note: Not used for POST.</td>
 #### RecurringTransactionSchedulePatch
 
 <table>
-<colgroup>
-<col style="width: 17%" />
-<col style="width: 5%" />
-<col style="width: 8%" />
-<col style="width: 68%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -12355,12 +11926,6 @@ the recurring model is scheduled. This is the default.</p></td>
 #### RecurringTransactionScheduleTypesSupported
 
 <table>
-<colgroup>
-<col style="width: 22%" />
-<col style="width: 4%" />
-<col style="width: 19%" />
-<col style="width: 53%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -12401,12 +11966,6 @@ transaction options.</td>
 #### Reminder
 
 <table>
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 4%" />
-<col style="width: 14%" />
-<col style="width: 57%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -12528,12 +12087,6 @@ Payees.</td>
 #### ResultInfo
 
 <table>
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 4%" />
-<col style="width: 8%" />
-<col style="width: 71%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -12618,12 +12171,6 @@ in the list was in error.</td>
 #### ToDo
 
 <table>
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 5%" />
-<col style="width: 8%" />
-<col style="width: 70%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -12718,12 +12265,6 @@ payee name.</td>
 #### Transaction
 
 <table>
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 5%" />
-<col style="width: 8%" />
-<col style="width: 72%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -12843,6 +12384,7 @@ institution is participating in 3-D Secure.</td>
 |------------|-----|----------|-----------------------------------------------|
 | deliveryDate              | Req | string                                             | The date of delivery of the transaction. Format: yyyy-MM-dd                 |
 | transactionDestinationUri | Req | string                                             | Transaction destination associated with this specific transaction calendar. |
+| withdrawOnDate            | Opt | string                                             | Reserved for future use.                                                    |
 | transactionOptions        | Req | Array of [TransactionOptions](#transactionoptions) | The various options that are provided for a transaction.                    |
 
 #### TransactionList
@@ -12854,12 +12396,6 @@ institution is participating in 3-D Secure.</td>
 #### TransactionOptions
 
 <table>
-<colgroup>
-<col style="width: 26%" />
-<col style="width: 9%" />
-<col style="width: 13%" />
-<col style="width: 50%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -12870,7 +12406,7 @@ institution is participating in 3-D Secure.</td>
 </thead>
 <tbody>
 <tr class="odd">
-<td>debitDate</td>
+<td>cardDebitDate</td>
 <td>Opt</td>
 <td>string</td>
 <td>The date the funds are debited from the user’s account. Only applies
@@ -12955,12 +12491,6 @@ is the recommended option to pre-populate for a consumer.</td>
 #### TransactionOutput
 
 <table>
-<colgroup>
-<col style="width: 24%" />
-<col style="width: 4%" />
-<col style="width: 8%" />
-<col style="width: 63%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -13026,12 +12556,6 @@ Condition: Always returned for successful response.</td>
 #### TransactionModifyOutput
 
 <table>
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 6%" />
-<col style="width: 8%" />
-<col style="width: 61%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -13137,12 +12661,6 @@ payment fails risk (transaction date is too early).</td>
 #### TransactionOutputDetail
 
 <table>
-<colgroup>
-<col style="width: 17%" />
-<col style="width: 4%" />
-<col style="width: 7%" />
-<col style="width: 70%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -13295,14 +12813,19 @@ release) or debit card, and the status is InProcess.</p></td>
 <td>transactionType</td>
 <td>Opt</td>
 <td>string</td>
-<td>Type of transaction. Valid values: Standard, Overnight,
-Expedited<br />
-If a transaction is scheduled to be paid with an overnight check, then
-the transaction type is Overnight. If a transaction is a SameDay
-electronic payment, then the type is Expedited. Otherwise, regardless of
-whether the transaction is sent electronically or as a paper check, or
-whether it is funded by a bank account or a card, it will have a
-transaction type of Standard.</td>
+<td><p>Type of transaction. Valid values: Standard, Overnight,
+Expedited, ServiceFee</p>
+<ul>
+<li>If a transaction is scheduled to be paid with an overnight check, 
+then the transaction type is Overnight.</li>
+<li> If a transaction is a SameDay electronic payment, then the type 
+is Expedited. </li>
+<li>If a transaction corresponds to a service fee charged by an FI 
+to a user, then the transaction type is ServiceFee.</li>
+<li>Otherwise, regardless of whether the transaction is sent 
+electronically or as a paper check, or whether it is funded by a bank 
+account or a card, it will have a transaction type of Standard.</li></ul>
+</td>
 </tr>
 <tr class="even">
 <td>deliveryTrackingNumber</td>
@@ -13346,12 +12869,6 @@ delivery method is Paper.</td>
 #### USAddress
 
 <table>
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 6%" />
-<col style="width: 8%" />
-<col style="width: 75%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -13428,12 +12945,6 @@ optional.</p>
 #### UserV2
 
 <table>
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 5%" />
-<col style="width: 8%" />
-<col style="width: 70%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -13493,12 +13004,11 @@ category to Fiserv. Condition: Based on sponsor setup.</td>
 </tr>
 <tr class="even">
 <td>userId</td>
-<td>Opt</td>
+<td>Req</td>
 <td>string</td>
 <td><p>ID used by the consumer to authenticate with their product(s).
 Length: 1–48</p>
-<p>This is only returned when the IdType in the request is
-CheckFreeNextUserId.</p></td>
+<p>This is also referred to as the CommonId.</p></td>
 </tr>
 <tr class="odd">
 <td>hasPayees</td>
@@ -13625,12 +13135,6 @@ hyphen).</td>
 #### VerificationToken
 
 <table>
-<colgroup>
-<col style="width: 18%" />
-<col style="width: 4%" />
-<col style="width: 12%" />
-<col style="width: 64%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
