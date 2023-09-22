@@ -56,7 +56,7 @@
       },
       {
         "name": "downloadPostman",
-        "value": true
+        "value": false
       }
   ]
   },
