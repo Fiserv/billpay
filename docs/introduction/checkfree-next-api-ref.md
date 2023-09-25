@@ -100,78 +100,19 @@ via a custom grant.To obtain an access token, a JSON Web Token (JWT)
 must be constructed with this minimum information. All claims are
 required/conditionally required.
 
-<table>
-<thead>
-<tr class="header">
-<th>Claim</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>iss</td>
-<td>Issuer of the JWT</td>
-</tr>
-<tr class="even">
-<td>aud</td>
-<td>Audience for the JWT</td>
-</tr>
-<tr class="odd">
-<td>iat</td>
-<td>Issue time for the JWT</td>
-</tr>
-<tr class="even">
-<td>exp</td>
-<td>Time that the JWT is set to expire</td>
-</tr>
-<tr class="odd">
-<td>jti</td>
-<td>Nonce (unique identifier for the JWT)</td>
-</tr>
-<tr class="even">
-<td>fiserv.identity.billpay.sponsorId</td>
-<td>Sponsor ID. Required if subscriberId or externalSubscriberId is
-provided.</td>
-</tr>
-<tr class="odd">
-<td>fiserv.identity.billpay.subscriberId</td>
-<td><p>Subscriber ID. Provide one of the following for a consumer:</p>
-<ul>
-<li><p>sponsorId AND subscriberId</p></li>
-<li><p>sponsorId AND externalSubscriberId</p></li>
-<li><p>checkfreeNext.userId</p></li>
-</ul></td>
-</tr>
-<tr class="even">
-<td>fiserv.identity.billpay.externalSubscriberId</td>
-<td><p>External Subscriber ID. Provide one of the following for a
-consumer:</p>
-<ul>
-<li><p>sponsorId AND subscriberId</p></li>
-<li><p>sponsorId AND externalSubscriberId</p></li>
-<li><p>checkfreeNext.userId</p></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td>fiserv.identity.billpay.originator</td>
-<td>Originator of the request. Valid values: Subscriber, Sponsor</td>
-</tr>
-<tr class="even">
-<td>fiserv.identity.billpay.channel</td>
-<td>Channel for the request. Valid values: Desktop, Mobile</td>
-</tr>
-<tr class="odd">
-<td>fiserv.identity.checkfreeNext.userId</td>
-<td><p>CheckFree Next user ID. Provide one of the following for a
-consumer:</p>
-<ul>
-<li><p>sponsorId AND subscriberId</p></li>
-<li><p>sponsorId AND externalSubscriberId</p></li>
-<li><p>checkfreeNext.userId</p></li>
-</ul></td>
-</tr>
-</tbody>
-</table>
+| Claim | Description |
+|-------|-------------|
+| iss   | Issuer of the JWT |
+| aud   | Audience for the JWT |
+| iat   | Issue time for the JWT |
+| exp   | Time that the JWT is set to expire |
+| jti   | Nonce (unique identifier for the JWT) |
+| fiserv.identity.billpay.sponsorId | Sponsor ID. Required if subscriberId or externalSubscriberId is provided. |
+| fiserv.identity.billpay.subscriberId | Subscriber ID. Provide one of the following for a consumer: <br> - sponsorId AND subscriberId <br> - sponsorId AND externalSubscriberId <br> - checkfreeNext.userId |
+| fiserv.identity.billpay.externalSubscriberId | External Subscriber ID. Provide one of the following for a consumer: <br> - sponsorId AND subscriberId <br> - sponsorId AND externalSubscriberId <br> - checkfreeNext.userId |
+| fiserv.identity.billpay.originator | Originator of the request. Valid values: Subscriber, Sponsor |
+| fiserv.identity.billpay.channel | Channel for the request. Valid values: Desktop, Mobile |
+| fiserv.identity.checkfreeNext.userId | CheckFree Next user ID. Provide one of the following for a consumer: <br> - sponsorId AND subscriberId <br> - sponsorId AND externalSubscriberId <br> - checkfreeNext.userId |
 
 Here is a sample JWT payload:
 ```json
