@@ -8,7 +8,7 @@ paths:
   /api/v1/financialInstitutionRG:
     get:
       tags:
-        - BankAccountsRG
+        - BankAccounts
       x-group-name: BankAccounts
       x-proxy-name: Get Financial Institution
       x-child-product-name: BankAccounts
