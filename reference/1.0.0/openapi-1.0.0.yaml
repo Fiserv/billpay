@@ -5,7 +5,7 @@ info:
   x-logo:
     url: /fiserv_logo_resize.png
 paths:
-  /api/v1/financialInstitutionRG:
+/api/v1/financialInstitutionRG:
     get:
       tags:
         - BankAccounts
