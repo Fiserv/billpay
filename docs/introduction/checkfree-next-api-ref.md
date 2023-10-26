@@ -523,124 +523,25 @@ success or failure of an API request.
 CheckFree
 Next offers categories of APIs as shown in the following table.
 
-<table>
-<thead>
-<tr class="header">
-<th><strong>API Name</strong></th>
-<th><strong>Description</strong></th>
-<th><strong>Supported Operations</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><a href="#health">Health</a></td>
-<td>Perform health checks.</td>
-<td>GET</td>
-</tr>
-<tr class="even">
-<td><a href="#users">Users</a></td>
-<td>Provide access to a consumer’s details.</td>
-<td><p>GET, POST, PATCH, DELETE for managed users</p>
-<p>GET, PATCH</p>
-<p>GET, POST for Consents sub-resource</p>
-<p>GET for features</p>
-<p>GET for sensitiveInformation</p>
-<p>POST for billDeliveryFailure sub-resource</p></td>
-</tr>
-<tr class="odd">
-<td><a href="#potential-payees">PotentialPayees</a></td>
-<td>Determine Bill Discovery eligibility and provide access to all
-potential payees found for a consumer.</td>
-<td><p>GET, PUT</p>
-<p>GET for eligibility sub-resource</p>
-<p>GET for payeeAccountNumber sub-resource</p></td>
-</tr>
-<tr class="even">
-<td><a href="#payees">Payees</a></td>
-<td>Provide access to all payees added by a consumer within bill
-pay.</td>
-<td><p>GET, POST, PATCH, DELETE</p>
-<p>GET for payeeAccountNumber sub-resource</p>
-<p>GET for automaticTransactionOptions sub‑resource</p></td>
-</tr>
-<tr class="odd">
-<td><a href="#payee-groups">PayeeGroups</a></td>
-<td>Provide access to payee groups for a consumer.</td>
-<td>GET, POST, PUT, DELETE</td>
-</tr>
-<tr class="even">
-<td><a href="#merchants">Merchants</a></td>
-<td>Provide access to all merchants in the managed merchant
-directory.</td>
-<td>GET</td>
-</tr>
-<tr class="odd">
-<td><a href="#probable-merchants">ProbableMerchants</a></td>
-<td>Provide access to probable merchants for a consumer.</td>
-<td>GET</td>
-</tr>
-<tr class="even">
-<td><a href="#reminders">Reminders</a></td>
-<td>Provide access to reminder models for a consumer.</td>
-<td>GET, POST, PATCH, DELETE</td>
-</tr>
-<tr class="odd">
-<td><a href="#todos">ToDos</a></td>
-<td>Provide access to all to-do items for a consumer.</td>
-<td>GET, PATCH</td>
-</tr>
-<tr class="even">
-<td><a href="#bills">Bills</a></td>
-<td>Provide access to all bills due for a consumer.</td>
-<td><p>GET, PATCH</p>
-<p>GET for detail sub-resource</p></td>
-</tr>
-<tr class="odd">
-<td><a href="#e-bill-activation">eBill Activation</a></td>
-<td>Provide access to e-bill capability for a payee.</td>
-<td><p>GET, POST, DELETE</p>
-<p>PATCH for SuppressPaper sub-resource</p>
-<p>GET for ebillCapability</p></td>
-</tr>
-<tr class="even">
-<td><a href="#bankaccounts">BankAccounts</a></td>
-<td>Provide access to all bank accounts set up for use with bill pay for
-a consumer.</td>
-<td><p>GET, POST, PATCH, DELETE for managed users</p>
-<p>GET, PATCH for consumers</p>
-<p>GET for accountNumber sub-resource</p>
-<p>GET for financialInstitution</p></td>
-</tr>
-<tr class="odd">
-<td><a href="#cardaccounts">Card Accounts</a></td>
-<td>Provide access to all card accounts set up for use with bill pay for
-a consumer.</td>
-<td><p>GET, POST, PATCH, DELETE</p>
-<p>GET for CardAccountAddLimits sub-resource</p></td>
-</tr>
-<tr class="even">
-<td><a href="#transactioncalendar">TransactionCalendar</a></td>
-<td>Provide access to the transaction calendar applicable to a
-payee.</td>
-<td>GET</td>
-</tr>
-<tr class="odd">
-<td><a href="#transactions">Transactions</a></td>
-<td>Provide access to all transactions for a consumer.</td>
-<td>GET, POST, PATCH</td>
-</tr>
-<tr class="even">
-<td><a href="#automatictransactions">AutomaticTransactions</a></td>
-<td>Provide access to all automatic payment plans for a payee.</td>
-<td>GET, POST, PATCH, DELETE</td>
-</tr>
-<tr class="odd">
-<td><a href="#messages">Messages</a></td>
-<td>Provide access to a consumer’s messages.</td>
-<td>GET, POST, DELETE</td>
-</tr>
-</tbody>
-</table>
+| API Name        | Description            | Supported Operations |
+|----------|-------------------------------|----------------|
+| [Health](#health) | Perform health checks. | GET                  |
+| [Users](#users)   | Provide access to a consumer’s details. | GET, POST, PATCH, DELETE for managed users <br> GET, PATCH for consumers <br> GET, POST for Consents sub-resource <br> GET for features <br> GET for sensitiveInformation <br> POST for billDeliveryFailure sub-resource |
+| [PotentialPayees](#potential-payees) | Determine Bill Discovery eligibility and provide access to all potential payees found for a consumer. | GET, PUT <br> GET for eligibility sub-resource <br> GET for payeeAccountNumber sub-resource |
+| [Payees](#payees) | Provide access to all payees added by a consumer within bill pay. | GET, POST, PATCH, DELETE <br> GET for payeeAccountNumber sub-resource <br> GET for automaticTransactionOptions sub‑resource |
+| [PayeeGroups](#payee-groups) | Provide access to payee groups for a consumer. | GET, POST, PUT, DELETE |
+| [Merchants](#merchants) | Provide access to all merchants in the managed merchant directory. | GET |
+| [ProbableMerchants](#probable-merchants) | Provide access to probable merchants for a consumer. | GET |
+| [Reminders](#reminders) | Provide access to reminder models for a consumer. | GET, POST, PATCH, DELETE |
+| [ToDos](#todos) | Provide access to all to-do items for a consumer. | GET, PATCH |
+| [Bills](#bills) | Provide access to all bills due for a consumer. | GET, PATCH <br> GET for detail sub-resource |
+| [eBill Activation](#e-bill-activation) | Provide access to e-bill capability for a payee. | GET, POST, DELETE <br> PATCH for SuppressPaper sub-resource <br> GET for ebillCapability |
+| [BankAccounts](#bankaccounts) | Provide access to all bank accounts set up for use with bill pay for a consumer. | GET, POST, PATCH, DELETE for managed users <br> GET, PATCH for consumers <br> GET for accountNumber sub-resource <br> GET for financialInstitution |
+| [Card Accounts](#cardaccounts) | Provide access to all card accounts set up for use with bill pay for a consumer. | GET, POST, PATCH, DELETE <br> GET for CardAccountAddLimits sub-resource |
+| [TransactionCalendar](#transactioncalendar) | Provide access to the transaction calendar applicable to a payee. | GET |
+| [Transactions](#transactions) | Provide access to all transactions for a consumer. | GET, POST, PATCH |
+| [AutomaticTransactions](#automatictransactions) | Provide access to all automatic payment plans for a payee. | GET, POST, PATCH, DELETE |
+| [Messages](#messages) | Provide access to a consumer’s messages. | GET, POST, DELETE |
 
 # 
 
@@ -776,244 +677,28 @@ Work with Fiserv Professional Services to make sure that the values of
 any optional parameters in the user profile are consistent with your
 sponsor setup.
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>billingClass</td>
-<td>Cond</td>
-<td>body</td>
-<td>string</td>
-<td><p>Length: 1-9</p>
-<p>Pattern: ^[a-zA-Z0-9]+$</p>
-<p>If supplied, this field must contain a valid alphanumeric billing
-class as supplied by Fiserv during implementation. Condition: This field
-is required if Fiserv collects consumer fees on behalf of the
-client.</p></td>
-</tr>
-<tr class="even">
-<td>businessName</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>Length: 1-40</p>
-<p>Name of the business. Provide businessName if this is a
-business,</p></td>
-</tr>
-<tr class="odd">
-<td>consumerTier</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>Tier level of consumer. Valid values:</p>
-<p>1 (default)<br />
-2<br />
-3</p>
-<p>Pattern: (1|2|3){1}$</p></td>
-</tr>
-<tr class="even">
-<td>isAllowedToSolicit</td>
-<td>Opt</td>
-<td>body</td>
-<td>boolean</td>
-<td><p>Indicates whether or not the consumer may be solicited by Fiserv.
-This field allows a client to comply with state laws permitting a
-resident to prohibit solicitation in writing or by telephone. Valid
-values:</p>
-<p>true – Yes, Fiserv can send information about additional products or
-services to this consumer.</p>
-<p>false – No, Fiserv may not send solicitation information. This is the
-default.</p></td>
-</tr>
-<tr class="odd">
-<td>isEmployee</td>
-<td>Opt</td>
-<td>body</td>
-<td>boolean</td>
-<td><p>Identifies whether a consumer is an employee of the client. Valid
-values:</p>
-<p>true – Yes, an employee.</p>
-<p>false – No, not an employee. This is the default.</p></td>
-</tr>
-<tr class="even">
-<td>sponsorBillingCategory</td>
-<td>Cond</td>
-<td>body</td>
-<td>string</td>
-<td><p>Length: 1–2 (only alphanumeric characters allowed)</p>
-<p>Pattern: ^[a-zA-Z0-9]+$</p>
-<p>Clients that are doing their own billing but want to differentiate
-between consumers can use this field to communicate the consumer
-category to Fiserv. Condition: Based on sponsor setup.</p></td>
-</tr>
-<tr class="odd">
-<td>securityQuestion</td>
-<td>Cond</td>
-<td>body</td>
-<td>string</td>
-<td><p>Security question prompt.</p>
-<p>Valid values: YourHighSchoolName, YourMothersMaidenName,
-YourFathersMiddleName, YourCityOfBirth</p>
-<p>Condition: If Fiserv is providing first-tier Customer Care support
-for the client, securityQuestion and securityAnswer are required at
-enrollment.</p></td>
-</tr>
-<tr class="even">
-<td>securityAnswer</td>
-<td>Cond</td>
-<td>body</td>
-<td>string</td>
-<td><p>Length: 4-32</p>
-<p>An identifier used by the consumer for security purposes.</p>
-<p>Condition: If Fiserv is providing first-tier Customer Care support
-for the client, securityQuestion and securityAnswer are required at
-enrollment.</p></td>
-</tr>
-<tr class="odd">
-<td>password</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>Length: 8</p>
-<p>Consumer's password.</p>
-<p>Pattern:((?=.*[@#$&amp;*])(?=.*[a-zA-Z\d])|(?=.*\d)(?=.*[a-zA-Z])(?=.*[a-zA-Z0-9@#$&amp;*])|(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z0-9@#$&amp;*]))[a-zA-Z0-9@#$&amp;*]+</p>
-<p>Character types allowed: Uppercase letters, lowercase letters,
-numbers, and special/punctuation characters (i.e., @#$&amp;*)</p>
-<p>Character type required combinations: Must contain at least two of
-the four character types. For example, the password "a4fs2jkl" contains
-two character types (lowercase letters and numbers), and thus meets the
-standard.</p>
-<p>Specific Restrictions: Password CANNOT contain the user ID anywhere
-within it.</p></td>
-</tr>
-<tr class="even">
-<td>fiservBillpaySubscriberId</td>
-<td>Req</td>
-<td>body</td>
-<td>string</td>
-<td><p>Used by the user to authenticate with the user’s product(s).
-Length: 2–32 (no spaces allowed)</p>
-<p>Pattern: ^[A-Z0-9_(){}&amp;@!+#.'$,%^*-]*</p>
-<p>Best practices: This ID should contain at least nine characters. Do
-not include special characters (such as # or &amp;). Do not use a Social
-Security number.</p></td>
-</tr>
-<tr class="odd">
-<td>fiservBillpayExternalSubscriberId</td>
-<td>Req</td>
-<td>body</td>
-<td>string</td>
-<td><p>A unique customer ID, different from the
-fiservBillpaySubscriberId, that is used for logging the user in to a
-Fiserv product. Length: 2–48 (no spaces allowed)</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^*-]*</p>
-<p>Condition: Required if any of the consumer’s products require it.</p>
-<p>Best practices: This ID should contain at least nine characters. Do
-not include special characters (such as # and &amp;). Do not use a
-Social Security number.</p></td>
-</tr>
-<tr class="even">
-<td>name</td>
-<td>Req</td>
-<td>body</td>
-<td><a href="#name">Name</a></td>
-<td>Consumer’s name.</td>
-</tr>
-<tr class="odd">
-<td>contactEndPoints</td>
-<td>Req</td>
-<td>body</td>
-<td><a href="#contactendpoint">Contact<br />
-Endpoint</a></td>
-<td>Contact details of the consumer, such as the consumer’s email
-address, phone numbers, and address.</td>
-</tr>
-<tr class="even">
-<td>identityValidationInformation</td>
-<td>Opt</td>
-<td>body</td>
-<td><a href="#identityvalidationinformation">IdentityValidation<br />
-Information</a></td>
-<td>Information that may be used to help confirm the consumer’s
-identity.</td>
-</tr>
-<tr class="odd">
-<td>birthDate</td>
-<td>Req</td>
-<td>body</td>
-<td>string</td>
-<td>The date of birth of the consumer. The user must be 18 years of age
-or greater.<br />
-Format: yyyy-MM-dd</td>
-</tr>
-<tr class="even">
-<td>category</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>Client-assigned free-form category that identifies the group the
-consumer belongs to. Length: 1-32</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
-</tr>
-<tr class="odd">
-<td>taxId</td>
-<td>Req</td>
-<td>body</td>
-<td>string</td>
-<td><p>This is the consumer’s ID for tax purposes, either the user’s
-Social Security number or the Federal Tax Identification number for
-their business. Max length: 9</p>
-<p>Pattern:
-^(?!111111111|222222222|333333333|444444444|555555555|777777777|888888888|123456789|<br />
-012345678)(?!666|000|9\d{2})\d{3}(?!00)\d{2}(?!0{4})\d{4}$</p>
-<p>Cannot contain special characters, spaces, or hyphens.</p>
-<p>Must never contain all zeros in any group (000######, ###00####,
-#####0000).</p>
-<p>Must never contain 666 or 900–999 in the first digit group
-(666######, 900######, 901######, etc.).</p>
-<p>Must not be all repeated digits or a descending sequence.</p></td>
-</tr>
-<tr class="even">
-<td>locale</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>The language code and associated language location in one
-combined field. Format: XX-XX (language code and language country
-separated by hyphen).</p>
-<p>Valid values for language code: “EN”,”ES”</p>
-<p>Pattern: [A-Za-z]{2}-[A-Za-z]{2}$</p>
-<p>“US” is the default value for language country.</p></td>
-</tr>
-<tr class="odd">
-<td>occupation</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>The activity a user spends time performing to earn a living.
-Length: 1-50</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
-</tr>
-<tr class="even">
-<td>userTimeZone</td>
-<td>Cond</td>
-<td>body</td>
-<td>integer</td>
-<td><p>The time zone for the consumer. Defaults to “-05” for eastern
-standard time (EST) unless a value is provided.</p>
-<p>Condition: If Fiserv provides first-tier Customer Care for the
-client, this field is required.</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| billingClass | Cond | body | string | Length: 1-9 <br> Pattern: ^[a-zA-Z0-9]+$ <br> If supplied, this field must contain a valid alphanumeric billing class as supplied by Fiserv during implementation. Condition: This field is required if Fiserv collects consumer fees on behalf of the client. |
+| businessName | Opt | body | string | Length: 1-40 <br> Name of the business. Provide businessName if this is a business. |
+| consumerTier | Opt | body | string | Tier level of consumer. Valid values: <br> 1 (default) <br> 2 <br> 3 <br> Pattern: (1\|2\|3){1}$ | 
+| isAllowedToSolicit | Opt | body | boolean | Indicates whether or not the consumer may be solicited by Fiserv. This field allows a client to comply with state laws permitting a resident to prohibit solicitation in writing or by telephone. Valid values: <br> true – Yes, Fiserv can send information about additional products or services to this consumer. <br> false – No, Fiserv may not send solicitation information. This is the default. | 
+| isEmployee | Opt | body | boolean | Identifies whether a consumer is an employee of the client. Valid values: <br> true – Yes, an employee. <br> false – No, not an employee. This is the default. |
+| sponsorBillingCategory | Cond | body | string | Length: 1–2 (only alphanumeric characters allowed) <br> Pattern: ^[a-zA-Z0-9]+$ <br> Clients that are doing their own billing but want to differentiate between consumers can use this field to communicate the consumer category to Fiserv. Condition: Based on sponsor setup. |
+| securityQuestion | Cond | body | string | Security question prompt. <br> Valid values: YourHighSchoolName, YourMothersMaidenName, YourFathersMiddleName, YourCityOfBirth <br> Condition: If Fiserv is providing first-tier Customer Care support for the client, securityQuestion and securityAnswer are required at enrollment. | 
+| securityAnswer | Cond | body | string | Length: 4-32 <br> An identifier used by the consumer for security purposes. <br> Condition: If Fiserv is providing first-tier Customer Care support for the client, securityQuestion and securityAnswer are required at enrollment. |
+| password | Opt | body | string | Length: 8 <br> Consumer's password. <br> Pattern:((?=.\*\[@#\$&\*\])(?=.\*\[a-zA-Z\\d\])\|(?=.\*\\d)(?=.\*\[a-zA-Z\])(?=.\*[a-zA-Z0-9\@#\$&\*\])\|(?=.\*\[a-z\])(?=.\*\[A-Z\])(?=.\*\[a-zA-Z0-9@#\$&\*\]))\[a-zA-Z0-9@#\$&\*\]+ <br> Character types allowed: Uppercase letters, lowercase letters, numbers, and special/punctuation characters (i.e., @#$&amp;\*) <br> Character type required combinations: Must contain at least two of the four character types. For example, the password "a4fs2jkl" contains two character types (lowercase letters and numbers), and thus meets the standard. <br> Specific Restrictions: Password CANNOT contain the user ID anywhere within it. |
+| fiservBillpaySubscriberId | Req | body | string | Used by the user to authenticate with the user’s product(s). Length: 2–32 (no spaces allowed) <br> Pattern: ^\[A-Z0-9_(){}&amp;@!+#.'$,%^\*-\]\* <br> Best practices: This ID should contain at least nine characters. Do not include special characters (such as # or &amp;). Do not use a Social Security number. |
+ | fiservBillpayExternalSubscriberId | Req | body | string | A unique customer ID, different from the fiservBillpaySubscriberId, that is used for logging the user in to a Fiserv product. Length: 2–48 (no spaces allowed) <br>  Pattern: ^\[a-zA-Z0-9_(){}&amp;@!+#.'$,%^\*-\]\* <br>  Condition: Required if any of the consumer’s products require it. <br> Best practices: This ID should contain at least nine characters. Do not include special characters (such as # and &amp;). Do not use a Social Security number. |
+ | name | Req | body | [Name](#name) | Consumer’s name. |  
+ | contactEndPoints | Req | body | [Contact Endpoint](#contactendpoint) | Contact details of the consumer, such as the consumer’s email address, phone numbers, and address. |
+ | identityValidationInformation | Opt | body | [IdentityValidation Information](#identityvalidationinformation) | Information that may be used to help confirm the consumer’s identity. |
+ | birthDate | Req | body | string | The date of birth of the consumer. The user must be 18 years of age or greater. <br> Format: yyyy-MM-dd |
+ | category | Opt | body | string | Client-assigned free-form category that identifies the group the consumer belongs to. Length: 1-32 <br> Pattern: ^\[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-\]\* |
+ | taxId | Req | body | string | This is the consumer’s ID for tax purposes, either the user’s Social Security number or the Federal Tax Identification number for their business. Max length: 9 <br> Pattern: ^(?!111111111\|222222222\|333333333\|444444444\|555555555\|777777777\|888888888\| <br> 123456789\|012345678)(?!666\|000\|9\d{2})\d{3}(?!00)\d{2}(?!0{4})\d{4}$ <br> Cannot contain special characters, spaces, or hyphens. <br> Must never contain all zeros in any group (000######, ###00####, #####0000). <br> Must never contain 666 or 900–999 in the first digit group (666######, 900######, 901######, etc.). <br> Must not be all repeated digits or a descending sequence. |
+ | locale | Opt | body | string | The language code and associated language location in one combined field. Format: XX-XX (language code and language country separated by hyphen). <br> Valid values for language code: “EN”,”ES” <br> Pattern: \[A-Za-z\]{2}-\[A-Za-z\]{2}$ <br>  “US” is the default value for language country. |
+ | occupation | Opt | body | string | The activity a user spends time performing to earn a living. Length: 1-50 <br> Pattern: ^\[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-\]\* |
+ | userTimeZone | Cond | body | integer | The time zone for the consumer. Defaults to “-05” for eastern standard time (EST) unless a value is provided. <br> Condition: If Fiserv provides first-tier Customer Care for the client, this field is required. |
 
 ### Response
 
@@ -1160,211 +845,26 @@ Examples:
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>userId</td>
-<td>Req</td>
-<td>path</td>
-<td>string</td>
-<td>Identifier for the managed user.</td>
-</tr>
-<tr class="even">
-<td>idType</td>
-<td>Opt</td>
-<td>query</td>
-<td>string</td>
-<td>Identifies the user ID type. Valid values: SubscriberId,
-ExternalSubscriberId, CheckFreeNextUserId<br />
-CheckFreeNextUserId is the default.</td>
-</tr>
-<tr class="odd">
-<td>password</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>Length: 8</p>
-<p>Consumer's password.</p>
-<p>Pattern:((?=.*[@#$&;*])(?=.*[a-zA-Z\d])|(?=.*\d)(?=.*[a-zA-Z])(?=.*[a-zA-Z0-9@#$&;*])|(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z0-9@#$&;*]))[a-zA-Z0-9@#$&;*]+</p>
-<p>Character types allowed: Uppercase letters, lowercase letters,
-numbers, and special/punctuation characters (i.e., @#$&;*)</p>
-<p>Character type required combinations: Must contain at least two of
-the four character types. For example, the password "a4fs2jkl" contains
-two character types (lowercase letters and numbers), and thus meets the
-standard.</p>
-<p>Specific Restrictions: Password CANNOT contain the user ID anywhere
-within it.</p></td>
-</tr>
-<tr class="even">
-<td>billingClass</td>
-<td>Cond</td>
-<td>body</td>
-<td>string</td>
-<td><p>Length: 1-9</p>
-<p>Pattern: ^[a-zA-Z0-9]+$</p>
-<p>If supplied, this field must contain a valid alphanumeric billing
-class as supplied by Fiserv during implementation. Condition: This field
-is required if Fiserv collects consumer fees on behalf of the
-client.</p></td>
-</tr>
-<tr class="odd">
-<td>businessName</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>Length: 1-40</p>
-<p>Name of the business. Provide businessName if this is a
-business,</p></td>
-</tr>
-<tr class="even">
-<td>consumerTier</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>Tier level of consumer. Valid values:</p>
-<p>1<br />
-2<br />
-3</p>
-<p>Pattern: (1|2|3){1}$</p></td>
-</tr>
-<tr class="odd">
-<td>isAllowedToSolicit</td>
-<td>Opt</td>
-<td>body</td>
-<td>boolean</td>
-<td><p>Indicates whether or not the consumer may be solicited by Fiserv.
-This field allows a client to comply with state laws permitting a
-resident to prohibit solicitation in writing or by telephone. Valid
-values:</p>
-<p>true – Yes, Fiserv can send information about additional products or
-services to this consumer.</p>
-<p>false – No, Fiserv may not send solicitation information. This is the
-default.</p></td>
-</tr>
-<tr class="even">
-<td>isEmployee</td>
-<td>Opt</td>
-<td>body</td>
-<td>boolean</td>
-<td><p>Identifies whether a consumer is an employee of the client. Valid
-values:</p>
-<p>true – Yes, an employee.</p>
-<p>false – No, not an employee.</p></td>
-</tr>
-<tr class="odd">
-<td>sponsorBillingCategory</td>
-<td>Cond</td>
-<td>body</td>
-<td>string</td>
-<td><p>Length: 1–2 (only alphanumeric characters allowed)</p>
-<p>Pattern: ^[a-zA-Z0-9]+$</p>
-<p>Clients that are doing their own billing but want to differentiate
-between consumers can use this field to communicate the consumer
-category to Fiserv. Based on client setup.</p></td>
-</tr>
-<tr class="even">
-<td>name</td>
-<td>Opt</td>
-<td>body</td>
-<td><a href="#name">Name</a></td>
-<td>Consumer’s name.</td>
-</tr>
-<tr class="odd">
-<td>contactEndPoints</td>
-<td>Opt</td>
-<td>body</td>
-<td><a href="#contactendpoint">Contact<br />
-Endpoint</a></td>
-<td>Contact details of the consumer, such as the consumer’s email
-address, phone numbers, and address.</td>
-</tr>
-<tr class="even">
-<td>birthDate</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td>The date of birth of the consumer. The user must be 18 years of age
-or greater.<br />
-Format: yyyy-MM-dd</td>
-</tr>
-<tr class="odd">
-<td>category</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>Client-assigned free-form category that identifies the group the
-consumer belongs to. Length: 1-32</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
-</tr>
-<tr class="even">
-<td>identityValidationInformation</td>
-<td>Opt</td>
-<td>body</td>
-<td><a href="#identityvalidationinformation">IdentityValidation<br />
-Information</a></td>
-<td>Information that may be used to help confirm the consumer’s
-identity.</td>
-</tr>
-<tr class="odd">
-<td>locale</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>The language code and associated language location in one
-combined field. Format: XX-XX (language code and language country
-separated by hyphen).</p>
-<p>Valid values for language code: “EN”,”ES”</p>
-<p>Pattern: [A-Za-z]{2}-[A-Za-z]{2}$</p>
-<p>“US” is the default value for language country.</p></td>
-</tr>
-<tr class="even">
-<td>occupation</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>The activity a user spends time performing to earn a living.
-Length: 1-50</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
-</tr>
-<tr class="odd">
-<td>taxId</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>This is the consumer’s ID for tax purposes, either the user’s
-Social Security number or the Federal Tax Identification number for
-their business. Max length: 9</p>
-<p>Pattern:
-^(?!111111111|222222222|333333333|444444444|555555555|777777777|888888888|123456789|012345678)<br />
-(?!666|000|9\d{2})\d{3}(?!00)\d{2}(?!0{4})\d{4}$</p>
-<p>Cannot contain special characters, spaces, or hyphens.</p>
-<p>Must never contain all zeros in any group (000######, ###00####,
-#####0000).</p>
-<p>Must never contain 666 or 900–999 in the first digit group
-(666######, 900######, 901######, etc.).</p>
-<p>Must not be all repeated digits or a descending sequence.</p></td>
-</tr>
-<tr class="even">
-<td>timeZone</td>
-<td>Opt</td>
-<td>body</td>
-<td>integer</td>
-<td><p>The time zone for the consumer. Defaults to “-05” for eastern
-standard time (EST) unless a value is provided.</p>
-<p>If Fiserv provides first-tier Customer Care for the client, this
-field is required.</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| userId | Req | path | string | Identifier for the managed user. |
+| idType | Opt | query | string | Identifies the user ID type. Valid values: SubscriberId, ExternalSubscriberId, CheckFreeNextUserId <br> CheckFreeNextUserId is the default. |
+| password | Opt | body | string | Length: 8 <br> Consumer's password. <br> Pattern:((?=.\*\[@#\$&\*\])(?=.\*\[a-zA-Z\d\])\|(?=.\*\d)(?=.\*\[a-zA-Z\])(?=.\*\[a-zA-Z0-9@#\$&\*\])\|(?=.\*\[a-z\])(?=.\*\[A-Z\])(?=.\*\[a-zA-Z0-9@#\$&\*\]))\[a-zA-Z0-9@#\$&\*\]+ <br> Character types allowed: Uppercase letters, lowercase letters, numbers, and special/punctuation characters (i.e., @#\$&\*) <br> Character type required combinations: Must contain at least two of the four character types. For example, the password "a4fs2jkl" contains two character types (lowercase letters and numbers), and thus meets the standard. <br> Specific Restrictions: Password CANNOT contain the user ID anywhere within it. |
+| billingClass | Cond | body | string | Length: 1-9 <br> Pattern: ^\[a-zA-Z0-9\]+$ <br> If supplied, this field must contain a valid alphanumeric billing class as supplied by Fiserv during implementation. Condition: This field is required if Fiserv collects consumer fees on behalf of the client. |
+| businessName | Opt | body | string | Length: 1-40 <br> Name of the business. Provide businessName if this is a business. |
+| consumerTier | Opt | body | string | Tier level of consumer. Valid values: <br> 1 <br> 2 <br> 3 <br> Pattern: (1\|2\|3){1}$ |
+| isAllowedToSolicit | Opt | body | boolean | Indicates whether or not the consumer may be solicited by Fiserv. This field allows a client to comply with state laws permitting a resident to prohibit solicitation in writing or by telephone. Valid values: <br> true – Yes, Fiserv can send information about additional products or services to this consumer. <br> false – No, Fiserv may not send solicitation information. This is the default. |
+| isEmployee | Opt | body | boolean | Identifies whether a consumer is an employee of the client. Valid values: <br> true – Yes, an employee. <br> false – No, not an employee. |
+| sponsorBillingCategory | Cond | body | string | Length: 1–2 (only alphanumeric characters allowed) <br> Pattern: ^\[a-zA-Z0-9\]+$ <br> Clients that are doing their own billing but want to differentiate between consumers can use this field to communicate the consumer category to Fiserv. Based on client setup. |
+| name | Opt | body | [Name](#name) | Consumer’s name. |
+| contactEndPoints | Opt | body | [Contact Endpoint](#contactendpoint) | Contact details of the consumer, such as the consumer’s email address, phone numbers, and address. |
+| birthDate | Opt | body | string | The date of birth of the consumer. The user must be 18 years of age or greater. <br> Format: yyyy-MM-dd |
+| category | Opt | body | string | Client-assigned free-form category that identifies the group the consumer belongs to. Length: 1-32 <br> Pattern: ^\[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-\]\* |
+| identityValidationInformation | Opt | body | [IdentityValidation Information](#identityvalidationinformation) | Information that may be used to help confirm the consumer’s identity. |
+| locale | Opt | body | string | The language code and associated language location in one combined field. Format: XX-XX (language code and language country separated by hyphen). <br> Valid values for language code: “EN”,”ES” <br> Pattern: \[A-Za-z\]{2}-\[A-Za-z\]{2}$ <br> “US” is the default value for language country. |
+| occupation | Opt | body | string | The activity a user spends time performing to earn a living. Length: 1-50 <br> Pattern: ^\[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-\]\*  |
+| taxId | Opt | body | string | This is the consumer’s ID for tax purposes, either the user’s Social Security number or the Federal Tax Identification number for their business. Max length: 9 <br> Pattern: ^(?!111111111\|222222222\|333333333\|444444444\|555555555\|777777777\|888888888\|123456789\|012345678) <br> (?!666\|000\|9\d{2})\d{3}(?!00)\d{2}(?!0{4})\d{4}$ <br> Cannot contain special characters, spaces, or hyphens. <br> Must never contain all zeros in any group (000######, ###00####, #####0000). <br> Must never contain 666 or 900–999 in the first digit group (666######, 900######, 901######, etc.). <br> Must not be all repeated digits or a descending sequence. |
+| timeZone | Opt | body | integer | The time zone for the consumer. Defaults to “-05” for eastern standard time (EST) unless a value is provided. <br> If Fiserv provides first-tier Customer Care for the client, this field is required. |
 
 ### Response
 
@@ -1464,111 +964,17 @@ Subscriber](#sample-api-usage-authentication-request-for-subscriber).
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>name</td>
-<td>Opt</td>
-<td>body</td>
-<td><a href="#name">Name</a></td>
-<td>Consumer’s name.</td>
-</tr>
-<tr class="even">
-<td>contactEndPoints</td>
-<td>Opt</td>
-<td>body</td>
-<td><a href="#contactendpoint">Contact<br />
-Endpoint</a></td>
-<td>Contact details of the consumer, such as the consumer’s email
-address, phone numbers, and address.</td>
-</tr>
-<tr class="odd">
-<td>birthDate</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td>The date of birth of the consumer. The user must be 18 years of age
-or greater.<br />
-Format: yyyy-MM-dd</td>
-</tr>
-<tr class="even">
-<td>category</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>Client-assigned free-form category that identifies the group the
-consumer belongs to. Length: 1-32</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
-</tr>
-<tr class="odd">
-<td>identityValidationInformation</td>
-<td>Opt</td>
-<td>body</td>
-<td><a href="#identityvalidationinformation">IdentityValidation<br />
-Information</a></td>
-<td>Information that may be used to help confirm the consumer’s
-identity.</td>
-</tr>
-<tr class="even">
-<td>locale</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>The language code and associated language location in one
-combined field. Format: XX-XX (language code and language country
-separated by hyphen).</p>
-<p>Valid values for language code: “EN”,”ES”</p>
-<p>Pattern: [A-Za-z]{2}-[A-Za-z]{2}$</p>
-<p>“US” is the default value for language country.</p></td>
-</tr>
-<tr class="odd">
-<td>occupation</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>The activity a user spends time performing to earn a living.
-Length: 1-50</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
-</tr>
-<tr class="even">
-<td>taxId</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>This is the consumer’s ID for tax purposes, either the user’s
-Social Security number or the Federal Tax Identification number for
-their business. Max length: 9</p>
-<p>Pattern:
-^(?!111111111|222222222|333333333|444444444|555555555|777777777|888888888|123456789|012345678)<br />
-(?!666|000|9\d{2})\d{3}(?!00)\d{2}(?!0{4})\d{4}$</p>
-<p>Cannot contain special characters, spaces, or hyphens.</p>
-<p>Must never contain all zeros in any group (000######, ###00####,
-#####0000).</p>
-<p>Must never contain 666 or 900–999 in the first digit group
-(666######, 900######, 901######, etc.).</p>
-<p>Must not be all repeated digits or a descending sequence.</p></td>
-</tr>
-<tr class="odd">
-<td>timeZone</td>
-<td>Opt</td>
-<td>body</td>
-<td>integer</td>
-<td><p>The time zone for the consumer. Defaults to “-05” for eastern
-standard time (EST) unless a value is provided.</p>
-<p>If Fiserv provides first-tier Customer Care for the client, this
-field is required.</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| name | Opt | body | [Name](#name) | Consumer’s name. |
+| contactEndPoints | Opt | body | [Contact Endpoint](#contactendpoint) | Contact details of the consumer, such as the consumer’s email address, phone numbers, and address. |
+| birthDate | Opt | body | string | The date of birth of the consumer. The user must be 18 years of age or greater. <br> Format: yyyy-MM-dd |
+| category | Opt | body | string | Client-assigned free-form category that identifies the group the consumer belongs to. Length: 1-32 <br> Pattern: ^\[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-\]\* |
+| identityValidationInformation | Opt | body | [IdentityValidation Information](#identityvalidationinformation) | Information that may be used to help confirm the consumer’s identity. |
+| locale | Opt | body | string | The language code and associated language location in one combined field. Format: XX-XX (language code and language country separated by hyphen). <br> Valid values for language code: “EN”,”ES” <br> Pattern: \[A-Za-z\]{2}-\[A-Za-z\]{2}$ <br> “US” is the default value for language country. |
+| occupation | Opt | body | string | The activity a user spends time performing to earn a living. Length: 1-50 <br> Pattern: ^\[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-\]\* |
+| taxId | Opt | body | string | This is the consumer’s ID for tax purposes, either the user’s Social Security number or the Federal Tax Identification number for their business. Max length: 9 <br> Pattern: ^(?!111111111\|222222222\|333333333\|444444444\|555555555\|777777777\|888888888\| <br> 123456789\|012345678)(?!666\|000\|9\d{2})\d{3}(?!00)\d{2}(?!0{4})\d{4}$ <br> Cannot contain special characters, spaces, or hyphens. <br> Must never contain all zeros in any group (000######, ###00####, #####0000). <br> Must never contain 666 or 900–999 in the first digit group (666######, 900######, 901######, etc.). <br> Must not be all repeated digits or a descending sequence. |
+| timeZone | Opt | body | integer | The time zone for the consumer. Defaults to “-05” for eastern standard time (EST) unless a value is provided. <br> If Fiserv provides first-tier Customer Care for the client, this field is required. |
 
 ### Response
 
@@ -1678,35 +1084,10 @@ Examples:
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>userId</td>
-<td>Req</td>
-<td>path</td>
-<td>string</td>
-<td>Identifier for the user.</td>
-</tr>
-<tr class="even">
-<td>idType</td>
-<td>Opt</td>
-<td>query</td>
-<td>string</td>
-<td>Identifies the user ID type. Valid values: SubscriberId,
-ExternalSubscriberId, CheckFreeNextUserId<br />
-CheckFreeNextUserId is the default.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description | 
+|-----------|-----|------------|-----------|-------------|
+| userId | Req | path | string | Identifier for the user. |
+| idType | Opt | query | string | Identifies the user ID type. Valid values: SubscriberId, ExternalSubscriberId, CheckFreeNextUserId <br> CheckFreeNextUserId is the default. | 
 
 ### Response
 
@@ -1749,35 +1130,10 @@ consumer must be provided in the User Get request.
 
 ###  Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>userId</td>
-<td>Req</td>
-<td>path</td>
-<td>string</td>
-<td>Identifier for the managed user.</td>
-</tr>
-<tr class="even">
-<td>idType</td>
-<td>Opt</td>
-<td>query</td>
-<td>string</td>
-<td>Identifies the user ID type. Valid values: SubscriberId,
-ExternalSubscriberId, CheckFreeNextUserId<br />
-CheckFreeNextUserId is the default.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| userId | Req | path | string | Identifier for the managed user. | 
+| idType | Opt | query | string | Identifies the user ID type. Valid values: SubscriberId, ExternalSubscriberId, CheckFreeNextUserId <br> CheckFreeNextUserId is the default. |
 
 ### Response
 
@@ -2058,60 +1414,11 @@ potential payees for the consumer.
 
 ### Response
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>billDiscoveryUserConsent</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Indicates if the user has given consent to the retrieval of bill
-information via Bill Discovery.</p>
-<p>Will be set to true when the:</p>
-<ul>
-<li><p>Consumer has explicitly given consent for Bill
-Discovery.</p></li>
-</ul>
-<p>Will be set to false when the:</p>
-<ul>
-<li><p>Consumer has explicitly refused consent for Bill
-Discovery.</p></li>
-<li><p>Consumer has no consent record to be returned.</p></li>
-</ul></td>
-</tr>
-<tr class="even">
-<td>creditBureauUserConsent</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Indicates if the user has given consent to the retrieval of bill
-information via credit bureau.</p>
-<p>Will be set to true when the:</p>
-<ul>
-<li><p>Consumer has explicitly given consent to access credit bureau
-information for Bill Discovery.</p></li>
-</ul>
-<p>Will be set to false when the:</p>
-<ul>
-<li><p>Consumer has explicitly refused consent to access credit bureau
-information for Bill Discovery.</p></li>
-<li><p>Consumer has no consent record to be returned</p></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td>result</td>
-<td>Req</td>
-<td><a href="#resulttype">ResultType</a></td>
-<td>Result information.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| billDiscoveryUserConsent | Req | boolean | Indicates if the user has given consent to the retrieval of bill information via Bill Discovery. <br> Will be set to true when the: <br> - Consumer has explicitly given consent for Bill Discovery. <br> Will be set to false when the: <br> - Consumer has explicitly refused consent for Bill Discovery. <br> - Consumer has no consent record to be returned. |
+| creditBureauUserConsent | Req | boolean | Indicates if the user has given consent to the retrieval of bill information via credit bureau. <br> Will be set to true when the: <br> - Consumer has explicitly given consent to access credit bureau information for Bill Discovery. <br> Will be set to false when the: <br> - Consumer has explicitly refused consent to access credit bureau information for Bill Discovery. <br> - Consumer has no consent record to be returned |
+| result | Req | [ResultType](#resulttype) | Result information. | 
 
 ### Sample API Usage
 
@@ -2297,29 +1604,13 @@ This API indicates whether a consumer is eligible for bill discovery.
 The values returned in the response are dependent on sponsor
 configuration as follows:
 
--   If a sponsor is not enabled for Bill Discovery or one of the Bill
-    Discovery data sources, the API returns creditReportEligible and
-    billServiceProviderEligible as false. Zero is returned for the
-    potential payee count.
+  * If a sponsor is not enabled for Bill Discovery or one of the Bill Discovery data sources, the API returns creditReportEligible and billServiceProviderEligible as false. Zero is returned for the potential payee count.
 
--   When BillDiscovery is configured as true for the sponsor:
+  * When BillDiscovery is configured as true for the sponsor:
 
-<!-- -->
+    -   If the sponsor is configured with eligibility rules, those rules will be taken into account (based on the number of payments made             over a period of time). If the consumer is not eligible, the outstandingPotentialPayeesCount is still returned, allowing a consumer to act on any previously found payees. The creditReportEligible and billServiceProviderEligible flags are returned based on consumer eligibility and sponsor configuration.
 
-        -   If the sponsor is configured with eligibility rules, those rules
-            will be taken into account (based on the number of payments made
-            over a period of time). If the consumer is not eligible, the
-            outstandingPotentialPayeesCount is still returned, allowing a
-            consumer to act on any previously found payees. The
-            creditReportEligible and billServiceProviderEligible flags are
-            returned based on consumer eligibility and sponsor configuration.
-
-        -   If the sponsor is not configured with eligibility rules, then the
-            creditReportEligible and billServiceProviderEligible flags are
-            returned based on the sponsor configuration for these data sources.
-            The outstandingPotentialPayeesCount reflects the number of potential
-            payees previously found and not acted on for the consumer. In this
-            situation, this call is not necessary.
+    -   If the sponsor is not configured with eligibility rules, then the creditReportEligible and billServiceProviderEligible flags are returned based on the sponsor configuration for these data sources. The outstandingPotentialPayeesCount reflects the number of potential payees previously found and not acted on for the consumer. In this situation, this call is not necessary.
 
 ### Sample API Usage
 
@@ -2359,44 +1650,10 @@ information to add the merchant as a payee.
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>excludeDormantAccounts</td>
-<td>Opt</td>
-<td>query</td>
-<td>boolean</td>
-<td><p>Indicates whether to exclude dormant payee accounts from the
-results.</p>
-<p>True – Exclude dormant payee accounts from the results.</p>
-<p>False – Include dormant payee accounts. This is the default.</p>
-<p>If the search parameter value is false, the excludeDormantAccounts
-value must be false.</p></td>
-</tr>
-<tr class="even">
-<td>search</td>
-<td>Opt</td>
-<td>query</td>
-<td>boolean</td>
-<td><p>Indicates whether to perform a new search for potential
-payees.</p>
-<p>True – Perform a new search. This is the default.</p>
-<p>False – Do not perform a new search (return only potential payees
-already identified).</p>
-<p>If the search parameter value is false, the excludeDormantAccounts
-value must be false.</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| excludeDormantAccounts | Opt | query | boolean | Indicates whether to exclude dormant payee accounts from the results. <br> True – Exclude dormant payee accounts from the results. <br> False – Include dormant payee accounts. This is the default. <br> If the search parameter value is false, the excludeDormantAccounts value must be false. |
+| search | Opt | query | boolean | Indicates whether to perform a new search for potential payees. <br> True – Perform a new search. This is the default.<br> False – Do not perform a new search (return only potential payees already identified). <br> If the search parameter value is false, the excludeDormantAccounts value must be false. | 
 
 ### Response
 
@@ -2517,35 +1774,10 @@ payee.
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>id</td>
-<td>Req</td>
-<td>path</td>
-<td>string</td>
-<td>Identifier for the potential payee.</td>
-</tr>
-<tr class="even">
-<td>verificationTokens</td>
-<td>Cond</td>
-<td>body</td>
-<td>Array of <a href="#verificationtoken">VerificationToken</a></td>
-<td><p>Array of verification token information provided by the consumer to verify the merchant relationship. </p>
-<p>Condition: One or more verification tokens are required for this payee.
-If no verification tokens are required, this array is not required.</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| id | Req | path | string | Identifier for the potential payee. | 
+| verificationTokens | Cond | body | Array of [VerificationToken](#verificationtoken) | Array of verification token information provided by the consumer to verify the merchant relationship. <br> Condition: One or more verification tokens are required for this payee. If no verification tokens are required, this array is not required. |
 
 ### Response
 
@@ -2707,28 +1939,9 @@ The Payees Get API returns the list of payees added by the consumer.
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>returnInactivePayees</td>
-<td>Opt</td>
-<td>query</td>
-<td>boolean</td>
-<td><p>Indicates whether to return inactive payees in the response.</p>
-<p>True – Return inactive payees</p>
-<p>False – Do not return inactive payees. This is the default.</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| returnInactivePayees | Opt | query | boolean | Indicates whether to return inactive payees in the response. <br> True – Return inactive payees <br> False – Do not return inactive payees. This is the default. |
 
 ### Response
 
@@ -3183,65 +2396,12 @@ list, so that payment transactions can be made to that payee.
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>overrideAddressValidation</td>
-<td>Opt</td>
-<td>query</td>
-<td>boolean</td>
-<td><p>Indicates whether address validation (city, state, ZIP Code,
-address combination) must be done or can be skipped.</p>
-<p>True - Address validation will be skipped.</p>
-<p>False - Address validation will be done. This is the
-default.</p></td>
-</tr>
-<tr class="even">
-<td>payeeInfo</td>
-<td>Req</td>
-<td>body</td>
-<td><a href="#payeeinfo">PayeeInfo</a></td>
-<td>Payee information.</td>
-</tr>
-<tr class="odd">
-<td>sourceUri</td>
-<td>Cond</td>
-<td>body</td>
-<td>string</td>
-<td>The URI from Potential Payees/ Merchant Search/ Payees /
-ProbableMerchants.<br />
-Blank for an unmanaged merchant.<br />
-Condition: If adding a payee by providing only name, account number, and
-sourceUri, this is required. (Fiserv must already have a relationship
-with the merchant.)</td>
-</tr>
-<tr class="even">
-<td>sourceUriPayeeZipCode</td>
-<td>Cond</td>
-<td>body</td>
-<td>string</td>
-<td><p>The payee ZIP Code. This is the ZIP Code that the consumer sees
-on their bill for the merchant.<br />
-Conditions: If the /api/v1/merchants/Search API returns a value of true
-for merchantZipRequired, this is required. If the
-/api/v1/me/probableMerchants API returns a value of true for
-merchantZipRequired, this is required.</p>
-<p>Pattern: ^(\d{5}|\d{9}|\d{11})$</p>
-<p>Valid characters: 0–9</p>
-<p>Parsed: Chars 1-5 = Zip5, Chars 6-9 = Zip4, Chars 10-11 =
-Zip2</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| overrideAddressValidation | Opt | query | boolean | Indicates whether address validation (city, state, ZIP Code, address combination) must be done or can be skipped. <br> True - Address validation will be skipped. <br> False - Address validation will be done. This is the default. |
+| payeeInfo | Req | body | [PayeeInfo](#payeeinfo) | Payee information. |
+| sourceUri | Cond | body | string | The URI from Potential Payees/ Merchant Search/ Payees / ProbableMerchants. <br> Blank for an unmanaged merchant.<br> Condition: If adding a payee by providing only name, account number, and sourceUri, this is required. (Fiserv must already have a relationship with the merchant.) |
+| sourceUriPayeeZipCode | Cond | body | string | The payee ZIP Code. This is the ZIP Code that the consumer sees on their bill for the merchant. <br> Conditions: If the /api/v1/merchants/Search API returns a value of true for merchantZipRequired, this is required. If the /api/v1/me/probableMerchants API returns a value of true for merchantZipRequired, this is required. <br> Pattern: ^(\d{5}\|\d{9}\|\d{11})$ <br> Valid characters: 0–9 <br> Parsed: Chars 1-5 = Zip5, Chars 6-9 = Zip4, Chars 10-11 = Zip2 |
 
 ### Response
 
@@ -3382,106 +2542,18 @@ require updates.
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>payeeId</td>
-<td>Req</td>
-<td>path</td>
-<td>string</td>
-<td>Identifier for the payee.</td>
-</tr>
-<tr class="even">
-<td>modifyPendingPayments</td>
-<td>Opt</td>
-<td>query</td>
-<td>boolean</td>
-<td><p>Indicates if the payee modification should be propagated to
-pending payments. Valid values:</p>
-<p>true – Yes, propagate payee modification to pending payments.</p>
-<p>false – No, do not propagate payee modification to pending payments.
-This is the default.</p></td>
-</tr>
-<tr class="odd">
-<td>name</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>The name of the payee.</p>
-<p>Pattern: ^[\x20-\x5A\x5C\x5F-\x7E]+$</p>
-<p>Length: 2–32</p></td>
-</tr>
-<tr class="even">
-<td>nickname</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>The nickname of the payee. Length: 0-30</p>
-<p>Pattern: ^[\x20\x2C-\x2E\x30-\x39\x41-\x5A\x61-\x7A\r\n]+$</p></td>
-</tr>
-<tr class="odd">
-<td>accountNumber</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>The consumer’s account number with the payee. Length: 1–32</p>
-<p>Pattern: ^[a-zA-Z0-9 !"#$%&amp;-]{1,32}$</p></td>
-</tr>
-<tr class="even">
-<td>contactPhoneNumber</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>Phone number used to contact the payee if there are issues
-posting the payment. Length: 10-12</p>
-
-`Pattern:(^[0-9]{10}$)|(^\(?[0-9]{3}\)?-[0-9]{3}-[0-9]{4}$)|(^\(?[0-9]{3}\)?\s?[0-9]{3}-[0-9]{4}$)`
-
-<p>Must be numeric and may contain a dash or space between the numbers
-at the appropriate placement. The phone number must be valid based on
-the North American Numbering Plan (for example, the area code cannot
-begin with a 0 or 1). Example: 234-555-1212</p></td>
-</tr>
-<tr class="odd">
-<td>address</td>
-<td>Opt</td>
-<td>body</td>
-<td><a href="#usaddress">USAddress</a></td>
-<td>Payee address information.</td>
-</tr>
-<tr class="even">
-<td>overnightAddress</td>
-<td>Opt</td>
-<td>body</td>
-<td><a href="#usaddress">USAddress</a></td>
-<td>Address for overnight payments if different from the address.</td>
-</tr>
-<tr class="odd">
-<td>socialTokens</td>
-<td>Opt</td>
-<td>body</td>
-<td>Array of<br />
-SocialToken</td>
-<td>Reserved for future use.</td>
-</tr>
-<tr class="even">
-<td>accountTokens</td>
-<td>Opt</td>
-<td>body</td>
-<td>Array of <a href="#accounttokenaddinfo">AccountTokenAddInfo</a></td>
-<td>Reserved for future use.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| payeeId | Req | path | string | Identifier for the payee. |
+| modifyPendingPayments | Opt | query | boolean | Indicates if the payee modification should be propagated to pending payments. Valid values: <br> true – Yes, propagate payee modification to pending payments. <br> false – No, do not propagate payee modification to pending payments. This is the default. |
+| name | Opt | body | string | The name of the payee. <br> Pattern: ^\[\x20-\x5A\x5C\x5F-\x7E\]+$ <br> Length: 2–32 |
+| nickname | Opt | body | string | The nickname of the payee. Length: 0-30 <br> Pattern: ^\[\x20\x2C-\x2E\x30-\x39\x41-\x5A\x61-\x7A\r\n\]+$ |
+| accountNumber | Opt | body | string | The consumer’s account number with the payee. Length: 1–32 <br> Pattern: ^\[a-zA-Z0-9 !"#\$%&amp;-\]{1,32}$ |
+| contactPhoneNumber | Opt | body | string | Phone number used to contact the payee if there are issues posting the payment. Length: 10-12 <br> Pattern:(^\[0-9\]{10}\$)\|(^\(?\[0-9\]{3}\\)?-\[0-9\]{3}-\[0-9\]{4}\$)\|(^\\(?\[0-9\]{3}\\)?\\s?\[0-9\]{3}-\[0-9\]{4}\$) <br> Must be numeric and may contain a dash or space between the numbers at the appropriate placement. The phone number must be valid based on the North American Numbering Plan (for example, the area code cannot begin with a 0 or 1). Example: 234-555-1212 | 
+| address | Opt | body | [USAddress](#usaddress) | Payee address information. | 
+| overnightAddress | Opt | body | [USAddress](#usaddress) | Address for overnight payments if different from the address. | 
+| socialTokens | Opt | body | Array of SocialToken | Reserved for future use. |
+| accountTokens | Opt | body | Array of [AccountTokenAddInfo](#accounttokenaddinfo) | Reserved for future use. | 
 
 ### Response
 
@@ -3581,37 +2653,10 @@ automatic payment plans associated with the payee.
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>payeeId</td>
-<td>Req</td>
-<td>path</td>
-<td>string</td>
-<td>Identifier for the payee.</td>
-</tr>
-<tr class="even">
-<td>cancelPendingTransactions</td>
-<td>Opt</td>
-<td>query</td>
-<td>boolean</td>
-<td><p>Indicates if pending transactions to the payee should be
-canceled. Valid values:</p>
-<p>true – Yes, cancel pending transactions.</p>
-<p>false – No, do not cancel pending transactions. This is the
-default.</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| payeeId | Req | path | string | Identifier for the payee. | 
+| cancelPendingTransactions | Opt | query | boolean | Indicates if pending transactions to the payee should be canceled. Valid values: <br> true – Yes, cancel pending transactions. <br> false – No, do not cancel pending transactions. This is the default. |
 
 ### Response
 
@@ -3836,45 +2881,11 @@ want to display the group or not.
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>isVisible</td>
-<td>Req</td>
-<td>body</td>
-<td>boolean</td>
-<td><p>Indicates whether whether the payee group will be displayed.</p>
-<p>True - Payee group will be displayed. This is the default.</p>
-<p>False - Payee group will not be displayed.</p></td>
-</tr>
-<tr class="even">
-<td>name</td>
-<td>Req</td>
-<td>body</td>
-<td>string</td>
-<td><p>Unique name for the payee group to be added. Length: 1-32</p>
-<p>Pattern: ^[\x20-\x5A\x5C\x5F-\x7E]+$</p></td>
-</tr>
-<tr class="odd">
-<td>payeeGroupInfo</td>
-<td>Opt</td>
-<td>body</td>
-<td>Array of <a href="#payeegrouppayeeitem">PayeeGroupPayeeItem</a></td>
-<td>A list of payees to assign to the group. Any payees found to be
-invalid will not be added to the group. A warning will be returned in
-this case.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| isVisible | Req | body | boolean | Indicates whether whether the payee group will be displayed. <br> True - Payee group will be displayed. This is the default. <br> False - Payee group will not be displayed. |
+| name | Req | body | string | Unique name for the payee group to be added. Length: 1-32 <br> Pattern: ^\[\x20-\x5A\x5C\x5F-\x7E\]+$ |
+| payeeGroupInfo | Opt | body | Array of [PayeeGroupPayeeItem](#payeegrouppayeeitem) | A list of payees to assign to the group. Any payees found to be invalid will not be added to the group. A warning will be returned in this case. |
 
 ### Response
 
@@ -3940,60 +2951,12 @@ add the payee to the appropriate group.
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>id</td>
-<td>Req</td>
-<td>path</td>
-<td>string</td>
-<td>Identifier for the payee group.</td>
-</tr>
-<tr class="even">
-<td>isVisible</td>
-<td>Req</td>
-<td>body</td>
-<td>boolean</td>
-<td><p>Indicates whether whether the payee group will be displayed.</p>
-<p>True - Payee group will be displayed. This is the default.</p>
-<p>False - Payee group will not be displayed.</p></td>
-</tr>
-<tr class="odd">
-<td>name</td>
-<td>Req</td>
-<td>body</td>
-<td>string</td>
-<td><p>Unique name for the payee group. Length: 1-32</p>
-<p>Pattern: ^[\x20-\x5A\x5C\x5F-\x7E]+$</p></td>
-</tr>
-<tr class="even">
-<td>payeeGroupInfo</td>
-<td>Opt</td>
-<td>body</td>
-<td>Array of <a href="#payeegrouppayeeitem">PayeeGroupPayeeItem</a></td>
-<td><p>A list of payees to assign to the group. Any payees to be added
-to or retained in the group should be provided in this array.</p>
-<p>Note that the following actions will remove <strong>all</strong>
-payees from a group:</p>
-<ul>
-<li><p>Submitting an empty array</p></li>
-<li><p>Submitting an array specifying “null”</p></li>
-<li><p>Not submitting an array.</p></li>
-</ul>
-<p>Any payees found to be invalid will not be added to the group. A
-warning will be returned in this case.</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| id | Req | path | string | Identifier for the payee group. |
+| isVisible | Req | body | boolean | Indicates whether whether the payee group will be displayed. <br> True - Payee group will be displayed. This is the default. <br> False - Payee group will not be displayed. |
+| name | Req | body | string | Unique name for the payee group. Length: 1-32 <br> Pattern: ^\[\x20-\x5A\x5C\x5F-\x7E\]+$ |
+| payeeGroupInfo | Opt | body | Array of [PayeeGroupPayeeItem](#payeegrouppayeeitem) | A list of payees to assign to the group. Any payees to be added to or retained in the group should be provided in this array. <br> Note that the following actions will remove **all** payees from a group: <br> - Submitting an empty array <br> - Submitting an array specifying “null” <br> - Not submitting an array. <br> Any payees found to be invalid will not be added to the group. A warning will be returned in this case. | 
 
 ### Response
 
@@ -4128,76 +3091,17 @@ Examples:
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>name</td>
-<td>Req</td>
-<td>query</td>
-<td>string</td>
-<td><p>Length: 3–32</p>
-<p>The name of the merchant name to be found. The search characters
-entered shall be those contained within the merchant name (not a “starts
-with” search).</p></td>
-</tr>
-<tr class="even">
-<td>returnLocalMerchants</td>
-<td>Opt</td>
-<td>query</td>
-<td>boolean</td>
-<td><p>Indicates whether to return merchants that are relevant to the
-consumer’s ZIP Code.</p>
-<p>True – If there is no match, return local merchants in the response.
-If there is a match or partial match, return those matches only. Default
-is true.</p>
-<p>False – If no matches are found, do not return any local
-merchants.</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| name | Req | query | string | Length: 3–32 <br> The name of the merchant name to be found. The search characters entered shall be those contained within the merchant name (not a “starts with” search). |
+| returnLocalMerchants | Opt | query | boolean | Indicates whether to return merchants that are relevant to the consumer’s ZIP Code. <br> True – If there is no match, return local merchants in the response. If there is a match or partial match, return those matches only. Default is true. <br> False – If no matches are found, do not return any local merchants. | 
 
 ### Response
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>data</td>
-<td>Req</td>
-<td>Array of <a href="#merchant">Merchant</a></td>
-<td><p>List of merchants found based on the provided name search
-criteria and the returnLocalMerchants flag. Merchants matched are
-returned in the following order:<br />
-1. Exact matches<br />
-2. Merchants containing the search criteria</p>
-<p>If no matches are found based upon the entered search criteria,
-merchants relevant to the consumer’s ZIP Code will be returned if the
-returnLocalMerchants flag is true.</p></td>
-</tr>
-<tr class="even">
-<td>result</td>
-<td>Req</td>
-<td><a href="#resulttype">ResultType</a></td>
-<td>Result information.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| data | Req | Array of [Merchant](#merchant) | List of merchants found based on the provided name search criteria and the returnLocalMerchants flag. Merchants matched are returned in the following order: <br> 1. Exact matches <br> 2. Merchants containing the search criteria <br> If no matches are found based upon the entered search criteria, merchants relevant to the consumer’s ZIP Code will be returned if the returnLocalMerchants flag is true. |
+| result | Req | [ResultType](#resulttype) | Result information. |
 
 ### Sample API Usage
 
@@ -4668,119 +3572,16 @@ set up new bill payment reminders for other payees.
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>alertAtLeadTimeBeforePaymentDueDate</td>
-<td>Req</td>
-<td>body</td>
-<td>boolean</td>
-<td><p>Indicates if the consumer is reminded at lead time (see leadTime)
-before a payment is due.</p>
-<p>Valid values:</p>
-<p>true – Remind the consumer at lead time before a payment is due.</p>
-<p>false – Do not remind the consumer at lead time before a payment is
-due.</p></td>
-</tr>
-<tr class="even">
-<td>alertIfNoBillPaymentMadeByDueDate</td>
-<td>Req</td>
-<td>body</td>
-<td>boolean</td>
-<td><p>Indicates if the consumer is reminded if no payment has been made
-by the due date.</p>
-<p>Valid values:</p>
-<p>true – Remind the consumer that a payment is due.</p>
-<p>false – Do not remind the consumer that a payment is due.</p></td>
-</tr>
-<tr class="odd">
-<td>alertWhenBillPaymentProcesses</td>
-<td>Req</td>
-<td>body</td>
-<td>boolean</td>
-<td><p>Indicates if the consumer is notified when a payment is
-processed.</p>
-<p>Valid values:</p>
-<p>true – Notify the consumer when a payment has been marked as
-processed.</p>
-<p>false – Do not notify the consumer when a payment has been marked as
-processed.</p></td>
-</tr>
-<tr class="even">
-<td>amount</td>
-<td>Req</td>
-<td>body</td>
-<td>number</td>
-<td><p>The payment amount associated with this reminder.</p>
-<p>Pattern: ^\d+(\.\d{1,2})?$</p></td>
-</tr>
-<tr class="odd">
-<td>firstReminderDate</td>
-<td>Req</td>
-<td>body</td>
-<td>string</td>
-<td>Date for the first bill payment reminder in yyyy-MM-dd format. The
-first date of a reminder should be greater than today plus the number of
-lead days requested.</td>
-</tr>
-<tr class="even">
-<td>frequency</td>
-<td>Req</td>
-<td>body</td>
-<td>string</td>
-<td><p>The frequency of how often the reminder is automatically created.
-Valid values:</p>
-<p>Weekly (should not be used in combination with leadTime of 10, 14,
-21, or 28 days)<br />
-Every2Weeks (should not be used in combination with leadTime of 14, 21,
-or 28 days)<br />
-TwiceAMonth (should not be used in combination with leadTime of 21 or 28
-days)<br />
-Every4Weeks<br />
-Monthly<br />
-Every2Months<br />
-Every3Months<br />
-Every4Months<br />
-Every6Months<br />
-Annually</p></td>
-</tr>
-<tr class="odd">
-<td>leadTime</td>
-<td>Req</td>
-<td>body</td>
-<td>string</td>
-<td><p>Number of days (excluding any risk management calculations)
-before the due date that the reminder will be created. Valid values:</p>
-<p>Lead03Days<br />
-Lead05Days<br />
-Lead10Days (should not be used in combination with frequency
-Weekly)<br />
-Lead14Days (should not be used in combination with frequency Weekly or
-Every2Weeks)<br />
-Lead21Days (should not be used in combination with frequency Weekly,
-Every2Weeks, or TwiceAMonth)<br />
-Lead28Days (should not be used in combination with frequency Weekly,
-Every2Weeks, or TwiceAMonth)</p></td>
-</tr>
-<tr class="even">
-<td>payeeUri</td>
-<td>Req</td>
-<td>body</td>
-<td>string</td>
-<td>URI for the payee. This matches the payee URI returned in GET
-Payees.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| alertAtLeadTimeBeforePaymentDueDate | Req | body | boolean | Indicates if the consumer is reminded at lead time (see leadTime) before a payment is due.<br> Valid values: <br> true – Remind the consumer at lead time before a payment is due. <br> false – Do not remind the consumer at lead time before a payment is due. | 
+| alertIfNoBillPaymentMadeByDueDate | Req | body | boolean | Indicates if the consumer is reminded if no payment has been made by the due date. <br> Valid values: <br> true – Remind the consumer that a payment is due. <br> false – Do not remind the consumer that a payment is due. |
+| alertWhenBillPaymentProcesses | Req | body | boolean | Indicates if the consumer is notified when a payment is processed. <br> Valid values: <br> true – Notify the consumer when a payment has been marked as processed. <br> false – Do not notify the consumer when a payment has been marked as processed. |
+| amount | Req | body | number | The payment amount associated with this reminder. <br> Pattern: ^\\d+(\\.\\d{1,2})?$ |
+| firstReminderDate | Req | body | string | Date for the first bill payment reminder in yyyy-MM-dd format. The first date of a reminder should be greater than today plus the number of lead days requested. |
+| frequency | Req | body | string | The frequency of how often the reminder is automatically created. Valid values: <br> Weekly (should not be used in combination with leadTime of 10, 14, 21, or 28 days) <br> Every2Weeks (should not be used in combination with leadTime of 14, 21, or 28 days) <br> TwiceAMonth (should not be used in combination with leadTime of 21 or 28 days) <br> Every4Weeks <br> Monthly <br> Every2Months <br> Every3Months <br> Every4Months <br> Every6Months <br> Annually | 
+| leadTime | Req | body | string | Number of days (excluding any risk management calculations) before the due date that the reminder will be created. Valid values: <br> Lead03Days <br> Lead05Days <br> Lead10Days (should not be used in combination with frequency Weekly) <br> Lead14Days (should not be used in combination with frequency Weekly or Every2Weeks) <br> Lead21Days (should not be used in combination with frequency Weekly, Every2Weeks, or TwiceAMonth) <br> Lead28Days (should not be used in combination with frequency Weekly, Every2Weeks, or TwiceAMonth) |
+| payeeUri | Req | body | string | URI for the payee. This matches the payee URI returned in GET Payees. |
 
 ### Response
 
@@ -4849,118 +3650,16 @@ modify an existing payment reminder
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>id</td>
-<td>Req</td>
-<td>path</td>
-<td>string</td>
-<td>Identifier for the reminder model.</td>
-</tr>
-<tr class="even">
-<td>alertAtLeadTimeBeforePaymentDueDate</td>
-<td>Opt</td>
-<td>body</td>
-<td>boolean</td>
-<td><p>Indicates if the user is reminded at lead time (see LeadTime)
-before a payment is due.</p>
-<p>Valid values:</p>
-<p>true – Remind the user at lead time before a payment is due.</p>
-<p>false – Do not remind the user at lead time before a payment is
-due.</p></td>
-</tr>
-<tr class="odd">
-<td>alertIfNoBillPaymentMadeByDueDate</td>
-<td>Opt</td>
-<td>body</td>
-<td>boolean</td>
-<td><p>Indicates if the user is reminded if no payment has been made by
-the due date.</p>
-<p>Valid values:</p>
-<p>true – Remind the user that a payment is due.</p>
-<p>false – Do not remind the user that a payment is due.</p></td>
-</tr>
-<tr class="even">
-<td>alertWhenBillPaymentProcesses</td>
-<td>Opt</td>
-<td>body</td>
-<td>boolean</td>
-<td><p>Indicates if the user is notified when a payment is
-processed.</p>
-<p>Valid values:</p>
-<p>true – Notify the user when a payment has been marked as
-processed.</p>
-<p>false – Do not notify the user when a payment has been marked as
-processed.</p></td>
-</tr>
-<tr class="odd">
-<td>amount</td>
-<td>Opt</td>
-<td>body</td>
-<td>number</td>
-<td><p>The payment amount associated with this reminder.</p>
-<p>Pattern: ^\d+(\.\d{1,2})?$</p></td>
-</tr>
-<tr class="even">
-<td>firstReminderDate</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td>First date for the bill payment reminder in yyyy-MM-dd format. The
-first date of a reminder should be greater than today plus the number of
-lead days requested.</td>
-</tr>
-<tr class="odd">
-<td>frequency</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>The frequency of how often the reminder is automatically created.
-Valid values:</p>
-<p>Weekly (should not be used in combination with leadTime of 10, 14,
-21, or 28 days)<br />
-Every2Weeks (should not be used in combination with leadTime of 14, 21,
-or 28 days)<br />
-TwiceAMonth (should not be used in combination with leadTime of 21 or 28
-days)<br />
-Every4Weeks<br />
-Monthly<br />
-Every2Months<br />
-Every3Months<br />
-Every4Months<br />
-Every6Months<br />
-Annually</p></td>
-</tr>
-<tr class="even">
-<td>leadTime</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>Number of days (excluding any risk management calculations)
-before the due date that the reminder will be created. Valid values:</p>
-<p>Lead03Days<br />
-Lead05Days<br />
-Lead10Days (should not be used in combination with frequency
-Weekly)<br />
-Lead14Days (should not be used in combination with frequency Weekly or
-Every2Weeks)<br />
-Lead21Days (should not be used in combination with frequency Weekly,
-Every2Weeks, or TwiceAMonth)<br />
-Lead28Days (should not be used in combination with frequency Weekly,
-Every2Weeks, or TwiceAMonth)</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description | 
+|-----------|-----|------------|-----------|-------------|
+| id | Req | path | string | Identifier for the reminder model. |
+| alertAtLeadTimeBeforePaymentDueDate | Opt | body | boolean | Indicates if the user is reminded at lead time (see LeadTime) before a payment is due. <br> Valid values: <br> true – Remind the user at lead time before a payment is due. <br> false – Do not remind the user at lead time before a payment is due. |
+| alertIfNoBillPaymentMadeByDueDate | Opt | body | boolean | Indicates if the user is reminded if no payment has been made by the due date. <br> Valid values: <br> true – Remind the user that a payment is due. <br> false – Do not remind the user that a payment is due. |
+| alertWhenBillPaymentProcesses | Opt | body | boolean | Indicates if the user is notified when a payment is processed. <br> Valid values: <br> true – Notify the user when a payment has been marked as processed. <br> false – Do not notify the user when a payment has been marked as processed. |
+| amount | Opt | body | number | The payment amount associated with this reminder. <br> Pattern: ^\\d+(\\.\\d{1,2})?$ |
+| firstReminderDate | Opt | body | string | First date for the bill payment reminder in yyyy-MM-dd format. The first date of a reminder should be greater than today plus the number of lead days requested. |
+| frequency | Opt | body | string | The frequency of how often the reminder is automatically created. Valid values: <br> Weekly (should not be used in combination with leadTime of 10, 14, 21, or 28 days) <br> Every2Weeks (should not be used in combination with leadTime of 14, 21, or 28 days) <br> TwiceAMonth (should not be used in combination with leadTime of 21 or 28 days) <br> Every4Weeks <br> Monthly <br> Every2Months <br> Every3Months <br> Every4Months <br> Every6Months <br> Annually |
+| leadTime | Opt | body | string | Number of days (excluding any risk management calculations) before the due date that the reminder will be created. Valid values: <br> Lead03Days <br> Lead05Days <br> Lead10Days (should not be used in combination with frequency Weekly) <br> Lead14Days (should not be used in combination with frequency Weekly or Every2Weeks) <br> Lead21Days (should not be used in combination with frequency Weekly, Every2Weeks, or TwiceAMonth) <br> Lead28Days (should not be used in combination with frequency Weekly, Every2Weeks, or TwiceAMonth) |
 
 ### Response
 
@@ -5232,46 +3931,11 @@ future bills for a consumer are returned. If a calling application requires
 bills more than 45 days old to be displayed to their users, call this API 
 with the parameters numberOfDays and startingDate.
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>id</td>
-<td>Opt</td>
-<td>path</td>
-<td>string</td>
-<td>Identifier for the bill.</td>
-</tr>
-<tr class="even">
-<td>numberOfDays</td>
-<td>Opt</td>
-<td>query</td>
-<td>string</td>
-<td>Number of days from the StartingDate that the list of bills returned
-will encompass. If numberOfDays and startingDate are not supplied, bills 
-from the last 45 days and future bills for a consumer are returned.</td>
-</tr>
-<tr class="odd">
-<td>startingDate</td>
-<td>Opt</td>
-<td>query</td>
-<td>string</td>
-<td><p>Date that is the starting point for the list of bills to be
-returned.<br />
-Must contain a valid date in the format yyyy-MM-dd</p>
-<p>If numberOfDays and startingDate are not supplied, bills from the 
-last 45 days and future bills for a consumer are returned.</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| id | Opt | path | string | Identifier for the bill. |
+| numberOfDays | Opt | query | string | Number of days from the StartingDate that the list of bills returned will encompass. If numberOfDays and startingDate are not supplied, bills from the last 45 days and future bills for a consumer are returned. |
+| startingDate | Opt | query | string | Date that is the starting point for the list of bills to be returned. <br> Must contain a valid date in the format yyyy-MM-dd <br> If numberOfDays and startingDate are not supplied, bills from the last 45 days and future bills for a consumer are returned. |
 
 ### Response
 
