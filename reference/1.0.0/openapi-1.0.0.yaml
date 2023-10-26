@@ -5,6 +5,42 @@ info:
   x-logo:
     url: /fiserv_logo_resize.png
 paths:
+  /api/v1/financialInstitutionRG:
+    get:
+      tags:
+        - BankAccountsRG
+      x-group-name: BankAccounts
+      x-proxy-name: Get Financial Institution
+      x-child-product-name: BankAccounts
+      summary: Get Financial Institution Name when the routing number is sent. Rekha G
+      operationId: GetFinancialInstitutionName
+      parameters:
+        - name: routingTransitNumber
+          in: query
+          required: true
+          schema:
+            pattern: '^[0-9]{9}$'
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FinancialInstitutionModelIpsResponse'
+              example:
+                data:
+                  financialInstitutionName: First Nation Wide Bank
+                result:
+                  success: true
+        '400':
+          description: Bad Request Rekha
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultTypeIpsResponse'
+        '404':
+          description: Not Found    
   /api/v1/me/automaticTransactions:
     get:
       tags:
