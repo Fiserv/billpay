@@ -3991,38 +3991,10 @@ bill.
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>id</td>
-<td>Req</td>
-<td>path</td>
-<td>string</td>
-<td>Identifier for the bill.</td>
-</tr>
-<tr class="even">
-<td>redirect</td>
-<td>Opt</td>
-<td>query</td>
-<td>boolean</td>
-<td><p>Indicates if the bill detail URL should be returned in a redirect
-URL.</p>
-<p>True – Return HTTP response 307 (Temporary Redirect), which contains
-the bill detail URL in the Location header. This is the default if not
-provided in the request.</p>
-<p>False – Return the bill detail URL in the response body.</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| id | Req | path | string | Identifier for the bill. |
+| redirect | Opt | query | boolean | Indicates if the bill detail URL should be returned in a redirect URL. <br> True – Return HTTP response 307 (Temporary Redirect), which contains the bill detail URL in the Location header. This is the default if not provided in the request. <br> False – Return the bill detail URL in the response body. |
 
 ### Response
 
@@ -4080,53 +4052,11 @@ The Bills Patch API allows a consumer to file a bill.
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>id</td>
-<td>Req</td>
-<td>path</td>
-<td>string</td>
-<td>Identifier for the bill.</td>
-</tr>
-<tr class="even">
-<td>note</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td>Optional note entered by the consumer with information about the
-bill and its resolution. Length: 1-80</td>
-</tr>
-<tr class="odd">
-<td>reason</td>
-<td>Req</td>
-<td>body</td>
-<td>string</td>
-<td><p>Indicates the method of the bill’s resolution. Valid values:</p>
-<p>NoneSpecified<br />
-Bank<br />
-Check<br />
-Cash<br />
-NotPaid<br />
-Other<br />
-BillerWebSite<br />
-Phone<br />
-Mail<br />
-Office<br />
-ZeroBalanceBill<br />
-ContestedBill</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| id | Req | path | string | Identifier for the bill. |
+| note | Opt | body | string | Optional note entered by the consumer with information about the bill and its resolution. Length: 1-80 |
+| reason | Req | body | string | Indicates the method of the bill’s resolution. Valid values: <br> NoneSpecified <br> Bank <br> Check <br> Cash <br> NotPaid <br> Other <br> BillerWebSite <br> Phone <br> Mail <br> Office <br> ZeroBalanceBill <br> ContestedBill |
 
 ### Response
 
@@ -4206,34 +4136,10 @@ activate e-bill service as part of that flow.
 
 ### Response
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>data</td>
-<td>Req</td>
-<td><a href="#ebillcapability">EbillCapability</a></td>
-<td>Information required for e-bill activation. Empty if there is no
-data to return.</td>
-</tr>
-<tr class="even">
-<td>result</td>
-<td>Cond</td>
-<td><a href="#resulttype">ResultType</a></td>
-<td>Result information.<br />
-Condition: Only returned when the request fails. No result content
-returned for success (HTTP status code 200). (Known issue: result is
-currently being returned in response for success.)</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| data | Req | [EbillCapability](#ebillcapability) | Information required for e-bill activation. Empty if there is no data to return. |
+| result | Cond | [ResultType](#resulttype) | Result information. <br> Condition: Only returned when the request fails. No result content returned for success (HTTP status code 200). (Known issue: result is currently being returned in response for success.) |
 
 ### Sample API Usage
 
@@ -4433,33 +4339,10 @@ Examples:
 
 ### Response
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>data</td>
-<td>Req</td>
-<td><a href="#ebillaccountdetail">EbillAccountDetail</a></td>
-<td>E-bill service information.</td>
-</tr>
-<tr class="even">
-<td>result</td>
-<td>Cond</td>
-<td><a href="#resulttype">ResultType</a></td>
-<td>Result information.<br />
-Condition: Only returned when the request fails. No result content
-returned for success. (Known issue: result is currently being returned
-in response for success.)</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| data | Req | [EbillAccountDetail](#ebillaccountdetail) | E-bill service information. |
+| result | Cond | [ResultType](#resulttype) | Result information. <br> Condition: Only returned when the request fails. No result content returned for success. (Known issue: result is currently being returned in response for success.) |
 
 ### Sample API Usage
 
@@ -4531,26 +4414,9 @@ activation.
 
 ### Response
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>result</td>
-<td>Cond</td>
-<td><a href="#resulttype">ResultType</a></td>
-<td>Result information.<br />
-Condition: Only returned when the request fails. No content returned for
-success (HTTP status code 204).</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| result | Cond | [ResultType](#resulttype) | Result information. <br> Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
 
 ### Sample API Usage
 
@@ -4661,27 +4527,9 @@ given routing number.
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>routingTransitNumber</td>
-<td>Req</td>
-<td>query</td>
-<td>string</td>
-<td><p>Routing and transit number for a bank account. Length: 9</p>
-<p>Pattern: ^[0-9]{9}$</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| routingTransitNumber | Req | query | string | Routing and transit number for a bank account. Length: 9 <br> Pattern: ^[0-9]{9}$ |
 
 ### Response
 
@@ -4730,46 +4578,11 @@ consumer must be provided in the BankAccounts Get request.
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>userId</td>
-<td>Req</td>
-<td>path</td>
-<td>string</td>
-<td>Identifier for the managed user.</td>
-</tr>
-<tr class="even">
-<td>returnInactiveBankAccounts</td>
-<td>Opt</td>
-<td>query</td>
-<td>boolean</td>
-<td><p>Indicates whether to return inactive bank accounts in the
-response.</p>
-<p>True – Return inactive bank accounts</p>
-<p>False – Do not return inactive bank accounts. This is the
-default.</p></td>
-</tr>
-<tr class="odd">
-<td>idType</td>
-<td>Opt</td>
-<td>query</td>
-<td>string</td>
-<td>Identifies the user ID type. Valid values: SubscriberId,
-ExternalSubscriberId, CheckFreeNextUserId<br />
-CheckFreeNextUserId is the default.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| userId | Req | path | string | Identifier for the managed user. |
+| returnInactiveBankAccounts | Opt | query | boolean | Indicates whether to return inactive bank accounts in the response. <br> True – Return inactive bank accounts <br> False – Do not return inactive bank accounts. This is the default. |
+| idType | Opt | query | string | Identifies the user ID type. Valid values: SubscriberId, ExternalSubscriberId, CheckFreeNextUserId <br> CheckFreeNextUserId is the default. |
 
 ### Response
 
@@ -4841,30 +4654,9 @@ one of the bank accounts for funding a payment.
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>returnInactiveBankAccounts</td>
-<td>Opt</td>
-<td>query</td>
-<td>boolean</td>
-<td><p>Indicates whether to return inactive bank accounts in the
-response.</p>
-<p>True – Return inactive bank accounts</p>
-<p>False – Do not return inactive bank accounts. This is the
-default.</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| returnInactiveBankAccounts | Opt | query | boolean | Indicates whether to return inactive bank accounts in the response. <br> True – Return inactive bank accounts <br> False – Do not return inactive bank accounts. This is the default.|
 
 ### Response
 
@@ -4944,42 +4736,11 @@ consumer must be provided in the BankAccounts Get request.
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>userId</td>
-<td>Req</td>
-<td>path</td>
-<td>string</td>
-<td>Identifier for the managed user.</td>
-</tr>
-<tr class="even">
-<td>bankAccountCommonId</td>
-<td>Req</td>
-<td>path</td>
-<td>string</td>
-<td>Identifier for the bank account.</td>
-</tr>
-<tr class="odd">
-<td>idType</td>
-<td>Opt</td>
-<td>query</td>
-<td>string</td>
-<td>Identifies the user ID type. Valid values: SubscriberId,
-ExternalSubscriberId, CheckFreeNextUserId<br />
-CheckFreeNextUserId is the default.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| userId | Req | path | string | Identifier for the managed user. |
+| bankAccountCommonId | Req | path | string | Identifier for the bank account. |
+| idType | Opt | query | string | Identifies the user ID type. Valid values: SubscriberId, ExternalSubscriberId, CheckFreeNextUserId <br> CheckFreeNextUserId is the default. |
 
 ### Response
 
@@ -5128,158 +4889,23 @@ consumer must be provided in the BankAccounts Post request.
 
 ###  Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>userId</td>
-<td>Req</td>
-<td>path</td>
-<td>string</td>
-<td>Identifier for the managed user.</td>
-</tr>
-<tr class="even">
-<td>idType</td>
-<td>Opt</td>
-<td>query</td>
-<td>string</td>
-<td>Identifies the user ID type. Valid values: SubscriberId,
-ExternalSubscriberId, CheckFreeNextUserId<br />
-CheckFreeNextUserId is the default.</td>
-</tr>
-<tr class="odd">
-<td>routingTransitNumber</td>
-<td>Req</td>
-<td>body</td>
-<td>string</td>
-<td><p>Routing and transit number for the bank account. Length: 9<br />
-Must be numeric</p>
-<p>Pattern: ^[0-9]{9}$</p></td>
-</tr>
-<tr class="even">
-<td>accountNumber</td>
-<td>Req</td>
-<td>body</td>
-<td>string</td>
-<td><p>Consumer’s bank account number. Length: 1–22</p>
-<p>Pattern: ^[a-zA-Z0-9]{1,22}$</p>
-<p>Must contain uppercase characters when alphabetic characters are part
-of the account number.</p></td>
-</tr>
-<tr class="odd">
-<td>accountType</td>
-<td>Req</td>
-<td>body</td>
-<td>string</td>
-<td>The type of bank account. Valid values: "Checking", "Savings",
-"InstallmentLoan", "IndividualRetirement", "CommercialLoan",
-"MoneyMarket", "LineOfCredit", "Brokerage", "SpecialDeposit"</td>
-</tr>
-<tr class="even">
-<td>nickname</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>A description of the bank account used to help identify it in a
-list. Length: 1–30</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p>
-<p>Do not enter any sensitive information such as the account
-number.</p></td>
-</tr>
-<tr class="odd">
-<td>startingCheckNumber</td>
-<td>Opt</td>
-<td>body</td>
-<td>integer</td>
-<td><p>Starting check number for paper drafts. Maximum value: 9999</p>
-<p>Valid values: 1-9999</p></td>
-</tr>
-<tr class="even">
-<td>isPreferred</td>
-<td>Opt</td>
-<td>body</td>
-<td>boolean</td>
-<td>Indicates if the account is the preferred account. The preferred
-account flag indicates the consumer’s preferred choice of bank account
-used to fund bill payment transactions. True if it is a preferred
-account.</td>
-</tr>
-<tr class="odd">
-<td>isBusiness</td>
-<td>Req</td>
-<td>body</td>
-<td>boolean</td>
-<td>Indicates if the account is a business account. True if it is a
-business account.</td>
-</tr>
-<tr class="even">
-<td>isBilling</td>
-<td>Cond</td>
-<td>body</td>
-<td>boolean</td>
-<td><p>Establishes whether this account is the account from which user/subscriber 
-billing fees (if billed by Fiserv) will be debited. When moving the billing 
-identifier from one bank account to another, set the IsBilling flag to “true” on 
-the desired account.</p>
-<p>Valid values: </p>
-<p>true (set this account to be the account from which billing fees are debited)</p>
-<p>false (do not debit billing fees from this account)</p>
-<p>Condition: Required if Fiserv is billing the user on behalf of the Sponsor/Tenant.</p></td>
-</tr>
-<tr class="odd">
-<td>businessName</td>
-<td>Cond</td>
-<td>body</td>
-<td>string</td>
-<td><p>When isBusiness is true, this is the name of the business. Max
-length: 40</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
-</tr>
-<tr class="even">
-<td>primaryAccountOwner</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>Name of the primary owner of this account. If not provided, this
-value defaults to the consumer’s name.</p>
-<p>Length: 1-35</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
-</tr>
-<tr class="odd">
-<td>secondaryAccountOwner</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>Name of the secondary owner of this account, if applicable.</p>
-<p>Length: 1-35</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
-</tr>
-<tr class="even">
-<td>checkPrintAddress</td>
-<td>Opt</td>
-<td>body</td>
-<td><a href="#usaddress">USAddress</a></td>
-<td>The U.S. address printed on the checks. If provided, this is the
-consumer’s address to be printed in the upper left corner of the
-check.</td>
-</tr>
-<tr class="odd">
-<td>bankingOptions</td>
-<td>Opt</td>
-<td>body</td>
-<td><a href="#bankingoptions">BankingOptions</a></td>
-<td>Banking options when banking service is enabled.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| userId | Req | path | string | Identifier for the managed user. |
+| idType | Opt | query | string | Identifies the user ID type. Valid values: SubscriberId, ExternalSubscriberId, CheckFreeNextUserId <br> CheckFreeNextUserId is the default. |
+| routingTransitNumber | Req | body | string | Routing and transit number for the bank account. Length: 9 <br> Must be numeric <br> Pattern: ^[0-9]{9}$ |
+| accountNumber | Req | body | string | Consumer’s bank account number. Length: 1–22 <br> Pattern: ^[a-zA-Z0-9]{1,22}$ <br> Must contain uppercase characters when alphabetic characters are part of the account number. |
+| accountType | Req | body | string | The type of bank account. Valid values: "Checking", "Savings", "InstallmentLoan", "IndividualRetirement", "CommercialLoan", "MoneyMarket", "LineOfCredit", "Brokerage", "SpecialDeposit" |
+| nickname | Opt | body | string | A description of the bank account used to help identify it in a list. Length: 1–30 <br> Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-]\* <br> Do not enter any sensitive information such as the account number. |
+| startingCheckNumber | Opt | body | integer | Starting check number for paper drafts. Maximum value: 9999 <br> Valid values: 1-9999 |
+| isPreferred | Opt | body | boolean | Indicates if the account is the preferred account. The preferred account flag indicates the consumer’s preferred choice of bank account used to fund bill payment transactions. True if it is a preferred account. |
+| isBusiness | Req | body | boolean | Indicates if the account is a business account. True if it is a business account. |
+| isBilling | Cond | body | boolean | Establishes whether this account is the account from which user/subscriber billing fees (if billed by Fiserv) will be debited. When moving the billing identifier from one bank account to another, set the IsBilling flag to “true” on the desired account. <br> Valid values: <br> true (set this account to be the account from which billing fees are debited) <br> false (do not debit billing fees from this account) <br> Condition: Required if Fiserv is billing the user on behalf of the Sponsor/Tenant. |
+| businessName | Cond | body | string | When isBusiness is true, this is the name of the business. Max length: 40 <br> Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-]\* |
+| primaryAccountOwner | Opt | body | string | Name of the primary owner of this account. If not provided, this value defaults to the consumer’s name. <br> Length: 1-35 <br> Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-]\* |
+| secondaryAccountOwner | Opt | body | string | Name of the secondary owner of this account, if applicable. <br> Length: 1-35 <br> Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-]\* |
+| checkPrintAddress | Opt | body | [USAddress](#usaddress) | The U.S. address printed on the checks. If provided, this is the consumer’s address to be printed in the upper left corner of the check. |
+| bankingOptions | Opt | body | [BankingOptions](#bankingoptions) | Banking options when banking service is enabled. |
 
 ### Response
 
@@ -5363,139 +4989,21 @@ consumer must be provided in the BankAccounts Patch request.
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>userId</td>
-<td>Req</td>
-<td>path</td>
-<td>string</td>
-<td>Identifier for the managed user.</td>
-</tr>
-<tr class="even">
-<td>bankAccountCommonId</td>
-<td>Req</td>
-<td>path</td>
-<td>string</td>
-<td>Identifier for the bank account.</td>
-</tr>
-<tr class="odd">
-<td>idType</td>
-<td>Opt</td>
-<td>query</td>
-<td>string</td>
-<td>Identifies the user ID type. Valid values: SubscriberId,
-ExternalSubscriberId, CheckFreeNextUserId<br />
-CheckFreeNextUserId is the default.</td>
-</tr>
-<tr class="even">
-<td>nickname</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>A description of the bank account used to help identify it in a
-list. Length: 1–30</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p>
-<p>Do not enter any sensitive information such as the account
-number.</p></td>
-</tr>
-<tr class="odd">
-<td>startingCheckNumber</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>Starting check number for paper drafts. Length: 1-9</p>
-<p>Pattern: ^[0-9]*</p></td>
-</tr>
-<tr class="even">
-<td>isPreferred</td>
-<td>Opt</td>
-<td>body</td>
-<td>boolean</td>
-<td>Indicates if the account is the preferred account. The preferred
-account flag indicates the consumer’s preferred choice of bank account
-used to fund bill payment transactions. True if it is a preferred
-account.<br />
-Cannot be changed to “false”. By making another account the preferred
-account, isPreferred will become false for this account.</td>
-</tr>
-<tr class="odd">
-<td>isBilling</td>
-<td>Cond</td>
-<td>body</td>
-<td>boolean</td>
-<td><p>Establishes whether this account is the account from which 
-user/subscriber billing fees (if billed by Fiserv) will be debited. When 
-moving the billing identifier from one bank account to another, set the 
-IsBilling flag to “true” on the desired account.</p>
-<p>Valid values:</p>
-<p>true (set this account to be the account from which billing fees are 
-debited)</p>
-<p>false (do not debit billing fees from this account)</p>
-<p>Condition: Required if Fiserv is billing the user on behalf of the 
-Sponsor/Tenant.</p></td> 
-</tr>
-<tr class="even">
-<td>isBusiness</td>
-<td>Opt</td>
-<td>body</td>
-<td>boolean</td>
-<td>Indicates if the account is a business account. True if it is a
-business account.</td>
-</tr>
-<tr class="odd">
-<td>businessName</td>
-<td>Cond</td>
-<td>body</td>
-<td>string</td>
-<td><p>When isBusiness is true, this is the name of the business. Cannot
-have a value when isBusiness is “false”. Max length: 40</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
-</tr>
-<tr class="even">
-<td>primaryAccountOwner</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>Name of the primary owner of this account. Length: 1-35</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
-</tr>
-<tr class="odd">
-<td>secondaryAccountOwner</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>Name of the secondary owner of this account, if applicable.
-Length: 1-35</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
-</tr>
-<tr class="even">
-<td>checkPrintAddress</td>
-<td>Opt</td>
-<td>body</td>
-<td><a href="#usaddress">USAddress</a></td>
-<td>The U.S. address printed on the checks. If provided, this is the
-consumer’s address to be printed in the upper left corner of the
-check.</td>
-</tr>
-<tr class="odd">
-<td>bankingOptions</td>
-<td>Opt</td>
-<td>body</td>
-<td><a href="#bankingoptions">BankingOptions</a></td>
-<td>Banking options when banking service is enabled.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| userId | Req | path | string | Identifier for the managed user. |
+| bankAccountCommonId | Req | path | string | Identifier for the bank account. |
+| idType | Opt | query | string | Identifies the user ID type. Valid values: SubscriberId, ExternalSubscriberId, CheckFreeNextUserId <br> CheckFreeNextUserId is the default. | 
+| nickname | Opt | body | string | A description of the bank account used to help identify it in a list. Length: 1–30 <br> Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-]\* <br>Do not enter any sensitive information such as the account number. |
+| startingCheckNumber | Opt | body | string | Starting check number for paper drafts. Length: 1-9 <br> Pattern: ^[0-9]\* |
+| isPreferred | Opt | body | boolean | Indicates if the account is the preferred account. The preferred account flag indicates the consumer’s preferred choice of bank account used to fund bill payment transactions. True if it is a preferred account. <br> Cannot be changed to “false”. By making another account the preferred account, isPreferred will become false for this account. |
+| isBilling | Cond | body | boolean | Establishes whether this account is the account from which user/subscriber billing fees (if billed by Fiserv) will be debited. When moving the billing identifier from one bank account to another, set the IsBilling flag to “true” on the desired account. <br> Valid values: <br> true (set this account to be the account from which billing fees are debited) <br> false (do not debit billing fees from this account) <br> Condition: Required if Fiserv is billing the user on behalf of the Sponsor/Tenant. | 
+| isBusiness | Opt | body | boolean | Indicates if the account is a business account. True if it is a business account. |
+| businessName | Cond | body | string | When isBusiness is true, this is the name of the business. Cannot have a value when isBusiness is “false”. Max length: 40 <br> Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-]\* |
+| primaryAccountOwner | Opt | body | string | Name of the primary owner of this account. Length: 1-35 <br> Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-]\* <br>
+| secondaryAccountOwner | Opt | body | string | Name of the secondary owner of this account, if applicable. Length: 1-35 <br> Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-]\* |
+| checkPrintAddress | Opt | body | [USAddress](#usaddress) | The U.S. address printed on the checks. If provided, this is the consumer’s address to be printed in the upper left corner of the check. |
+| bankingOptions | Opt | body | [BankingOptions](#bankingoptions) | Banking options when banking service is enabled. |
 
 ### Response
 
@@ -5541,120 +5049,19 @@ updated.
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>bankAccountCommonId</td>
-<td>Req</td>
-<td>path</td>
-<td>string</td>
-<td>Identifier for the bank account.</td>
-</tr>
-<tr class="even">
-<td>nickname</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>A description of the bank account used to help identify it in a
-list. Length: 1–30</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p>
-<p>Do not enter any sensitive information such as the account
-number.</p></td>
-</tr>
-<tr class="odd">
-<td>startingCheckNumber</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>Starting check number for paper drafts. Length: 1-9</p>
-<p>Pattern: ^[0-9]*</p></td>
-</tr>
-<tr class="even">
-<td>isPreferred</td>
-<td>Opt</td>
-<td>body</td>
-<td>boolean</td>
-<td>Indicates if the account is the preferred account. The preferred
-account flag indicates the consumer’s preferred choice of bank account
-used to fund bill payment transactions. True if it is a preferred
-account.<br />
-Cannot be changed to “false”. By making another account the preferred
-account, isPreferred will become false for this account.</td>
-</tr>
-<tr class="odd">
-<td>isBilling</td>
-<td>Cond</td>
-<td>body</td>
-<td>boolean</td>
-<td><p>Establishes whether this account is the account from which 
-user/subscriber billing fees (if billed by Fiserv) will be debited. When 
-moving the billing identifier from one bank account to another, set the 
-IsBilling flag to “true” on the desired account.</p>
-<p>Valid values:</p>
-<p>true (set this account to be the account from which billing fees are debited)</p>
-<p>false (do not debit billing fees from this account)</p>
-<p>Condition: Required if Fiserv is billing the user on behalf of the Sponsor/Tenant.</p></td>
-<tr class="even">
-<td>isBusiness</td>
-<td>Opt</td>
-<td>body</td>
-<td>boolean</td>
-<td>Indicates if the account is a business account. True if it is a
-business account.</td>
-</tr>
-<tr class="odd">
-<td>businessName</td>
-<td>Cond</td>
-<td>body</td>
-<td>string</td>
-<td><p>When isBusiness is true, this is the name of the business. Cannot
-have a value when isBusiness is “false”. Max length: 40</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
-</tr>
-<tr class="even">
-<td>primaryAccountOwner</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>Name of the primary owner of this account. Length: 1-35</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
-</tr>
-<tr class="odd">
-<td>secondaryAccountOwner</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>Name of the secondary owner of this account, if applicable.
-Length: 1-35</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
-</tr>
-<tr class="even">
-<td>checkPrintAddress</td>
-<td>Opt</td>
-<td>body</td>
-<td><a href="#usaddress">USAddress</a></td>
-<td>The U.S. address printed on the checks. If provided, this is the
-consumer’s address to be printed in the upper left corner of the
-check.</td>
-</tr>
-<tr class="odd">
-<td>bankingOptions</td>
-<td>Opt</td>
-<td>body</td>
-<td><a href="#bankingoptions">BankingOptions</a></td>
-<td>Banking options when banking service is enabled.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| bankAccountCommonId | Req | path | string | Identifier for the bank account. |
+| nickname | Opt | body | string | A description of the bank account used to help identify it in a list. Length: 1–30 <br> Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-]\* <br> Do not enter any sensitive information such as the account number. |
+| startingCheckNumber | Opt | body | string | Starting check number for paper drafts. Length: 1-9 <br> Pattern: ^[0-9]\* |
+| isPreferred | Opt | body | boolean | Indicates if the account is the preferred account. The preferred account flag indicates the consumer’s preferred choice of bank account used to fund bill payment transactions. True if it is a preferred account. <br> Cannot be changed to “false”. By making another account the preferred account, isPreferred will become false for this account. |
+| isBilling | Cond | body | boolean | Establishes whether this account is the account from which user/subscriber billing fees (if billed by Fiserv) will be debited. When moving the billing identifier from one bank account to another, set the IsBilling flag to “true” on the desired account. <br> Valid values: <br> true (set this account to be the account from which billing fees are debited) <br> false (do not debit billing fees from this account) <br> Condition: Required if Fiserv is billing the user on behalf of the Sponsor/Tenant. |
+| isBusiness | Opt | body | boolean | Indicates if the account is a business account. True if it is a business account. |
+| businessName | Cond | body | string | When isBusiness is true, this is the name of the business. Cannot have a value when isBusiness is “false”. Max length: 40 <br> Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-]\* |
+| primaryAccountOwner | Opt | body | string | Name of the primary owner of this account. Length: 1-35 <br> Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-]\* |
+| secondaryAccountOwner | Opt | body | string | Name of the secondary owner of this account, if applicable. Length: 1-35 <br> Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-]\* |
+| checkPrintAddress | Opt | body | [USAddress](#usaddress) | The U.S. address printed on the checks. If provided, this is the consumer’s address to be printed in the upper left corner of the check. |
+| bankingOptions | Opt | body | [BankingOptions](#bankingoptions) | Banking options when banking service is enabled. |
 
 ### Response
 
@@ -5707,42 +5114,11 @@ consumer must be provided in the BankAccounts Delete request.
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>userId</td>
-<td>Req</td>
-<td>path</td>
-<td>string</td>
-<td>Identifier for the managed user.</td>
-</tr>
-<tr class="even">
-<td>bankAccountCommonId</td>
-<td>Req</td>
-<td>path</td>
-<td>string</td>
-<td>Identifier for the bank account.</td>
-</tr>
-<tr class="odd">
-<td>idType</td>
-<td>Opt</td>
-<td>query</td>
-<td>string</td>
-<td>Identifies the user ID type. Valid values: SubscriberId,
-ExternalSubscriberId, CheckFreeNextUserId<br />
-CheckFreeNextUserId is the default.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| userId | Req | path | string | Identifier for the managed user. |
+| bankAccountCommonId | Req | path | string | Identifier for the bank account. |
+| idType | Opt | query | string | Identifies the user ID type. Valid values: SubscriberId, ExternalSubscriberId, CheckFreeNextUserId <br> CheckFreeNextUserId is the default. |
 
 ### Response
 
@@ -6006,123 +5382,24 @@ a consumer to enter card account information.
 
 ###  Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>cardNumber</td>
-<td>Req</td>
-<td>body</td>
-<td>string</td>
-<td><p>Consumer card account number. Must be numeric. Length: 15-19</p>
-<p>Pattern: ^[0-9]*</p></td>
-</tr>
-<tr class="even">
-<td>cardType</td>
-<td>Req</td>
-<td>body</td>
-<td>string</td>
-<td>Indicates the type of card. Valid values: AmericanExpress, Discover,
-MasterCard, Visa</td>
-</tr>
-<tr class="odd">
-<td>expirationMonth</td>
-<td>Req</td>
-<td>body</td>
-<td>integer</td>
-<td><p>Month in which the card expires. Length: 2. Value: 01–12</p>
-<p>Pattern: ^([1-9]|1[012])$</p></td>
-</tr>
-<tr class="even">
-<td>expirationYear</td>
-<td>Req</td>
-<td>body</td>
-<td>integer</td>
-<td><p>Year in which the card expires. Length: 4. Format: yyyy</p>
-<p>Pattern: ^[0-9]{4}$</p></td>
-</tr>
-<tr class="odd">
-<td>externalAccountDescription</td>
-<td>Req</td>
-<td>body</td>
-<td>string</td>
-<td>External account description that is free-form text, such as: “Bank
-Name” Visa. Length: 1–32</td>
-</tr>
-<tr class="even">
-<td>nameOnCard</td>
-<td>Req</td>
-<td>body</td>
-<td>string</td>
-<td>Name printed on the card. Length: 1–80</td>
-</tr>
-<tr class="odd">
-<td>nickname</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>A description of the card used to help identify it in a list.
-Length: 1–30</p>
-<p>No validations; free-form text. Do not enter any sensitive
-information such as the account number.</p></td>
-</tr>
-<tr class="even">
-<td>cvv</td>
-<td>Cond</td>
-<td>body</td>
-<td>integer</td>
-<td><p>The CVV number on the card. Must be numeric. Length: 3-4.</p>
-<p>Pattern: ^[0-9]*</p>
-<p>This value is not stored or displayed anywhere.</p>
-<p>Condition: Required for cards added by consumer. (Not required for
-cards added by FI.)</p></td>
-</tr>
-<tr class="odd">
-<td>billingAddress</td>
-<td>Req</td>
-<td>body</td>
-<td><a href="#usaddress">USAddress</a></td>
-<td>The billing address for the card.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| cardNumber | Req | body | string | Consumer card account number. Must be numeric. Length: 15-19 <br> Pattern: ^[0-9]\* |
+| cardType | Req | body | string | Indicates the type of card. Valid values: AmericanExpress, Discover, MasterCard, Visa |
+| expirationMonth | Req | body | integer | Month in which the card expires. Length: 2. Value: 01–12 <br> Pattern: ^([1-9]\|1[012])$ |
+| expirationYear | Req | body | integer | Year in which the card expires. Length: 4. Format: yyyy <br>Pattern: ^[0-9]{4}$ |
+| externalAccountDescription | Req | body | string | External account description that is free-form text, such as: “Bank Name” Visa. Length: 1–32 |
+| nameOnCard | Req | body | string | Name printed on the card. Length: 1–80 | 
+| nickname | Opt | body | string | A description of the card used to help identify it in a list. Length: 1–30 <br> No validations; free-form text. Do not enter any sensitive information such as the account number. |
+| cvv | Cond | body | integer | The CVV number on the card. Must be numeric. Length: 3-4. <br> Pattern: ^[0-9]\* <br> This value is not stored or displayed anywhere. <br> Condition: Required for cards added by consumer. (Not required for cards added by FI.) |
+| billingAddress | Req | body | [USAddress](#usaddress) | The billing address for the card. |
 
 ### Response
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>data</td>
-<td>Cond</td>
-<td><a href="#cardaccountpostresponse">CardAccount<br />
-PostResponse</a></td>
-<td>Response data. Condition: Always returned for successful
-response.</td>
-</tr>
-<tr class="even">
-<td>result</td>
-<td>Req</td>
-<td><a href="#resulttype">ResultType</a></td>
-<td>Result Information.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description | 
+|-----------|-----|-----------|-------------|
+| data | Cond | [CardAccountPostResponse](#cardaccountpostresponse) | Response data. Condition: Always returned for successful response. |
+| result | Req | [ResultType](#resulttype) | Result Information. |
 
 ### Sample API Usage
 
@@ -6183,85 +5460,16 @@ consumer-added cards only, and an FI can update FI-added cards.
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>cardId</td>
-<td>Req</td>
-<td>path</td>
-<td>string</td>
-<td>Identifier for the card account.</td>
-</tr>
-<tr class="even">
-<td>billingAddress</td>
-<td>Opt</td>
-<td>body</td>
-<td><a href="#usaddress">USAddress</a></td>
-<td>The billing address for the card.</td>
-</tr>
-<tr class="odd">
-<td>expirationMonth</td>
-<td>Opt</td>
-<td>body</td>
-<td>integer</td>
-<td><p>Month in which the card expires. Length: 2. Value: 01–12</p>
-<p>Pattern: ^([1-9]|1[012])$</p></td>
-</tr>
-<tr class="even">
-<td>expirationYear</td>
-<td>Opt</td>
-<td>body</td>
-<td>integer</td>
-<td><p>Year in which the card expires. Length: 4. Format: yyyy</p>
-<p>Pattern: ^[0-9]{4}$</p></td>
-</tr>
-<tr class="odd">
-<td>externalAccountDescription</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td>External account description that is free-form text, such as: “Bank
-Name” Visa. Length: 1–32</td>
-</tr>
-<tr class="even">
-<td>nameOnCard</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td>Name printed on the card. Length: 1–80</td>
-</tr>
-<tr class="odd">
-<td>nickname</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td>A description of the card used to help identify it in a list. No
-validations; free-form text. Do not enter any sensitive information such
-as the account number. Length: 1–30</td>
-</tr>
-<tr class="even">
-<td>cvv</td>
-<td>Cond</td>
-<td>body</td>
-<td>integer</td>
-<td><p>The CVV number on the card. Must be numeric. Length: 3-4.</p>
-<p>Pattern: ^[0-9]*</p>
-<p>Condition: For cards added by consumer, required if anything except
-nickname and/or externalAccountDescription is modified. Not used for
-FI-added cards.</p>
-<p>This value is not stored or displayed anywhere.</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| cardId | Req | path | string | Identifier for the card account. |
+| billingAddress | Opt | body | [USAddress](#usaddress) | The billing address for the card. |
+| expirationMonth | Opt | body | integer | Month in which the card expires. Length: 2. Value: 01–12 <br> Pattern: ^([1-9]\|1[012])$ |
+| expirationYear | Opt | body | integer | Year in which the card expires. Length: 4. Format: yyyy <br>Pattern: ^[0-9]{4}$ |
+| externalAccountDescription | Opt | body | string | External account description that is free-form text, such as: “Bank Name” Visa. Length: 1–32 |
+| nameOnCard | Opt | body | string | Name printed on the card. Length: 1–80 |
+| nickname | Opt | body | string | A description of the card used to help identify it in a list. No validations; free-form text. Do not enter any sensitive information such as the account number. Length: 1–30 |
+| cvv | Cond | body | integer | The CVV number on the card. Must be numeric. Length: 3-4. <br> Pattern: ^[0-9]\* <br> Condition: For cards added by consumer, required if anything except nickname and/or externalAccountDescription is modified. Not used for FI-added cards. <br> This value is not stored or displayed anywhere. | 
 
 ### Response
 
@@ -6361,72 +5569,14 @@ upcoming dates for which they can schedule a bill payment transaction.
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>transactionDestinationUri</td>
-<td>Cond</td>
-<td>query</td>
-<td>Array of string</td>
-<td>The destination for a transaction; this is a URI for a payee, bill,
-or ToDo item. Multiple destinations can be provided.<br />
-Condition: Either transactionDestinationUri <strong>or</strong>
-transactionUri must be provided.</td>
-</tr>
-<tr class="even">
-<td>fundingAccountUri</td>
-<td>Opt</td>
-<td>query</td>
-<td>string</td>
-<td>The funding account for the transaction.</td>
-</tr>
-<tr class="odd">
-<td>amount</td>
-<td>Opt</td>
-<td>query</td>
-<td>double</td>
-<td><p>The amount of the transaction.</p>
-<p>If the consumer provides the amount and the supplied funding account
-is a bank account, the amount will be validated against the minimum and
-maximum value of the sponsor bill pay profile limit. An error will be
-thrown if the amount is not within the bounds of the sponsor bill pay
-profile limit.</p></td>
-</tr>
-<tr class="even">
-<td>startDate</td>
-<td>Opt</td>
-<td>query</td>
-<td>string</td>
-<td>The desired start date for the list of dates. Format:
-yyyy-MM-dd</td>
-</tr>
-<tr class="odd">
-<td>endDate</td>
-<td>Opt</td>
-<td>query</td>
-<td>string</td>
-<td>The desired end date for the list of dates. Format: yyyy-MM-dd</td>
-</tr>
-<tr class="even">
-<td>transactionUri</td>
-<td>Cond</td>
-<td>query</td>
-<td>string</td>
-<td>The URI for an existing transaction. Condition: Either
-transactionDestinationUri <strong>or</strong> transactionUri must be
-provided.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| transactionDestinationUri | Cond | query | Array of string | The destination for a transaction; this is a URI for a payee, bill, or ToDo item. Multiple destinations can be provided. <br> Condition: Either transactionDestinationUri <strong>or</strong> transactionUri must be provided. |
+| fundingAccountUri | Opt | query | string | The funding account for the transaction.| 
+| amount | Opt | query | double | The amount of the transaction.<br> If the consumer provides the amount and the supplied funding account is a bank account, the amount will be validated against the minimum and maximum value of the sponsor bill pay profile limit. An error will be thrown if the amount is not within the bounds of the sponsor bill pay profile limit. |
+| startDate | Opt | query | string | The desired start date for the list of dates. Format: yyyy-MM-dd |
+| endDate | Opt | query | string | The desired end date for the list of dates. Format: yyyy-MM-dd |
+| transactionUri | Cond | query | string | The URI for an existing transaction. Condition: Either transactionDestinationUri <strong>or</strong> transactionUri must be provided. |
 
 ### Response
 
@@ -6533,101 +5683,18 @@ transactions and processes them on the requested due date.
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>startDate</td>
-<td>Opt</td>
-<td>query</td>
-<td>string<br />
-&lt;date-time&gt;</td>
-<td>The desired start date for the list of transactions. Format:
-yyyy-MM-dd<br />
-Default is 6 months in the past.</td>
-</tr>
-<tr class="even">
-<td>endDate</td>
-<td>Opt</td>
-<td>query</td>
-<td>string<br />
-&lt;date-time&gt;</td>
-<td>The desired end date for the list of transactions. Format:
-yyyy-MM-dd<br />
-Default is all transactions scheduled in the future.</td>
-</tr>
-<tr class="odd">
-<td>sort</td>
-<td>Opt</td>
-<td>query</td>
-<td>string</td>
-<td><p>Sort the response based on the given input. These are the
-eligible values with which to sort: amount, deliveryDate, payeeName,
-deliveryTrackingNumber, confirmationNumber, debitDate, fee, note, memo,
-deliveryMethod, status, transactionType</p>
-<p>A negative sign (-) before the parameter indicates that the response
-should be sorted in descending order. For example,
-“sort=-amount”</p></td>
-</tr>
-<tr class="even">
-<td>start</td>
-<td>Opt</td>
-<td>query</td>
-<td>integer</td>
-<td>Specifies the starting record to be fetched.</td>
-</tr>
-<tr class="odd">
-<td>limit</td>
-<td>Opt</td>
-<td>query</td>
-<td>integer</td>
-<td>Specifies the number of records to be fetched.</td>
-</tr>
-<tr class="even">
-<td>payeeUri</td>
-<td>Opt</td>
-<td>query</td>
-<td>string</td>
-<td>The URI to the payee that this transaction is associated with.</td>
-</tr>
-<tr class="odd">
-<td>status</td>
-<td>Opt</td>
-<td>query</td>
-<td>string</td>
-<td>The status of the payment transaction. Valid values: Pending, Complete, InProcess, Failed Canceled</td>
-</tr>
-<tr class="even">
-<td>fundingAccountUri</td>
-<td>Opt</td>
-<td>query</td>
-<td>string</td>
-<td>The funding account for the transaction.</td>
-</tr>
-<tr class="odd">
-<td>minAmount</td>
-<td>Opt</td>
-<td>query</td>
-<td>double</td>
-<td>The minimum transaction amount.</td>
-</tr>
-<tr class="even">
-<td>maxAmount</td>
-<td>Opt</td>
-<td>query</td>
-<td>double</td>
-<td>The maximum transaction amount.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| startDate | Opt | query | string <br> &lt;date-time&gt; | The desired start date for the list of transactions. Format: yyyy-MM-dd <br> Default is 6 months in the past. |
+| endDate | Opt | query | string <br> &lt;date-time&gt; | The desired end date for the list of transactions. Format: yyyy-MM-dd <br> Default is all transactions scheduled in the future. |
+| sort | Opt | query | string | Sort the response based on the given input. These are the eligible values with which to sort: amount, deliveryDate, payeeName, deliveryTrackingNumber, confirmationNumber, debitDate, fee, note, memo, deliveryMethod, status, transactionType <br> A negative sign (-) before the parameter indicates that the response should be sorted in descending order. For example, “sort=-amount” |
+| start | Opt | query | integer | Specifies the starting record to be fetched. |
+| limit | Opt | query | integer | Specifies the number of records to be fetched. |
+| payeeUri | Opt | query | string | The URI to the payee that this transaction is associated with. |
+| status | Opt | query | string | The status of the payment transaction. Valid values: Pending, Complete, InProcess, Failed Canceled |
+| fundingAccountUri | Opt | query | string | The funding account for the transaction. |
+| minAmount | Opt | query | double | The minimum transaction amount. |
+| maxAmount | Opt | query | double | The maximum transaction amount. | 
 
 ### Response
 
@@ -6798,42 +5865,10 @@ Examples:
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>allowDuplicateTransaction</td>
-<td>Opt</td>
-<td>query</td>
-<td>boolean</td>
-<td><p>Indicates that duplicate transactions are allowed. </p>
-<p>Valid values:<br />
-true – Allow duplicate transactions<br />
-false – Check for duplicate transactions. This is the default.</p>
-<p>A transaction cannot be a duplicate unless the
-allowDuplicateTransaction flag is true. A duplicate is defined as having
-the same payee, transaction amount, and transaction date.</p>
-<p>This does not apply to SameDay Payments. Duplicate transactions are
-not allowed for SameDay Payments.</p></td>
-</tr>
-<tr class="even">
-<td>transaction</td>
-<td>Req</td>
-<td>body</td>
-<td>Array of <a href="#transaction">Transaction</a></td>
-<td>List of transactions to be scheduled for the consumer. Limited to 30
-or fewer per request.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| allowDuplicateTransaction | Opt | query | boolean | Indicates that duplicate transactions are allowed. <br> Valid values: <br> true – Allow duplicate transactions <br> false – Check for duplicate transactions. This is the default.<br> A transaction cannot be a duplicate unless the allowDuplicateTransaction flag is true. A duplicate is defined as having the same payee, transaction amount, and transaction date. <br> This does not apply to SameDay Payments. Duplicate transactions are not allowed for SameDay Payments. |
+| transaction | Req | body | Array of [Transaction](#transaction) | List of transactions to be scheduled for the consumer. Limited to 30 or fewer per request. |
 
 ### Response
 
@@ -6954,89 +5989,16 @@ To cancel a transaction (does not require Request Body):
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>transactionId</td>
-<td>Req</td>
-<td>path</td>
-<td>string</td>
-<td>Identifier for the transaction.</td>
-</tr>
-<tr class="even">
-<td>amount</td>
-<td>Opt</td>
-<td>body</td>
-<td>double</td>
-<td><p>The amount of the transaction.</p>
-<p>Pattern: ^\d+(\.\d{1,2})?$</p></td>
-</tr>
-<tr class="odd">
-<td>deliveryDate</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td>The date that the payment transaction is to be delivered to its
-destination in yyyy-MM-dd format.</td>
-</tr>
-<tr class="even">
-<td>fundingAccountUri</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td>The funding account URI for the transaction. Account types that are
-eligible to be used are those enabled for Bill Payment (service) for the
-tenant/sponsor.</td>
-</tr>
-<tr class="odd">
-<td>memo</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td>Transaction memo. Maximum of 34 characters. This text will be
-printed on the check sent to the payee for this payment. A payment memo
-is only used for payments that are to be processed via a paper
-check.</td>
-</tr>
-<tr class="even">
-<td>note</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td><p>A consumer’s “note to self.” This note is not submitted to the
-payee. Length: 0–255</p>
-<p>Pattern:
-^[\x2A-\x2E\x30-\x39\x40-\x5A\x5F\x5E\x61-\x7A\x20\x21\x23-\x25]+$</p>
-<p>The note field only allows the following character sets: a-z, A-Z,
-0-9, _ @!+#.$,%^*-</p></td>
-</tr>
-<tr class="odd">
-<td>withdrawNow</td>
-<td>Opt</td>
-<td>body</td>
-<td>boolean</td>
-<td>Reserved for future use.</td>
-</tr>
-<tr class="even">
-<td>cavv</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td>Placeholder for 3-D Secure. Cardholder Authentication Verification
-Value. Used if the transaction is funded by a card account and the
-institution is participating in 3-D Secure.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| transactionId | Req | path | string | Identifier for the transaction. |
+| amount | Opt | body | double | The amount of the transaction. <br> Pattern: ^\\d+(\\.\\d{1,2})?$ |
+| deliveryDate | Opt | body | string | The date that the payment transaction is to be delivered to its destination in yyyy-MM-dd format. | 
+| fundingAccountUri | Opt | body | string | The funding account URI for the transaction. Account types that are eligible to be used are those enabled for Bill Payment (service) for the tenant/sponsor. |
+| memo | Opt | body | string | Transaction memo. Maximum of 34 characters. This text will be printed on the check sent to the payee for this payment. A payment memo is only used for payments that are to be processed via a paper check. |
+| note | Opt | body | string | A consumer’s “note to self.” This note is not submitted to the payee. Length: 0–255 <br> Pattern: ^[\\x2A-\\x2E\\x30-\\x39\\x40-\\x5A\\x5F\\x5E\\x61-\\x7A\\x20\\x21\\x23-\\x25]+\$ <br> The note field only allows the following character sets: a-z, A-Z, 0-9, _ @!+#.$,%^\*- | 
+| withdrawNow | Opt | body | boolean | Reserved for future use. |
+| cavv | Opt | body | string | Placeholder for 3-D Secure. Cardholder Authentication Verification Value. Used if the transaction is funded by a card account and the institution is participating in 3-D Secure. |
 
 ### Response
 
@@ -7126,84 +6088,19 @@ consumer.
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>pageSize</td>
-<td>Opt</td>
-<td>query</td>
-<td>integer</td>
-<td>Specifies the number of items per page.</td>
-</tr>
-<tr class="even">
-<td>pageNumber</td>
-<td>Opt</td>
-<td>query</td>
-<td>integer</td>
-<td>Specifies the page number from which results should be
-returned.</td>
-</tr>
-<tr class="odd">
-<td>returnInactiveAutomatic<br />
-Transactions</td>
-<td>Opt</td>
-<td>query</td>
-<td>boolean</td>
-<td><p>Indicates whether to return inactive automatic transactions in
-the response.</p>
-<p>True – Return inactive automatic transactions</p>
-<p>False – Do not return inactive automatic transactions. This is the
-default.</p></td>
-</tr>
-<tr class="even">
-<td>destinationUri</td>
-<td>Opt</td>
-<td>query</td>
-<td>string</td>
-<td>The destination of the automatic transaction. This is a URI for a payee.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description | 
+|-----------|-----|------------|-----------|-------------|
+| pageSize | Opt | query | integer | Specifies the number of items per page. |
+| pageNumber | Opt | query | integer | Specifies the page number from which results should be returned. | 
+| returnInactiveAutomaticTransactions | Opt | query | boolean | Indicates whether to return inactive automatic transactions in the response. <br> True – Return inactive automatic transactions <br> False – Do not return inactive automatic transactions. This is the default. |
+| destinationUri | Opt | query | string | The destination of the automatic transaction. This is a URI for a payee. | 
 
 ### Response
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>automaticTransactions</td>
-<td>Req</td>
-<td>Array of <a
-href="#automatictransactionoutputdetail">AutomaticTransaction<br />
-OutputDetail</a></td>
-<td>List of found automatic transactions. There is an empty array if
-there is no data to return.</td>
-</tr>
-<tr class="even">
-<td>result</td>
-<td>Cond</td>
-<td><a href="#resulttype">ResultType</a></td>
-<td>Result information. Condition: Only returned when the request fails.
-No content returned for success (HTTP status code 200).</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description | 
+|-----------|-----|-----------|-------------|
+| automaticTransactions | Req | Array of [AutomaticTransactionOutputDetail](#automatictransactionoutputdetail) | List of found automatic transactions. There is an empty array if there is no data to return. | 
+| result | Cond | [ResultType](#resulttype) | Result information. Condition: Only returned when the request fails. No content returned for success (HTTP status code 200). |
 
 ### Sample API Usage
 
@@ -7313,33 +6210,10 @@ plan.
 
 ### Response
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>automaticTransactions</td>
-<td>Req</td>
-<td><a
-href="#automatictransactionoutputdetail">AutomaticTransaction<br />
-OutputDetail</a></td>
-<td>Details for the automatic payment plan.</td>
-</tr>
-<tr class="even">
-<td>result</td>
-<td>Cond</td>
-<td><a href="#resulttype">ResultType</a></td>
-<td>Result information. Condition: Only returned when the request fails.
-No content returned for success (HTTP status code 200).</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description| 
+|-----------|-----|-----------|------------|
+| automaticTransactions | Req | [AutomaticTransactionOutputDetail](#automatictransactionoutputdetail) | Details for the automatic payment plan. | 
+| result | Cond | [ResultType](#resulttype) | Result information. Condition: Only returned when the request fails. No content returned for success (HTTP status code 200). |
 
 ### Sample API Usage
 
@@ -7401,66 +6275,13 @@ consumer specifies the starting date and frequency of payments.
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>fundingAccountUri</td>
-<td>Req</td>
-<td>body</td>
-<td>string</td>
-<td>The source funding account URI for the automatic transaction.</td>
-</tr>
-<tr class="even">
-<td>destinationUri</td>
-<td>Req</td>
-<td>body</td>
-<td>string</td>
-<td>The destination of the automatic transaction. This is a URI for a payee.</td>
-</tr>
-<tr class="odd">
-<td>billTransactionSchedule</td>
-<td>Cond</td>
-<td>body</td>
-<td><a href="#billtransactionschedule">BillTransaction<br />
-Schedule</a></td>
-<td><p>BillTransactionSchedule defines a transaction schedule for an
-e-bill automatic payment.</p>
-<p>Condition: Either billTransactionSchedule or
-recurringTransactionSchedule is required.</p></td>
-</tr>
-<tr class="even">
-<td>recurringTransactionSchedule</td>
-<td>Cond</td>
-<td>body</td>
-<td><a href="#recurringtransactionschedule">RecurringTransaction<br />
-Schedule</a></td>
-<td><p>RecurringTransactionSchedule defines a transaction schedule for a
-payee.</p>
-<p>Condition: Either billTransactionSchedule or
-recurringTransactionSchedule is required.</p></td>
-</tr>
-<tr class="odd">
-<td>cavv</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td>Placeholder for 3-D Secure. Cardholder Authentication Verification
-Value. Used if the transaction is funded by a card account and the
-institution is participating in 3-D Secure.<br />
-Only applies to the first transaction generated from a recurring
-transaction schedule (if the transaction is within 90 days).</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description | 
+|-----------|-----|------------|-----------|-------------|
+| fundingAccountUri | Req | body | string | The source funding account URI for the automatic transaction. |
+| destinationUri | Req | body | string | The destination of the automatic transaction. This is a URI for a payee. |
+| billTransactionSchedule | Cond | body | [BillTransactionSchedule](#billtransactionschedule) | BillTransactionSchedule defines a transaction schedule for an e-bill automatic payment. <br> Condition: Either billTransactionSchedule or recurringTransactionSchedule is required. |
+| recurringTransactionSchedule | Cond | body | [RecurringTransactionSchedule](#recurringtransactionschedule) | RecurringTransactionSchedule defines a transaction schedule for a payee. <br> Condition: Either billTransactionSchedule or recurringTransactionSchedule is required. | 
+| cavv | Opt | body | string | Placeholder for 3-D Secure. Cardholder Authentication Verification Value. Used if the transaction is funded by a card account and the institution is participating in 3-D Secure. <br> Only applies to the first transaction generated from a recurring transaction schedule (if the transaction is within 90 days). | 
 
 ### Response
 
@@ -7529,63 +6350,13 @@ automatic transaction that has already been set up.
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>automaticTransactionId</td>
-<td>Req</td>
-<td>path</td>
-<td>string</td>
-<td>Identifier for the automatic transaction.</td>
-</tr>
-<tr class="even">
-<td>fundingAccountUri</td>
-<td>Opt</td>
-<td>body</td>
-<td>string</td>
-<td>The source funding account URI for the automatic transaction.</td>
-</tr>
-<tr class="odd">
-<td>billTransactionSchedule</td>
-<td>Opt</td>
-<td>body</td>
-<td><a href="#billtransactionschedulepatch">BillTransaction<br />
-SchedulePatch</a></td>
-<td>BillTransactionSchedule defines a transaction schedule for an e-bill
-automatic payment.</td>
-</tr>
-<tr class="even">
-<td>recurringTransactionSchedule</td>
-<td>Opt</td>
-<td>body</td>
-<td><a
-href="#recurringtransactionschedulepatch">RecurringTransaction<br />
-SchedulePatch</a></td>
-<td>RecurringTransactionSchedule defines a transaction schedule for a
-payee.</td>
-</tr>
-<tr class="odd">
-<td><strong>cavv</strong></td>
-<td><strong>Opt</strong></td>
-<td><strong>body</strong></td>
-<td>string</td>
-<td>Placeholder for 3-D Secure. Cardholder Authentication Verification
-Value. Used if the transaction is funded by a card account and the
-institution is participating in 3-D Secure.<br />
-Only applies to the first transaction generated from a recurring
-transaction schedule (if the transaction is within 90 days).</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| automaticTransactionId | Req | path | string | Identifier for the automatic transaction. |
+| fundingAccountUri | Opt | body | string | The source funding account URI for the automatic transaction. |
+| billTransactionSchedule | Opt | body | [BillTransactionSchedulePatch](#billtransactionschedulepatch) | BillTransactionSchedule defines a transaction schedule for an e-bill automatic payment. |
+| recurringTransactionSchedule | Opt | body | [RecurringTransactionSchedulePatch](#recurringtransactionschedulepatch) | RecurringTransactionSchedule defines a transaction schedule for a payee. |
+| cavv | Opt | body | string | Placeholder for 3-D Secure. Cardholder Authentication Verification Value. Used if the transaction is funded by a card account and the institution is participating in 3-D Secure. <br> Only applies to the first transaction generated from a recurring transaction schedule (if the transaction is within 90 days). |
 
 ### Response
 
@@ -7625,38 +6396,10 @@ that has been set up to be canceled.
 
 ### Request
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Param Type</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>automaticTransactionId</td>
-<td>Req</td>
-<td>path</td>
-<td>string</td>
-<td>Identifier for the automatic transaction.</td>
-</tr>
-<tr class="even">
-<td>cancelPendingTransactions</td>
-<td>Opt</td>
-<td>query</td>
-<td>boolean</td>
-<td><p>Indicates if pending transactions should be canceled.</p>
-<p>true – Yes, cancel pending payments.</p>
-<p>false – No, do not cancel pending payments. This is the default.</p>
-<p>The option to cancel pending transactions only applies to automatic
-transactions that have a RecurringTransactionSchedule. This does not
-apply to e-bill automatic payments (BillTransactionSchedule).</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Param Type | Data Type | Description |
+|-----------|-----|------------|-----------|-------------|
+| automaticTransactionId | Req | path | string | Identifier for the automatic transaction. |
+| cancelPendingTransactions | Opt | query | boolean | Indicates if pending transactions should be canceled. <br> true – Yes, cancel pending payments. <br> false – No, do not cancel pending payments. This is the default. <br> The option to cancel pending transactions only applies to automatic transactions that have a RecurringTransactionSchedule. This does not apply to e-bill automatic payments (BillTransactionSchedule). |
 
 ### Response
 
@@ -7708,490 +6451,79 @@ Reserved for future use.
 
 #### AutomaticTransactionOptions
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>billTransactionScheduleActive</td>
-<td>Req</td>
-<td>boolean</td>
-<td>Indicates if a bill transaction schedule is already active (i.e.,
-eBill AutoPay is active) for the payee.</td>
-</tr>
-<tr class="even">
-<td>billTransactionScheduleCapable</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Indicates when a payee is capable of an automatic transaction
-schedule for paying ebills (eBill AutoPay). This is true when:</p>
-<ul>
-<li><p>Payee is active.</p></li>
-<li><p>Payee is e-bill enabled.</p></li>
-<li><p>Biller supports AutoPay.</p></li>
-<li><p>The first e-bill has been received.</p></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td>billTransactionScheduleTypesSupported</td>
-<td>Cond</td>
-<td><a
-href="#billtransactionscheduletypessupported">BillTransactionScheduleTypesSupported</a></td>
-<td><p>Condition: Required when billTransactionScheduleCapable is
-true.</p>
-<p>Lists the allowable payment schedule types for bill transaction
-schedule (eBill Autopay).</p></td>
-</tr>
-<tr class="even">
-<td>recurringTransactionScheduleActive</td>
-<td>Req</td>
-<td>boolean</td>
-<td>Indicates if a recurring transaction schedule (one or more) is
-already set up for the payee.</td>
-</tr>
-<tr class="odd">
-<td>recurringTransactionScheduleCapable</td>
-<td>Req</td>
-<td>boolean</td>
-<td>Indicates when a payee is capable of an automatic transaction
-schedule as a recurring model. This is true when the payee is
-active.</td>
-</tr>
-<tr class="even">
-<td>recurringTransactionScheduleTypesSupported</td>
-<td>Cond</td>
-<td><a
-href="#recurringtransactionscheduletypessupported">RecurringTransactionScheduleTypesSupported</a></td>
-<td><p>Condition: Required when recurringTransactionScheduleCapable is
-true.</p>
-<p>Lists the allowable payment schedule types for a recurring
-transaction schedule.</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| billTransactionScheduleActive | Req | boolean | Indicates if a bill transaction schedule is already active (i.e., eBill AutoPay is active) for the payee. |
+| billTransactionScheduleCapable | Req | boolean | Indicates when a payee is capable of an automatic transaction schedule for paying ebills (eBill AutoPay). This is true when: <br> - Payee is active. <br> - Payee is e-bill enabled. <br> - Biller supports AutoPay. <br> - The first e-bill has been received. | 
+| billTransactionScheduleTypesSupported | Cond | [BillTransactionScheduleTypesSupported](#billtransactionscheduletypessupported) | Condition: Required when billTransactionScheduleCapable is true. <br> Lists the allowable payment schedule types for bill transaction schedule (eBill Autopay). | 
+| recurringTransactionScheduleActive | Req | boolean | Indicates if a recurring transaction schedule (one or more) is already set up for the payee. | 
+| recurringTransactionScheduleCapable | Req | boolean | Indicates when a payee is capable of an automatic transaction schedule as a recurring model. This is true when the payee is active. |
+| recurringTransactionScheduleTypesSupported | Cond | [RecurringTransactionScheduleTypesSupported](#recurringtransactionscheduletypessupported) | Condition: Required when recurringTransactionScheduleCapable is true. <br> Lists the allowable payment schedule types for a recurring transaction schedule. |
 
 #### AutomaticTransactionOutputDetail
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>modifiableFields</td>
-<td>Req</td>
-<td>Array of string</td>
-<td>List of fields that can be changed for the automatic
-transaction.</td>
-</tr>
-<tr class="even">
-<td>id</td>
-<td>Req</td>
-<td>string</td>
-<td>The identifier of this automatic transaction.</td>
-</tr>
-<tr class="odd">
-<td>self</td>
-<td>Req</td>
-<td>string</td>
-<td>Relative URI pointing to the automatic transaction itself.</td>
-</tr>
-<tr class="even">
-<td>status</td>
-<td>Req</td>
-<td>string</td>
-<td><p>The status of the recurring or automatic payment model. Valid
-values:</p>
-<p>Active<br />
-Canceled<br />
-Completed</p>
-<p>Active and Canceled apply to both recurring models and e-bill
-automatic payments.</p>
-<p>Completed applies to recurring models only.</p></td>
-</tr>
-<tr class="odd">
-<td>fundingAccountUri</td>
-<td>Req</td>
-<td>string</td>
-<td>The source funding account URI for the automatic transaction.</td>
-</tr>
-<tr class="even">
-<td>destinationUri</td>
-<td>Req</td>
-<td>string</td>
-<td>The destination of the automatic transaction. This is a URI for a payee.</td>
-</tr>
-<tr class="odd">
-<td>billTransactionSchedule</td>
-<td>Cond</td>
-<td><a href="#billtransactionschedule">BillTransactionSchedule</a></td>
-<td><p>Returned if available.</p>
-<p>BillTransactionSchedule defines a transaction schedule for an e-bill
-automatic payment.</p></td>
-</tr>
-<tr class="even">
-<td>recurringTransactionSchedule</td>
-<td>Cond</td>
-<td><a href="#recurringtransactionschedule">RecurringTransaction<br />
-Schedule</a></td>
-<td><p>Returned if available.</p>
-<p>RecurringTransactionSchedule defines a transaction schedule for a
-payee.</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| modifiableFields | Req | Array of string | List of fields that can be changed for the automatic transaction. | 
+| id | Req | string | The identifier of this automatic transaction. |
+| self | Req | string | Relative URI pointing to the automatic transaction itself. |
+| status | Req | string | The status of the recurring or automatic payment model. Valid values: <br> Active <br> Canceled <br> Completed <br> Active and Canceled apply to both recurring models and e-bill automatic payments. <br> Completed applies to recurring models only. |
+| fundingAccountUri | Req | string | The source funding account URI for the automatic transaction. |
+| destinationUri | Req | string | The destination of the automatic transaction. This is a URI for a payee. |
+| billTransactionSchedule | Cond | [BillTransactionSchedule](#billtransactionschedule) | Returned if available. <br> BillTransactionSchedule defines a transaction schedule for an e-bill automatic payment. |
+| recurringTransactionSchedule | Cond | [RecurringTransactionSchedule](#recurringtransactionschedule) | Returned if available. <br> RecurringTransactionSchedule defines a transaction schedule for a payee. |
 
 #### BankAccount
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>accountType</td>
-<td>Req</td>
-<td>string</td>
-<td>The type of bank account. Valid values: "Checking", "Savings",
-"InstallmentLoan", "IndividualRetirement", "CommercialLoan",
-"MoneyMarket", "LineOfCredit", "Brokerage", "SpecialDeposit"</td>
-</tr>
-<tr class="even">
-<td>maskedAccountNumber</td>
-<td>Req</td>
-<td>string</td>
-<td>The account number in masked form, for presentment in a user
-interface. For example, “***********4656”</td>
-</tr>
-<tr class="odd">
-<td>nickname</td>
-<td>Opt</td>
-<td>string</td>
-<td><p>The nickname for the account, if one exists. Otherwise, returns
-null.</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$, %*-]{1,30}$</p></td>
-</tr>
-<tr class="even">
-<td>accountBalance</td>
-<td>Opt</td>
-<td>double</td>
-<td>The account balance.</td>
-</tr>
-<tr class="odd">
-<td>isPreferred</td>
-<td>Req</td>
-<td>boolean</td>
-<td>Indicates if the account is the preferred account. The preferred
-account flag indicates the consumer’s preferred choice of bank account
-used to fund bill payment transactions.</td>
-</tr>
-<tr class="even">
-<td>unmaskedAccount<br />
-NumberUri</td>
-<td>Req</td>
-<td>string</td>
-<td>Link to the unmasked account number for the account.</td>
-</tr>
-<tr class="odd">
-<td>routingTransitNumber</td>
-<td>Req</td>
-<td>string</td>
-<td><p>Routing and transit number for the consumer's bank account.</p>
-<p>Pattern: ^[0-9]{9}$</p></td>
-</tr>
-<tr class="even">
-<td>isBusiness</td>
-<td>Req</td>
-<td>boolean</td>
-<td>Indicates if this is a business account. True if it is a business
-account.</td>
-</tr>
-<tr class="odd">
-<td>businessName</td>
-<td>Cond</td>
-<td>string</td>
-<td><p>When isBusiness is true, this is the name of the business.</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
-</tr>
-<tr class="even">
-<td>primaryAccountOwner</td>
-<td>Opt</td>
-<td>string</td>
-<td><p>Name of the primary account holder for this account. Used only
-for individual consumers.</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
-</tr>
-<tr class="odd">
-<td>secondaryAccount<br />
-Owner</td>
-<td>Opt</td>
-<td>string</td>
-<td><p>Name of the secondary account holder, if applicable. This field
-allows a consumer to add an additional name on a printed check that
-appears on the line beneath the name in the PrimaryAccountOwner field.
-Used only for individual consumers.</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
-</tr>
-<tr class="even">
-<td>confirmationStatus</td>
-<td>Opt</td>
-<td>string</td>
-<td>Account’s verification/confirmation status. Valid values: Confirmed,
-Failed, Pending, InProgress</td>
-</tr>
-<tr class="odd">
-<td>accountStatus</td>
-<td>Opt</td>
-<td>string</td>
-<td>Account status. Valid values: Active, Inactive, Pending,
-Rejected</td>
-</tr>
-<tr class="even">
-<td>checkPrintAddress</td>
-<td>Opt</td>
-<td><a href="#usaddress">USAddress</a></td>
-<td>The U.S. address printed on the checks. If provided, this is the
-consumer’s address to be printed in the upper left corner of the
-check.</td>
-</tr>
-<tr class="odd">
-<td>bankingOptions</td>
-<td>Opt</td>
-<td><a href="#bankingoptions">BankingOptions</a></td>
-<td>Banking options when banking service is enabled.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| accountType | Req | string | The type of bank account. Valid values: "Checking", "Savings", "InstallmentLoan", "IndividualRetirement", "CommercialLoan", "MoneyMarket", "LineOfCredit", "Brokerage", "SpecialDeposit" |
+| maskedAccountNumber | Req | string | The account number in masked form, for presentment in a user interface. For example, “***********4656” |
+| nickname | Opt | string | The nickname for the account, if one exists. Otherwise, returns null. <br> Pattern: ^[a-zA-Z0-9_(){}&@!+#.'\$, \%\*-]{1,30}$ |
+| accountBalance | Opt | double | The account balance. |
+| isPreferred | Req | boolean | Indicates if the account is the preferred account. The preferred account flag indicates the consumer’s preferred choice of bank account used to fund bill payment transactions. |
+| unmaskedAccountNumberUri | Req | string | Link to the unmasked account number for the account. |
+| routingTransitNumber | Req | string | Routing and transit number for the consumer's bank account. <br> Pattern: ^[0-9]{9}$ |
+| isBusiness | Req | boolean | Indicates if this is a business account. True if it is a business account. |
+| businessName | Cond | string | When isBusiness is true, this is the name of the business. <br> Pattern: ^[a-zA-Z0-9_(){}&@!+#.'$,%^ \*-]\* |
+| primaryAccountOwner | Opt | string | Name of the primary account holder for this account. Used only for individual consumers. <br> Pattern: ^[a-zA-Z0-9_(){}&@!+#.'$,%^ \*-]\* |
+| secondaryAccountOwner | Opt | string | Name of the secondary account holder, if applicable. This field allows a consumer to add an additional name on a printed check that appears on the line beneath the name in the PrimaryAccountOwner field. Used only for individual consumers. <br> Pattern: ^[a-zA-Z0-9_(){}&@!+#.'$,%^ \*-]\* |
+| confirmationStatus | Opt | string | Account’s verification/confirmation status. Valid values: Confirmed, Failed, Pending, InProgress |
+| accountStatus | Opt | string | Account status. Valid values: Active, Inactive, Pending, Rejected |
+| checkPrintAddress | Opt | [USAddress](#usaddress) | The U.S. address printed on the checks. If provided, this is the consumer’s address to be printed in the upper left corner of the check. |
+| bankingOptions | Opt | [BankingOptions](#bankingoptions) | Banking options when banking service is enabled. |
 
 #### BankAccountAddInfo
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>routingTransitNumber</td>
-<td>Req</td>
-<td>string</td>
-<td><p>Routing and transit number for the user’s bank account. Length:
-9</p>
-<p>Pattern: ^[0-9]{9}$</p>
-<p>Must contain a valid number in the format 999999999.</p></td>
-</tr>
-<tr class="even">
-<td>accountType</td>
-<td>Req</td>
-<td>string</td>
-<td>The type of bank account. Valid values: "Checking", "Savings",
-"InstallmentLoan", "IndividualRetirement", "CommercialLoan",
-"MoneyMarket", "LineOfCredit", "Brokerage", "SpecialDeposit"</td>
-</tr>
-<tr class="odd">
-<td>accountNumber</td>
-<td>Req</td>
-<td>string</td>
-<td><p>User’s bank account number. Account number as it appears on the
-MICR line of the user’s paper check. This number is used by the user as
-the bank account number, and it cannot be changed. Length: 1–22</p>
-<p>Pattern: ^[a-zA-Z0-9]{1,22}$</p>
-<p>Must contain at least one character. Must contain uppercase
-characters when alphabetic characters are part of the account
-number.</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| routingTransitNumber | Req | string | Routing and transit number for the user’s bank account. Length: 9 <br> Pattern: ^[0-9]{9}$ <br> Must contain a valid number in the format 999999999. |
+| accountType| Req | string | The type of bank account. Valid values: "Checking", "Savings", "InstallmentLoan", "IndividualRetirement", "CommercialLoan", "MoneyMarket", "LineOfCredit", "Brokerage", "SpecialDeposit" |
+| accountNumber | Req | string | User’s bank account number. Account number as it appears on the MICR line of the user’s paper check. This number is used by the user as the bank account number, and it cannot be changed. Length: 1–22 <br> Pattern: ^[a-zA-Z0-9]{1,22}$ <br> Must contain at least one character. Must contain uppercase characters when alphabetic characters are part of the account number. |
 
 #### BankAccountGetModel
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>self</td>
-<td>Req</td>
-<td>string</td>
-<td>Relative URI pointing to the object itself.</td>
-</tr>
-<tr class="even">
-<td>id</td>
-<td>Req</td>
-<td>string</td>
-<td>Unique identifier of the object.</td>
-</tr>
-<tr class="odd">
-<td>isBilling</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Establishes whether this account is the account from which 
-user/subscriber billing fees (if billed by Fiserv) will be debited.</p>
-<p>Valid values:</p>
-<p>true (this account is set to be the account from which billing fees are 
-debited)</p>
-<p>false (this account is not set to debit billing fees from this account)</p>
-<p>For a Sponsor/Tenant that does NOT have Fiserv bill the user on their 
-behalf, this value will always be returned as false.</p></td>
-</tr>
-<tr class="even">
-<td>modifiableFields</td>
-<td>Req</td>
-<td>Array of string</td>
-<td>List of fields that can be changed for the bank account.</td>
-</tr>
-<tr class="odd">
-<td>accountType</td>
-<td>Req</td>
-<td>string</td>
-<td>The type of bank account. Valid values: "Checking", "Savings",
-"InstallmentLoan", "IndividualRetirement", "CommercialLoan",
-"MoneyMarket", "LineOfCredit", "Brokerage", "SpecialDeposit"</td>
-</tr>
-<tr class="even">
-<td>maskedAccountNumber</td>
-<td>Req</td>
-<td>string</td>
-<td>The account number in masked form, for presentment in a user
-interface. For example, “***********4656”</td>
-</tr>
-<tr class="odd">
-<td>nickname</td>
-<td>Opt</td>
-<td>string</td>
-<td><p>The nickname for the account, if one exists. Otherwise, returns
-null.</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$, %*-]{1,30}$</p></td>
-</tr>
-<tr class="even">
-<td>accountBalance</td>
-<td>Opt</td>
-<td>double</td>
-<td>The account balance. Reserved for future use.</td>
-</tr>
-<tr class="odd">
-<td>isPreferred</td>
-<td>Req</td>
-<td>boolean</td>
-<td>Indicates if the account is the preferred account. The preferred
-account flag indicates the consumer’s preferred choice of bank account
-used to fund bill payment transactions.</td>
-</tr>
-<tr class="even">
-<td>unmaskedAccount<br />
-NumberUri</td>
-<td>Req</td>
-<td>string</td>
-<td>Link to the unmasked account number for the account. See “<a
-href="#get-an-unmasked-bank-account-number">Get an Unmasked Bank Account
-Number.</a>”</td>
-</tr>
-<tr class="odd">
-<td>routingTransitNumber</td>
-<td>Req</td>
-<td>string</td>
-<td><p>Routing and transit number for the bank account. Length: 9</p>
-<p>Pattern: ^[0-9]{9}$</p></td>
-</tr>
-<tr class="even">
-<td>isBusiness</td>
-<td>Req</td>
-<td>boolean</td>
-<td>Indicates if the account is a business account. True if it is a
-business account.</td>
-</tr>
-<tr class="odd">
-<td>businessName</td>
-<td>Cond</td>
-<td>string</td>
-<td><p>When isBusiness is true, this is the name of the business.</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
-</tr>
-<tr class="even">
-<td>primaryAccountOwner</td>
-<td>Opt</td>
-<td>string</td>
-<td><p>Name of the primary owner of this account.</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
-</tr>
-<tr class="odd">
-<td>secondaryAccount<br />
-Owner</td>
-<td>Opt</td>
-<td>string</td>
-<td><p>Name of the secondary owner of this account, if applicable.</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
-</tr>
-<tr class="even">
-<td>confirmationStatus</td>
-<td>Req</td>
-<td>string</td>
-<td>Account’s verification/confirmation status. Valid values: Confirmed,
-Failed, Pending, InProgress</td>
-</tr>
-<tr class="odd">
-<td>accountStatus</td>
-<td>Req</td>
-<td>string</td>
-<td><p>Account status. Valid values: Active, Inactive, Pending,
-Rejected, Historical</p>
-<p>Active – Account verification was successful and account is active</p>
-<p>Inactive – Account was deleted</p>
-<p>Pending – Account verification has not been completed</p>
-<p>Rejected – Account verification was completed and failed</p>
-<p>Historical – This status is returned when “returnInactiveBankAccounts” 
-is set to true in the request for a list of bank accounts and either:</p>
-<ul><li>The consumer’s transaction history has been migrated from one 
-sponsor to another sponsor. Only the transaction history is migrated, not 
-the old bank account. However, calling apps are still able to show the 
-bank account information associated with the transaction history.</li></ul>
-<p>or</p>
-<ul><li>The sponsor supports extended transaction history and this bank 
-account is associated with extended transaction history records.</li></ul>
-</td>
-</tr>
-<tr class="even">
-<td>checkPrintAddress</td>
-<td>Opt</td>
-<td><a href="#usaddress">USAddress</a></td>
-<td>The U.S. address printed on the checks. If provided, this is the
-consumer’s address to be printed in the upper left corner of the
-check.</td>
-</tr>
-<tr class="odd">
-<td>bankingOptions</td>
-<td>Opt</td>
-<td><a href="#bankingoptions">BankingOptions</a></td>
-<td>Banking options when banking service is enabled.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description| 
+|-----------|-----|-----------|------------|
+| self | Req | string | Relative URI pointing to the object itself. | 
+| id | Req | string | Unique identifier of the object. |
+| isBilling | Req | boolean | Establishes whether this account is the account from which user/subscriber billing fees (if billed by Fiserv) will be debited. <br> Valid values: <br> true (this account is set to be the account from which billing fees are debited) <br> false (this account is not set to debit billing fees from this account) <br> For a Sponsor/Tenant that does NOT have Fiserv bill the user on their behalf, this value will always be returned as false. |
+| modifiableFields | Req | Array of string | List of fields that can be changed for the bank account. |
+| accountType | Req | string | The type of bank account. Valid values: "Checking", "Savings", "InstallmentLoan", "IndividualRetirement", "CommercialLoan", "MoneyMarket", "LineOfCredit", "Brokerage", "SpecialDeposit" |
+| maskedAccountNumber | Req | string | The account number in masked form, for presentment in a user interface. For example, “***********4656” |
+| nickname | Opt | string | The nickname for the account, if one exists. Otherwise, returns null. <br> Pattern: ^[a-zA-Z0-9_(){}&@!+#.'\$, \%\*-]{1,30}$ |
+| accountBalance | Opt | double | The account balance. Reserved for future use. |
+| isPreferred | Req | boolean | Indicates if the account is the preferred account. The preferred account flag indicates the consumer’s preferred choice of bank account used to fund bill payment transactions. |
+| unmaskedAccountNumberUri | Req | string | Link to the unmasked account number for the account. See “[Get an Unmasked Bank Account Number]("#get-an-unmasked-bank-account-number").” |
+| routingTransitNumber | Req | string | Routing and transit number for the bank account. Length: 9 <br> Pattern: ^[0-9]{9}$ |
+| isBusiness | Req | boolean | Indicates if the account is a business account. True if it is a business account. |
+| businessName | Cond | string | When isBusiness is true, this is the name of the business. <br> Pattern: ^[a-zA-Z0-9_(){}&@!+#.'$,%^ \*-]\* |
+| primaryAccountOwner | Opt | string | Name of the primary owner of this account.<br> Pattern: ^[a-zA-Z0-9_(){}&@!+#.'$,%^ \*-]\* |
+| secondaryAccountOwner | Opt | string | Name of the secondary owner of this account, if applicable. <br> Pattern: ^[a-zA-Z0-9_(){}&@!+#.'$,%^ \*-]\* |
+| confirmationStatus | Req | string | Account’s verification/confirmation status. Valid values: Confirmed, Failed, Pending, InProgress |
+| accountStatus | Req | string | Account status. Valid values: Active, Inactive, Pending, Rejected, Historical <br> Active – Account verification was successful and account is active <br> Inactive – Account was deleted <br> Pending – Account verification has not been completed <br> Rejected – Account verification was completed and failed <br> Historical – This status is returned when “returnInactiveBankAccounts” is set to true in the request for a list of bank accounts and either: <br> - The consumer’s transaction history has been migrated from one sponsor to another sponsor. Only the transaction history is migrated, not the old bank account. However, calling apps are still able to show the bank account information associated with the transaction history. <br> <br> or <br> <br> - The sponsor supports extended transaction history and this bank account is associated with extended transaction history records. |
+| checkPrintAddress | Opt | [USAddress](#usaddress) | The U.S. address printed on the checks. If provided, this is the consumer’s address to be printed in the upper left corner of the check. |
+| bankingOptions | Opt | [BankingOptions](#bankingoptions) | Banking options when banking service is enabled. |
 
 #### BankingOptions
 
@@ -8210,399 +6542,66 @@ check.</td>
 
 #### Bill
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>amountDue</td>
-<td>Req</td>
-<td>double</td>
-<td>The current amount that the consumer owes to the biller.</td>
-</tr>
-<tr class="even">
-<td>balanceAmountDue</td>
-<td>Opt</td>
-<td>double</td>
-<td>The total outstanding balance for the consumer’s account with the
-biller.</td>
-</tr>
-<tr class="odd">
-<td>billerInfo</td>
-<td>Req</td>
-<td><a href="#billerinfo">BillerInfo</a></td>
-<td>Details about the biller.</td>
-</tr>
-<tr class="even">
-<td>billType</td>
-<td>Req</td>
-<td>string</td>
-<td><p>Type of bill.</p>
-<p>FromBiller indicates a distributed e-bill.</p>
-<p>FromBillDueAlert indicates a bill due alert.</p></td>
-</tr>
-<tr class="odd">
-<td>dateFirstViewed</td>
-<td>Cond</td>
-<td>string</td>
-<td>Date that the e-bill was first viewed. Condition: The e-bill has
-been viewed. Format: yyyy-MM-dd.</td>
-</tr>
-<tr class="even">
-<td>destinationUrl</td>
-<td>Req</td>
-<td>string</td>
-<td>The destination URL of the payee.</td>
-</tr>
-<tr class="odd">
-<td>dueDate</td>
-<td>Req</td>
-<td>string</td>
-<td>The date that the biller has indicated that the bill is due. If this
-date is displayed to the consumer on a UI, the date should be derived
-using eastern time (ET). Format yyyy-MM-dd.</td>
-</tr>
-<tr class="even">
-<td>actionByDate</td>
-<td>Opt</td>
-<td>string</td>
-<td>The latest date and time that a transaction must be initiated by in
-order to be received by the biller on the dueDate. Not returned if the
-calculated date/time is earlier than the current date/time.</td>
-</tr>
-<tr class="odd">
-<td>dueDateText</td>
-<td>Opt</td>
-<td>string</td>
-<td>Text that describes the biller’s preferred method of expressing the
-date that payment is due, such as “Due Upon Receipt.” Maximum length:
-20</td>
-</tr>
-<tr class="even">
-<td>detailUrl</td>
-<td>Req</td>
-<td>string</td>
-<td>Bill detail URL. The bill detail URL expires in a timeframe set by
-the biller. The default time is 30 minutes but may be as low as 10
-minutes. Long-term storage of the URL is not possible because it is only
-valid for 30 minutes (default) because of encrypted tokens.</td>
-</tr>
-<tr class="odd">
-<td>filedBillInfo</td>
-<td>Opt</td>
-<td><a href="#filedbillinfo">FiledBillInfo</a></td>
-<td>Filed bill details. Only provided if e-bill has been filed.</td>
-</tr>
-<tr class="even">
-<td>isDetailUrlIframeSupported</td>
-<td>Req</td>
-<td>boolean</td>
-<td>Indicates whether the URL can be displayed in an iFrame.</td>
-</tr>
-<tr class="odd">
-<td>minimumAmountDue</td>
-<td>Opt</td>
-<td>double</td>
-<td>The minimum amount that the consumer owes to the biller.</td>
-</tr>
-<tr class="even">
-<td>replacedBillId</td>
-<td>Cond</td>
-<td>string</td>
-<td>The identifier for a replacement e-bill. Condition: The e-bill is a
-replacement bill.</td>
-</tr>
-<tr class="odd">
-<td>status</td>
-<td>Req</td>
-<td>string</td>
-<td><p>The current state of the e-bill, such as whether it is paid or
-unpaid. Valid values:</p>
-<p>Paid<br />
-Unpaid<br />
-PaymentFailed<br />
-PaymentCanceled<br />
-Filed</p></td>
-</tr>
-<tr class="even">
-<td>useDueDateText</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Specifies whether to use the text provided in dueDateText. Valid
-values:</p>
-<p>true (use the text)</p>
-<p>false (do not use the text)</p></td>
-</tr>
-<tr class="odd">
-<td>self</td>
-<td>Req</td>
-<td>string</td>
-<td>URI pointing to the e-bill itself.</td>
-</tr>
-<tr class="even">
-<td>id</td>
-<td>Req</td>
-<td>string</td>
-<td>Unique identifier for the e-bill.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| amountDue | Req | double | The current amount that the consumer owes to the biller. |
+| balanceAmountDue | Opt | double | The total outstanding balance for the consumer’s account with the biller. |
+| billerInfo | Req | [BillerInfo](#billerinfo) | Details about the biller. |
+| billType | Req | string | Type of bill. <br> FromBiller indicates a distributed e-bill. <br> FromBillDueAlert indicates a bill due alert. |
+| dateFirstViewed | Cond | string | Date that the e-bill was first viewed. Condition: The e-bill has been viewed. Format: yyyy-MM-dd. |
+| destinationUrl | Req | string | The destination URL of the payee. |
+| dueDate | Req | string | The date that the biller has indicated that the bill is due. If this date is displayed to the consumer on a UI, the date should be derived using eastern time (ET). Format yyyy-MM-dd. |
+| actionByDate | Opt | string | The latest date and time that a transaction must be initiated by in order to be received by the biller on the dueDate. Not returned if the calculated date/time is earlier than the current date/time. |
+| dueDateText | Opt | string | Text that describes the biller’s preferred method of expressing the date that payment is due, such as “Due Upon Receipt.” Maximum length: 20 |
+| detailUrl | Req | string | Bill detail URL. The bill detail URL expires in a timeframe set by the biller. The default time is 30 minutes but may be as low as 10 minutes. Long-term storage of the URL is not possible because it is only valid for 30 minutes (default) because of encrypted tokens. |
+| filedBillInfo | Opt | [FiledBillInfo](#filedbillinfo) | Filed bill details. Only provided if e-bill has been filed. |
+| isDetailUrlIframeSupported | Req | boolean | Indicates whether the URL can be displayed in an iFrame. | 
+| minimumAmountDue | Opt | double | The minimum amount that the consumer owes to the biller. |
+| replacedBillId | Cond | string | The identifier for a replacement e-bill. Condition: The e-bill is a replacement bill. |
+| status | Req | string | The current state of the e-bill, such as whether it is paid or unpaid. Valid values: <br> Paid <br> Unpaid <br> PaymentFailed <br> PaymentCanceled <br> Filed |
+| useDueDateText | Req | boolean | Specifies whether to use the text provided in dueDateText. Valid values: <br> true (use the text) <br> false (do not use the text) |
+| self | Req | string | URI pointing to the e-bill itself. |
+| id | Req | string | Unique identifier for the e-bill. |
 
 #### BillDiscoveryUserEligibility
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>creditReportEligible</td>
-<td>Req</td>
-<td>boolean</td>
-<td>Indicates if the consumer is eligible for a credit report
-search.</td>
-</tr>
-<tr class="even">
-<td>billServiceProviderEligible</td>
-<td>Req</td>
-<td>boolean</td>
-<td>Indicates if the consumer is eligible for a bill service provider
-search.</td>
-</tr>
-<tr class="odd">
-<td>outstandingPotential<br />
-PayeesCount</td>
-<td>Req</td>
-<td>integer</td>
-<td>Count of outstanding potential payees (i.e., potential payees that
-have already been identified and for which no action has been taken by
-the consumer).</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| creditReportEligible | Req | boolean | Indicates if the consumer is eligible for a credit report search. |
+| billServiceProviderEligible | Req | boolean | Indicates if the consumer is eligible for a bill service provider search. |
+| outstandingPotentialPayeesCount | Req | integer | Count of outstanding potential payees (i.e., potential payees that have already been identified and for which no action has been taken by the consumer). |
 
 #### BillTransactionSchedule
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>amount</td>
-<td>Cond</td>
-<td>double</td>
-<td><p>The transaction amount. Required if the transactionType is
-FixedAmount.</p>
-<p>Pattern: ^\d+(\.\d{1,2})?$</p></td>
-</tr>
-<tr class="even">
-<td>maximumTransactionAmount</td>
-<td>Opt</td>
-<td>double</td>
-<td><p>The upper limit of the transaction amount. If the delivered bill
-amount is greater than this value, then the transaction amount will
-equal the maximumTransactionAmount value. Only applies to
-TransactionType “AmountDue”, “MinimumAmountDue” or “AccountBalance”.</p>
-<p>Pattern: ^\d+(\.\d{1,2})?$</p></td>
-</tr>
-<tr class="odd">
-<td>scheduleDaysBefore</td>
-<td>Cond</td>
-<td>integer</td>
-<td><p>Condition: Required if transactionInitiationType is
-DaysBeforeDueDate.</p>
-<p>If present, will generate transactions the specified number of
-business days prior to the normally scheduled date.</p>
-<p>Valid values: 1, 2, 3, 4, 5</p></td>
-</tr>
-<tr class="even">
-<td>transactionInitiationType</td>
-<td>Req</td>
-<td>string</td>
-<td>Specifies when a transaction should be generated based on bill
-information. Valid values:<br />
-DueDate<br />
-UponReceipt<br />
-DaysBeforeDueDate</td>
-</tr>
-<tr class="odd">
-<td>transactionType</td>
-<td>Req</td>
-<td>string</td>
-<td>The payment structure for the automatic transaction. Valid
-values:<br />
-FixedAmount<br />
-AmountDue<br />
-MinimumAmountDue<br />
-AccountBalance</td>
-</tr>
-<tr class="even">
-<td>transactionScheduledAlert</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Indicates if the consumer is notified when a transaction is
-scheduled.</p>
-<p>True - Notify the consumer when a transaction is scheduled.</p>
-<p>False - Do not notify the consumer when a transaction is scheduled.
-This is the default.</p></td>
-</tr>
-<tr class="odd">
-<td>transactionSentAlert</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Indicates if the consumer is notified when a transaction is
-sent.</p>
-<p>True - Notify the consumer when a transaction is processed.</p>
-<p>False - Do not notify the consumer when a transaction is processed.
-This is the default.</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| amount | Cond | double | The transaction amount. Required if the transactionType is FixedAmount. <br> Pattern: ^\\d+(\\.\\d{1,2})?$ |
+| maximumTransactionAmount | Opt | double | The upper limit of the transaction amount. If the delivered bill amount is greater than this value, then the transaction amount will equal the maximumTransactionAmount value. Only applies to TransactionType “AmountDue”, “MinimumAmountDue” or “AccountBalance”. <br> Pattern: ^\\d+(\\.\\d{1,2})?$ |
+| scheduleDaysBefore | Cond | integer | Condition: Required if transactionInitiationType is DaysBeforeDueDate. <br> If present, will generate transactions the specified number of business days prior to the normally scheduled date. <br> Valid values: 1, 2, 3, 4, 5 |
+| transactionInitiationType | Req | string | Specifies when a transaction should be generated based on bill information. Valid values: <br> DueDate <br> UponReceipt <br> DaysBeforeDueDate |
+| transactionType | Req | string | The payment structure for the automatic transaction. Valid values: <br> FixedAmount <br> AmountDue <br> MinimumAmountDue <br> AccountBalance |
+| transactionScheduledAlert | Req | boolean | Indicates if the consumer is notified when a transaction is scheduled. <br> True - Notify the consumer when a transaction is scheduled. <br> False - Do not notify the consumer when a transaction is scheduled. This is the default. |
+| transactionSentAlert | Req | boolean | Indicates if the consumer is notified when a transaction is sent. <br> True - Notify the consumer when a transaction is processed. <br> False - Do not notify the consumer when a transaction is processed. This is the default. |
 
 #### BillTransactionSchedulePatch
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>amount</td>
-<td>Cond</td>
-<td>double</td>
-<td><p>The transaction amount. Required if the transactionType is
-FixedAmount.</p>
-<p>Pattern: ^\d+(\.\d{1,2})?$</p></td>
-</tr>
-<tr class="even">
-<td>maximumTransactionAmount</td>
-<td>Opt</td>
-<td>double</td>
-<td><p>The upper limit of the transaction amount. If the delivered bill
-amount is greater than this value, then the transaction will be
-scheduled at this amount. Only applies to TransactionType “AmountDue”,
-“MinimumAmountDue” or “AccountBalance”.</p>
-<p>Pattern: ^\d+(\.\d{1,2})?$</p></td>
-</tr>
-<tr class="odd">
-<td>scheduleDaysBefore</td>
-<td>Cond</td>
-<td>integer</td>
-<td><p>Condition: Required if transactionInitiationType is
-DaysBeforeDueDate.</p>
-<p>If present, will generate transactions the specified number of
-business days prior to the normally scheduled date.</p>
-<p>Valid values: 1, 2, 3, 4, 5</p></td>
-</tr>
-<tr class="even">
-<td>transactionInitiationType</td>
-<td>Opt</td>
-<td>string</td>
-<td>Specifies when a transaction should be generated based on bill
-information. Valid values:<br />
-DueDate<br />
-UponReceipt<br />
-DaysBeforeDueDate</td>
-</tr>
-<tr class="odd">
-<td>transactionType</td>
-<td>Opt</td>
-<td>string</td>
-<td>The payment structure for the automatic transaction. Valid
-values:<br />
-FixedAmount<br />
-AmountDue<br />
-MinimumAmountDue<br />
-AccountBalance</td>
-</tr>
-<tr class="even">
-<td>transactionScheduledAlert</td>
-<td>Opt</td>
-<td>boolean</td>
-<td><p>Indicates if the consumer is notified when a transaction is
-scheduled.</p>
-<p>True - Notify the consumer when a transaction is scheduled.</p>
-<p>False - Do not notify the consumer when a transaction is scheduled.
-This is the default.</p></td>
-</tr>
-<tr class="odd">
-<td>transactionSentAlert</td>
-<td>Opt</td>
-<td>boolean</td>
-<td><p>Indicates if the consumer is notified when a transaction is
-sent.</p>
-<p>True - Notify the consumer when a transaction is processed.</p>
-<p>False - Do not notify the consumer when a transaction is processed.
-This is the default.</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| amount | Cond | double | The transaction amount. Required if the transactionType is FixedAmount. <br> Pattern: ^\\d+(\\.\\d{1,2})?$ |
+| maximumTransactionAmount | Opt | double | The upper limit of the transaction amount. If the delivered bill amount is greater than this value, then the transaction will be scheduled at this amount. Only applies to TransactionType “AmountDue”, “MinimumAmountDue” or “AccountBalance”. <br> Pattern: ^\\d+(\\.\\d{1,2})?$ |
+| scheduleDaysBefore | Cond | integer | Condition: Required if transactionInitiationType is DaysBeforeDueDate. <br> If present, will generate transactions the specified number of business days prior to the normally scheduled date. <br> Valid values: 1, 2, 3, 4, 5 |
+| transactionInitiationType | Opt | string | Specifies when a transaction should be generated based on bill information. Valid values: <br> DueDate <br> UponReceipt <br> DaysBeforeDueDate |
+| transactionType | Opt | string | The payment structure for the automatic transaction. Valid values: <br> FixedAmount <br> AmountDue <br> MinimumAmountDue <br> AccountBalance |
+| transactionScheduledAlert | Opt | boolean | Indicates if the consumer is notified when a transaction is scheduled. <br> True - Notify the consumer when a transaction is scheduled. <br> False - Do not notify the consumer when a transaction is scheduled. This is the default. |
+| transactionSentAlert | Opt | boolean | Indicates if the consumer is notified when a transaction is sent. <br> True - Notify the consumer when a transaction is processed. <br> False - Do not notify the consumer when a transaction is processed. This is the default. |
 
 #### BillTransactionScheduleTypesSupported
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>transactionTypes</td>
-<td>Req</td>
-<td>Array of string</td>
-<td>The payment structure for the automatic transaction. Valid
-values:<br />
-FixedAmount<br />
-AmountDue<br />
-MinimumAmountDue<br />
-AccountBalance</td>
-</tr>
-<tr class="even">
-<td>transactionInitiationTypes</td>
-<td>Req</td>
-<td>Array of string</td>
-<td>Specifies when a transaction should be generated based on bill
-information. Valid values:<br />
-DueDate<br />
-UponReceipt<br />
-DaysBeforeDueDate</td>
-</tr>
-<tr class="odd">
-<td>eligibleFundingAccounts</td>
-<td>Req</td>
-<td>Array of <a
-href="#eligiblefundingaccount">EligibleFundingAccount</a></td>
-<td>A list of eligible funding accounts with the available automatic
-transaction options.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| transactionTypes | Req | Array of string | The payment structure for the automatic transaction. Valid values: <br> FixedAmount <br> AmountDue <br> MinimumAmountDue <br> AccountBalance |
+| transactionInitiationTypes | Req | Array of string | Specifies when a transaction should be generated based on bill information. Valid values: <br> DueDate <br> UponReceipt <br> DaysBeforeDueDate |
+| eligibleFundingAccounts | Req | Array of [EligibleFundingAccount]("#eligiblefundingaccount") | A list of eligible funding accounts with the available automatic transaction options. |
 
 #### BillerInfo
 
@@ -8615,201 +6614,37 @@ transaction options.</td>
 
 #### CardAccountAddLimits
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>rollingPeriodDaysLimit</td>
-<td>Req</td>
-<td>integer</td>
-<td>Number of days for which to enforce a rolling time period
-limit.</td>
-</tr>
-<tr class="even">
-<td>rollingPeriodDaysLimitModifiable</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Indicates if the number of days for the rolling time period can
-be changed.</p>
-<p>true – Can be changed.<br />
-false – Cannot be changed.</p></td>
-</tr>
-<tr class="odd">
-<td>rollingPeriodCardsLimit</td>
-<td>Req</td>
-<td>integer</td>
-<td>Maximum number of card accounts that can be added during the rolling
-time period.</td>
-</tr>
-<tr class="even">
-<td>rollingPeriodCardsRemainingCount</td>
-<td>Req</td>
-<td>integer</td>
-<td>Remaining number of card accounts that can be added by the consumer
-during the current rolling time period.</td>
-</tr>
-<tr class="odd">
-<td>rollingPeriodCardsLimitModifiable</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Indicates if the number of card accounts that can be added during
-the rolling time period can be changed.</p>
-<p>true – Can be changed.<br />
-false – Cannot be changed.</p></td>
-</tr>
-<tr class="even">
-<td>sameCardDeleteAddLimit</td>
-<td>Req</td>
-<td>integer</td>
-<td>Number of times a consumer can add the same card account (delete/add
-again).</td>
-</tr>
-<tr class="odd">
-<td>sameCardDeleteAddLimitModifiable</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Indicates if the number of times a consumer can add the same card
-account can be changed.</p>
-<p>true – Can be changed.<br />
-false – Cannot be changed.</p></td>
-</tr>
-<tr class="even">
-<td>activeCardLimit</td>
-<td>Req</td>
-<td>integer</td>
-<td>Maximum number of active card accounts.</td>
-</tr>
-<tr class="odd">
-<td>activeCardRemainingCount</td>
-<td>Req</td>
-<td>integer</td>
-<td>Remaining number of active card accounts that can be added by the
-consumer.</td>
-</tr>
-<tr class="even">
-<td>activeCardLimitModifiable</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Indicates if the number of active card accounts that can be added
-by the consumer can be changed.</p>
-<p>true – Can be changed.<br />
-false – Cannot be changed.</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| rollingPeriodDaysLimit | Req | integer | Number of days for which to enforce a rolling time period limit. |
+| rollingPeriodDaysLimitModifiable | Req | boolean | Indicates if the number of days for the rolling time period can be changed. <br> true – Can be changed. <br> false – Cannot be changed. |
+| rollingPeriodCardsLimit | Req | integer | Maximum number of card accounts that can be added during the rolling time period. |
+| rollingPeriodCardsRemainingCount | Req | integer | Remaining number of card accounts that can be added by the consumer during the current rolling time period. |
+| rollingPeriodCardsLimitModifiable | Req | boolean | Indicates if the number of card accounts that can be added during the rolling time period can be changed. <br> true – Can be changed. <br> false – Cannot be changed. |
+| sameCardDeleteAddLimit | Req | integer | Number of times a consumer can add the same card account (delete/add again). |
+| sameCardDeleteAddLimitModifiable | Req | boolean | Indicates if the number of times a consumer can add the same card account can be changed. <br> true – Can be changed. <br> false – Cannot be changed. |
+| activeCardLimit | Req | integer | Maximum number of active card accounts. |
+| activeCardRemainingCount | Req | integer | Remaining number of active card accounts that can be added by the consumer. |
+| activeCardLimitModifiable | Req | boolean | Indicates if the number of active card accounts that can be added by the consumer can be changed. <br> true – Can be changed. <br> false – Cannot be changed. |
 
 #### CardAccountGetModel
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>self</td>
-<td>Req</td>
-<td>string</td>
-<td>Relative URI pointing to the object itself.</td>
-</tr>
-<tr class="even">
-<td>id</td>
-<td>Req</td>
-<td>string</td>
-<td>Unique identifier of the object.</td>
-</tr>
-<tr class="odd">
-<td>addedBy</td>
-<td>Opt</td>
-<td>string</td>
-<td><p>Indicates the entity that added the card account. Valid
-values:</p>
-<p>Sponsor – Indicates the card was added by the FI</p>
-<p>Subscriber – Indicates the card was added by the consumer</p></td>
-</tr>
-<tr class="even">
-<td>cardNumberMasked</td>
-<td>Req</td>
-<td>string</td>
-<td>The card account number in masked form. For example,
-"********1234".</td>
-</tr>
-<tr class="odd">
-<td>modifiableFields</td>
-<td>Req</td>
-<td>Array of string</td>
-<td>List of fields that can be changed for the card.</td>
-</tr>
-<tr class="even">
-<td>deleteAllowed</td>
-<td>Req</td>
-<td>boolean</td>
-<td>Indicates whether the originator of this GET call is allowed to
-delete this card.</td>
-</tr>
-<tr class="odd">
-<td>cardType</td>
-<td>Req</td>
-<td>string</td>
-<td>Indicates the type of card. Valid values: AmericanExpress, Discover,
-MasterCard, Visa</td>
-</tr>
-<tr class="even">
-<td>isDebit</td>
-<td>Req</td>
-<td>boolean</td>
-<td>Indicates if the card is a debit card.</td>
-</tr>
-<tr class="odd">
-<td>billingAddress</td>
-<td>Req</td>
-<td><a href="#usaddress">USAddress</a></td>
-<td>The billing address for the card.</td>
-</tr>
-<tr class="even">
-<td>expirationMonth</td>
-<td>Req</td>
-<td>integer</td>
-<td>Month in which the card expires.</td>
-</tr>
-<tr class="odd">
-<td>expirationYear</td>
-<td>Req</td>
-<td>integer</td>
-<td>Year in which the card expires.</td>
-</tr>
-<tr class="even">
-<td>externalAccountDescription</td>
-<td>Req</td>
-<td>string</td>
-<td>External account description that is free-form text, such as: “Bank
-Name” Visa</td>
-</tr>
-<tr class="odd">
-<td>nameOnCard</td>
-<td>Req</td>
-<td>string</td>
-<td>Name printed on the card.</td>
-</tr>
-<tr class="even">
-<td>nickname</td>
-<td>Opt</td>
-<td>string</td>
-<td>A description of the card used to help identify it in a list.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| self | Req | string | Relative URI pointing to the object itself. |
+| id | Req | string | Unique identifier of the object. | 
+| addedBy | Opt | string | Indicates the entity that added the card account. Valid values: <br> Sponsor – Indicates the card was added by the FI <br> Subscriber – Indicates the card was added by the consumer | 
+| cardNumberMasked | Req | string | The card account number in masked form. For example, "********1234". |
+| modifiableFields | Req | Array of string | List of fields that can be changed for the card. | 
+| deleteAllowed | Req | boolean | Indicates whether the originator of this GET call is allowed to delete this card. | 
+| cardType | Req | string | Indicates the type of card. Valid values: AmericanExpress, Discover, MasterCard, Visa |
+| isDebit | Req | boolean | Indicates if the card is a debit card. |
+| billingAddress | Req | [USAddress](#usaddress) | The billing address for the card. | 
+| expirationMonth | Req | integer | Month in which the card expires. |
+| expirationYear| Req | integer | Year in which the card expires. |
+| externalAccountDescription | Req | string | External account description that is free-form text, such as: “Bank Name” Visa | 
+| nameOnCard | Req | string | Name printed on the card. | 
+| nickname | Opt | string | A description of the card used to help identify it in a list. |
 
 #### CardAccountPostResponse
 
@@ -8838,556 +6673,84 @@ Name” Visa</td>
 
 #### ContactEndpoint
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>status</td>
-<td>Req</td>
-<td>string</td>
-<td><p>The status of the contact endpoint.</p>
-<p>Valid values: Unspecified, Active, Inactive, Suspended, NotFound,
-Invalid, Onhold</p></td>
-</tr>
-<tr class="even">
-<td>endPointType</td>
-<td>Req</td>
-<td>string</td>
-<td><p>The type of contact endpoint.</p>
-<p>Valid values: Phone, Email, Address</p></td>
-</tr>
-<tr class="odd">
-<td>address</td>
-<td>Req</td>
-<td><a href="#address">Address</a></td>
-<td>The address of the consumer. At least one address contact endpoint is
-required.</td>
-</tr>
-<tr class="even">
-<td>phone</td>
-<td>Req</td>
-<td><a href="#phone">Phone</a></td>
-<td>Contact phone number for the consumer. At least one phone contact endpoint
-is required.</td>
-</tr>
-<tr class="odd">
-<td>email</td>
-<td>Req</td>
-<td><a href="#email">Email</a></td>
-<td><p>Contact email address for the consumer. At least one email contact
-endpoint is required.</p>
-<p>Length: 5–100</p>
-<p>Pattern:
-^([_+A-Za-z0-9]+((\.|\-)[_+A-Za-z0-9]+)*@[A-Za-z0-9]+((\.|\-)[A-Za-z0-9]+)*(\.[A-Za-z]{2,8}))$</p>
-<p>This field must contain a valid Internet-style
-address.</p></td>
-</tr>
-<tr class="even">
-<td>defaultEndpoint</td>
-<td>Req</td>
-<td>boolean</td>
-<td>Indicates if the endpoint is considered the default for the user.
-For example, may be used to indicate the primary email address for the
-user to receive correspondence.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| status | Req | string | The status of the contact endpoint. <br> Valid values: Unspecified, Active, Inactive, Suspended, NotFound, Invalid, Onhold | 
+| endPointType | Req | string | The type of contact endpoint. <br> Valid values: Phone, Email, Address |
+| address | Req | [Address](#address) | The address of the consumer. At least one address contact endpoint is required. |
+| phone | Req | [Phone](#phone) | Contact phone number for the consumer. At least one phone contact endpoint is required. |
+| email | Req | [Email](#email) | Contact email address for the consumer. At least one email contact endpoint is required. <br> Length: 5–100 <br> Pattern: ^([\_+A-Za-z0-9]+((\\.\|\\-)[\_+A-Za-z0-9]+)\*@[A-Za-z0-9]+((\\.\|\\-)[A-Za-z0-9]+)\*(\\.[A-Za-z]{2,8}))$ <br> This field must contain a valid Internet-style address. | 
+| defaultEndpoint | Req | boolean | Indicates if the endpoint is considered the default for the user. For example, may be used to indicate the primary email address for the user to receive correspondence. | 
 
 #### EbillAccountDetail
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>autoActivationType</td>
-<td>Opt</td>
-<td>string</td>
-<td><p>Specifies the type of Auto Activation.</p>
-<p>Valid values: EZActivation, BillerMerge, RegularBillerRules</p></td>
-</tr>
-<tr class="even">
-<td>activationType</td>
-<td>Opt</td>
-<td>string</td>
-<td><p>Specifies how the account was activated.</p>
-<p>Valid values: AutoActivation, User</p></td>
-</tr>
-<tr class="odd">
-<td>billerThumbnailImageUrl</td>
-<td>Opt</td>
-<td>string</td>
-<td>URL for the biller sample bill thumbnail image.</td>
-</tr>
-<tr class="even">
-<td>billTransactionSchedule<br />
-Eligible</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Indicates if the account is eligible for Automatic Transactions
-(Bill Transaction Schedule). To be eligible, the following conditions
-must be true:</p>
-<ul>
-<li><p>The biller supports AutoPay.</p></li>
-<li><p>The first e-bill has been received from the biller.</p></li>
-<li><p>The payee is not in a trial period.</p></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td>emailAddressShare</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Determines whether the consumer’s email address may be sent to
-the biller. Valid values:</p>
-<p>true – Service holder’s email address may be sent to the biller.</p>
-<p>false – Do not send the service holder’s email address to the
-biller.</p></td>
-</tr>
-<tr class="even">
-<td>firstEbillReceived</td>
-<td>Req</td>
-<td>boolean</td>
-<td>Indicates if the first e-bill has been received.</td>
-</tr>
-<tr class="odd">
-<td>name</td>
-<td>Req</td>
-<td><a href="#individualname">Individual<br />
-Name</a></td>
-<td>The name of the consumer associated with the e-bill activation
-request. May be different from the consumer name. If not provided, the
-consumer name will be used.</td>
-</tr>
-<tr class="even">
-<td>isTrialPeriod</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Indicates if the biller has initiated a trial period. Valid
-values:</p>
-<p>true – Trial period initiated.</p>
-<p>false – No trial period.</p>
-<p>An e-bill account is identified as being in a trial period when:</p>
-<ul>
-<li><p>The e-bill account is active</p></li>
-<li><p>The consumer should be asked to suppress paper</p></li>
-<li><p>Trial period end date is valid</p></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td>paperProcessingStatus</td>
-<td>Req</td>
-<td>string</td>
-<td><p>Specifies the state of paper bill delivery. Valid values:</p>
-<ul>
-<li><p>Unknown – Fiserv does not know if the biller is sending paper
-bills or not.</p></li>
-<li><p>PaperBillsStillSent – Fiserv knows that the biller is still
-sending paper bills.</p></li>
-<li><p>NoPaperBillsSent – Fiserv knows that the biller has stopped
-sending paper bills.</p></li>
-<li><p>EbillDeactivationAfterTrialPeriod – Due to have e-bill service
-deactivated by the biller at the end of the trial period if paper
-suppression is not initiated.</p></li>
-<li><p>PaperBillsStopAfterTrialPeriod – Pending to have paper bills
-stopped at the end of the trial period.</p></li>
-</ul></td>
-</tr>
-<tr class="even">
-<td>paperSuppression IncentiveMessage</td>
-<td>Opt</td>
-<td>string</td>
-<td>The actual incentive message that is currently active for the
-account.</td>
-</tr>
-<tr class="odd">
-<td>paperSuppression TermsUrl</td>
-<td>Opt</td>
-<td>string</td>
-<td>URL for the paper suppression terms.</td>
-</tr>
-<tr class="even">
-<td>promptPaperSuppression</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Indicates if the consumer should be prompted to indicate if the
-consumer would like to suppress paper bills. Valid values:</p>
-<p>true – Prompt the consumer to indicate if the consumer would like to
-suppress paper bills.</p>
-<p>false – Do not prompt the consumer to indicate if the consumer would
-like to suppress paper bills.</p></td>
-</tr>
-<tr class="odd">
-<td>serviceAddress</td>
-<td>Req</td>
-<td><a href="#usaddress">USAddress</a></td>
-<td>Address of the service holder.</td>
-</tr>
-<tr class="even">
-<td>serviceBusinessName</td>
-<td>Cond</td>
-<td>string</td>
-<td>Business name of the service holder. Condition: serviceHolderType is
-Business.</td>
-</tr>
-<tr class="odd">
-<td>serviceDaytimePhone Number</td>
-<td>Opt</td>
-<td>string</td>
-<td>Phone number where the service holder can be reached during normal
-business hours.</td>
-</tr>
-<tr class="even">
-<td>serviceEveningPhone Number</td>
-<td>Opt</td>
-<td>string</td>
-<td>Phone number where the service holder can be reached after normal
-business hours.</td>
-</tr>
-<tr class="odd">
-<td>serviceHolderType</td>
-<td>Req</td>
-<td>string</td>
-<td><p>Identifies if the service holder is an individual or a business.
-Valid values:</p>
-<ul>
-<li><p>Business</p></li>
-<li><p>Consumer</p></li>
-</ul></td>
-</tr>
-<tr class="even">
-<td>status</td>
-<td>Req</td>
-<td>string</td>
-<td><p>Status of the e-bill service account. Valid values:</p>
-<p>Pending<br />
-Active<br />
-Inactive<br />
-Rejected</p></td>
-</tr>
-<tr class="odd">
-<td>trialPeriodEnd</td>
-<td>Cond</td>
-<td>string</td>
-<td><p>Date that the trial period ends for this account. Condition:
-isTrialPeriod is true.</p>
-<p>Format: yyyy-MM-dd</p></td>
-</tr>
-<tr class="even">
-<td>trialPeriodStart</td>
-<td>Cond</td>
-<td>string</td>
-<td><p>Date that the trial period started for this account. Condition:
-isTrialPeriod is true.</p>
-<p>Format: yyyy-MM-dd</p></td>
-</tr>
-<tr class="odd">
-<td>transactionScheduleTypesSupported</td>
-<td>Req</td>
-<td>Array of string</td>
-<td><p>The payment structure for the automatic transaction. Valid
-values:</p>
-<p>FixedAmount<br />
-AmountDue<br />
-MinimumAmountDue<br />
-AccountBalance</p></td>
-</tr>
-<tr class="even">
-<td>self</td>
-<td>Req</td>
-<td>string</td>
-<td>The URI to access the e-bill service item.</td>
-</tr>
-<tr class="odd">
-<td>id</td>
-<td>Req</td>
-<td>string</td>
-<td>The ID of the e-bill service item. This will always be empty
-(null).</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| autoActivationType | Opt | string | Specifies the type of Auto Activation. <br> Valid values: EZActivation, BillerMerge, RegularBillerRules | 
+| activationType | Opt | string | Specifies how the account was activated. <br> Valid values: AutoActivation, User | 
+| billerThumbnailImageUrl | Opt | string | URL for the biller sample bill thumbnail image. | 
+| billTransactionScheduleEligible | Req | boolean | Indicates if the account is eligible for Automatic Transactions (Bill Transaction Schedule). To be eligible, the following conditions must be true: <br> - The biller supports AutoPay. <br> - The first e-bill has been received from the biller. <br> - The payee is not in a trial period. | 
+| emailAddressShare | Req | boolean | Determines whether the consumer’s email address may be sent to the biller. Valid values: <br> true – Service holder’s email address may be sent to the biller. <br> false – Do not send the service holder’s email address to the biller. | 
+| firstEbillReceived | Req | boolean | Indicates if the first e-bill has been received. |
+| name | Req | [IndividualName](#individualname) | The name of the consumer associated with the e-bill activation request. May be different from the consumer name. If not provided, the consumer name will be used. |
+| isTrialPeriod | Req | boolean | Indicates if the biller has initiated a trial period. Valid values: <br> true – Trial period initiated. <br> false – No trial period. <br> An e-bill account is identified as being in a trial period when: <br> - The e-bill account is active <br> - The consumer should be asked to suppress paper <br> - Trial period end date is valid | 
+| paperProcessingStatus | Req | string | Specifies the state of paper bill delivery. Valid values:<br> Unknown – Fiserv does not know if the biller is sending paper bills or not. <br> PaperBillsStillSent – Fiserv knows that the biller is still sending paper bills. <br> NoPaperBillsSent – Fiserv knows that the biller has stopped sending paper bills. <br> EbillDeactivationAfterTrialPeriod – Due to have e-bill service deactivated by the biller at the end of the trial period if paper suppression is not initiated.<br> PaperBillsStopAfterTrialPeriod – Pending to have paper bills stopped at the end of the trial period. |
+| paperSuppressionIncentiveMessage | Opt | string | The actual incentive message that is currently active for the account. | 
+| paperSuppressionTermsUrl | Opt | string | URL for the paper suppression terms. |
+| promptPaperSuppression | Req | boolean | Indicates if the consumer should be prompted to indicate if the consumer would like to suppress paper bills. Valid values: <br> true – Prompt the consumer to indicate if the consumer would like to suppress paper bills. <br> false – Do not prompt the consumer to indicate if the consumer would like to suppress paper bills. |
+| serviceAddress | Req | [USAddress](#usaddress) | Address of the service holder. |
+| serviceBusinessName | Cond | string | Business name of the service holder. Condition: serviceHolderType is Business. |
+| serviceDaytimePhone Number | Opt | string | Phone number where the service holder can be reached during normal business hours. |
+| serviceEveningPhone Number | Opt | string | Phone number where the service holder can be reached after normal business hours. |
+| serviceHolderType | Req | string | Identifies if the service holder is an individual or a business. Valid values: <br> Business <br> Consumer | 
+| status | Req | string | Status of the e-bill service account. Valid values: <br> Pending <br> Active <br> Inactive <br> Rejected | 
+| trialPeriodEnd | Cond | string | Date that the trial period ends for this account. Condition: isTrialPeriod is true. <br> Format: yyyy-MM-dd |
+| trialPeriodStart | Cond | string | Date that the trial period started for this account. Condition: isTrialPeriod is true. <br> Format: yyyy-MM-dd |
+| transactionScheduleTypesSupported | Req | Array of string | The payment structure for the automatic transaction. Valid values: <br> FixedAmount <br> AmountDue <br> MinimumAmountDue <br> AccountBalance | 
+| self | Req | string | The URI to access the e-bill service item. |
+| id | Req | string | The ID of the e-bill service item. This will always be empty (null). |
 
 #### EbillCapability 
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>billerName</td>
-<td>Opt</td>
-<td>string</td>
-<td>The Fiserv-determined value of the biller name. This may be
-different from the biller name that was passed in the request.</td>
-</tr>
-<tr class="even">
-<td>billerLogoUrl</td>
-<td>Opt</td>
-<td>string</td>
-<td>The URL for the biller logo. The preferred logo size is 90 × 90
-pixels.</td>
-</tr>
-<tr class="odd">
-<td>billerSiteUrl</td>
-<td>Opt</td>
-<td>string</td>
-<td>The URL for biller-provided additional information.</td>
-</tr>
-<tr class="even">
-<td>billerThumbnailImage<br />
-Url</td>
-<td>Opt</td>
-<td>string</td>
-<td>The URL for the biller sample bill thumbnail image.</td>
-</tr>
-<tr class="odd">
-<td>paperSuppression<br />
-Options</td>
-<td>Opt</td>
-<td>Array of<br />
-<a href="#papersuppressionoption">PaperSuppression<br />
-Option</a></td>
-<td>The paper suppression options that the biller allows.</td>
-</tr>
-<tr class="even">
-<td>preAuthTokens</td>
-<td>Opt</td>
-<td>Array of <a href="#preauthtoken">PreAuthToken</a></td>
-<td><p>List of any pre-authorization tokens that need to be provided by
-the consumer to activate e-bill service.</p>
-<p>The values for the tokens must be sent in the Payee E-bill Service
-POST request.</p></td>
-</tr>
-<tr class="odd">
-<td>restrictionText</td>
-<td>Opt</td>
-<td>string</td>
-<td>Text regarding any restrictions that the biller may have.</td>
-</tr>
-<tr class="even">
-<td>serviceAddressRequired</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Indicates if the service address is required for authentication
-by the biller. This is the address where the biller provides services.
-Often applies to utilities in which the address where services are
-provided may differ from the billing address.</p>
-<p>Best practice is if this flag is true, the consumer should be
-presented with the opportunity to provide a service address that may be
-different than their consumer profile address.</p></td>
-</tr>
-<tr class="odd">
-<td>serviceAddress</td>
-<td>Cond</td>
-<td><a href="#usaddress">USAddress</a></td>
-<td>Address of the service holder, pre-filled for the consumer. This
-information is taken from the consumer's profile. Condition:
-serviceAddressRequired is true.</td>
-</tr>
-<tr class="even">
-<td>trialPeriodDays</td>
-<td>Opt</td>
-<td>integer</td>
-<td>Time period of the biller’s trial period (in days). Only applicable
-for those billers supporting a finite trial period. Otherwise, will be
-zeros.</td>
-</tr>
-<tr class="odd">
-<td>accountNumberEditable</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Indicates if the consumer can edit the account number in a
-subsequent Payee E-bill Service POST request. Valid values:</p>
-<p>true – The account number can be edited.</p>
-<p>false – The account number cannot be edited.</p></td>
-</tr>
-<tr class="even">
-<td>accountNumberHelp<br />
-Text</td>
-<td>Opt</td>
-<td>string</td>
-<td>If available, biller-provided help text regarding the consumer’s
-account number.</td>
-</tr>
-<tr class="odd">
-<td>self</td>
-<td>Req</td>
-<td>string</td>
-<td>The URI to access the e-bill capability item.</td>
-</tr>
-<tr class="even">
-<td>id</td>
-<td>Req</td>
-<td>string</td>
-<td>The ID of the e-bill capability item.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| billerName | Opt | string | The Fiserv-determined value of the biller name. This may be different from the biller name that was passed in the request. |
+| billerLogoUrl | Opt | string | The URL for the biller logo. The preferred logo size is 90 × 90 pixels. |
+| billerSiteUrl | Opt | string | The URL for biller-provided additional information. |
+| billerThumbnailImageUrl | Opt | string | The URL for the biller sample bill thumbnail image. | 
+| paperSuppressionOptions | Opt | Array of [PaperSuppressionOption](#papersuppressionoption) | The paper suppression options that the biller allows. | 
+| preAuthTokens | Opt | Array of [PreAuthToken](#preauthtoken) | List of any pre-authorization tokens that need to be provided by the consumer to activate e-bill service. <br> The values for the tokens must be sent in the Payee E-bill Service POST request. |
+| restrictionText | Opt | string | Text regarding any restrictions that the biller may have. | 
+| serviceAddressRequired | Req | boolean | Indicates if the service address is required for authentication by the biller. This is the address where the biller provides services. Often applies to utilities in which the address where services are provided may differ from the billing address. <br> Best practice is if this flag is true, the consumer should be presented with the opportunity to provide a service address that may be different than their consumer profile address. |
+| serviceAddress | Cond | [USAddress](#usaddress) | Address of the service holder, pre-filled for the consumer. This information is taken from the consumer's profile. Condition: serviceAddressRequired is true. | 
+| trialPeriodDays | Opt | integer | Time period of the biller’s trial period (in days). Only applicable for those billers supporting a finite trial period. Otherwise, will be zeros. |
+| accountNumberEditable | Req | boolean | Indicates if the consumer can edit the account number in a subsequent Payee E-bill Service POST request. Valid values: <br> true – The account number can be edited. <br> false – The account number cannot be edited. |
+| accountNumberHelpText | Opt | string | If available, biller-provided help text regarding the consumer’s account number. |
+| self | Req | string | The URI to access the e-bill capability item.|
+| id | Req | string | The ID of the e-bill capability item. | 
 
 #### EbillServiceActivateInput
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>acceptedTC</td>
-<td>Req</td>
-<td>boolean</td>
-<td>Indicates if the consumer has accepted the biller’s terms and
-conditions. Must be true to continue with the add function.</td>
-</tr>
-<tr class="even">
-<td>businessName</td>
-<td>Opt</td>
-<td>string</td>
-<td>Name of the business associated with the e-bill activation
-request.</td>
-</tr>
-<tr class="odd">
-<td>accountNumber</td>
-<td>Cond</td>
-<td>string</td>
-<td><p>The consumer’s account number with the payee.</p>
-<p>Length 1–32</p>
-<p>Pattern: ^[a-zA-Z0-9]{1,32}$</p>
-<p>Condition: This field will be populated if Payee E-bill Capability
-GET returns true for accountNumberEditable.</p></td>
-</tr>
-<tr class="even">
-<td>emailAddressShare</td>
-<td>Opt</td>
-<td>boolean</td>
-<td>At the time of enrollment, the consumer is commonly presented with a
-check box that asks if the consumer wants to share their address with
-the biller. If the consumer opts in, the only time that Fiserv shares
-the address with the biller is at the time of e-bill enrollment.</td>
-</tr>
-<tr class="odd">
-<td>name</td>
-<td>Opt</td>
-<td><a href="#individualname">IndividualName</a></td>
-<td>Name of the consumer associated with the e-bill activation request.
-May be different from the consumer name. If not provided, the consumer
-name will be used.</td>
-</tr>
-<tr class="even">
-<td>paperSuppressionOption</td>
-<td>Req</td>
-<td>string</td>
-<td><p>Paper suppression option selected by the consumer. Valid
-values:</p>
-<p>DualDelivery<br />
-PaperSuppression<br />
-Trial</p></td>
-</tr>
-<tr class="odd">
-<td>preAuthTokens</td>
-<td>Opt</td>
-<td>Array of <a href="#preauthtokeninput">PreAuthTokenInput</a></td>
-<td>List of any pre-authorization tokens that need to be provided by the
-consumer to activate e-bill service.</td>
-</tr>
-<tr class="even">
-<td>serviceAddress</td>
-<td>Opt</td>
-<td><a href="#usaddress">USAddress</a></td>
-<td>Address of the consumer associated with the e-bill activation
-request. Will default to the consumer address if not provided. However,
-best practice is that if EbillCapability.serviceAddressRequired is true,
-the service address should be collected from the consumer via UI
-interaction.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| acceptedTC | Req | boolean | Indicates if the consumer has accepted the biller’s terms and conditions. Must be true to continue with the add function. |
+| businessName | Opt | string | Name of the business associated with the e-bill activation request. |
+| accountNumber | Cond | string | The consumer’s account number with the payee. <br> Length 1–32 <br> Pattern: ^[a-zA-Z0-9]{1,32}$ <br> <p>Condition: This field will be populated if Payee E-bill Capability GET returns true for accountNumberEditable. | 
+| emailAddressShare | Opt | boolean | At the time of enrollment, the consumer is commonly presented with a check box that asks if the consumer wants to share their address with the biller. If the consumer opts in, the only time that Fiserv shares the address with the biller is at the time of e-bill enrollment. |
+| name | Opt | [IndividualName](#individualname) | Name of the consumer associated with the e-bill activation request. May be different from the consumer name. If not provided, the consumer name will be used. |
+| paperSuppressionOption | Req | string | Paper suppression option selected by the consumer. Valid values: <br> DualDelivery <br> PaperSuppression <br> Trial |
+| preAuthTokens | Opt | Array of [PreAuthTokenInput](#preauthtokeninput) | List of any pre-authorization tokens that need to be provided by the consumer to activate e-bill service. |
+| serviceAddress | Opt | [USAddress](#usaddress) | Address of the consumer associated with the e-bill activation request. Will default to the consumer address if not provided. However, best practice is that if EbillCapability.serviceAddressRequired is true, the service address should be collected from the consumer via UI interaction. |
 
 #### EbillServiceActivateOutput
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>trialPeriodDays</td>
-<td>Cond</td>
-<td>integer</td>
-<td>Duration of the trial period. Condition: In the request,
-paperSuppressionOption is Trial.</td>
-</tr>
-<tr class="even">
-<td>activationState</td>
-<td>Req</td>
-<td>string</td>
-<td><p>Determines the state of the e-bill activation request
-transaction. This is not provided if the request is not able to be
-processed. ActivationState represents the different states of an e-bill
-activation request transaction. The initial state is Pending. All
-Pending requests are submitted to the biller for approval. The biller
-will either accept or reject the e-bill activation request. E-bill
-activation requests that have been accepted by the biller are set to an
-Accepted state. Those that are rejected will be set to a Rejected state.
-Valid values:</p>
-<p>Pending<br />
-Accepted<br />
-Rejected<br />
-NotApplicable</p>
-<p>NotApplicable is returned when transaction processing failed,
-stopped, or was cancelled internally, so the transaction state cannot be
-updated. The calling application/UI should consider this as a failed
-state.</p></td>
-</tr>
-<tr class="odd">
-<td>activationStateMessage</td>
-<td>Opt</td>
-<td>string</td>
-<td>Optional message that may be associated with the
-activationState.</td>
-</tr>
-<tr class="even">
-<td>self</td>
-<td>Req</td>
-<td>string</td>
-<td>The URI to access the e-bill service item.</td>
-</tr>
-<tr class="odd">
-<td>id</td>
-<td>Req</td>
-<td>string</td>
-<td>The ID of the e-bill service item.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| trialPeriodDays | Cond | integer | Duration of the trial period. Condition: In the request, paperSuppressionOption is Trial. |
+| activationState | Req | string | Determines the state of the e-bill activation request transaction. This is not provided if the request is not able to be processed. ActivationState represents the different states of an e-bill activation request transaction. The initial state is Pending. All Pending requests are submitted to the biller for approval. The biller will either accept or reject the e-bill activation request. E-bill activation requests that have been accepted by the biller are set to an Accepted state. Those that are rejected will be set to a Rejected state. Valid values: <br> Pending <br> Accepted <br> Rejected <br> NotApplicable <br> <br> NotApplicable is returned when transaction processing failed, stopped, or was cancelled internally, so the transaction state cannot be updated. The calling application/UI should consider this as a failed state. |
+| activationStateMessage | Opt | string | Optional message that may be associated with the activationState. |
+| self | Req | string | The URI to access the e-bill service item. |
+| id | Req | string | The ID of the e-bill service item. | 
 
 #### EligibleFundingAccount
 
@@ -9399,128 +6762,28 @@ activationState.</td>
 
 #### Email
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>value</td>
-<td>Req</td>
-<td>string</td>
-<td>Email value.<br />
-Pattern:
-^([_+A-Za-z0-9]+((\.|\-)[_+A-Za-z0-9]+)*@[A-Za-z0-9]+((\.|\-)[A-Za-z0-9]+)*(\.[A-Za-z]{2,8}))$</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| value | Req | string | Email value. <br> Pattern: ^([\_+A-Za-z0-9]+((\\.\|\\-)[\_+A-Za-z0-9]+)\*@[A-Za-z0-9]+((\\.\|\\-)[A-Za-z0-9]+)\*(\\.[A-Za-z]{2,8}))$ |
 
 #### Features
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>supportsBillDiscovery</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Indicates if the tenant/sponsor offers Bill Discovery.</p>
-<p>true – Offers Bill Discovery</p>
-<p>false – Does not offer Bill Discovery</p></td>
-</tr>
-<tr class="even">
-<td>supportsCardFunded<br />
-BillPay</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Indicates if the tenant/sponsor offers card funded bill
-payment.</p>
-<p>true – Offers card funded bill payment</p>
-<p>false – Does not offer card funded bill payment</p></td>
-</tr>
-<tr class="odd">
-<td>billDiscoveryProvider<br />
-Type</td>
-<td>Cond</td>
-<td>Array of string</td>
-<td><p>Condition: Required when supportsBillDiscovery is true.<br />
-Specifies how bills are discovered—via BillServiceProvider,
-CreditBureau, or both.</p>
-<p>Valid values: BillServiceProvider, CreditBureau</p></td>
-</tr>
-<tr class="even">
-<td>transactionHistory<br />
-Months</td>
-<td>Req</td>
-<td>integer</td>
-<td>Specifies the total months of transaction history supported by the
-tenant/sponsor (minimum is 6 months).</td>
-</tr>
-<tr class="odd">
-<td>lddEnabled</td>
-<td>Req</td>
-<td>boolean</td>
-<td>Indicates if LDD service is enabled/supported for the sponsor.</td>
-</tr>
-<tr class="even">
-<td>cardFundingOptions</td>
-<td>Cond</td>
-<td><a href="#cardfundingoptions">CardFunding Options</a></td>
-<td>Condition: Required when supportsCardFundedBillPay is true.<br />
-Specifies the types of card funding supported.</td>
-</tr>
-<tr class="odd">
-<td>supportsClassicView</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Indicates if the tenant/sponsor offers Classic View.</p>
-<p>true – Offers Classic View</p>
-<p>false – Does not offer Classic View</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| supportsBillDiscovery | Req | boolean | Indicates if the tenant/sponsor offers Bill Discovery. <br> true – Offers Bill Discovery <br> false – Does not offer Bill Discovery |
+| supportsCardFundedBillPay | Req | boolean | Indicates if the tenant/sponsor offers card funded bill payment. <br> true – Offers card funded bill payment <br> false – Does not offer card funded bill payment |
+| billDiscoveryProviderType | Cond | Array of string | Condition: Required when supportsBillDiscovery is true. <br> Specifies how bills are discovered—via BillServiceProvider, CreditBureau, or both. <br> Valid values: BillServiceProvider, CreditBureau |
+| transactionHistoryMonths | Req | integer | Specifies the total months of transaction history supported by the tenant/sponsor (minimum is 6 months). |
+| lddEnabled | Req | boolean | Indicates if LDD service is enabled/supported for the sponsor. |
+| cardFundingOptions | Cond | [CardFundingOptions](#cardfundingoptions) |Condition: Required when supportsCardFundedBillPay is true. <br> Specifies the types of card funding supported. |
+| supportsClassicView | Req | boolean | Indicates if the tenant/sponsor offers Classic View. <br> true – Offers Classic View <br> false – Does not offer Classic View |
 
 #### FiledBillInfo
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>reason</td>
-<td>Req</td>
-<td>string</td>
-<td><p>Indicates the method of the bill’s resolution. Valid values:</p>
-<p>NoneSpecified, Bank, Check, Cash, NotPaid, Other, BillerWebSite,
-Phone, Mail, Office, ZeroBalanceBill, ContestedBill</p></td>
-</tr>
-<tr class="even">
-<td>note</td>
-<td>Opt</td>
-<td>string</td>
-<td>Optional note entered by the consumer with information about the
-bill and its resolution. Length 1-80</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| reason | Req | string | Indicates the method of the bill’s resolution. Valid values: <br> NoneSpecified, Bank, Check, Cash, NotPaid, Other, BillerWebSite, Phone, Mail, Office, ZeroBalanceBill, ContestedBill |
+| note | Opt | string | Optional note entered by the consumer with information about the bill and its resolution. Length 1-80 | 
 
 #### FinancialInstitutionModel
 
@@ -9530,114 +6793,22 @@ bill and its resolution. Length 1-80</td>
 
 #### IdentityValidationInformation
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>idType</td>
-<td>Req</td>
-<td>string</td>
-<td>Type of identification. Valid values: “StateIssuedDriverLicense”,
-“StateIssuedIdCard”, “Passport”, “MilitaryIdCard”</td>
-</tr>
-<tr class="even">
-<td>idNumber</td>
-<td>Req</td>
-<td>string</td>
-<td><p>Identification number on ID. Length: 6-30</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p>
-<p>Cannot contain all zeroes</p>
-<p>Cannot contain all repeating number</p></td>
-</tr>
-<tr class="odd">
-<td>idIssuingState</td>
-<td>Cond</td>
-<td>string</td>
-<td><p>The state that issued identification; must be a valid US state.
-Length: 2</p>
-<p>Pattern: ^[A-Z]*</p>
-<p>Condition: Required when idType = “StateIssuedDriverLicense” or
-“StateIssuedIdCard”.</p></td>
-</tr>
-<tr class="even">
-<td>idIssuingCountry</td>
-<td>Req</td>
-<td>string</td>
-<td><p>The country that issued identification; must be a valid country
-code (ISO 3166-1 alpha-3 codes). Length: 3</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| idType | Req | string | Type of identification. Valid values: “StateIssuedDriverLicense”, “StateIssuedIdCard”, “Passport”, “MilitaryIdCard” |
+| idNumber | Req | string | Identification number on ID. Length: 6-30 <br> Pattern: ^[a-zA-Z0-9_(){}&@!+#.'$,%^ \*-]\* <br> Cannot contain all zeroes<br> Cannot contain all repeating number | 
+| idIssuingState | Cond | string | The state that issued identification; must be a valid US state. Length: 2 <br> Pattern: ^[A-Z]\* <br> Condition: Required when idType = “StateIssuedDriverLicense” or “StateIssuedIdCard”. |
+| idIssuingCountry | Req | string | The country that issued identification; must be a valid country code (ISO 3166-1 alpha-3 codes). Length: 3 <br> Pattern: ^[a-zA-Z0-9_(){}&@!+#.'$,%^ \*-]\* |
 
 #### IndividualName
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>first</td>
-<td>Req</td>
-<td>string</td>
-<td><p>First name of the consumer.</p>
-<p>Length: 1–32</p>
-<p>Pattern: ^[a-zA-Z][a-zA-Z0-9_(){}&amp;@!+#.$,%*-]*</p></td>
-</tr>
-<tr class="even">
-<td>last</td>
-<td>Req</td>
-<td>string</td>
-<td><p>Last name of the consumer.</p>
-<p>Length: 1–32</p>
-<p>Pattern: ^[a-zA-Z][a-zA-Z0-9_(){}&amp;@!+#. $,%*-]*</p>
-<p>Last name is required, regardless of consumer type.</p>
-<p>If this is an account for an individual, this is the individual
-consumer’s last name. If this is an account for a business, this is the
-last name of a principal owner of the business or a person to
-contact.</p></td>
-</tr>
-<tr class="odd">
-<td>middle</td>
-<td>Opt</td>
-<td>string</td>
-<td><p>Middle name of the consumer.</p>
-<p>Length: 0–32</p>
-<p>Pattern: ^[a-zA-Z][a-zA-Z0-9_(){}&amp;@!+#.$,%*-]*</p></td>
-</tr>
-<tr class="even">
-<td>nickname</td>
-<td>Opt</td>
-<td>string</td>
-<td><p>Short name used to refer to the consumer.</p>
-<p>For example, BOB is a nickname for ROBERT.</p>
-<p>Length: 1–30</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$, %*-]{1,30}$</p>
-<p>When provided, at least one character is required.</p></td>
-</tr>
-<tr class="odd">
-<td>prefix</td>
-<td>Opt</td>
-<td>string</td>
-<td><p>A title relating to the consumer, such as DR., MR., or MS.</p>
-<p>Length: 1–6</p>
-<p>Pattern: ^[a-zA-Z][a-zA-Z0-9_(){}&amp;@!+#.$,%*-]*</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| first | Req | string | First name of the consumer. <br> Length: 1–32 <br> Pattern: ^[a-zA-Z][a-zA-Z0-9_(){}&@!+#.$,%\*-]\* |
+| last | Req | string | Last name of the consumer. <br> Length: 1–32 <br> Pattern: ^[a-zA-Z][a-zA-Z0-9_(){}&@!+#. $,%\*-]\* <br> Last name is required, regardless of consumer type. <br> If this is an account for an individual, this is the individual consumer’s last name. If this is an account for a business, this is the last name of a principal owner of the business or a person to contact. |
+| middle | Opt | string | Middle name of the consumer. <br> Length: 0–32 <br> Pattern: ^[a-zA-Z][a-zA-Z0-9_(){}&@!+#.$,%\*-]\* |
+| nickname | Opt | string | Short name used to refer to the consumer. <br> For example, BOB is a nickname for ROBERT. <br> Length: 1–30 <br> Pattern: ^[a-zA-Z0-9_(){}&@!+#.'\$, \%\*-]{1,30}$ <br> When provided, at least one character is required. |
+| prefix | Opt | string | A title relating to the consumer, such as DR., MR., or MS. <br> Length: 1–6 <br> Pattern: ^[a-zA-Z][a-zA-Z0-9_(){}&@!+#.$,%\*-]\* |
 
 #### Merchant
 
@@ -9668,377 +6839,60 @@ contact.</p></td>
 
 #### Name
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>firstName</td>
-<td>Req</td>
-<td>string</td>
-<td><p>First name of the consumer. Length: 1–32</p>
-<p>Pattern: ^[a-zA-Z][a-zA-Z0-9_(){}&amp;@!+#.$,%*-]*</p></td>
-</tr>
-<tr class="even">
-<td>lastName</td>
-<td>Req</td>
-<td>string</td>
-<td><p>Last name of the consumer. Length: 1–32</p>
-<p>Pattern: ^[a-zA-Z][a-zA-Z0-9_(){}&amp;@!+#. $,%*-]*</p></td>
-</tr>
-<tr class="odd">
-<td>middleName</td>
-<td>Opt</td>
-<td>string</td>
-<td><p>Middle name of the consumer. Length: 0–32</p>
-<p>Pattern: ^[a-zA-Z][a-zA-Z0-9_(){}&amp;@!+#.$,%*-]*</p></td>
-</tr>
-<tr class="even">
-<td>nickname</td>
-<td>Opt</td>
-<td>string</td>
-<td><p>Short name used to refer to the consumer. Length: 0–30</p>
-<p>For example, BOB is a nickname for ROBERT.</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$, %*-]{1,30}$</p></td>
-</tr>
-<tr class="odd">
-<td>prefix</td>
-<td>Opt</td>
-<td>string</td>
-<td><p>A title relating to the consumer, such as DR., MR., or MS.
-Length: 0–6</p>
-<p>Pattern: ^[a-zA-Z][a-zA-Z0-9_(){}&amp;@!+#.$,%*-]*</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| firstName | Req | string | First name of the consumer. Length: 1–32 <br> Pattern: ^[a-zA-Z][a-zA-Z0-9_(){}&@!+#.$,%\*-]\* |
+| lastName | Req | string | Last name of the consumer. Length: 1–32 <br> Pattern: ^[a-zA-Z][a-zA-Z0-9_(){}&@!+#. $,%\*-]\* |
+| middleName | Opt | string | Middle name of the consumer. Length: 0–32 <br> Pattern: ^[a-zA-Z][a-zA-Z0-9_(){}&@!+#.$,%\*-]\* |
+| nickname | Opt | string | Short name used to refer to the consumer. Length: 0–30 <br> For example, BOB is a nickname for ROBERT. <br> Pattern: ^[a-zA-Z0-9_(){}&@!+#.'\$, \%\*-]{1,30}$ |
+| prefix | Opt | string | A title relating to the consumer, such as DR., MR., or MS. Length: 0–6 <br> Pattern: ^[a-zA-Z][a-zA-Z0-9_(){}&@!+#.$,%\*-]\* |
 
 #### PaperSuppressionOption
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>isEmbedded</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Indicates if the presenter UI needs to enforce the user’s reading
-of the actual terms and conditions (Ts&amp;Cs) consent text.</p>
-<p>True - Present the actual Ts&amp;Cs to a consumer on the same page
-where account number, preauth tokens, service address, etc. are
-collected.</p>
-<p>False – The presenter can include a URL link that the consumer can
-click on to access the Ts&amp;Cs.</p></td>
-</tr>
-<tr class="even">
-<td>option</td>
-<td>Req</td>
-<td>string</td>
-<td><p>Paper suppression options applicable for the selected biller. The
-presenter sends the consumer’s choices back to Fiserv in the Payee
-E-bill Service POST request. Valid values:</p>
-<p>DualDelivery<br />
-PaperSuppression<br />
-Trial</p></td>
-</tr>
-<tr class="odd">
-<td>termsText</td>
-<td>Opt</td>
-<td>string</td>
-<td>Text that applies to paper suppression. Each paper suppression type
-has text (“terms of use”) that should be displayed on the UI. Note that
-“terms of use” text is different than Ts&amp;Cs.</td>
-</tr>
-<tr class="even">
-<td>termsUrl</td>
-<td>Opt</td>
-<td>string</td>
-<td>A URL pointing to the actual terms and conditions text. If
-isEmbedded is true, the contents of this URL are pulled into a
-scrollable box that is presented to the consumer. If isEmbedded is
-false, this URL is presented as a link.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| isEmbedded | Req | boolean | Indicates if the presenter UI needs to enforce the user’s reading of the actual terms and conditions (Ts&amp;Cs) consent text. <br> True - Present the actual Ts&amp;Cs to a consumer on the same page where account number, preauth tokens, service address, etc. are collected. <br> False – The presenter can include a URL link that the consumer can click on to access the Ts&amp;Cs. |
+| option | Req | string | Paper suppression options applicable for the selected biller. The presenter sends the consumer’s choices back to Fiserv in the Payee E-bill Service POST request. Valid values: <br> DualDelivery <br> PaperSuppression <br> Trial |
+| termsText | Opt | string | Text that applies to paper suppression. Each paper suppression type has text (“terms of use”) that should be displayed on the UI. Note that “terms of use” text is different than Ts&amp;Cs. |
+| termsUrl | Opt | string | A URL pointing to the actual terms and conditions text. If isEmbedded is true, the contents of this URL are pulled into a scrollable box that is presented to the consumer. If isEmbedded is false, this URL is presented as a link. |
 
 #### Payee
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>name</td>
-<td>Req</td>
-<td>string</td>
-<td><p>The name of the payee.</p>
-<p>Length: 2–32</p></td>
-</tr>
-<tr class="even">
-<td>nickname</td>
-<td>Opt</td>
-<td>string</td>
-<td><p>The nickname of the payee. Only populated if provided by the
-consumer.</p>
-<p>Length: 1-30</p></td>
-</tr>
-<tr class="odd">
-<td>maskedAccountNumber</td>
-<td>Cond</td>
-<td>string</td>
-<td><p>The masked account number for the payee. Not applicable for
-payees added as individuals.</p>
-<p>Length: 1–32</p>
-<p>Condition: Populated only if the consumer has provided an account
-number when adding the payee.</p></td>
-</tr>
-<tr class="even">
-<td>unmaskedAccount<br />
-NumberUri</td>
-<td>Cond</td>
-<td>string</td>
-<td><p>The URI to the full, unmasked account number. See “<a
-href="#get-a-payees-unmasked-account-number">Get a Payee’s Unmasked
-Account Number</a>.”<br />
-Not applicable for payees added as individuals.</p>
-<p>Condition: Populated only if the consumer has provided an account
-number when adding the payee.</p></td>
-</tr>
-<tr class="odd">
-<td>category</td>
-<td>Opt</td>
-<td>string</td>
-<td>The consumer-defined category of the payee. Applies to bill payment
-payees only.</td>
-</tr>
-<tr class="even">
-<td>contactPhoneNumber</td>
-<td>Opt</td>
-<td>string</td>
-<td>Phone number used to contact the payee if there are issues posting
-the payment.</td>
-</tr>
-<tr class="odd">
-<td>merchantUri</td>
-<td>Opt</td>
-<td>string</td>
-<td>The URI to access the merchant directly.</td>
-</tr>
-<tr class="even">
-<td>automaticTransaction<br />
-Uris</td>
-<td>Opt</td>
-<td>Array of string</td>
-<td>List of automatic payment models for the payee.</td>
-</tr>
-<tr class="odd">
-<td>reminderModelUri</td>
-<td>Opt</td>
-<td>string</td>
-<td>Reserved for future use.</td>
-</tr>
-<tr class="even">
-<td>address</td>
-<td>Opt</td>
-<td><a href="#usaddress">USAddress</a></td>
-<td>Payee address information.</td>
-</tr>
-<tr class="odd">
-<td>overnightAddress</td>
-<td>Opt</td>
-<td><a href="#usaddress">USAddress</a></td>
-<td>Address for overnight payments if one exists for the payee.</td>
-</tr>
-<tr class="even">
-<td>lastUsedFunding<br />
-AccountUri</td>
-<td>Opt</td>
-<td>string</td>
-<td>The URI to access the most recent funding account used in a
-transaction with this payee.</td>
-</tr>
-<tr class="odd">
-<td>socialTokens</td>
-<td>Opt</td>
-<td>Array of<br />
-PayeeSocialToken</td>
-<td>Reserved for future use.</td>
-</tr>
-<tr class="even">
-<td>accountTokens</td>
-<td>Opt</td>
-<td>Array of <a href="#payeeaccounttoken">PayeeAccountToken</a></td>
-<td>Reserved for future use.</td>
-</tr>
-<tr class="odd">
-<td>ebillService<br />
-ActivationUri</td>
-<td>Opt</td>
-<td>string</td>
-<td>The URI used to begin e-bill activation for an e-bill-capable payee.
-Will only be provided if payee is e-bill-capable but not e-bill enabled;
-otherwise, null is returned.</td>
-</tr>
-<tr class="even">
-<td>ebillServiceActivationType</td>
-<td>Req</td>
-<td>string</td>
-<td>Indicates the type of e-bill service activation for the payee. Valid
-values: Full, Lite, None</td>
-</tr>
-<tr class="odd">
-<td>ebillServiceUri</td>
-<td>Opt</td>
-<td>string</td>
-<td>The URI for information needed for activation. Will only be provided
-if the payee is e-bill-enabled.</td>
-</tr>
-<tr class="even">
-<td>loginCredentials<br />
-Uri</td>
-<td>Opt</td>
-<td>string</td>
-<td>Reserved for future use.</td>
-</tr>
-<tr class="odd">
-<td>payeeLogoUrl</td>
-<td>Opt</td>
-<td>string</td>
-<td>The URI for the payee logo. The preferred logo size is 90 × 90
-pixels.</td>
-</tr>
-<tr class="even">
-<td>payeeLogoGeneric</td>
-<td>Opt</td>
-<td>boolean</td>
-<td>Indicates if the logo returned for the payee is generic (not
-specific to the payee).</td>
-</tr>
-<tr class="odd">
-<td>modifiableFields</td>
-<td>Req</td>
-<td>Array of string</td>
-<td>List of fields that can be changed for the payee.</td>
-</tr>
-<tr class="even">
-<td>status</td>
-<td>Req</td>
-<td>string</td>
-<td>Status of the payee. Valid values: Active, Inactive</td>
-</tr>
-<tr class="odd">
-<td>source</td>
-<td>Opt</td>
-<td>string</td>
-<td>Reserved for Fiserv use.</td>
-</tr>
-<tr class="even">
-<td>earliestStandardTransactionDate</td>
-<td>Opt</td>
-<td>string</td>
-<td>Earliest date that a standard (non-expedited, non-overnight)
-transaction can be scheduled.</td>
-</tr>
-<tr class="odd">
-<td>legacyPayeeId</td>
-<td>Req</td>
-<td>string</td>
-<td>Legacy payee ID.</td>
-</tr>
-<tr class="even">
-<td>ebillServiceActivationStatus</td>
-<td>Req</td>
-<td>string</td>
-<td>Indicates the ebill activation status of the Payee. This flag is
-always returned, even if the payee is not ebill capable. Valid values:
-NotApplicable, Pending, Capable, Active, Inactive</td>
-</tr>
-<tr class="odd">
-<td>billTransactionScheduleActive</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Indicates if a bill transaction schedule is already active (i.e.,
-eBill Autopay is active) for the payee.</p>
-<p>true - Bill transaction schedule is enabled for the payee.</p>
-<p>false – Bill transaction schedule is not enabled for the
-payee.</p></td>
-</tr>
-<tr class="even">
-<td>billTransactionScheduleCapable</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Indicates when a payee is capable of an automatic transaction
-schedule for paying ebills (eBill Autopay). Valid values: true,
-false</p>
-<p>This is true when:</p>
-<ul>
-<li><p>Payee is active</p></li>
-<li><p>Payee is e-bill enabled</p></li>
-<li><p>Biller supports Autopay</p></li>
-<li><p>The first e-bill has been received</p></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td>recurringTransactionScheduleActive</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Indicates if a recurring transaction schedule (one or more) is
-already set up for the payee.</p>
-<p>true - Recurring transaction schedule is set up for the payee.</p>
-<p>false – Recurring transaction schedule is set up for the
-payee.</p></td>
-</tr>
-<tr class="even">
-<td>isPaperTransactionsEnabled</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Indicates whether transactions to this payee are typically
-processed by check/draft.</p>
-<p>true – Transactions are typically processed by check/draft.</p>
-<p>false – Transactions are not typically processed by
-check/draft.</p></td>
-</tr>
-<tr class="odd">
-<td>isRushDeliveryAvailable</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Indicates if rush delivery of the payment is an option for the
-payee. Valid values: true, false</p>
-<p>true – Rush delivery is an option.</p>
-<p>false – Rush delivery is not an option.</p></td>
-</tr>
-<tr class="even">
-<td>self</td>
-<td>Req</td>
-<td>string</td>
-<td>The URI to access the payee directly.</td>
-</tr>
-<tr class="odd">
-<td>id</td>
-<td>Req</td>
-<td>string</td>
-<td>The ID of the payee.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| name | Req | string | The name of the payee. <br> Length: 2–32 |
+| nickname | Opt | string | The nickname of the payee. Only populated if provided by the consumer. <br> Length: 1-30 |
+| maskedAccountNumber | Cond | string | The masked account number for the payee. Not applicable for payees added as individuals. <br> Length: 1–32 <br> Condition: Populated only if the consumer has provided an account number when adding the payee. |
+| unmaskedAccountNumberUri | Cond | string | The URI to the full, unmasked account number. See “[Get a Payee’s Unmasked Account Number](#get-a-payees-unmasked-account-number).” <br> Not applicable for payees added as individuals. <br> Condition: Populated only if the consumer has provided an account number when adding the payee. |
+| category | Opt | string | The consumer-defined category of the payee. Applies to bill payment payees only. |
+| contactPhoneNumber | Opt | string | Phone number used to contact the payee if there are issues posting the payment. |
+| merchantUri | Opt | string | The URI to access the merchant directly. |
+| automaticTransactionUris | Opt | Array of string | List of automatic payment models for the payee. |
+| reminderModelUri | Opt | string | Reserved for future use. |
+| address | Opt | [USAddress](#usaddress) | Payee address information. |
+| overnightAddress | Opt | [USAddress](#usaddress) | Address for overnight payments if one exists for the payee. |
+| lastUsedFundingAccountUri | Opt | string | The URI to access the most recent funding account used in a transaction with this payee. |
+| socialTokens | Opt | Array of PayeeSocialToken | Reserved for future use. |
+| accountTokens | Opt | Array of [PayeeAccountToken](#payeeaccounttoken) | Reserved for future use. |
+| ebillServiceActivationUri | Opt | string | The URI used to begin e-bill activation for an e-bill-capable payee. Will only be provided if payee is e-bill-capable but not e-bill enabled; otherwise, null is returned. |
+| ebillServiceActivationType | Req | string | Indicates the type of e-bill service activation for the payee. Valid values: Full, Lite, None |
+| ebillServiceUri | Opt | string | The URI for information needed for activation. Will only be provided if the payee is e-bill-enabled. |
+| loginCredentialsUri | Opt | string | Reserved for future use. |
+| payeeLogoUrl | Opt | string | The URI for the payee logo. The preferred logo size is 90 × 90 pixels. |
+| payeeLogoGeneric | Opt | boolean | Indicates if the logo returned for the payee is generic (not specific to the payee). |
+| modifiableFields | Req | Array of string | List of fields that can be changed for the payee. |
+| status | Req | string | Status of the payee. Valid values: Active, Inactive |
+| source | Opt | string | Reserved for Fiserv use. |
+| earliestStandardTransactionDate | Opt | string | Earliest date that a standard (non-expedited, non-overnight) transaction can be scheduled. |
+| legacyPayeeId | Req | string | Legacy payee ID. |
+| ebillServiceActivationStatus | Req | string | Indicates the ebill activation status of the Payee. This flag is always returned, even if the payee is not ebill capable. Valid values: NotApplicable, Pending, Capable, Active, Inactive |
+| billTransactionScheduleActive | Req | boolean | Indicates if a bill transaction schedule is already active (i.e., eBill Autopay is active) for the payee. <br> true - Bill transaction schedule is enabled for the payee. <br> false – Bill transaction schedule is not enabled for the payee. |
+| billTransactionScheduleCapable | Req | boolean | Indicates when a payee is capable of an automatic transaction schedule for paying ebills (eBill Autopay). Valid values: true, false <br> This is true when: <br> - Payee is active <br> - Payee is e-bill enabled <br> - Biller supports Autopay <br> - The first e-bill has been received |
+| recurringTransactionScheduleActive | Req | boolean | Indicates if a recurring transaction schedule (one or more) is already set up for the payee. <br> true - Recurring transaction schedule is set up for the payee. <br> false – Recurring transaction schedule is not set up for the payee. |
+| isPaperTransactionsEnabled | Req | boolean | Indicates whether transactions to this payee are typically processed by check/draft. <br> true – Transactions are typically processed by check/draft. <br> false – Transactions are not typically processed by check/draft. |
+| isRushDeliveryAvailable | Req | boolean | Indicates if rush delivery of the payment is an option for the payee. Valid values: true, false <br> true – Rush delivery is an option. <br> false – Rush delivery is not an option. |
+| self | Req | string | The URI to access the payee directly. |
+| id | Req | string | The ID of the payee. |
 
 #### PayeeAccountToken
 
@@ -10091,82 +6945,16 @@ payee. Valid values: true, false</p>
 
 #### PayeeInfo
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>name</td>
-<td>Req</td>
-<td>string</td>
-<td><p>The name of the payee.</p>
-<p>Pattern: ^[\x20-\x5A\x5C\x5F-\x7E]+$</p>
-<p>Length: 2–32</p></td>
-</tr>
-<tr class="even">
-<td>nickname</td>
-<td>Opt</td>
-<td>string</td>
-<td><p>The nickname of the payee. Length: 1-30</p>
-<p>Pattern: ^[\x20\x2C-\x2E\x30-\x39\x41-\x5A\x61-\x7A\r\n]+$</p></td>
-</tr>
-<tr class="odd">
-<td>accountNumber</td>
-<td>Opt</td>
-<td>string</td>
-<td><p>The consumer’s account number with the payee. Length: 1–32</p>
-<p>Pattern: ^[a-zA-Z0-9 !"#$%&amp;-]{1,32}$</p></td>
-</tr>
-<tr class="even">
-<td>contactPhoneNumber</td>
-<td>Cond</td>
-<td>string</td>
-<td><p>Phone number used to contact the payee if there are issues
-posting the transaction. Length: 10-12</p>
-<p>Pattern:
-(^[0-9]{10}$)|(^\(?[0-9]{3}\)?-[0-9]{3}-[0-9]{4}$)|(^\(?[0-9]{3}\)?\s?[0-9]{3}-[0-9]{4}$)</p>
-<p>Must be numeric and may contain a dash or space between the numbers
-at the appropriate placement. The phone number must be valid based on
-the North American Numbering Plan (for example, the area code cannot
-begin with a 0 or 1). Example: 234-555-1212</p>
-<p>Condition: Required when sourceUri is not supplied when adding the
-payee.</p></td>
-</tr>
-<tr class="odd">
-<td>address</td>
-<td>Cond</td>
-<td><a href="#usaddress">USAddress</a></td>
-<td><p>Payee address information.</p>
-<p>Condition: Required when sourceUri is not supplied when adding the
-payee.</p></td>
-</tr>
-<tr class="even">
-<td>overnightAddress</td>
-<td>Opt</td>
-<td><a href="#usaddress">USAddress</a></td>
-<td>Address for overnight payments if one exists for the payee.</td>
-</tr>
-<tr class="odd">
-<td>socialTokens</td>
-<td>Opt</td>
-<td>Array of<br />
-SocialToken</td>
-<td>Reserved for future use.</td>
-</tr>
-<tr class="even">
-<td>accountTokens</td>
-<td>Opt</td>
-<td>Array of <a href="#accounttokenaddinfo">AccountTokenAddInfo</a></td>
-<td>Reserved for future use.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| name | Req | string | The name of the payee.<br> Pattern: ^[\\x20-\\x5A\\x5C\\x5F-\\x7E]+$ <br> Length: 2–32 |
+| nickname | Opt | string | The nickname of the payee. Length: 1-30 <br> Pattern: ^[\\x20\\x2C-\\x2E\\x30-\\x39\\x41-\\x5A\\x61-\\x7A\\r\\n]+$ |
+| accountNumber | Opt | string | The consumer’s account number with the payee. Length: 1–32 <br> Pattern: ^[a-zA-Z0-9 !"#\$\%&-]{1,32}$ |
+| contactPhoneNumber | Cond | string | Phone number used to contact the payee if there are issues posting the transaction. Length: 10-12 <br> Pattern: (^[0-9]{10}\$)\|(^\\(?[0-9]{3}\\)?-[0-9]{3}-[0-9]{4}\$)\|(^\\(?[0-9]{3}\\)?\\s?[0-9]{3}-[0-9]{4}$) <br> Must be numeric and may contain a dash or space between the numbers at the appropriate placement. The phone number must be valid based on the North American Numbering Plan (for example, the area code cannot begin with a 0 or 1). Example: 234-555-1212 <br> Condition: Required when sourceUri is not supplied when adding the payee. |
+| address | Cond | [USAddress](#usaddress) | Payee address information. <br> Condition: Required when sourceUri is not supplied when adding the payee. |
+| overnightAddress | Opt | [USAddress](#usaddress) | Address for overnight payments if one exists for the payee. | 
+| socialTokens | Opt | Array of SocialToken | Reserved for future use. |
+| accountTokens | Opt | Array of [AccountTokenAddInfo](#accounttokenaddinfo) |Reserved for future use. |
 
 #### PayeeList
 
@@ -10183,37 +6971,10 @@ SocialToken</td>
 
 #### Phone
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>phoneType</td>
-<td>Req</td>
-<td>string</td>
-<td>The type of phone number. Valid values: Day, Evening, Mobile</td>
-</tr>
-<tr class="even">
-<td>value</td>
-<td>Req</td>
-<td>string</td>
-<td><p>The phone number value.<br />
-Pattern:
-(^[0-9]{10}$)|(^\(?[0-9]{3}\)?-[0-9]{3}-[0-9]{4}$)|(^\(?[0-9]{3}\)?\s?[0-9]{3}-[0-9]{4}$)</p>
-<p>For a user enrollment, all non-numeric characters shall be removed
-and if there is a leading “1,” it is removed. It may contain a dash or
-space between the numbers at the appropriate placement. The phone number
-must be valid based on the North American Numbering Plan (for example,
-the area code cannot begin with a 0 or 1).</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| phoneType | Req | string | The type of phone number. Valid values: Day, Evening, Mobile |
+| value | Req | string | The phone number value. <br> Pattern:(^[0-9]{10}\$)\|(^\\(?[0-9]{3}\\)?-[0-9]{3}-[0-9]{4}\$)\|(^\\(?[0-9]{3}\\)?\\s?[0-9]{3}-[0-9]{4}$) | For a user enrollment, all non-numeric characters shall be removed and if there is a leading “1,” it is removed. It may contain a dash or space between the numbers at the appropriate placement. The phone number must be valid based on the North American Numbering Plan (for example, the area code cannot begin with a 0 or 1). |
 
 #### PotentialPayee
 
@@ -10283,405 +7044,62 @@ the area code cannot begin with a 0 or 1).</p></td>
 
 #### RecurringTransactionSchedule
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>amount</td>
-<td>Req</td>
-<td>double</td>
-<td><p>The transaction amount.</p>
-<p>Pattern: ^\d+(\.\d{1,2})?$</p></td>
-</tr>
-<tr class="even">
-<td>endDate</td>
-<td>Opt</td>
-<td>string</td>
-<td><p>The end date for this automatic transaction schedule. A null
-value means transactions will be scheduled indefinitely. Should not be
-submitted alongside maximumTransactionCount.</p>
-<p>Format: yyyy-MM-dd</p></td>
-</tr>
-<tr class="odd">
-<td>endTransactionAmount</td>
-<td>Opt</td>
-<td>double</td>
-<td><p>Amount for the last transaction. This will be provided by the
-consumer if the last transaction amount is different from the rest of
-the transactions in the recurring model.</p>
-<p>Pattern: ^\d+(\.\d{1,2})?$</p></td>
-</tr>
-<tr class="even">
-<td>frequency</td>
-<td>Req</td>
-<td>string</td>
-<td>The frequency that transactions will be scheduled to the payee.
-Valid values:<br />
-Weekly, Every2Weeks, Every4Weeks, TwiceAMonth, Monthly, Every2Months,
-Every3Months, Every4Months, Every6Months, Annually</td>
-</tr>
-<tr class="odd">
-<td>initialTransactionAmount</td>
-<td>Opt</td>
-<td>double</td>
-<td><p>Amount for the first transaction. This will be provided by the
-consumer if the first transaction amount is different from the rest of
-the transactions in the recurring model.</p>
-<p>Pattern: ^\d+(\.\d{1,2})?$</p></td>
-</tr>
-<tr class="even">
-<td>initiationDate</td>
-<td>Req</td>
-<td>string</td>
-<td>The date of the first scheduled transaction. Format: yyyy-MM-dd</td>
-</tr>
-<tr class="odd">
-<td>nextTransactionDate</td>
-<td>Opt</td>
-<td>string</td>
-<td><p>Date of the next payment transaction to be scheduled. If there is
-not a next payment (such as when a model is terminated due to reaching
-the end of the model), this field is not populated.</p>
-<p>Note: Not used for POST.</p></td>
-</tr>
-<tr class="even">
-<td>maximumTransactionCount</td>
-<td>Opt</td>
-<td>integer</td>
-<td>The maximum number of transactions that this automatic transaction
-model should process before ending. Should not be submitted alongside
-endDate.</td>
-</tr>
-<tr class="odd">
-<td>remainingTransactionCount</td>
-<td>Opt</td>
-<td>integer</td>
-<td>The number of transactions remaining before this automatic payment
-model ends.<br />
-Note: Not used for POST.</td>
-</tr>
-<tr class="even">
-<td>memo</td>
-<td>Opt</td>
-<td>string</td>
-<td><p>Transaction memo. Maximum length: 34</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
-</tr>
-<tr class="odd">
-<td>transactionScheduledAlert</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Indicates if the consumer is notified when a transaction is
-scheduled.</p>
-<p>True - Notify the consumer when a transaction is scheduled.</p>
-<p>False - Do not notify the consumer when a transaction is scheduled.
-This is the default.</p></td>
-</tr>
-<tr class="even">
-<td>transactionSentAlert</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Indicates if the consumer is notified when a transaction is
-processed.</p>
-<p>True - Notify the consumer when a transaction is processed.</p>
-<p>False - Do not notify the consumer when a transaction is processed.
-This is the default.</p></td>
-</tr>
-<tr class="odd">
-<td>recurringScheduleExpireAlert</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Indicates if the consumer is notified when the final transaction
-from a recurring model is scheduled.</p>
-<p>True - Notify the consumer when the final transaction from the
-recurring model is scheduled.</p>
-<p>False - Do not notify the consumer when the final transaction from
-the recurring model is scheduled. This is the default.</p></td>
-</tr>
-<tr class="even">
-<td>duration</td>
-<td>Req</td>
-<td>string</td>
-<td>The duration of recurring model. Valid values:
-UntilSubscriberCancels, XNumberOfPayments, SpecificEndDate<br />
-Note: Not used for POST.</td>
-</tr>
-<tr class="odd">
-<td>nextTransactionGeneration<br />
-Date</td>
-<td>Opt</td>
-<td>string</td>
-<td>Date when the next payment will be generated/spawned. This date may
-not correspond to the date of the next actual payment, because that
-payment could already have been spawned. This field will not be returned
-when there is no next payment to be spawned.<br />
-Note: Not used for POST.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| amount | Req | double | The transaction amount. <br> Pattern: ^\\d+(\\.\\d{1,2})?$ |
+| endDate | Opt | string | The end date for this automatic transaction schedule. A null value means transactions will be scheduled indefinitely. Should not be submitted alongside maximumTransactionCount. <br> Format: yyyy-MM-dd |
+| endTransactionAmount | Opt | double | Amount for the last transaction. This will be provided by the consumer if the last transaction amount is different from the rest of the transactions in the recurring model. <br> Pattern: ^\\d+(\\.\\d{1,2})?$ |
+| frequency | Req | string | The frequency that transactions will be scheduled to the payee. Valid values: <br> Weekly, Every2Weeks, Every4Weeks, TwiceAMonth, Monthly, Every2Months, Every3Months, Every4Months, Every6Months, Annually |
+| initialTransactionAmount | Opt | double | Amount for the first transaction. This will be provided by the consumer if the first transaction amount is different from the rest of the transactions in the recurring model. <br> Pattern: ^\\d+(\\.\\d{1,2})?$ |
+| initiationDate | Req | string | The date of the first scheduled transaction. Format: yyyy-MM-dd |
+| nextTransactionDate | Opt | string | Date of the next payment transaction to be scheduled. If there is not a next payment (such as when a model is terminated due to reaching the end of the model), this field is not populated. <br> Note: Not used for POST. |
+| maximumTransactionCount | Opt | integer | The maximum number of transactions that this automatic transaction model should process before ending. Should not be submitted alongside endDate. |
+| remainingTransactionCount | Opt | integer | The number of transactions remaining before this automatic payment model ends. <br> Note: Not used for POST. |
+| memo | Opt | string | Transaction memo. Maximum length: 34 <br> Pattern: ^[a-zA-Z0-9_(){}&@!+#.'$,%^ \*-]\* |
+| transactionScheduledAlert | Req | boolean | Indicates if the consumer is notified when a transaction is scheduled. <br> True - Notify the consumer when a transaction is scheduled. <br> False - Do not notify the consumer when a transaction is scheduled. This is the default. |
+| transactionSentAlert| Req | boolean | Indicates if the consumer is notified when a transaction is processed. <br> True - Notify the consumer when a transaction is processed. <br> False - Do not notify the consumer when a transaction is processed. This is the default. |
+| recurringScheduleExpireAlert | Req | boolean | Indicates if the consumer is notified when the final transaction from a recurring model is scheduled. <br> True - Notify the consumer when the final transaction from the recurring model is scheduled. <br> False - Do not notify the consumer when the final transaction from the recurring model is scheduled. This is the default. |
+| duration | Req | string | The duration of recurring model. Valid values: UntilSubscriberCancels, XNumberOfPayments, SpecificEndDate <br> Note: Not used for POST. |
+| nextTransactionGenerationDate | Opt | string | Date when the next payment will be generated/spawned. This date may not correspond to the date of the next actual payment, because that payment could already have been spawned. This field will not be returned when there is no next payment to be spawned. <br> Note: Not used for POST. |
 
 #### RecurringTransactionSchedulePatch
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>amount</td>
-<td>Opt</td>
-<td>double</td>
-<td><p>The transaction amount.</p>
-<p>Pattern: ^\d+(\.\d{1,2})?$</p></td>
-</tr>
-<tr class="even">
-<td>endDate</td>
-<td>Opt</td>
-<td>string</td>
-<td><p>The end date for this automatic transaction schedule. A null
-value means transactions will be scheduled indefinitely. Should not be
-submitted alongside maximumTransactionCount.</p>
-<p>Format: yyyy-MM-dd</p></td>
-</tr>
-<tr class="odd">
-<td>endTransactionAmount</td>
-<td>Opt</td>
-<td>double</td>
-<td><p>Amount for the last transaction. This will be provided by the
-consumer if the last transaction amount is different from the rest of
-the transactions in the recurring model.</p>
-<p>Pattern: ^\d+(\.\d{1,2})?$</p></td>
-</tr>
-<tr class="even">
-<td>frequency</td>
-<td>Opt</td>
-<td>string</td>
-<td>The frequency that transactions will be scheduled to the payee.
-Valid values:<br />
-Weekly, Every2Weeks, Every4Weeks, TwiceAMonth, Monthly, Every2Months,
-Every3Months, Every4Months, Every6Months, Annually</td>
-</tr>
-<tr class="odd">
-<td>initiationDate</td>
-<td>Opt</td>
-<td>string</td>
-<td>The date of the first scheduled transaction. Format: yyyy-MM-dd</td>
-</tr>
-<tr class="even">
-<td>maximumTransactionCount</td>
-<td>Opt</td>
-<td>integer</td>
-<td>The maximum number of transactions that this automatic transaction
-model should process before ending. Should not be submitted alongside
-endDate.</td>
-</tr>
-<tr class="odd">
-<td>memo</td>
-<td>Opt</td>
-<td>string</td>
-<td><p>Transaction memo. Maximum length: 34</p>
-<p>Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ *-]*</p></td>
-</tr>
-<tr class="even">
-<td>transactionScheduledAlert</td>
-<td>Opt</td>
-<td>boolean</td>
-<td><p>Indicates if the consumer is notified when a transaction is
-scheduled.</p>
-<p>True - Notify the consumer when a transaction is scheduled.</p>
-<p>False - Do not notify the consumer when a transaction is scheduled.
-This is the default.</p></td>
-</tr>
-<tr class="odd">
-<td>transactionSentAlert</td>
-<td>Opt</td>
-<td>boolean</td>
-<td><p>Indicates if the consumer is notified when a transaction is
-processed.</p>
-<p>True - Notify the consumer when a transaction is processed.</p>
-<p>False - Do not notify the consumer when a transaction is processed.
-This is the default.</p></td>
-</tr>
-<tr class="even">
-<td>recurringScheduleExpireAlert</td>
-<td>Opt</td>
-<td>boolean</td>
-<td><p>Indicates if the consumer is notified when the final transaction
-from a recurring model is scheduled.</p>
-<p>True - Notify the consumer when the final transaction from the
-recurring model is scheduled.</p>
-<p>False - Do not notify the consumer when the final transaction from
-the recurring model is scheduled. This is the default.</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| amount | Opt | double | The transaction amount. <br> Pattern: ^\\d+(\\.\\d{1,2})?$ |
+| endDate | Opt | string | The end date for this automatic transaction schedule. A null value means transactions will be scheduled indefinitely. Should not be submitted alongside maximumTransactionCount. <br> Format: yyyy-MM-dd |
+| endTransactionAmount | Opt | double | Amount for the last transaction. This will be provided by the consumer if the last transaction amount is different from the rest of the transactions in the recurring model. <br> Pattern: ^\\d+(\\.\\d{1,2})?$ |
+| frequency | Opt | string | The frequency that transactions will be scheduled to the payee. Valid values: <br> Weekly, Every2Weeks, Every4Weeks, TwiceAMonth, Monthly, Every2Months, Every3Months, Every4Months, Every6Months, Annually |
+| initiationDate | Opt | string | The date of the first scheduled transaction. Format: yyyy-MM-dd |
+| maximumTransactionCount | Opt | integer | The maximum number of transactions that this automatic transaction model should process before ending. Should not be submitted alongside endDate. |
+| memo | Opt | string | Transaction memo. Maximum length: 34 <br> Pattern: ^[a-zA-Z0-9_(){}&@!+#.'$,%^ \*-]\* |
+| transactionScheduledAlert | Opt | boolean | Indicates if the consumer is notified when a transaction is scheduled. <br> True - Notify the consumer when a transaction is scheduled. <br> False - Do not notify the consumer when a transaction is scheduled. This is the default. |
+| transactionSentAlert | Opt | boolean | Indicates if the consumer is notified when a transaction is processed. <br> True - Notify the consumer when a transaction is processed. <br> False - Do not notify the consumer when a transaction is processed. This is the default. |
+| recurringScheduleExpireAlert | Opt | boolean | Indicates if the consumer is notified when the final transaction from a recurring model is scheduled. <br> True - Notify the consumer when the final transaction from the recurring model is scheduled. <br> False - Do not notify the consumer when the final transaction from the recurring model is scheduled. This is the default. |
 
 #### RecurringTransactionScheduleTypesSupported
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>frequency</td>
-<td>Req</td>
-<td>Array of string</td>
-<td>The available frequency options for setting up a recurring payment.
-Valid values:<br />
-Weekly, Every2Weeks, Every4Weeks, TwiceAMonth, Monthly, Every2Months,
-Every3Months, Every4Months, Every6Months, Annually</td>
-</tr>
-<tr class="even">
-<td>duration</td>
-<td>Req</td>
-<td>Array of string</td>
-<td><p>The available duration options for setting up a recurring
-payment. Valid values:</p>
-<p>UntilSubscriberCancels, XnumberOfPayments, SpecificEndDate</p></td>
-</tr>
-<tr class="odd">
-<td>eligibleFundingAccounts</td>
-<td>Req</td>
-<td>Array of <a
-href="#recurringeligiblefundingaccount">RecurringEligibleFundingAccount</a></td>
-<td>A list of eligible funding accounts with the available automatic
-transaction options.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| frequency | Req | Array of string | The available frequency options for setting up a recurring payment. Valid values: <br> Weekly, Every2Weeks, Every4Weeks, TwiceAMonth, Monthly, Every2Months, Every3Months, Every4Months, Every6Months, Annually | 
+| duration | Req | Array of string | The available duration options for setting up a recurring payment. Valid values: <br> <p>UntilSubscriberCancels, XnumberOfPayments, SpecificEndDate |
+| eligibleFundingAccounts | Req | Array of [RecurringEligibleFundingAccount](#recurringeligiblefundingaccount) | A list of eligible funding accounts with the available automatic transaction options. |
 
 #### Reminder
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>alertAtLeadTimeBeforePaymentDueDate</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Indicates if the consumer is reminded at lead time (see leadTime)
-before a payment is due.</p>
-<p>Valid values:</p>
-<p>true – Remind the consumer at lead time before a payment is due.</p>
-<p>false – Do not remind the consumer at lead time before a payment is
-due.</p></td>
-</tr>
-<tr class="even">
-<td>alertIfNoBillPaymentMadeByDueDate</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Indicates if the consumer is reminded if no payment has been made
-by the due date.</p>
-<p>Valid values:</p>
-<p>true – Remind the consumer that a payment is due.</p>
-<p>false – Do not remind the consumer that a payment is due.</p></td>
-</tr>
-<tr class="odd">
-<td>alertWhenBillPayment Processes</td>
-<td>Req</td>
-<td>boolean</td>
-<td><p>Indicates if the consumer is notified when a payment is
-processed.</p>
-<p>Valid values:</p>
-<p>true – Notify the consumer when a payment has been marked as
-processed.</p>
-<p>false – Do not notify the consumer when a payment has been marked as
-processed.</p></td>
-</tr>
-<tr class="even">
-<td>amount</td>
-<td>Req</td>
-<td>number</td>
-<td>The payment amount associated with this reminder.</td>
-</tr>
-<tr class="odd">
-<td>currentDueDate</td>
-<td>Req</td>
-<td>string</td>
-<td>Next date for the bill payment reminder in yyyy-MM-dd format.</td>
-</tr>
-<tr class="even">
-<td>firstReminderDate</td>
-<td>Req</td>
-<td>string</td>
-<td>First date for the bill payment reminder in yyyy-MM-dd format.</td>
-</tr>
-<tr class="odd">
-<td>frequency</td>
-<td>Req</td>
-<td>string</td>
-<td><p>The frequency of how often the reminder is automatically created.
-Valid values:</p>
-<p>Weekly<br />
-Every2Weeks<br />
-TwiceAMonth<br />
-Every4Weeks<br />
-Monthly<br />
-Every2Months<br />
-Every3Months<br />
-Every4Months<br />
-Every6Months<br />
-Annually</p></td>
-</tr>
-<tr class="even">
-<td>leadTime</td>
-<td>Req</td>
-<td>string</td>
-<td><p>Number of days (excluding any risk management calculations)
-before the due date that the reminder will be created. Valid values:</p>
-<p>Lead03Days<br />
-Lead05Days<br />
-Lead10Days<br />
-Lead14Days<br />
-Lead21Days<br />
-Lead28Days</p></td>
-</tr>
-<tr class="odd">
-<td>payeeUri</td>
-<td>Req</td>
-<td>string</td>
-<td>URI for the payee. This matches the payee URI returned in GET
-Payees.</td>
-</tr>
-<tr class="even">
-<td>self</td>
-<td>Req</td>
-<td>string</td>
-<td>URI for the reminder model.</td>
-</tr>
-<tr class="odd">
-<td>id</td>
-<td>Req</td>
-<td>string</td>
-<td>Identifier for the reminder model.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| alertAtLeadTimeBeforePaymentDueDate | Req | boolean | Indicates if the consumer is reminded at lead time (see leadTime) before a payment is due. <br> Valid values: <br> true – Remind the consumer at lead time before a payment is due. <br> false – Do not remind the consumer at lead time before a payment is due. |
+| alertIfNoBillPaymentMadeByDueDate | Req | boolean | Indicates if the consumer is reminded if no payment has been made by the due date. <br> Valid values: <br> true – Remind the consumer that a payment is due. <br> false – Do not remind the consumer that a payment is due. | 
+| alertWhenBillPaymentProcesses | Req | boolean | Indicates if the consumer is notified when a payment is processed. <br> Valid values: <br> true – Notify the consumer when a payment has been marked as processed. <br> false – Do not notify the consumer when a payment has been marked as processed. |
+| amount | Req | number | The payment amount associated with this reminder. |
+| currentDueDate | Req | string | Next date for the bill payment reminder in yyyy-MM-dd format. |
+| firstReminderDate | Req | string | First date for the bill payment reminder in yyyy-MM-dd format. |
+| frequency | Req | string | The frequency of how often the reminder is automatically created. Valid values: <br> Weekly <br> Every2Weeks <br> TwiceAMonth <br> Every4Weeks <br> Monthly <br> Every2Months <br> Every3Months <br> Every4Months <br> Every6Months <br> Annually | 
+| leadTime | Req | string | Number of days (excluding any risk management calculations) before the due date that the reminder will be created. Valid values: <br> Lead03Days <br> Lead05Days <br> Lead10Days <br> Lead14Days <br> Lead21Days <br> Lead28Days |
+| payeeUri | Req | string | URI for the payee. This matches the payee URI returned in GET Payees. |
+| self | Req | string | URI for the reminder model. | 
+| id | Req | string | Identifier for the reminder model. |
 
 #### ReminderList
 
@@ -10691,62 +7109,14 @@ Payees.</td>
 
 #### ResultInfo
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>resultCategory</td>
-<td>Req</td>
-<td>string</td>
-<td><p>Description of the kind of result. Valid values:</p>
-<p>ERROR<br />
-WARNING<br />
-INFO</p></td>
-</tr>
-<tr class="even">
-<td>code</td>
-<td>Req</td>
-<td>string</td>
-<td>Code associated with the result of a request.</td>
-</tr>
-<tr class="odd">
-<td>field</td>
-<td>Opt</td>
-<td>string</td>
-<td>Matches the name of a field causing an error.</td>
-</tr>
-<tr class="even">
-<td>fieldPath</td>
-<td>Opt</td>
-<td>string</td>
-<td>Specifies the field causing an error. In addition to the field name,
-FieldPath includes the tags that the field is nested in, starting with
-the request level.</td>
-</tr>
-<tr class="odd">
-<td>listItemId</td>
-<td>Opt</td>
-<td>string</td>
-<td>For some requests, each item in a list has a unique ID so that the
-response can be tied to the requested item in the list. If the request
-resulted in an error in a list, this ID will tell the caller which item
-in the list was in error.</td>
-</tr>
-<tr class="even">
-<td>description</td>
-<td>Req</td>
-<td>string</td>
-<td>A textual description of &lt;code&gt;.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| resultCategory | Req | string | Description of the kind of result. Valid values: <br> ERROR <br> WARNING <br> INFO |
+| code | Req | string | Code associated with the result of a request. |
+| field | Opt | string | Matches the name of a field causing an error. |
+| fieldPath | Opt | string | Specifies the field causing an error. In addition to the field name, FieldPath includes the tags that the field is nested in, starting with the request level. |
+| listItemId | Opt | string | For some requests, each item in a list has a unique ID so that the response can be tied to the requested item in the list. If the request resulted in an error in a list, this ID will tell the caller which item in the list was in error. | 
+| description | Req | string | A textual description of &lt;code&gt;. |
 
 #### ResultType
 
@@ -10775,213 +7145,32 @@ in the list was in error.</td>
 
 #### ToDo
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>toDoType</td>
-<td>Req</td>
-<td>string</td>
-<td><p>Identifies the item’s ToDo type. Valid values:</p>
-<p>PotentialPayee<br />
-Reminder<br />
-UnpaidBill</p>
-<p>UnpaidBill applies to both e-bills and bill due alerts.</p></td>
-</tr>
-<tr class="even">
-<td>toDoDetailUri</td>
-<td>Req</td>
-<td>string</td>
-<td>URI for the item that requires the consumer’s attention. For
-example, the URI to a potential payee that needs to be
-added/verified.</td>
-</tr>
-<tr class="odd">
-<td>payeeUri</td>
-<td>Opt</td>
-<td>string</td>
-<td>The corresponding payee URI for a Reminder or UnpaidBill
-toDoType.</td>
-</tr>
-<tr class="even">
-<td>verificationRequired</td>
-<td>Cond</td>
-<td>boolean</td>
-<td><p>Condition: Required for toDoType = PotentialPayee. Indicates if
-verification is required before adding the payee.</p>
-<p>True – Verification required.</p>
-<p>False – Verification not required.</p></td>
-</tr>
-<tr class="odd">
-<td>actionDate</td>
-<td>Opt</td>
-<td>string</td>
-<td><p>The date that the ToDo item requires action to avoid possible
-negative consequences. Example: due date of a pending e-bill.</p>
-<p>Format: yyyy-MM-dd</p>
-<p>For Reminders, this is the due date entered by the consumer to be
-used as the trigger for the reminder message.</p></td>
-</tr>
-<tr class="even">
-<td>amount</td>
-<td>Opt</td>
-<td>double</td>
-<td>The amount of the ToDo item if there is one. For e-bills and bill
-due alerts this is the AmountDue (not minimum amount or balance). For
-Reminders, this is the amount entered by the consumer to appear in the
-reminder message.</td>
-</tr>
-<tr class="odd">
-<td>maskedAccountNumber</td>
-<td>Opt</td>
-<td>string</td>
-<td>The masked account number of the account.</td>
-</tr>
-<tr class="even">
-<td>description</td>
-<td>Req</td>
-<td>string</td>
-<td>A description relevant to the ToDo type. For PotentialPayees, this
-will be the merchant name. For Reminder and UnpaidBill, this will be the
-payee name.</td>
-</tr>
-<tr class="odd">
-<td>self</td>
-<td>Req</td>
-<td>string</td>
-<td>URI for the ToDo item.</td>
-</tr>
-<tr class="even">
-<td>id</td>
-<td>Req</td>
-<td>string</td>
-<td>Identifier for the ToDo item.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| toDoType | Req | string | Identifies the item’s ToDo type. Valid values: <br> PotentialPayee <br> Reminder <br> UnpaidBill <br> UnpaidBill applies to both e-bills and bill due alerts. | 
+| toDoDetailUri | Req | string | URI for the item that requires the consumer’s attention. For example, the URI to a potential payee that needs to be added/verified. |
+| payeeUri | Opt | string | The corresponding payee URI for a Reminder or UnpaidBill toDoType. |
+| verificationRequired | Cond | boolean | Condition: Required for toDoType = PotentialPayee. Indicates if verification is required before adding the payee. <br> True – Verification required. <br> False – Verification not required.|
+| actionDate | Opt | string | The date that the ToDo item requires action to avoid possible negative consequences. Example: due date of a pending e-bill. <br> Format: yyyy-MM-dd <br> For Reminders, this is the due date entered by the consumer to be used as the trigger for the reminder message. |
+| amount | Opt | double | The amount of the ToDo item if there is one. For e-bills and bill due alerts this is the AmountDue (not minimum amount or balance). For Reminders, this is the amount entered by the consumer to appear in the reminder message. |
+| maskedAccountNumber | Opt | string | The masked account number of the account. |
+| description | Req | string | A description relevant to the ToDo type. For PotentialPayees, this will be the merchant name. For Reminder and UnpaidBill, this will be the payee name. |
+| self | Req | string | URI for the ToDo item. |
+| id | Req | string | Identifier for the ToDo item. |
 
 #### Transaction
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>listItemId</td>
-<td>Req</td>
-<td>integer</td>
-<td>Serial number for this transaction that was sent in a request
-containing multiple transactions. Use this number to identify the
-response for each transaction in the request, because the sequence of
-responses may not match the sequence of requests due to web services
-infrastructure. Each listItemId must be unique within a request.</td>
-</tr>
-<tr class="even">
-<td>amount</td>
-<td>Req</td>
-<td>double</td>
-<td><p>The amount of the transaction. The transaction amount must be
-within tenant/sponsor limits (minimum and maximum).</p>
-<p>Pattern: ^\d+(\.\d{1,2})?$</p>
-<p>A payment funded with a bank account that is Pending Confirmation
-cannot be scheduled with an amount that exceeds the Fiserv cumulative
-unconfirmed payment limit. This does not apply to SameDay
-Payments.</p></td>
-</tr>
-<tr class="odd">
-<td>deliveryDate</td>
-<td>Req</td>
-<td>string</td>
-<td><p>The date for the transaction in yyyy-MM-dd format.</p>
-<p>This date may not be in the past and may not be more than 365 days in
-the future. This date may not be earlier than the earliest available
-payment date for the selected payee.</p>
-<p>Generally, the Fiserv system will not allow a payment to be scheduled
-for a date that is not a bank processing date (weekends and Federal
-Reserve Board recognized holidays). However, this will depend on the
-merchant’s configuration. For example, some MoneyGram merchants accept
-payments on weekends.</p>
-<p>When the payee is Overnight Check (ONC) capable and the current time
-is before the cutoff time for ONC, the payment will be added as an ONC
-payment.</p>
-<p>A payment funded with a bank account that is Pending Confirmation
-cannot be scheduled with a payment date greater than 45 days after the
-bank account was added.</p>
-<p>For SameDay Payments, this date must be current date.</p></td>
-</tr>
-<tr class="even">
-<td>fundingAccountUri</td>
-<td>Req</td>
-<td>string</td>
-<td><p>The source funding account URI for the given transaction. Account
-types that are eligible to be used are those enabled for Bill Payment
-(service) for the tenant/sponsor.</p>
-<p>If account confirmation is enabled for the tenant/sponsor, only
-accounts that are Confirmed or Pending Confirmation can be used to
-schedule a payment.</p></td>
-</tr>
-<tr class="odd">
-<td>note</td>
-<td>Opt</td>
-<td>string</td>
-<td><p>A consumer’s “note to self.” This note is not submitted to the
-payee. Length: 0–255</p>
-<p>Pattern:
-^[\x2A-\x2E\x30-\x39\x40-\x5A\x5F\x5E\x61-\x7A\x20\x21\x23-\x25]+$</p>
-<p>The note field only allows the following character sets: a-z, A-Z,
-0-9, _ @!+#.$,%^*-</p>
-<p>This note is a convenience feature. If the payment is scheduled
-successfully but Fiserv is unable to store the payment note, you will
-receive only a warning, not an error.</p></td>
-</tr>
-<tr class="even">
-<td>destinationUri</td>
-<td>Req</td>
-<td>string</td>
-<td><p>The destination URI for the given transaction. May identify the
-payee, bill due alert, and/or e-bill to be paid.</p>
-<ul>
-<li><p>If the destination is a payee, the payee must exist and be active
-for the consumer.</p></li>
-<li><p>If the destination is an e-bill, the e-bill ID must be a valid
-e-bill ID for the consumer.</p></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td>withdrawNow</td>
-<td>Opt</td>
-<td>boolean</td>
-<td>Reserved for future use.</td>
-</tr>
-<tr class="even">
-<td>memo</td>
-<td>Opt</td>
-<td>string</td>
-<td>Transaction memo. Maximum of 34 characters.</td>
-</tr>
-<tr class="odd">
-<td>cavv</td>
-<td>Opt</td>
-<td>string</td>
-<td>Placeholder for 3-D Secure. Cardholder Authentication Verification
-Value. Used if the transaction is funded by a card account and the
-institution is participating in 3-D Secure.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| listItemId | Req | integer | Serial number for this transaction that was sent in a request containing multiple transactions. Use this number to identify the response for each transaction in the request, because the sequence of responses may not match the sequence of requests due to web services infrastructure. Each listItemId must be unique within a request. | 
+| amount | Req | double | The amount of the transaction. The transaction amount must be within tenant/sponsor limits (minimum and maximum). <br> Pattern: ^\\d+(\\.\\d{1,2})?$ <br> A payment funded with a bank account that is Pending Confirmation cannot be scheduled with an amount that exceeds the Fiserv cumulative unconfirmed payment limit. This does not apply to SameDay Payments. | 
+| deliveryDate | Req | string | The date for the transaction in yyyy-MM-dd format. <br> This date may not be in the past and may not be more than 365 days in the future. This date may not be earlier than the earliest available payment date for the selected payee. <br> Generally, the Fiserv system will not allow a payment to be scheduled for a date that is not a bank processing date (weekends and Federal Reserve Board recognized holidays). However, this will depend on the merchant’s configuration. For example, some MoneyGram merchants accept payments on weekends. <br> When the payee is Overnight Check (ONC) capable and the current time is before the cutoff time for ONC, the payment will be added as an ONC payment. <br> A payment funded with a bank account that is Pending Confirmation cannot be scheduled with a payment date greater than 45 days after the bank account was added. <br> For SameDay Payments, this date must be current date. | 
+| fundingAccountUri | Req | string | The source funding account URI for the given transaction. Account types that are eligible to be used are those enabled for Bill Payment (service) for the tenant/sponsor. <br> If account confirmation is enabled for the tenant/sponsor, only accounts that are Confirmed or Pending Confirmation can be used to schedule a payment. |
+| note | Opt | string | A consumer’s “note to self.” This note is not submitted to the payee. Length: 0–255 <br> Pattern: ^[\\x2A-\\x2E\\x30-\\x39\\x40-\\x5A\\x5F\\x5E\\x61-\\x7A\\x20\\x21\\x23-\\x25]+$ <br> The note field only allows the following character sets: a-z, A-Z, 0-9, _ @!+#.\$,%^\*- <br> This note is a convenience feature. If the payment is scheduled successfully but Fiserv is unable to store the payment note, you will receive only a warning, not an error. |
+| destinationUri | Req | string | The destination URI for the given transaction. May identify the payee, bill due alert, and/or e-bill to be paid. <br> If the destination is a payee, the payee must exist and be active for the consumer. <br> If the destination is an e-bill, the e-bill ID must be a valid e-bill ID for the consumer. |
+| withdrawNow | Opt | boolean | Reserved for future use. |
+| memo | Opt | string | Transaction memo. Maximum of 34 characters. |
+| cavv | Opt | string | Placeholder for 3-D Secure. Cardholder Authentication Verification Value. Used if the transaction is funded by a card account and the institution is participating in 3-D Secure. |
 
 #### TransactionCalendar
 
@@ -11000,461 +7189,75 @@ institution is participating in 3-D Secure.</td>
 
 #### TransactionOptions
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>cardDebitDate</td>
-<td>Opt</td>
-<td>string</td>
-<td>The date the funds are debited from the user’s account. Only applies
-to card funded transactions. (format: yyyy-MM-dd)</td>
-</tr>
-<tr class="even">
-<td>additionalInfoRequired</td>
-<td>Opt</td>
-<td>Array of string</td>
-<td>Additional information that may be required to make a certain
-payment date available. Valid value: “OvernightAddress”</td>
-</tr>
-<tr class="odd">
-<td>cutOffTime</td>
-<td>Opt</td>
-<td>string</td>
-<td><p>Cutoff date and time for the transaction in UTC format. Not
-returned for future processing dates.</p>
-<p>To determine if a transaction option is valid, compare current time
-(in UTC format) to the provided cut off time:</p>
-<ul>
-<li><p>If &lt;current time in UTC&gt; is before &lt;cutoff time&gt; then
-the date can be used.</p></li>
-<li><p>If &lt;current time in UTC&gt; is after &lt;cutoff time&gt; then
-that date is no longer valid.</p></li>
-</ul></td>
-</tr>
-<tr class="even">
-<td>deliveryMethod</td>
-<td>Opt</td>
-<td>string</td>
-<td>The method of delivery of the transaction. Valid values:
-"Electronic" "Paper" "Overnight"</td>
-</tr>
-<tr class="odd">
-<td>fee</td>
-<td>Opt</td>
-<td>number</td>
-<td>The fee amount for the transaction.</td>
-</tr>
-<tr class="even">
-<td>fundingAccountUri</td>
-<td>Req</td>
-<td>string</td>
-<td>The funding account for the transaction.</td>
-</tr>
-<tr class="odd">
-<td>withdrawNow</td>
-<td>Opt</td>
-<td>boolean</td>
-<td>Reserved for future use.</td>
-</tr>
-<tr class="even">
-<td>instantDelivery</td>
-<td>Opt</td>
-<td>boolean</td>
-<td>Reserved for future use.</td>
-</tr>
-<tr class="odd">
-<td>isPreferredDate</td>
-<td>Opt</td>
-<td>boolean</td>
-<td>When a transaction's due date is in the future, a value of true for
-this parameter indicates that this transaction option is preferred. This
-is the recommended option to pre-populate for a consumer.</td>
-</tr>
-<tr class="even">
-<td>minAmount</td>
-<td>Opt</td>
-<td>number</td>
-<td>The minimum amount of the transaction.</td>
-</tr>
-<tr class="odd">
-<td>maxAmount</td>
-<td>Opt</td>
-<td>number</td>
-<td>The maximum amount of the transaction.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| cardDebitDate | Opt | string | The date the funds are debited from the user’s account. Only applies to card funded transactions. (format: yyyy-MM-dd) |
+| additionalInfoRequired | Opt | Array of string | Additional information that may be required to make a certain payment date available. Valid value: “OvernightAddress” |
+| cutOffTime | Opt | string | Cutoff date and time for the transaction in UTC format. Not returned for future processing dates. <br> To determine if a transaction option is valid, compare current time (in UTC format) to the provided cut off time: <br> If &lt;current time in UTC&gt; is before &lt;cutoff time&gt; then the date can be used. <br> If &lt;current time in UTC&gt; is after &lt;cutoff time&gt; then that date is no longer valid. |
+| deliveryMethod | Opt | string | The method of delivery of the transaction. Valid values: "Electronic" "Paper" "Overnight" |
+| fee | Opt | number | The fee amount for the transaction. |
+| fundingAccountUri | Req | string | The funding account for the transaction. |
+| withdrawNow | Opt | boolean | Reserved for future use. |
+| instantDelivery | Opt | boolean | Reserved for future use. |
+| isPreferredDate | Opt | boolean | When a transaction's due date is in the future, a value of true for this parameter indicates that this transaction option is preferred. This is the recommended option to pre-populate for a consumer. |
+| minAmount | Opt | number | The minimum amount of the transaction. |
+| maxAmount | Opt | number | The maximum amount of the transaction. |
 
 #### TransactionOutput
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>self</td>
-<td>Cond</td>
-<td>string</td>
-<td>URI pointing to the transaction itself. Condition: Always returned
-for a successful response.</td>
-</tr>
-<tr class="even">
-<td>id</td>
-<td>Cond</td>
-<td>string</td>
-<td>Unique identifier for the transaction. Condition: Always returned
-for a successful response.</td>
-</tr>
-<tr class="odd">
-<td>confirmationNumber</td>
-<td>Cond</td>
-<td>string</td>
-<td>Confirmation number for the payment transaction. Condition: Always
-returned for a successful response.</td>
-</tr>
-<tr class="even">
-<td>deliveryDate</td>
-<td>Cond</td>
-<td>string</td>
-<td>The transaction expected delivery date, populated for pending and
-completed transactions. Format: yyyy-MM-dd<br />
-Condition: If the payment fails risk, deliveryDate is not returned.</td>
-</tr>
-<tr class="odd">
-<td>nextAvailableTransactionDate</td>
-<td>Cond</td>
-<td>string</td>
-<td>Next available transaction date. Condition: Returned only if the
-payment fails risk (transaction date is too early).</td>
-</tr>
-<tr class="even">
-<td>debitDate</td>
-<td>Cond</td>
-<td>string</td>
-<td>Date that the consumer’s account is to be debited. Format:
-yyyy-MM-dd<br />
-Condition: Always returned for successful response.</td>
-</tr>
-<tr class="odd">
-<td>legacyTransactionId</td>
-<td>Req</td>
-<td>string</td>
-<td>Server transaction timestamp.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| self | Cond | string | URI pointing to the transaction itself. Condition: Always returned for a successful response. |
+| id | Cond | string | Unique identifier for the transaction. Condition: Always returned for a successful response. |
+| confirmationNumber | Cond | string | Confirmation number for the payment transaction. Condition: Always returned for a successful response. |
+| deliveryDate | Cond | string | The transaction expected delivery date, populated for pending and completed transactions. Format: yyyy-MM-dd <br> Condition: If the payment fails risk, deliveryDate is not returned. |
+| nextAvailableTransactionDate | Cond | string | Next available transaction date. Condition: Returned only if the payment fails risk (transaction date is too early). |
+| debitDate | Cond | string | Date that the consumer’s account is to be debited. Format: yyyy-MM-dd <br> Condition: Always returned for successful response. |
+| legacyTransactionId | Req | string | Server transaction timestamp. |
 
 #### TransactionModifyOutput
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>self</td>
-<td>Cond</td>
-<td>string</td>
-<td>URI pointing to the transaction itself. Condition: Always returned
-for a successful response.</td>
-</tr>
-<tr class="even">
-<td>id</td>
-<td>Cond</td>
-<td>string</td>
-<td>Unique identifier for the transaction. Condition: Always returned
-for a successful response.</td>
-</tr>
-<tr class="odd">
-<td>confirmationNumber</td>
-<td>Cond</td>
-<td>string</td>
-<td>Confirmation number for the payment transaction. Condition: Always
-returned for a successful response.</td>
-</tr>
-<tr class="even">
-<td>deliveryMethod</td>
-<td>Cond</td>
-<td>string</td>
-<td>The delivery method for the transaction if the transaction has been
-processed. Valid values: "Electronic" "Paper" Condition: If the payment
-fails risk, deliveryMethod is not returned.</td>
-</tr>
-<tr class="odd">
-<td>status</td>
-<td>Cond</td>
-<td>string</td>
-<td>The status of the payment transaction. Valid values: "Pending",
-"Complete", “InProcess”, "Failed", "Canceled" Condition: Always returned
-for a successful response.</td>
-</tr>
-<tr class="even">
-<td>statusUri</td>
-<td>Cond</td>
-<td>string</td>
-<td>The URI to access the transaction status information. Condition:
-Always returned for a successful response.</td>
-</tr>
-<tr class="odd">
-<td>deliveryDate</td>
-<td>Cond</td>
-<td>string</td>
-<td>The transaction expected delivery date, populated for pending and
-completed transactions. Format: yyyy-MM-dd Condition: If the payment
-fails risk, deliveryDate is not returned.</td>
-</tr>
-<tr class="even">
-<td>cancelUri</td>
-<td>Cond</td>
-<td>string</td>
-<td>The URI to access the transaction cancellation (if any). Condition:
-Returned if payment can be canceled. Only Pending payments can be
-canceled.<br />
-Condition: If the payment fails risk, cancelUri is not returned.</td>
-</tr>
-<tr class="odd">
-<td>transactionType</td>
-<td>Cond</td>
-<td>string</td>
-<td>Type of transaction. Valid values: Standard, Overnight,
-Expedited<br />
-Condition: If the payment fails risk, transactionType is not
-returned.</td>
-</tr>
-<tr class="even">
-<td>deliveryTrackingNumber</td>
-<td>Cond</td>
-<td>string</td>
-<td>Tracking number of the transaction. Condition: If the payment fails
-risk, deliveryTrackingNumber is not returned.</td>
-</tr>
-<tr class="odd">
-<td>nextAvailableTransactionDate</td>
-<td>Cond</td>
-<td>string</td>
-<td>Next available transaction date. Condition: Returned only if the
-payment fails risk (transaction date is too early).</td>
-</tr>
-<tr class="even">
-<td>legacyTransactionId</td>
-<td>Req</td>
-<td>string</td>
-<td>Server transaction timestamp.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| self | Cond | string | URI pointing to the transaction itself. Condition: Always returned for a successful response. |
+| id | Cond | string | Unique identifier for the transaction. Condition: Always returned for a successful response. |
+| confirmationNumber | Cond | string | Confirmation number for the payment transaction. Condition: Always returned for a successful response. |
+| deliveryMethod | Cond | string | The delivery method for the transaction if the transaction has been processed. Valid values: "Electronic" "Paper" Condition: If the payment fails risk, deliveryMethod is not returned. |
+| status | Cond | string | The status of the payment transaction. Valid values: "Pending", "Complete", “InProcess”, "Failed", "Canceled" Condition: Always returned for a successful response. |
+| statusUri | Cond | string | The URI to access the transaction status information. Condition: Always returned for a successful response. |
+| deliveryDate | Cond | string | The transaction expected delivery date, populated for pending and completed transactions. Format: yyyy-MM-dd Condition: If the payment fails risk, deliveryDate is not returned. |
+| cancelUri | Cond | string | The URI to access the transaction cancellation (if any). Condition: Returned if payment can be canceled. Only Pending payments can be canceled. <br> Condition: If the payment fails risk, cancelUri is not returned. |
+| transactionType | Cond | string | Type of transaction. Valid values: Standard, Overnight, Expedited <br> Condition: If the payment fails risk, transactionType is not returned. |
+| deliveryTrackingNumber | Cond | string | Tracking number of the transaction. Condition: If the payment fails risk, deliveryTrackingNumber is not returned. |
+| nextAvailableTransactionDate | Cond | string | Next available transaction date. Condition: Returned only if the payment fails risk (transaction date is too early). |
+| legacyTransactionId | Req | string | Server transaction timestamp. |
 
 #### TransactionOutputDetail
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>amount</td>
-<td>Req</td>
-<td>number</td>
-<td>The amount of the transaction.</td>
-</tr>
-<tr class="even">
-<td>automaticTransaction<br />
-Uri</td>
-<td>Opt</td>
-<td>string</td>
-<td>The URI to the automatic transaction model. If this field is
-populated, this payment transaction is recurring.</td>
-</tr>
-<tr class="odd">
-<td>billItemUri</td>
-<td>Opt</td>
-<td>string</td>
-<td>The URI to the bill item associated with this transaction. Populated
-only if the payment is associated with an e-bill or bill store
-item.</td>
-</tr>
-<tr class="even">
-<td>debitDate</td>
-<td>Opt</td>
-<td>string</td>
-<td>Date that the consumer’s account was or is to be debited. Format:
-yyyy-MM-dd</td>
-</tr>
-<tr class="odd">
-<td>fee</td>
-<td>Opt</td>
-<td>number</td>
-<td>The fee amount for this transaction.</td>
-</tr>
-<tr class="even">
-<td>fundingAccountUri</td>
-<td>Req</td>
-<td>string</td>
-<td>The source funding account URI for the given transaction.</td>
-</tr>
-<tr class="odd">
-<td>note</td>
-<td>Opt</td>
-<td>string</td>
-<td>A consumer’s “note to self.” This note is not submitted to the
-payee.</td>
-</tr>
-<tr class="even">
-<td>memo</td>
-<td>Opt</td>
-<td>string</td>
-<td>Memo describing the payment. This text will be printed on the check
-sent to the payee for this payment. A payment memo is only used for
-payments that are to be processed via a paper check.</td>
-</tr>
-<tr class="odd">
-<td>modifiableFields</td>
-<td>Opt</td>
-<td>Array of string</td>
-<td>List of fields that can be changed for the transaction. For
-transactions that are in Pending status only.</td>
-</tr>
-<tr class="even">
-<td>payeeUri</td>
-<td>Req</td>
-<td>string</td>
-<td>The URI to the payee that this transaction is associated with.</td>
-</tr>
-<tr class="odd">
-<td>self</td>
-<td>Cond</td>
-<td>string</td>
-<td>Relative Universal Resource Identifier pointing to the payment
-transaction itself. Condition: Always returned for successful
-response</td>
-</tr>
-<tr class="even">
-<td>id</td>
-<td>Cond</td>
-<td>string</td>
-<td>Unique identifier of the payment transaction. Condition: Always
-returned for successful response</td>
-</tr>
-<tr class="odd">
-<td>confirmationNumber</td>
-<td>Req</td>
-<td>string</td>
-<td>Confirmation number for the payment transaction.</td>
-</tr>
-<tr class="even">
-<td>deliveryMethod</td>
-<td>Opt</td>
-<td>string</td>
-<td>The delivery method for the transaction if the transaction has been
-processed. Valid values: "Electronic" "Paper"</td>
-</tr>
-<tr class="odd">
-<td>status</td>
-<td>Req</td>
-<td>string</td>
-<td><p>The status of the payment transaction. Valid values: "Pending",
-"Complete", “InProcess”, "Failed", "Canceled"</p>
-<p>Typically, immediately upon the scheduling of a transaction, it will
-be in the Pending status. This is not the case when the transaction is
-scheduled as expedited SameDay, or if the transaction is funded by
-credit card (future release) or debit card for payment in the next five
-processing days. In those cases, the transaction is scheduled directly
-to InProcess. When a Pending transaction's delivery date becomes within
-the payee’s lead days (how long it takes to route the money given the
-delivery method), it moves to InProcess. When the funds are successfully
-delivered to the transaction destination, the status becomes Completed.
-If those funds are not delivered successfully, it instead becomes
-Failed. Finally, if the transaction is successfully canceled in the
-flow, it transitions to the Canceled status.</p></td>
-</tr>
-<tr class="even">
-<td>statusUri</td>
-<td>Req</td>
-<td>string</td>
-<td>The URI to access the transaction status information.</td>
-</tr>
-<tr class="odd">
-<td>deliveryDate</td>
-<td>Opt</td>
-<td>string</td>
-<td>The transaction expected delivery date, populated for pending and
-completed transactions. Format: yyyy-MM-dd</td>
-</tr>
-<tr class="even">
-<td>cancelUri</td>
-<td>Cond</td>
-<td>string</td>
-<td><p>The URI to access the transaction cancellation (if any).</p>
-<p>Condition: Returned if payment can be canceled. This field should
-always be populated if a transaction is in Pending status. This field
-will also be populated if a transaction is funded by credit card (future
-release) or debit card, and the status is InProcess.</p></td>
-</tr>
-<tr class="odd">
-<td>transactionType</td>
-<td>Opt</td>
-<td>string</td>
-<td><p>Type of transaction. Valid values: Standard, Overnight,
-Expedited, ServiceFee</p>
-<ul>
-<li>If a transaction is scheduled to be paid with an overnight check, 
-then the transaction type is Overnight.</li>
-<li> If a transaction is a SameDay electronic payment, then the type 
-is Expedited. </li>
-<li>If a transaction corresponds to a service fee charged by an FI 
-to a user, then the transaction type is ServiceFee.</li>
-<li>Otherwise, regardless of whether the transaction is sent 
-electronically or as a paper check, or whether it is funded by a bank 
-account or a card, it will have a transaction type of Standard.</li></ul>
-</td>
-</tr>
-<tr class="even">
-<td>deliveryTrackingNumber</td>
-<td>Opt</td>
-<td>string</td>
-<td>Tracking number of the transaction. Only populated for a transaction
-with the transaction type Overnight.</td>
-</tr>
-<tr class="odd">
-<td>legacyTransactionId</td>
-<td>Req</td>
-<td>string</td>
-<td>Server transaction timestamp.</td>
-</tr>
-<tr class="even">
-<td>checkNumber</td>
-<td>Cond</td>
-<td>integer</td>
-<td>Check number corresponding to completed paper payment. Condition:
-This is returned when the status of the transaction is Complete and the
-delivery method is Paper.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| amount | Req | number | The amount of the transaction. |
+| automaticTransactionUri | Opt | string | The URI to the automatic transaction model. If this field is populated, this payment transaction is recurring. |
+| billItemUri | Opt | string | The URI to the bill item associated with this transaction. Populated only if the payment is associated with an e-bill or bill store item. | 
+| debitDate | Opt | string | Date that the consumer’s account was or is to be debited. Format: yyyy-MM-dd |
+| fee | Opt | number | The fee amount for this transaction. |
+| fundingAccountUri | Req | string | The source funding account URI for the given transaction. |
+| note | Opt | string | A consumer’s “note to self.” This note is not submitted to the payee. |
+| memo | Opt | string | Memo describing the payment. This text will be printed on the check sent to the payee for this payment. A payment memo is only used for payments that are to be processed via a paper check. |
+| modifiableFields | Opt | Array of string | List of fields that can be changed for the transaction. For transactions that are in Pending status only. |
+| payeeUri | Req | string | The URI to the payee that this transaction is associated with. |
+| self | Cond | string | Relative Universal Resource Identifier pointing to the payment transaction itself. Condition: Always returned for successful response |
+| id | Cond | string | Unique identifier of the payment transaction. Condition: Always returned for successful response |
+| confirmationNumber | Req | string | Confirmation number for the payment transaction. |
+| deliveryMethod | Opt | string | The delivery method for the transaction if the transaction has been processed. Valid values: "Electronic" "Paper" |
+| status | Req | string | The status of the payment transaction. Valid values: "Pending", "Complete", “InProcess”, "Failed", "Canceled" <br> Typically, immediately upon the scheduling of a transaction, it will be in the Pending status. This is not the case when the transaction is scheduled as expedited SameDay, or if the transaction is funded by credit card (future release) or debit card for payment in the next five processing days. In those cases, the transaction is scheduled directly to InProcess. When a Pending transaction's delivery date becomes within the payee’s lead days (how long it takes to route the money given the delivery method), it moves to InProcess. When the funds are successfully delivered to the transaction destination, the status becomes Completed. If those funds are not delivered successfully, it instead becomes Failed. Finally, if the transaction is successfully canceled in the flow, it transitions to the Canceled status. |
+| statusUri | Req | string | The URI to access the transaction status information. |
+| deliveryDate | Opt | string | The transaction expected delivery date, populated for pending and completed transactions. Format: yyyy-MM-dd |
+| cancelUri | Cond | string | The URI to access the transaction cancellation (if any). <br> Condition: Returned if payment can be canceled. This field should always be populated if a transaction is in Pending status. This field will also be populated if a transaction is funded by credit card (future release) or debit card, and the status is InProcess. |
+| transactionType | Opt | string | Type of transaction. Valid values: Standard, Overnight, Expedited, ServiceFee <br> - If a transaction is scheduled to be paid with an overnight check, then the transaction type is Overnight. <br> - If a transaction is a SameDay electronic payment, then the type is Expedited. <br> - If a transaction corresponds to a service fee charged by an FI to a user, then the transaction type is ServiceFee. <br> <br> Otherwise, regardless of whether the transaction is sent electronically or as a paper check, or whether it is funded by a bank account or a card, it will have a transaction type of Standard. |
+| deliveryTrackingNumber | Opt | string | Tracking number of the transaction. Only populated for a transaction with the transaction type Overnight. |
+| legacyTransactionId | Req | string | Server transaction timestamp. |
+| checkNumber | Cond | integer | Check number corresponding to completed paper payment. Condition: This is returned when the status of the transaction is Complete and the delivery method is Paper. |
 
 #### TransactionOutputIpsListItemResponse
 
@@ -11473,253 +7276,40 @@ delivery method is Paper.</td>
 
 #### USAddress
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>address1</td>
-<td>Req</td>
-<td>string</td>
-<td><p>Address line 1 information. Length: 1-32<br />
-Cannot contain any of the following special characters:
-&lt;&gt;=&amp;()</p>
-<p>Pattern: ^(?=.*\w)^[a-zA-Z0-9_@!+#.$,/%^ *-]*</p>
-<p>At least one character must be an alphanumeric character.</p></td>
-</tr>
-<tr class="even">
-<td>address2</td>
-<td>Opt</td>
-<td>string</td>
-<td><p>Any additional address information. Max length: 32</p>
-<p>Cannot contain any of the following special characters:
-&lt;&gt;=&amp;()<br />
-Pattern: ^[a-zA-Z0-9_@!+#.$,/%^ *-]*</p></td>
-</tr>
-<tr class="odd">
-<td>address3</td>
-<td>Opt</td>
-<td>string</td>
-<td><p>Any additional address information. Max length: 32</p>
-<p>Cannot contain any of the following special characters:
-&lt;&gt;=&amp;()<br />
-Pattern: ^[a-zA-Z0-9_@!+#.$,/%^ *-]*</p>
-<p><strong>Payees GET</strong>: address3 is not currently returned in
-the response.</p></td>
-</tr>
-<tr class="even">
-<td>city</td>
-<td>Req</td>
-<td>string</td>
-<td><p>The city name for the given address. Length: 1-32</p>
-<p>Cannot contain any of the following special characters:
-&lt;&gt;=&amp;()<br />
-Pattern: ^[a-zA-Z0-9_ @!+#.$,%^*-]*</p>
-<p>If the first three characters of the city name are "APO" or "FPO,"
-the address is treated as a military address.</p></td>
-</tr>
-<tr class="odd">
-<td>state</td>
-<td>Req</td>
-<td>string</td>
-<td><p>The state for the given address. Valid characters: A–Z<br />
-Length: 2</p>
-<p>Pattern: ^[A-Z]*</p></td>
-</tr>
-<tr class="even">
-<td>zipCode</td>
-<td>Req</td>
-<td>string</td>
-<td><p>ZIP Code. Length: 5, 9, or 11</p>
-<p>Pattern: ^(\d{5}|\d{9}|\d{11})$</p>
-<p>Valid characters: 0–9</p>
-<p>5 digits are required for this field. 9 or 11 digits are
-optional.</p>
-<p>Parsed: Chars 1-5 = Zip5 (must be a valid five-digit ZIP Code), Chars
-6-9 = Zip4, Chars 10-11 = Zip2</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| address1 | Req | string | Address line 1 information. Length: 1-32 <br> Cannot contain any of the following special characters: &lt;&gt;=&() <br> Pattern: ^(?=.\*\\w)^[a-zA-Z0-9_@!+#.$,/%^ \*-]\* <br> At least one character must be an alphanumeric character. |
+| address2 | Opt | string | Any additional address information. Max length: 32 <br> <p>Cannot contain any of the following special characters: &lt;&gt;=&() <br> Pattern: ^[a-zA-Z0-9_@!+#.$,/%^ \*-]\* |
+| address3 | Opt | string | Any additional address information. Max length: 32 <br> Cannot contain any of the following special characters: &lt;&gt;=&() <br> Pattern: ^[a-zA-Z0-9_@!+#.$,/%^ \*-]\* <br> <strong>Payees GET</strong>: address3 is not currently returned in the response. |
+| city | Req | string | The city name for the given address. Length: 1-32 <br> Cannot contain any of the following special characters: &lt;&gt;=&() <br> Pattern: ^[a-zA-Z0-9_ @!+#.$,%^\*-]\* <br> If the first three characters of the city name are "APO" or "FPO," the address is treated as a military address. |
+| state | Req | string | The state for the given address. Valid characters: A–Z <br> Length: 2 <br> Pattern: ^[A-Z]\* |
+| zipCode | Req | string | ZIP Code. Length: 5, 9, or 11 <br> Pattern: ^(\\d{5}\|\\d{9}\|\\d{11})$ <br> Valid characters: 0–9 <br> 5 digits are required for this field. 9 or 11 digits are optional. <br> Parsed: Chars 1-5 = Zip5 (must be a valid five-digit ZIP Code), Chars 6-9 = Zip4, Chars 10-11 = Zip2 |
 
 #### UserV2
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>billingClass</td>
-<td>Cond</td>
-<td>string</td>
-<td>If supplied, this field must contain a valid alphanumeric billing
-class as supplied by Fiserv during implementation. Condition: This field
-is required if Fiserv collects consumer fees on behalf of the
-client.</td>
-</tr>
-<tr class="even">
-<td>consumerTier</td>
-<td>Opt</td>
-<td>string</td>
-<td><p>Tier level of consumer. Valid values:</p>
-<p>1 (default)<br />
-2<br />
-3</p></td>
-</tr>
-<tr class="odd">
-<td>isAllowedToSolicit</td>
-<td>Opt</td>
-<td>boolean</td>
-<td><p>Indicates whether or not the consumer may be solicited by Fiserv.
-This field allows a client to comply with state laws permitting a
-resident to prohibit solicitation in writing or by telephone. Valid
-values:</p>
-<p>true – Yes, Fiserv can send information about additional products or
-services to this consumer.</p>
-<p>false – No, Fiserv may not send solicitation information. This is the
-default.</p></td>
-</tr>
-<tr class="even">
-<td>isEmployee</td>
-<td>Opt</td>
-<td>boolean</td>
-<td><p>Identifies whether a consumer is an employee of the client. Valid
-values:</p>
-<p>true – Yes, an employee.</p>
-<p>false – No, not an employee. This is the default.</p></td>
-</tr>
-<tr class="odd">
-<td>sponsorBillingCategory</td>
-<td>Cond</td>
-<td>string</td>
-<td>Clients that are doing their own billing but want to differentiate
-between consumers can use this field to communicate the consumer
-category to Fiserv. Condition: Based on sponsor setup.</td>
-</tr>
-<tr class="even">
-<td>userId</td>
-<td>Req</td>
-<td>string</td>
-<td><p>ID used by the consumer to authenticate with their product(s).
-Length: 1–48</p>
-<p>This is also referred to as the CommonId.</p></td>
-</tr>
-<tr class="odd">
-<td>hasPayees</td>
-<td>Req</td>
-<td>boolean</td>
-<td>Indicates if the consumer has payees. This flag will return true
-when the consumer has active and/or inactive payees.</td>
-</tr>
-<tr class="even">
-<td>name</td>
-<td>Req</td>
-<td><a href="#name">Name</a></td>
-<td>Consumer’s name.</td>
-</tr>
-<tr class="odd">
-<td>businessName</td>
-<td>Opt</td>
-<td>string</td>
-<td>Business name of the consumer. Length: 1–40</td>
-</tr>
-<tr class="even">
-<td>contactEndPoints</td>
-<td>Req</td>
-<td><a href="#contactendpoint">Contact<br />
-Endpoint</a></td>
-<td>Contact details of the consumer, such as the consumer’s email
-address, phone numbers, and address.</td>
-</tr>
-<tr class="odd">
-<td>category</td>
-<td>Opt</td>
-<td>string</td>
-<td>Client-assigned free-form category that identifies the group the
-consumer belongs to. Length: 1-32</td>
-</tr>
-<tr class="even">
-<td>sensitiveInformationUri</td>
-<td>Req</td>
-<td>string</td>
-<td>URI for sensitive information.</td>
-</tr>
-<tr class="odd">
-<td>timeZone</td>
-<td>Req</td>
-<td>integer</td>
-<td>The time zone for the consumer. Defaults to “-05” for eastern
-standard time (EST) unless a value is provided.</td>
-</tr>
-<tr class="even">
-<td>country</td>
-<td>Opt</td>
-<td>string</td>
-<td>The country of the consumer.</td>
-</tr>
-<tr class="odd">
-<td>status</td>
-<td>Req</td>
-<td>string</td>
-<td><p>The status of the consumer profile.</p>
-<p>Valid values: Active, Inactive, FrozenFraud, FrozenOther,
-CancelledFraud, CancelledOther, VerificationNeeded, Unspecified</p></td>
-</tr>
-<tr class="even">
-<td>languageCode</td>
-<td>Opt</td>
-<td>string</td>
-<td>Code representing the consumer’s language preference. Valid values:
-“EN” (English), “ES” (Spanish). “EN” (English) is the default
-value.</td>
-</tr>
-<tr class="odd">
-<td>languageCountry</td>
-<td>Opt</td>
-<td>string</td>
-<td>Country associated with the consumer’s language. Valid value: “US”
-(United States). “US” is the default value.</td>
-</tr>
-<tr class="even">
-<td>locale</td>
-<td>Opt</td>
-<td>string</td>
-<td>The language code and associated language location in one combined
-field. Format: XX-XX (languageCode and languageCountry separated by
-hyphen).</td>
-</tr>
-<tr class="odd">
-<td>newUser</td>
-<td>Req</td>
-<td>boolean</td>
-<td>True if this is a new user; false if this is an existing user.</td>
-</tr>
-<tr class="even">
-<td>occupation</td>
-<td>Opt</td>
-<td>string</td>
-<td>The activity a user spends time performing to earn a living. Length:
-1-50</td>
-</tr>
-<tr class="odd">
-<td>modifiableFields</td>
-<td>Req</td>
-<td>Array of string</td>
-<td>List of fields that can be changed for the user.</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| billingClass | Cond | string | If supplied, this field must contain a valid alphanumeric billing class as supplied by Fiserv during implementation. Condition: This field is required if Fiserv collects consumer fees on behalf of the client. |
+| consumerTier | Opt | string | Tier level of consumer. Valid values: <br> 1 (default) <br> 2 <br> 3 |
+| isAllowedToSolicit | Opt | boolean | Indicates whether or not the consumer may be solicited by Fiserv. This field allows a client to comply with state laws permitting a resident to prohibit solicitation in writing or by telephone. Valid values: <br> true – Yes, Fiserv can send information about additional products or services to this consumer. <br> false – No, Fiserv may not send solicitation information. This is the default. |
+| isEmployee | Opt | boolean | Identifies whether a consumer is an employee of the client. Valid values: <br> true – Yes, an employee. <br> false – No, not an employee. This is the default. |
+| sponsorBillingCategory | Cond | string | Clients that are doing their own billing but want to differentiate between consumers can use this field to communicate the consumer category to Fiserv. Condition: Based on sponsor setup. |
+| userId | Req | string | ID used by the consumer to authenticate with their product(s). Length: 1–48 <br> This is also referred to as the CommonId. |
+| hasPayees | Req | boolean | Indicates if the consumer has payees. This flag will return true when the consumer has active and/or inactive payees. |
+| name | Req | [Name](#name) | Consumer’s name. | 
+| businessName | Opt | string | Business name of the consumer. Length: 1–40 |
+| contactEndPoints | Req | [ContactEndpoint](#contactendpoint) | Contact details of the consumer, such as the consumer’s email address, phone numbers, and address. |
+| category | Opt | string | Client-assigned free-form category that identifies the group the consumer belongs to. Length: 1-32 | 
+| sensitiveInformationUri | Req | string | URI for sensitive information. |
+| timeZone | Req | integer | The time zone for the consumer. Defaults to “-05” for eastern standard time (EST) unless a value is provided. |
+| country | Opt | string | The country of the consumer. |
+| status | Req | string | The status of the consumer profile. <br> Valid values: Active, Inactive, FrozenFraud, FrozenOther, CancelledFraud, CancelledOther, VerificationNeeded, Unspecified |
+| languageCode | Opt | string | Code representing the consumer’s language preference. Valid values: “EN” (English), “ES” (Spanish). “EN” (English) is the default value. |
+| languageCountry | Opt | string | Country associated with the consumer’s language. Valid value: “US” (United States). “US” is the default value. |
+| locale | Opt | string | The language code and associated language location in one combined field. Format: XX-XX (languageCode and languageCountry separated by hyphen). |
+| newUser | Req | boolean | True if this is a new user; false if this is an existing user. |
+| occupation | Opt | string | The activity a user spends time performing to earn a living. Length: 1-50 |
+| modifiableFields | Req | Array of string | List of fields that can be changed for the user. |
 
 #### VerificationResponse
 
@@ -11739,44 +7329,11 @@ hyphen).</td>
 
 #### VerificationToken
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Req</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>description</td>
-<td>Req</td>
-<td>string</td>
-<td>Description of an element that is part of the verification of the
-merchant relationship. Max length: 1000<br />
-Pattern: [a-zA-Z0-9_()\r|\n{}@!+#.$,%^ *-]{1,1000}$</td>
-</tr>
-<tr class="even">
-<td>value</td>
-<td>Cond</td>
-<td>string</td>
-<td><p>Value of the element. Max length: 1000<br />
-Pattern: [a-zA-Z0-9_()\r|\n{}@!+#.$,%^ *-]{1,1000}$<br />
-<br />
-Condition: Required on input when passing in a verification token.</p>
-<p>For the Potential Payees Get API, this defaults to null unless
-specific data should be pre-populated.</p></td>
-</tr>
-<tr class="odd">
-<td>type</td>
-<td>Opt</td>
-<td>string</td>
-<td>The type of this value to provide a clear indication to the UI.
-Valid values: String, Number, Currency</td>
-</tr>
-</tbody>
-</table>
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| description | Req | string | Description of an element that is part of the verification of the merchant relationship. Max length: 1000 <br> Pattern: [a-zA-Z0-9_()\\r\|\\n{}@!+#.\$,\%^ \*-]{1,1000}$ |
+| value | Cond | string | Value of the element. Max length: 1000 <br> Pattern: [a-zA-Z0-9_()\\r\|\\n{}@!+#.\$,\%^ \*-]{1,1000}$ <br> Condition: Required on input when passing in a verification token. <br> For the Potential Payees Get API, this defaults to null unless specific data should be pre-populated. |
+| type | Opt | string | The type of this value to provide a clear indication to the UI. Valid values: String, Number, Currency | 
 
 # Appendix A: Sample Use Case Implementation
 
@@ -11806,9 +7363,6 @@ sequence for the best results:
 6.  [Create a Transaction](#create-a-transaction): Schedule one or more
     payments from the consumer to the selected payee
 
->**Tip:**
-After you follow a link, press Alt + Left Arrow (Windows) to go back to
-the previous location.
 
 ## Find Bills Through Bill Discovery
 
@@ -11828,10 +7382,7 @@ e‑bills.
 1.  [Authenticate](#authenticate) – Authenticate to get the access token
     and the refresh token.
 
-<!-- -->
-
-2.  [Get Consumer Eligibility for Bill
-    Discovery](#get-consumer-eligibility-for-bill-discovery) – If the
+2.  [Get Consumer Eligibility for Bill Discovery](#get-consumer-eligibility-for-bill-discovery) – If the
     sponsor is configured with eligibility rules, determine if the
     consumer is eligible for bill discovery and if there are outstanding
     potential payees.
@@ -11853,17 +7404,12 @@ e‑bills.
     API to add the billers as Payees and make them available to make a
     payment.
 
-For more information, see the *Bill Discovery API Integration Guide*.
-
-# 
 
 # Appendix B: Response Codes
 
-The attached spreadsheet contains the response codes and corresponding
-messages that can be returned.
+This appendix contains the response codes and corresponding messages that can be returned.
 
-image.png
-
+## 101 Errors
 When a 0101 error (or equivalent) is returned, Fiserv returns the
 parameter **field** in ResultInfo that contains the name of the field
 that is missing or in error, if applicable. Fiserv also returns (if
@@ -11875,7 +7421,7 @@ response can be tied to the requested item in the list. If the request
 resulted in an error in a list, the parameter **listItemId** tells the
 caller which item in the list was in error.
 
-POST Payees Example: If the ZIP Code is invalid, this is a sample
+POST Payees Example: If the Address1 is invalid, this is a sample
 excerpt from the response:
 
     "result": {  
@@ -11884,18 +7430,17 @@ excerpt from the response:
             {  
                 "resultCategory": "Error",  
                 "code": "0101",  
-                "field": "ZipCode",  
-                "fieldPath": "PayeeInfo.Address.ZipCode",  
+                "field": "Address1",  
+                "fieldPath": "PayeeInfo.Address.Address1",  
                 "listItemId": "1",  
-                "description": "Invalid ZipCode. Expected 5, 9, or 11
-digits."  
+                "description": "Invalid Address1. Cannot contain any of these special characters: <, >, =, &, (, or )."  
             }  
         \]  
     }
 
-Note: If a ZIP Code is found to be invalid after USPS standardization
-(code-1 validation), the error 1208 is returned and should be handled
+Note: If Address1 is found to be invalid after USPS standardization
+(code-1 validation), the error 1207 is returned and should be handled
 the same way as the 0101 error.
 
-The field that caused the error is specified as ZipCode, while the path
-(fieldPath) shows that ZipCode is contained in PayeeInfo.
+The field that caused the error is specified as Address1, while the path
+(fieldPath) shows that Address1 is contained in PayeeInfo.
