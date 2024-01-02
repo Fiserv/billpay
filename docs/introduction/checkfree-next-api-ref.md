@@ -50,8 +50,7 @@ November 28, 2023
 
 [Complex Objects](#complex-objects)
 
-[Appendix A: Sample Use Case
-Implementation](#appendix-a-sample-use-case-implementation)
+[Appendix A: Sample Use Case Implementation](#appendix-a-sample-use-case-implementation)
 
 [Appendix B: Response Codes](#appendix-b-response-codes)
 
