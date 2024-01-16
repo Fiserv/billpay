@@ -7903,8 +7903,8 @@ Description: These errors may occur in multiple REST API responses.
 
 | Error | Type | Error Message | Field | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|---------------|-------|----------------------------------------|----------------|--------|
-| 1000 | ERROR | Tenant does not support Bill Discovery. | NULL | N | Business Rule Violation | If Tenant does not opt for billdiscovery this error will return. |
-| 1001 | ERROR | Bill Discovery feature disabled. | NULL | N | Business Rule Violation | Bill dicovery is not enabled |
+| 1000 | ERROR | Tenant does not support Bill Discovery. | NULL | N | Business Rule Violation | If Tenant does not opt for bill discovery this error will return. |
+| 1001 | ERROR | Bill Discovery feature disabled. | NULL | N | Business Rule Violation | Bill discovery is not enabled |
 
 ### POST Users
 
