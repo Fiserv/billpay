@@ -6,7 +6,7 @@ To get started with the Bill Pay APIs, follow these steps:
  
 ## Register
 
-Once agreements have been signed, a financial institution will work with Fiserv Professional services to set up certificates and a client ID. 
+Once agreements have been signed, a financial institution will work with Fiserv Professional services to set up certificates and a client ID.
 
 
 ## Authenticate
