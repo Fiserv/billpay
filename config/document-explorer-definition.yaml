@@ -35,13 +35,95 @@
     
 - sections:
     - title: Introduction
-      link:
+      link: docs/introduction/overview.md
       open: true
       sections:
-        - title: Overview
+        - title: Before you start
           link: docs/introduction/overview.md
+          open: true
+        - title: Know our API structure
+          link: docs/introduction/knowOurApiStructure.md
+        - title: Make your first API call
+          link: docs/introduction/makeYourFirstApiCall.md
+
 - sections:
-  - title: API Reference
-    link: docs/introduction/checkfree-next-api-ref.md
-    open: true
+    - title: Resources and Guides
+      link: docs/resourcesAndGuides/register.md
+      sections:
+      - title: Register
+        link: docs/resourcesAndGuides/register.md
+        open: true
+      - title: Authenticate
+        link: docs/resourcesAndGuides/authenticate.md
+      - title: Start Making Requests
+        link: docs/resourcesAndGuides/startMakingRequests.md
+      - title: Refresh An Access Token
+        link: docs/resourcesAndGuides/refreshAnAccessToken.md
+      - title: Session Termination
+        link: docs/resourcesAndGuides/sessionTermination.md
+      - title: Requirements and Limitations
+        link: docs/resourcesAndGuides/requirementsAndLimitations.md
+      - title: Versioning and Backwards Compatibility
+        link: docs/resourcesAndGuides/versioningAndBackwardsCompatibility.md
+      - title: Response Codes
+        link: docs/resourcesAndGuides/responseCodes.md
+      - title: Important to Know
+        link: docs/resourcesAndGuides/importantToKnow.md
+      - title: Sample Use Case Implementation
+        link: docs/resourcesAndGuides/sampleUseCaseImplementation.md
+      - title: Frequently asked questions
+        link: docs/resourcesAndGuides/frequentlyAskedQuestions.md
+      - title: API Glossary
+        link: docs/resourcesAndGuides/apiGlossary.md
+
+- sections:
+  - title: API Domains
+    link: docs/apiDomains/health.md
+    sections:
+    - title: Health
+      link: docs/apiDomains/health.md
+      open: true
+    - title: Users
+      link: docs/apiDomains/users.md
+    - title: Potential Payees
+      link: docs/apiDomains/potentialPayees.md
+    - title: Payees
+      link: docs/apiDomains/payees.md
+    - title: Payee Groups
+      link: docs/apiDomains/payeeGroups.md
+    - title: Merchants
+      link: docs/apiDomains/merchants.md
+    - title: Probable Merchants
+      link: docs/apiDomains/probableMerchants.md
+    - title: Reminders
+      link: docs/apiDomains/reminders.md
+    - title: ToDos
+      link: docs/apiDomains/toDos.md
+    - title: Bills
+      link: docs/apiDomains/bills.md
+    - title: E-bill Activation
+      link: docs/apiDomains/eBillActivation.md
+    - title: Bank Accounts
+      link: docs/apiDomains/bankAccounts.md
+    - title: Card Accounts
+      link: docs/apiDomains/cardAccounts.md
+    - title: Transaction Calendar
+      link: docs/apiDomains/transactionCalendar.md
+    - title: Transactions
+      link: docs/apiDomains/transactions.md
+    - title: Automatic Transactions
+      link: docs/apiDomains/automaticTransactions.md
+    - title: Messages
+      link: docs/apiDomains/messages.md
+    - title: Complex Objects
+      link: docs/apiDomains/complexObjects.md
    
+- sections:
+  - title: Release Notes
+    link: docs/releaseNotes/releaseNotes.md
+    open: true
+
+- sections:
+  - title: Support
+    link: docs/support/support.md
+    open: true
