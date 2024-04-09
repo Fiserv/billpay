@@ -30,16 +30,16 @@ should be used.
 #### Request Form Data
 
 client\_id: yourSpecificClientId  
-refresh\_token:55dc7e5…  
+refresh\_token:55dc7e5...  
 grant\_type:refresh\_token
 
 #### Response
 
 ```json
 {
-"access_token": "5402665…",
+"access_token": "5402665...",
 "expires_in": 600,
 "token_type": "Bearer",
-"refresh_token": "26346ca9d926a792…"
+"refresh_token": "26346ca9d926a792..."
 }
 ```
