@@ -18,23 +18,19 @@ This set of APIs allows the calling application to:
 
 -   [Delete a managed user](#delete-a-user-managed-user)
 
--   [Get a managed user’s profile
-    information](#get-user-information-managed-user)
+-   [Get a managed user’s profile information](#get-user-information-managed-user)
 
 -   [Get consumer information](#get-user-information)
 
--   [Record consumer’s consent
-    information](#record-users-consent-information)
+-   [Record consumer’s consent information](#record-users-consent-information)
 
--   [Return consumer's consent
-    information](#return-users-consent-information)
+-   [Return consumer's consent information](#return-users-consent-information)
 
 -   [Get feature capability information](#get-features)
 
 -   [Get sensitive information](#get-sensitive-information)
 
--   [Post eBill Notification Email Delivery
-    Failure](#post-ebill-notification-email-delivery-failure)
+-   [Post eBill Notification Email Delivery Failure](#post-ebill-notification-email-delivery-failure)
 
 
 ## Enroll a User (Managed User)
