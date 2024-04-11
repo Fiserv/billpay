@@ -44,8 +44,8 @@ Examples:
 
 | Parameter | Req | Data Type | Description |
 |-----------|-----|-----------|-------------|
-| data | Req | Array of [Merchant](./complexObjects.md#merchant) | List of merchants found based on the provided name search criteria and the returnLocalMerchants flag. Merchants matched are returned in the following order: <br> 1. Exact matches <br> 2. Merchants containing the search criteria <br> If no matches are found based upon the entered search criteria, merchants relevant to the consumer’s ZIP Code will be returned if the returnLocalMerchants flag is true. |
-| result | Req | [ResultType](./complexObjects.md#resulttype) | Result information. |
+| data | Req | Array of [Merchant](?path=docs/apiDomains/complexObjects.md#merchant) | List of merchants found based on the provided name search criteria and the returnLocalMerchants flag. Merchants matched are returned in the following order: <br> 1. Exact matches <br> 2. Merchants containing the search criteria <br> If no matches are found based upon the entered search criteria, merchants relevant to the consumer’s ZIP Code will be returned if the returnLocalMerchants flag is true. |
+| result | Req | [ResultType](?path=docs/apiDomains/complexObjects.md#resulttype) | Result information. |
 
 ### Sample API Usage
 

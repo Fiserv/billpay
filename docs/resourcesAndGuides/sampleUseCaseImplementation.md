@@ -1,6 +1,6 @@
-﻿# Sample Use Case Implementation
+﻿## Sample Use Case Implementation
 
-## Making a Bill Payment
+### Making a Bill Payment
 
 Use the CheckFree Next APIs to enable a custom UI to accept bill
 payments for one or more businesses and submit the payments for
@@ -27,7 +27,7 @@ sequence for the best results:
     payments from the consumer to the selected payee
 
 
-## Find Bills Through Bill Discovery
+### Find Bills Through Bill Discovery
 
 CheckFree Next enables your end users to find their bills automatically
 using the information from their credit report and/ or biller direct

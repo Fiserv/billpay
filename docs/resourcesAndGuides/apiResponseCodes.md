@@ -1,8 +1,6 @@
-# API Response Codes
+## API Response Codes
 
-This appendix contains the response codes and corresponding messages that can be returned.
-
-## 0101 Errors
+### 0101 Errors
 When a 0101 error (or equivalent) is returned, Fiserv returns the
 parameter **field** in ResultInfo that contains the name of the field
 that is missing or in error, if applicable. Fiserv also returns (if
@@ -38,7 +36,7 @@ the same way as the 0101 error.
 The field that caused the error is specified as Address1, while the path
 (fieldPath) shows that Address1 is contained in PayeeInfo.
 
-## CommonAPI Errors
+### CommonAPI Errors
 
 Description: These errors may occur in multiple REST API responses.
 
@@ -48,9 +46,9 @@ Description: These errors may occur in multiple REST API responses.
 | 101 | ERROR | Messages will vary but all will indicate that an input was invalid, preventing the transaction from completing successfully. | Y |
 | 375 | ERROR | Subscriber status prevents the transaction from being submitted. | N |
 
-## Automatic Transactions
+### Automatic Transactions
 
-### POST AutomaticTransactions
+#### POST AutomaticTransactions
 
 | Error | Type | Error Message | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|---------------|----------------------------------------|----------------|--------|
@@ -60,7 +58,7 @@ Description: These errors may occur in multiple REST API responses.
 | 1403 | ERROR | Biller does not support auto-pay. | N | Business Rule Violation | Biller does not support auto-pay |
 | 1404 | ERROR | Biller does not support requested auto-pay type. | N | Business Rule Violation|Transaction type is any of the AccountBalance, AmountDue and MinimumAmountDue and biller does not support particular transaction type of auto pay. |
 
-### PATCH AutomaticTransactions
+#### PATCH AutomaticTransactions
 
 | Error | Type | Error Message | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|---------------|----------------------------------------|----------------|--------|
@@ -69,24 +67,24 @@ Description: These errors may occur in multiple REST API responses.
 | 1403 | ERROR | Biller does not support auto-pay. | N | Business Rule Violation | Biller does not support auto-pay |
 | 1404 | ERROR | Biller does not support requested auto-pay type. | N | Business Rule Violation | Transaction type is any of the AccountBalance, AmountDue and MinimumAmountDue and biller does not support particular transaction type of auto pay. |
 
-### DELETE AutomaticTransactions
+#### DELETE AutomaticTransactions
 
 | Error | Type | Error Message | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|---------------|----------------------------------------|----------------|--------|
 | 1161 | ERROR | Cancel pending transactions is not allowed for bill automatic transactions | N | Business Rule Violation | Cancel pending transactions is not allowed for ebill automatic transactions |
 
-## Bills
+### Bills
 
-### PATCH Bills
+#### PATCH Bills
 
 | Error | Type | Error Message | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|---------------|----------------------------------------|----------------|--------|
 | 1422 | ERROR | Bill has not yet been viewed by the user | Y | Input Validation | Bill needs to be viewed by the User first before doing a patch which could be done by calling Get Bills |
 | 1432 | ERROR | Invalid BillDueAlert status for dismissal. | N | Business Rule Violation|The Bill Due Alert is not found in the set of Unpaid Bill Due Alerts |
 
-## ChallengerIdentity
+### ChallengerIdentity
 
-### POST IdentityUserController
+#### POST IdentityUserController
 
 | Error | Type | Error Message | Should user be invited to retry? (Y/N) | Error Category |
 |-------|------|---------------|----------------------------------------|----------------|
@@ -96,13 +94,13 @@ Description: These errors may occur in multiple REST API responses.
 | 1704 | ERROR | User registration failed | N/A | N/A |
 | 1706 | ERROR | Failed in storing accepted ldd id | N/A | N/A |
 
-### GET MfaTokenController
+#### GET MfaTokenController
 
 | Error | Type | Error Message | Should user be invited to retry? (Y/N) | Error Category |
 |-------|------|---------------|----------------------------------------|----------------|
 | 1705 | ERROR | Inquire OTP failed | N/A | N/A |
 
-### POST OtpAuthGrant
+#### POST OtpAuthGrant
 
 | Error | Type | Error Message | Should user be invited to retry? (Y/N) | Error Category |
 |-------|------|---------------|----------------------------------------|----------------|
@@ -110,9 +108,9 @@ Description: These errors may occur in multiple REST API responses.
 | 1801 | ERROR | Expired OTP token | N/A | N/A |
 | 1802 | ERROR | Exceeded the maximum number of OTP validation attempts | N/A | N/A |
 
-## Ebill Activation
+### Ebill Activation
 
-### GET Payees/{id}/ebillCapabilityGet
+#### GET Payees/{id}/ebillCapabilityGet
 
 | Error | Type | Fields | Error Message | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|--------|---------------|----------------------------------------|----------------|--------|
@@ -121,7 +119,7 @@ Description: These errors may occur in multiple REST API responses.
 | 1408 | ERROR | AccountNumber | The account number is not valid for the biller | Y | Input Validation | The account number does not match to the biller |
 | 1409 | ERROR | NULL | Account number already active | N | Business Rule Violation | Same information already exists for the ebill |
 
-### POST Payees/{id}/ebillService
+#### POST Payees/{id}/ebillService
 
 | Error | Type | Fields | Error Message | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|--------|---------------|----------------------------------------|----------------|--------|
@@ -134,7 +132,7 @@ Description: These errors may occur in multiple REST API responses.
 | 1416 | ERROR | NULL | Ebill activation request timed out. Check again later. | Y | Input Validation | Time out issue. General error. |
 | 1418 | ERROR | NULL | The account number is already activated for other subscriber | N | Input Validation | Valid account number is not given |
 
-### DELETE Payees/{id}/ebillService
+#### DELETE Payees/{id}/ebillService
 
 | Error | Type | Fields | Error Message | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|--------|---------------|----------------------------------------|----------------|--------|
@@ -143,7 +141,7 @@ Description: These errors may occur in multiple REST API responses.
 | 1412 | ERROR | NULL | Payee change pending | N | Business Rule Violation | unexpected/general error |
 | 1417 | ERROR | NULL | Payee is not ebill active | Y | Input Validation | Payee is inactive for ebill |
 
-### PATCH Payees/{id}/ebillService/SuppressPaper
+#### PATCH Payees/{id}/ebillService/SuppressPaper
 
 | Error | Type | Fields | Error Message | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|--------|---------------|----------------------------------------|----------------|--------|
@@ -154,9 +152,9 @@ Description: These errors may occur in multiple REST API responses.
 | 1420 | ERROR | NULL | User canceled paper suppression | N | Business Rule Violation | User already canceled the paper suppression |
 | 1421 | ERROR | AcceptedTC | User did not accept terms and conditions | Y | Input Validation | T&C needs to be accepted |
 
-## Financial Accounts
+### Financial Accounts
 
-### POST CardAccounts
+#### POST CardAccounts
 
 | Error | Type | Error Message | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|---------------|----------------------------------------|----------------|--------|
@@ -169,7 +167,7 @@ Description: These errors may occur in multiple REST API responses.
 | 1360 | ERROR | Subscriber has reached active card add limit. | N | Business Rule Violation | When subscriber has reached the active card add limit which will be set up in configuration. |
 | 1361 | ERROR | Subscriber has reached same card delete and re-add limit. | N | Business Rule Violation | When subscriber has reached the same card delete and re-add limit which will be set up in configuration. |
 
-### PUT CardAccounts
+#### PUT CardAccounts
 
 | Error | Type | Error Message | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|---------------|----------------------------------------|----------------|--------|
@@ -179,7 +177,7 @@ Description: These errors may occur in multiple REST API responses.
 | 1356 | ERROR | Card verification is not successful. | Y | Input Validation | When CVV verification fails for this card account |
 | 1358 | ERROR | Sponsor restrictions do not allow this action to be performed. | N | Business Rule Violation | Sponsor settings does not allows to add a card. Below are the settings that impact adding the card: FirstPartyDebit, FirstPartyCredit, SubscriberToAddFirstPartyCredit, SubscriberToAddFirstPartyDebit |
 
-### DELETE CardAccounts
+#### DELETE CardAccounts
 
 | Error | Type | Error Message | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|---------------|----------------------------------------|----------------|--------|
@@ -187,17 +185,17 @@ Description: These errors may occur in multiple REST API responses.
 | 1355 | ERROR | Operation is not allowed. Originator type does not match | N | Improper implementation | Access restricted for the user to delete the card account details |
 | 1358 | ERROR | Sponsor restrictions do not allow this action to be performed. | N | Business Rule Violation | When the sponsor setting is not enabled for card funded payment |
 
-### GET CardAccounts
+#### GET CardAccounts
 
 | Error | Type | Error Message | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|---------------|----------------------------------------|----------------|--------|
 | 1358 | ERROR | Sponsor restrictions do not allow this action to be performed. | N | Business Rule Violation | When the sponsor setting is not enabled for card funded payment |
-### PATCH CardAccounts
+#### PATCH CardAccounts
 | Error | Type | Error Message | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|---------------|----------------------------------------|----------------|--------|
 | 1358 | ERROR | Sponsor restrictions do not allow this action to be performed. | N | Business Rule Violation | When the sponsor setting is not enabled for card funded payment |
 
-### POST BankAccounts
+#### POST BankAccounts
 
 | Error | Type | Error Message | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|---------------|----------------------------------------|----------------|--------|
@@ -207,13 +205,13 @@ Description: These errors may occur in multiple REST API responses.
 | 1378 | ERROR | Maximum Number of Bank Account Services Exceeded | N | Business Rule Violation | The maximum bank account add limit has been reached |
 | 1380 | ERROR | User Id does not exist | N | Improper implementation | Unable to locate the challenger user ID with the given commonId |
 
-### GET BankAccounts
+#### GET BankAccounts
 
 | Error | Type | Error Message | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|---------------|----------------------------------------|----------------|--------|
 | 1380 | ERROR | User Id does not exist | N | Improper implementation | Unable to locate the challenger user ID with the given commonId |
 
-### PATCH BankAccounts
+#### PATCH BankAccounts
 
 | Error | Type | Error Message | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|---------------|----------------------------------------|----------------|--------|
@@ -222,7 +220,7 @@ Description: These errors may occur in multiple REST API responses.
 | 1386 | ERROR | The preferred account flag cannot be modified to false, set another account to true and this will change to false. | Y | Input Validation | When the user has single bank account and the preferred flag is changed to false |
 | 1387 | ERROR | IsBusiness flag cannot be updated for confirmed accounts. | NA | Not applicable | Removed now, will not be returned |
 
-### DELETE BankAccounts
+#### DELETE BankAccounts
 
 | Error | Type | Error Message | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|---------------|----------------------------------------|----------------|--------|
@@ -230,18 +228,18 @@ Description: These errors may occur in multiple REST API responses.
 | 1384 | ERROR | Bank Account does not exist to be deleted | N | Improper implementation | Unable to locate the bank account with the given commonId |
 | 1391 | ERROR | The billing account cannot be deleted | Y | Input Validation | The billing account cannot be deleted. If the billing identifier is moved to another bank account, then this can be deleted. |
 
-## Merchants
+### Merchants
 
-### GET Merchants
+#### GET Merchants
 
 | Error | Type | Error Message | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|---------------|----------------------------------------|----------------|--------|
 | 1500 | ERROR | No payee found based on search criteria | Y | Input Validation | Unable to locate payee with the filter query parameters |
 | 1504 | ERROR | Invalid Sponsor | N | Improper implemention  | Specified sponsor ID is invalid in the request |
 
-## Messages
+### Messages
 
-### POST TransactionMessages
+#### POST TransactionMessages
 
 | Error | Type | Field | Error Message | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|-------|---------------|----------------------------------------|----------------|--------|
@@ -250,7 +248,7 @@ Description: These errors may occur in multiple REST API responses.
 | 103 | Error | TransactionID | Transaction Inquiries cannot be made for in-process, canceled or pending payments | N | Business rule validation | Invalid transaction status |
 | 104 | Error | NULL | Transaction ID does not exist | N | Input validation | Invalid transaction |
 
-### DELETE Messages
+#### DELETE Messages
 
 | Error | Type | Field | Error Message | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|-------|---------------|----------------------------------------|----------------|--------|
@@ -258,7 +256,7 @@ Description: These errors may occur in multiple REST API responses.
 | 1104 | Error | NULL | Message ID does not exist | N | Input validation | Invalid message |
 | 1105 | Error | NULL | Error on marking the delete message | Y | PMA Service error  | Call to PMA fails |
 
-### GET Messages
+#### GET Messages
 
 | Error | Type | Field | Error Message | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|-------|---------------|----------------------------------------|----------------|--------|
@@ -266,9 +264,9 @@ Description: These errors may occur in multiple REST API responses.
 | 1103 | Error | TransactionID | Cannot find message header | N | Input validation | Transaction ID does not exist |
 | 1104 | Error | NULL | Message ID does not exist | N | Input validation  | Invalid message |
 
-## Payees
+### Payees
 
-### POST Payees
+#### POST Payees
 
 | Error | Error Message | Field | ResultInfo.result Category | Error (0101 field validation error) | 0101 Field | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|---------------|-------|----------------------------|-------------------------------------|------------|----------------------------------------|----------------|--------|
@@ -297,7 +295,7 @@ Description: These errors may occur in multiple REST API responses.
 | 1276 | Payee was added successfully but does not have overnight capabilities - Zipcode and Address is mismatch. | NULL | WARNING |   |   | Y | Input Validation | ZIP Code does not match with the address |
 | 1277 | Payee was added successfully but does not have overnight capabilities - Overnight address cannot be military address. | OvernightAddress | WARNING |   |   | Y | Input Validation | Military address does not support overnight capabilities |
 
-### DELETE Payees
+#### DELETE Payees
 
 | Error | Error Message | Field | ResultInfo.result Category | Should user be invited to retry? (Y/N) | Error Category | Reason | Real world scenario? |
 |-------|---------------|-------|----------------------------|----------------------------------------|----------------|--------|-----------------------|
@@ -310,7 +308,7 @@ Description: These errors may occur in multiple REST API responses.
 | 1260 | Payee cannot be deleted as Cancel Ebill Autopay Failed | NULL | ERROR | Y | Business Rule Violation | Unexpected/general error | This is a system failure error and cannot be tested. (General server error) |
 | 1264 | Ebill Pending Payees cannot be deleted | NULL | ERROR | N | Business Rule Violation | Pending ebill cannot be deleted| |
 
-### PATCH Payees
+#### PATCH Payees
 
 | Error | Error Message | Field | ResultInfo.result Category | Error (0101 field validation error) | 0101 Field | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|---------------|-------|----------------------------|-------------------------------------|------------|----------------------------------------|----------------|--------|
@@ -340,15 +338,15 @@ Description: These errors may occur in multiple REST API responses.
 | 1279 | Overnight state code is missing or invalid | State | ERROR |   |   | Y | Input Validation | State code is missing or invalid |
 | 1280 | Payee was modified successfully but the overnight address did not change - Zipcode and Address is a mismatch. | NULL | WARNING |   |   | Y | Input Validation | Payee was modified successfully but the address is not valid for overnight check |
 
-### GET Payees
+#### GET Payees
 
 | Error | Error Message | Field | ResultInfo.result Category | Should user be invited to retry? (Y/N) | Error Category | Real world scenario? |
 |-------|---------------|-------|----------------------------|----------------------------------------|----------------|-----------------------|
 | 375 | Subscriber status prevents this action from being completed | Null | ERROR | N | Input Validation | No. If the client's UI is implemented correctly, there is no need to  handle this error in the UI. |
 
-## Payee Groups
+### Payee Groups
 
-### POST PayeeGroups
+#### POST PayeeGroups
 
 | Error | Type | Error Message | Field | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|---------------|-------|----------------------------------------|----------------|--------|
@@ -359,13 +357,13 @@ Description: These errors may occur in multiple REST API responses.
 | 101 | ERROR | Error creating payee group. | NULL | Y | Input Validation | An error occurred while attempting to create the payee group |
 | 1214 | ERROR | Payee is inactive. | NULL | Y | Input Validation | All payees in the payee array must be active |
 
-### DELETE PayeeGroups
+#### DELETE PayeeGroups
 
 | Error | Type | Error Message | Field | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|---------------|-------|----------------------------------------|----------------|--------|
 | 101 | ERROR | Error deleting payee group. | NULL | Y | Input Validation | The “id” in the request is invalid or missing |
 
-### PUT PayeeGroups
+#### PUT PayeeGroups
 
 | Error | Type | Error Message | Field | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|---------------|-------|----------------------------------------|----------------|--------|
@@ -376,9 +374,9 @@ Description: These errors may occur in multiple REST API responses.
 | 101 | ERROR | Payee exists in another group. | NULL | Y | Input Validation | A payee cannot be assigned to more than one payee group |
 | 1214 | ERROR | Payee is inactive. | payeeUri | Y | Input Validation | All payees in the payee array must be active |
 
-## Potential Payees
+### Potential Payees
 
-### GET PotentialPayees	
+#### GET PotentialPayees	
 
 | Error | Type | Error Message | Field | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|---------------|-------|----------------------------------------|----------------|--------|
@@ -386,7 +384,7 @@ Description: These errors may occur in multiple REST API responses.
 | 1433 | WARNING | There was an error enrolling the user in BillDiscovery | NULL | Y | Business Rule Violation | The payee added however subscriber was not successfully enrolled in bill discovery |
 | 1434 | WARNING | There was an error enrolling the user in Bill Due Alerts | NULL | Y | Business Rule Violation | The payee was added and enrolled in bill discovery however subscriber was not enrolled in bill due alerts for payee |
 
-### PUT PotentialPayees/{id}/Verify
+#### PUT PotentialPayees/{id}/Verify
 
 | Error | Type | Error Message | Field | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|---------------|-------|----------------------------------------|----------------|--------|
@@ -396,9 +394,9 @@ Description: These errors may occur in multiple REST API responses.
 | 1433 | WARNING | There was an error enrolling the user in BillDiscovery | NULL | Y | Business Rule Violation | The payee added however subscriber was not successfully enrolled in bill discovery |
 | 1434 | WARNING | There was an error enrolling the user in Bill Due Alerts | NULL | Y | Business Rule Violation | The payee was added and enrolled in bill discovery however subscriber was not enrolled in bill due alerts for payee |
 
-## Potential Payee Scheming
+### Potential Payee Scheming
 
-### POST PotentialPayeeSchemingService
+#### POST PotentialPayeeSchemingService
 
 | Error | Type | Error Message | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|---------------|----------------------------------------|----------------|--------|
@@ -406,9 +404,9 @@ Description: These errors may occur in multiple REST API responses.
 | 1436 | ERROR | Search for bill discovery data unsuccessful. | N | Business Rule Violation | Unable to fetch or retrive data from bill discovery bill task |
 | 1437 | ERROR | Search for merchant unsuccessful. | N | Business Rule Violation | Unable to retrieve Merchant Info with the given Merchant Name, Account Number and Zip details |
 
-## Reminders
+### Reminders
 
-### POST Reminders
+#### POST Reminders
 
 | Error | Type | Error Message | Field | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|---------------|-------|----------------------------------------|----------------|--------|
@@ -419,7 +417,7 @@ Description: These errors may occur in multiple REST API responses.
 | 101 | ERROR | Invalid PayeeUri | PayeeUri | Y | Input Validation | An invalid PayeeUri has been provided |
 | 376 | ERROR | Subscriber email status prevents this action from being completed | NULL | N | Business Rule Violation | A valid email address is required for the user if one or more of the reminder alerts has been selected |
 
-### DELETE Reminders
+#### DELETE Reminders
 
 | Error | Type | Error Message | Field | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|---------------|-------|----------------------------------------|----------------|--------|
@@ -427,7 +425,7 @@ Description: These errors may occur in multiple REST API responses.
 | 101 | ERROR | This reminder model was deleted due to ebill activation | NULL | N | Input Validation | Reminder models are deleted when ebill service is activated for the payee |
 | 101 | ERROR | Invalid reminder Id | NULL | Y | Input Validation | An invalid reminder ID has been provided |
 
-### PATCH Reminders
+#### PATCH Reminders
 
 | Error | Type | Error Message | Field | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|---------------|-------|----------------------------------------|----------------|--------|
@@ -437,17 +435,17 @@ Description: These errors may occur in multiple REST API responses.
 | 376 | ERROR | Subscriber email status prevents this action from being completed | NULL | N | Business Rule Violation | A valid email address is required for the user if one or more of the reminder alerts has been selected |
 | 2000 | ERROR | A reminder model does not exist for this payee | NULL | Y | Input Validation | A Reminder model does not exist for the payee |
 
-## ToDos
+### ToDos
 
-### PATCH ToDos
+#### PATCH ToDos
 
 | Error | Type | Error Message | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|---------------|----------------------------------------|----------------|--------|
 | 1432 | ERROR | Invalid todo status for dismissal. | N | Improper implemention  | 1. When potential payee is not active status.  Generally should not receive this because an inactive potential payee / todo will not come back in get. <br> 2. When bill payment status other than Unpaid. |
 
-## Transactions
+### Transactions
 
-### POST Transactions
+#### POST Transactions
 
 | Error | Type | Error Message | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|---------------|----------------------------------------|----------------|--------|
@@ -467,7 +465,7 @@ Description: These errors may occur in multiple REST API responses.
 | 1159 | ERROR | Card account type unsupported for transaction destination. | Y | Business Rule Violation | This card type is not supported. Can be retried with different card type. |
 | 1160 | ERROR | Card transaction unsupported. | Y | Business Rule Violation | Card payments not allowed. Can be retried with bank account. |
 
-### PATCH Transactions
+#### PATCH Transactions
 
 | Error | Type | Error Message | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|---------------|----------------------------------------|----------------|--------|
@@ -481,9 +479,9 @@ Description: These errors may occur in multiple REST API responses.
 | 1153 | WARNING | Transaction note not updated. | N | Business Rule Violation | Some issue faced while updating note of transaction |
 | 1214 | ERROR | Payee is inactive. | N | Improper Implementation | Error is thrown when Inactive Payee is modified. |
 
-## Transaction Calendar
+### Transaction Calendar
 
-### GET TransactionCalendar
+#### GET TransactionCalendar
 
 | Error | Type | Error Message | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|---------------|----------------------------------------|----------------|--------|
@@ -491,16 +489,16 @@ Description: These errors may occur in multiple REST API responses.
 | 100 | ERROR | Tenant/User information missing in request | N | Improper Implementation | Invalid data in request |
 | 1140 | ERROR | Transaction cannot be found. | N | Improper Implementation | Unable to locate the Transaction Calender with the provided CommonId |
 
-## Users
+### Users
 
-### GET Users
+#### GET Users
 
 | Error | Type | Error Message | Field | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|---------------|-------|----------------------------------------|----------------|--------|
 | 1000 | ERROR | Tenant does not support Bill Discovery. | NULL | N | Business Rule Violation | If Tenant does not opt for bill discovery this error will return. |
 | 1001 | ERROR | Bill Discovery feature disabled. | NULL | N | Business Rule Violation | Bill discovery is not enabled |
 
-### POST Users
+#### POST Users
 
 | Error | Type | Error Message | Field | Should user be invited to retry? (Y/N) | Error Category | Reason |
 |-------|------|---------------|-------|----------------------------------------|----------------|--------|
