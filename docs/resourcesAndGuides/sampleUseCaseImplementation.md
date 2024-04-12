@@ -1,4 +1,6 @@
-﻿## Sample Use Case Implementation
+﻿## Use Case Implementation
+
+This is a sample use case implementation.
 
 ### Making a Bill Payment
 
@@ -7,24 +9,18 @@ payments for one or more businesses and submit the payments for
 processing to the Fiserv payment services. Follow this recommended
 sequence for the best results:
 
-1.  [Authenticate](./authenticate.md)- Authenticate to get the access token
+1.  [Authenticate](?path=docs/resourcesAndGuides/authenticate.md)- Authenticate to get the access token
     and the refresh token.
 
-2.  [Get User Info](../apiDomains/users.md#get-user-information): Get the details of the
-    consumer including the contact information.
+2.  [Get User Info](?path=docs/apiDomains/users.md&branch=develop#get-user-information): Get the details of the consumer including the contact information.
 
-3.  [Get Payees](../apiDomains/payees.md#get-payees-list): Get a list of businesses that the
-    consumer has added as payees.
+3.  [Get Payees](?path=docs/apiDomains/payees.md&branch=develop#get-payees-list): Get a list of businesses that the consumer has added as payees.
 
-4.  [Get Bank Accounts](../apiDomains/bankAccounts.md#get-bank-accounts-for-a-consumer-list): Get a
-    list of accounts available for a consumer to fund a bill payment.
+4.  [Get Bank Accounts](?path=docs/apiDomains/bankAccounts.md&branch=develop#get-bank-accounts-for-a-consumer-list): Get a list of accounts available for a consumer to fund a bill payment.
 
-5.  [Get Transaction Calendar](../apiDomains/transactionCalendar.md#get-transaction-calendar): Get a list of
-    all available dates to deliver a payment to the selected payee along
-    with associated fees
+5.  [Get Transaction Calendar](?path=docs/apiDomains/transactionCalendar.md&branch=develop#get-transaction-calendar): Get a list of all available dates to deliver a payment to the selected payee along with associated fees
 
-6.  [Create a Transaction](../apiDomains/transactions.md#create-a-transaction): Schedule one or more
-    payments from the consumer to the selected payee
+6.  [Create a Transaction](?path=docs/apiDomains/transactions.md&branch=develop#create-a-transaction): Schedule one or more payments from the consumer to the selected payee
 
 
 ### Find Bills Through Bill Discovery
@@ -42,27 +38,13 @@ the bill pay. Payees added via bill discovery also may deliver bill
 summaries to the consumer without the consumer having to sign up for
 e‑bills.
 
-1.  [Authenticate](./authenticate.md) – Authenticate to get the access token
+1.  [Authenticate](?path=docs/resourcesAndGuides/authenticate.md) – Authenticate to get the access token
     and the refresh token.
 
-2.  [Get Consumer Eligibility for Bill Discovery](../apiDomains/potentialPayees.md#get-consumer-eligibility-for-bill-discovery) – If the
-    sponsor is configured with eligibility rules, determine if the
-    consumer is eligible for bill discovery and if there are outstanding
-    potential payees.
+2.  [Get Consumer Eligibility for Bill Discovery](?path=docs/apiDomains/potentialPayees.md&branch=develop#get-consumer-eligibility-for-bill-discovery) – If the sponsor is configured with eligibility rules, determine if the consumer is eligible for bill discovery and if there are outstanding potential payees.
 
-3.  [Record User Consent](../apiDomains/users.md#record-users-consent-information) – If the
-    consumer is eligible for bill discovery, capture the consent from
-    the consumer for finding bills from bureau and billers.
+3.  [Record User Consent](?path=docs/apiDomains/users.md&branch=develop#record-users-consent-information) – If the consumer is eligible for bill discovery, capture the consent from the consumer for finding bills from bureau and billers.
 
-4.  [Find Bills](../apiDomains/potentialPayees.md#get-potential-payees-list) – Use the GET Potential
-    Payees API to get the suggested billers for the consumer once the
-    consumer has given the consent and has at least one outstanding
-    potential payee. This will not return any results if the consent was
-    either not provided by the consumer or the UI has not sent the same
-    to the API. Display all potential payees to the consumer to select
-    one or more for adding as payees.
+4.  [Find Bills](?path=docs/apiDomains/potentialPayees.md&branch=develop#get-potential-payees-list) – Use the GET Potential Payees API to get the suggested billers for the consumer once the consumer has given the consent and has at least one outstanding potential payee. This will not return any results if the consent was either not provided by the consumer or the UI has not sent the same to the API. Display all potential payees to the consumer to select one or more for adding as payees.
 
-5.  [Verify Potential Payee](../apiDomains/potentialPayees.md#verify-potential-payee) – Once the
-    consumer has selected one or more potential payees to add, use this
-    API to add the billers as Payees and make them available to make a
-    payment.
+5.  [Verify Potential Payee](?path=docs/apiDomains/potentialPayees.md&branch=develop#verify-potential-payee) – Once the consumer has selected one or more potential payees to add, use this API to add the billers as Payees and make them available to make a payment.
