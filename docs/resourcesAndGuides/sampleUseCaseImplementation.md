@@ -1,4 +1,4 @@
-﻿## Use Case Implementation
+﻿## Use Case Implemenation
 
 This is a sample use case implementation.
 
