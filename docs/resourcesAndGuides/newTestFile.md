@@ -1,14 +1,10 @@
-﻿## Sample Use Case Implementation
+## New Test File
 
 ### Making a Bill Payment
 
-Use the CheckFree Next APIs to enable a custom UI to accept bill
-payments for one or more businesses and submit the payments for
-processing to the Fiserv payment services. Follow this recommended
-sequence for the best results:
+Use the CheckFree Next APIs to enable a custom UI to accept bill payments for one or more businesses and submit the payments for processing to the Fiserv payment services. Follow this recommended sequence for the best results:
 
-1.  [Authenticate](?path=docs/resourcesAndGuides/authenticate.md)- Authenticate to get the access token
-    and the refresh token.
+1.  [Authenticate](?path=docs/resourcesAndGuides/authenticate.md): Authenticate to get the access token and the refresh token.
 
 2.  [Get User Info](?path=docs/apiDomains/users.md&branch=develop#get-user-information): Get the details of the consumer including the contact information.
 
@@ -20,24 +16,11 @@ sequence for the best results:
 
 6.  [Create a Transaction](?path=docs/apiDomains/transactions.md&branch=develop#create-a-transaction): Schedule one or more payments from the consumer to the selected payee
 
-
 ### Find Bills Through Bill Discovery
 
-CheckFree Next enables your end users to find their bills automatically
-using the information from their credit report and/ or biller direct
-statements and pay them conveniently without having to start from a
-blank slate. After consumer eligibility has been confirmed, the UI must
-record an explicit consent from the consumer in order to pull data from
-credit bureaus and/or biller direct sources. After the consumer gives
-consent, the API will return all found bills as a list. The UI should
-display all results to the consumer and enable the consumer to select
-one or more of the potential payees from the list to add as payees to
-the bill pay. Payees added via bill discovery also may deliver bill
-summaries to the consumer without the consumer having to sign up for
-e‑bills.
+CheckFree Next enables your end users to find their bills automatically using the information from their credit report and/ or biller direct statements and pay them conveniently without having to start from a blank slate. After consumer eligibility has been confirmed, the UI must record an explicit consent from the consumer in order to pull data from credit bureaus and/or biller direct sources. After the consumer gives consent, the API will return all found bills as a list. The UI should display all results to the consumer and enable the consumer to select one or more of the potential payees from the list to add as payees to the bill pay. Payees added via bill discovery also may deliver bill summaries to the consumer without the consumer having to sign up for e‑bills.
 
-1.  [Authenticate](?path=docs/resourcesAndGuides/authenticate.md) – Authenticate to get the access token
-    and the refresh token.
+1.  [Authenticate](?path=docs/resourcesAndGuides/authenticate.md) – Authenticate to get the access token and the refresh token.
 
 2.  [Get Consumer Eligibility for Bill Discovery](?path=docs/apiDomains/potentialPayees.md&branch=develop#get-consumer-eligibility-for-bill-discovery) – If the sponsor is configured with eligibility rules, determine if the consumer is eligible for bill discovery and if there are outstanding potential payees.
 
