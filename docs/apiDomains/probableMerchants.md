@@ -36,8 +36,8 @@ Examples:
 
 | Parameter | Req | Data Type                               | Description                 |
 |------------|-----|----------|-----------------------------------------------|
-| data      | Req | [ProbableMerchants](./complexObjects.md#probablemerchants) | List of probable merchants. |
-| result    | Req | [ResultType](./complexObjects.md#resulttype)               | Result information.         |
+| data      | Req | [ProbableMerchants](?path=docs/apiDomains/complexObjects.md&branch=develop#probablemerchants) | List of probable merchants. |
+| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)               | Result information.         |
 
 ### Sample API Usage
 

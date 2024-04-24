@@ -47,8 +47,8 @@ The v1 version of Transactions Get will continue to support the values of Electr
 
 | Parameter | Req | Data Type                                    | Description                                            |
 |----------|-----|----------|------------------------------------------------|
-| data      | Req | Array of [TransactionList](./complexObjects.md#transactionlist) | There is an empty array if there is no data to return. |
-| result    | Req | [ResultType](./complexObjects.md#resulttype)                    | Result information.                                    |
+| data      | Req | Array of [TransactionList](?path=docs/apiDomains/complexObjects.md&branch=develop#transactionlist) | There is an empty array if there is no data to return. |
+| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                    | Result information.                                    |
 
 ### Sample API Usage
 
@@ -214,8 +214,8 @@ With v2, the valid values that deliveryMethod can return in the response are Ele
 
 | Parameter | Req | Data Type                                    | Description                                            |
 |----------|-----|----------|------------------------------------------------|
-| data      | Req | Array of [TransactionListV2](./complexObjects.md#transactionlistv2) | There is an empty array if there is no data to return. |
-| result    | Req | [ResultType](./complexObjects.md#resulttype)                    | Result information.                                    |
+| data      | Req | Array of [TransactionListV2](?path=docs/apiDomains/complexObjects.md&branch=develop#transactionlistv2) | There is an empty array if there is no data to return. |
+| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                    | Result information.                                    |
 
 ### Sample API Usage
 
@@ -383,14 +383,14 @@ Examples:
 | Parameter | Req | Param Type | Data Type | Description |
 |-----------|-----|------------|-----------|-------------|
 | allowDuplicateTransaction | Opt | query | boolean | Indicates that duplicate transactions are allowed. <br> Valid values: <br> true – Allow duplicate transactions <br> false – Check for duplicate transactions. This is the default.<br> A transaction cannot be a duplicate unless the allowDuplicateTransaction flag is true. A duplicate is defined as having the same payee, transaction amount, and transaction date. <br> This does not apply to SameDay Payments. Duplicate transactions are not allowed for SameDay Payments. |
-| transaction | Req | body | Array of [Transaction](./complexObjects.md#transaction) | List of transactions to be scheduled for the consumer. Limited to 30 or fewer per request. |
+| transaction | Req | body | Array of [Transaction](?path=docs/apiDomains/complexObjects.md&branch=develop#transaction) | List of transactions to be scheduled for the consumer. Limited to 30 or fewer per request. |
 
 ### Response
 
 | Parameter | Req | Data Type                                                                              | Description                                                       |
 |------------|-----|-----------|----------------------------------------------|
-| data      | Req | Array of [TransactionOutputIpsListItemResponse](./complexObjects.md#transactionoutputipslistitemresponse) | List of responses for the transactions requested to be scheduled. |
-| result    | Req | [ResultType](./complexObjects.md#resulttype)                                                              | Overall result.                                                   |
+| data      | Req | Array of [TransactionOutputIpsListItemResponse](?path=docs/apiDomains/complexObjects.md&branch=develop#transactionoutputipslistitemresponse) | List of responses for the transactions requested to be scheduled. |
+| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                                                              | Overall result.                                                   |
 
 ### Sample API Usage
 
@@ -518,8 +518,8 @@ To cancel a transaction (does not require Request Body):
 
 | Parameter | Req      | Data Type                                           | Description                                                                                                     |
 |------------|------|------------|-------------------------------------------|
-| data      | Req/Cond | [TransactionModifyOutput](./complexObjects.md#transactionmodifyoutput) | Data about the specific transaction. For a successful cancellation, no data is returned (HTTP status code 204). |
-| result    | Req/Cond | [ResultType](./complexObjects.md#resulttype)                           | Result information. For a cancellation, this is only returned when the request fails.                           |
+| data      | Req/Cond | [TransactionModifyOutput](?path=docs/apiDomains/complexObjects.md&branch=develop#transactionmodifyoutput) | Data about the specific transaction. For a successful cancellation, no data is returned (HTTP status code 204). |
+| result    | Req/Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                           | Result information. For a cancellation, this is only returned when the request fails.                           |
 
 ### Sample API Usage
 

@@ -35,8 +35,8 @@ upcoming dates for which they can schedule a bill payment transaction.
 
 | Parameter | Req | Data Type                                              | Description                                            |
 |----------|-----|----------|------------------------------------------------|
-| data      | Req | Array of [TransactionCalendar](./complexObjects.md#transactioncalendar) | There is an empty array if there is no data to return. |
-| result    | Req | [ResultType](./complexObjects.md#resulttype)                              | Result information.                                    |
+| data      | Req | Array of [TransactionCalendar](?path=docs/apiDomains/complexObjects.md&branch=develop#transactioncalendar) | There is an empty array if there is no data to return. |
+| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                              | Result information.                                    |
 
 ### Sample API Usage
 

@@ -35,8 +35,8 @@ This API indicates whether a consumer is eligible for bill discovery.
 
 | Parameter | Req | Data Type                                                     | Description                       |
 |---------|----|------------|------------------------------------------------|
-| data      | Req | [BillDiscoveryUserEligibility](./complexObjects.md#billdiscoveryusereligibility) | Consumer eligibility information. |
-| result    | Req | [ResultType](./complexObjects.md#resulttype)                                     | Result information.               |
+| data      | Req | [BillDiscoveryUserEligibility](?path=docs/apiDomains/complexObjects.md&branch=develop#billdiscoveryusereligibility) | Consumer eligibility information. |
+| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                                     | Result information.               |
 
 The values returned in the response are dependent on sponsor
 configuration as follows:
@@ -96,8 +96,8 @@ information to add the merchant as a payee.
 
 | Parameter | Req | Data Type                                 | Description               |
 |---------|----|-----------|-------------------------------------------------|
-| data      | Req | [PotentialPayeeList](./complexObjects.md#potentialpayeelist) | List of potential payees. |
-| result    | Req | [ResultType](./complexObjects.md#resulttype)                 | Result information.       |
+| data      | Req | [PotentialPayeeList](?path=docs/apiDomains/complexObjects.md&branch=develop#potentialpayeelist) | List of potential payees. |
+| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                 | Result information.       |
 
 ### Sample API Usage
 
@@ -159,8 +159,8 @@ merchant as a payee.
 
 | Parameter | Req | Data Type                         | Description                            |
 |---------|----|-----------|-------------------------------------------------|
-| data      | Req | [PotentialPayee](./complexObjects.md#potentialpayee) | Information about the potential payee. |
-| result    | Req | [ResultType](./complexObjects.md#resulttype)         | Result information.                    |
+| data      | Req | [PotentialPayee](?path=docs/apiDomains/complexObjects.md&branch=develop#potentialpayee) | Information about the potential payee. |
+| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)         | Result information.                    |
 
 ### Sample API Usage
 
@@ -214,14 +214,14 @@ payee.
 | Parameter | Req | Param Type | Data Type | Description |
 |-----------|-----|------------|-----------|-------------|
 | id | Req | path | string | Identifier for the potential payee. | 
-| verificationTokens | Cond | body | Array of [VerificationToken](./complexObjects.md#verificationtoken) | Array of verification token information provided by the consumer to verify the merchant relationship. <br> Condition: One or more verification tokens are required for this payee. If no verification tokens are required, this array is not required. |
+| verificationTokens | Cond | body | Array of [VerificationToken](?path=docs/apiDomains/complexObjects.md&branch=develop#verificationtoken) | Array of verification token information provided by the consumer to verify the merchant relationship. <br> Condition: One or more verification tokens are required for this payee. If no verification tokens are required, this array is not required. |
 
 ### Response
 
 | Parameter | Req | Data Type                                     | Description                            |
 |---------|----|-----------|-------------------------------------------------|
-| data      | Req | [VerificationResponse](./complexObjects.md#verificationresponse) | Information about the potential payee. |
-| result    | Req | [ResultType](./complexObjects.md#resulttype)                     | Result information.                    |
+| data      | Req | [VerificationResponse](?path=docs/apiDomains/complexObjects.md&branch=develop#verificationresponse) | Information about the potential payee. |
+| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                     | Result information.                    |
 
 ### Sample API Usage
 
@@ -299,7 +299,7 @@ ToDo list or potential payee list.
 
 | Parameter | Req  | Data Type                 | Description                                                                                                                  |
 |---------|-----|----------|-------------------------------------------------|
-| result    | Cond | [ResultType](./complexObjects.md#resulttype) | Result information. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
+| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result information. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
 
 ### Sample API Usage
 
@@ -317,10 +317,7 @@ ToDo list or potential payee list.
 
 This API enables retrieving a potential payee’s unmasked account number.
 
-The parameter **unmaskedAccountNumberUri** (returned for [Get Potential
-Payees](#get-potential-payees-list), [Get Potential
-Payee](#get-potential-payee-single), and [Verify Potential
-Payee](#verify-potential-payee)) returns the endpoint shown below.
+The parameter **unmaskedAccountNumberUri** (returned for [Get Potential Payees](#get-potential-payees-list), [Get Potential Payee](#get-potential-payee-single), and [Verify Potential Payee](#verify-potential-payee)) returns the endpoint shown below.
 
 ### Method and Endpoint
 
@@ -338,6 +335,6 @@ Payee](#verify-potential-payee)) returns the endpoint shown below.
 | Parameter | Req  | Data Type                 | Description                                                                                                                                  |
 |------------|------|-------|-----------------------------------------------|
 | data      | Req  | string                    | Unmasked account number of the potential payee. There is an empty string if there is no data to return.                                      |
-| result    | Cond | [ResultType](./complexObjects.md#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 200). |
+| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 200). |
 
  #

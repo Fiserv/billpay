@@ -32,8 +32,8 @@ The calling application can use the response parameter messageThreadId to tie me
 
 | Parameter | Req  | Data Type                 | Description                                                                                                                                  |
 |------------|------|-------|-----------------------------------------------|
-| data | Req | [MessagesInfoOutput](./complexObjects.md#messagesinfooutput) | Information about a consumer’s messages. If there are no messages, 204 is returned. |
-| result    | Req | [ResultType](./complexObjects.md#resulttype) | Result associated information. |
+| data | Req | [MessagesInfoOutput](?path=docs/apiDomains/complexObjects.md&branch=develop#messagesinfooutput) | Information about a consumer’s messages. If there are no messages, 204 is returned. |
+| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result associated information. |
 
 ### Sample API Usage
 
@@ -99,8 +99,8 @@ The GET Messages API enables the calling application to view the full message te
 
 | Parameter | Req  | Data Type                 | Description                                                                                                                                  |
 |------------|------|-------|-----------------------------------------------|
-| data | Req | [MessageDetail](./complexObjects.md#messagedetail) | Message details. |
-| result    | Req | [ResultType](./complexObjects.md#resulttype) | Result associated with the request. |
+| data | Req | [MessageDetail](?path=docs/apiDomains/complexObjects.md&branch=develop#messagedetail) | Message details. |
+| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result associated with the request. |
 
 ### Sample API Usage
 
@@ -162,8 +162,8 @@ The POST TransactionMessages API enables a consumer to submit a transaction-rela
 
 | Parameter | Req  | Data Type                 | Description                                                                                                                                  |
 |------------|------|-------|-----------------------------------------------|
-| data | Cond | [BaseModel](./complexObjects.md#basemodel) | Response data. Condition: Always returned for successful response. |
-| result    | Req | [ResultType](./complexObjects.md#resulttype) | Result information. |
+| data | Cond | [BaseModel](?path=docs/apiDomains/complexObjects.md&branch=develop#basemodel) | Response data. Condition: Always returned for successful response. |
+| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result information. |
 
 ### Sample API Usage
 
@@ -215,7 +215,7 @@ The DELETE Messages API enables a consumer to delete an in-product or system-gen
 
 | Parameter | Req  | Data Type                 | Description                                                                                                                                  |
 |------------|------|-------|-----------------------------------------------|
-| result    | Cond | [ResultType](./complexObjects.md#resulttype) | Result associated with the request. Condition: Only returned when the request fails.
+| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result associated with the request. Condition: Only returned when the request fails.
 No content returned for success (HTTP status code 204). |
 
 ### Sample API Usage

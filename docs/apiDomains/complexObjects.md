@@ -86,7 +86,7 @@ Reserved for future use.
 | nickname | Opt | string | The nickname for the account, if one exists. Otherwise, returns null. <br> Pattern: ^[a-zA-Z0-9_(){}&@!+#.'\$, \%\*-]{1,30}$ |
 | accountBalance | Opt | double | The account balance. Reserved for future use. |
 | isPreferred | Req | boolean | Indicates if the account is the preferred account. The preferred account flag indicates the consumer’s preferred choice of bank account used to fund bill payment transactions. |
-| unmaskedAccountNumberUri | Req | string | Link to the unmasked account number for the account. See “[Get an Unmasked Bank Account Number (consumer scoped)](./bankAccounts.md#get-an-unmasked-bank-account-number-consumer-scoped).” |
+| unmaskedAccountNumberUri | Req | string | Link to the unmasked account number for the account. See “[Get an Unmasked Bank Account Number (consumer scoped)](?path=docs/apiDomains/bankAccounts.md&branch=develop#get-an-unmasked-bank-account-number-consumer-scoped).” |
 | routingTransitNumber | Req | string | Routing and transit number for the bank account. Length: 9 <br> Pattern: ^[0-9]{9}$ |
 | isBusiness | Req | boolean | Indicates if the account is a business account. True if it is a business account. |
 | businessName | Cond | string | When isBusiness is true, this is the name of the business. <br> Pattern: ^[a-zA-Z0-9_(){}&@!+#.'$,%^ \*-]\* |
@@ -473,7 +473,7 @@ Reserved for future use.
 | name | Req | string | The name of the payee. <br> Length: 2–32 |
 | nickname | Opt | string | The nickname of the payee. Only populated if provided by the consumer. <br> Length: 1-30 |
 | maskedAccountNumber | Cond | string | The masked account number for the payee. Not applicable for payees added as individuals. <br> Length: 1–32 <br> Condition: Populated only if the consumer has provided an account number when adding the payee. |
-| unmaskedAccountNumberUri | Cond | string | The URI to the full, unmasked account number. See “[Get a Payee’s Unmasked Account Number](./payees.md#get-a-payees-unmasked-account-number).” <br> Not applicable for payees added as individuals. <br> Condition: Populated only if the consumer has provided an account number when adding the payee. |
+| unmaskedAccountNumberUri | Cond | string | The URI to the full, unmasked account number. See “[Get a Payee’s Unmasked Account Number](?path=docs/apiDomains/payees.md&branch=develop#get-a-payees-unmasked-account-number).” <br> Not applicable for payees added as individuals. <br> Condition: Populated only if the consumer has provided an account number when adding the payee. |
 | category | Opt | string | The consumer-defined category of the payee. Applies to bill payment payees only. |
 | contactPhoneNumber | Opt | string | Phone number used to contact the payee if there are issues posting the payment. |
 | merchantUri | Opt | string | The URI to access the merchant directly. |
@@ -591,7 +591,7 @@ Reserved for future use.
 | Parameter                | Req | Data Type                                        | Description                                                                                                                                                                                |
 |--------------|-----|----------|---------------------------------------------|
 | maskedAccountNumber      | Opt | string                                           | Consumer’s masked account number with the merchant. Length: 1–32. Only the last 4 digits are displayed.                                                                                    |
-| unmaskedAccountNumberUri | Opt | string                                           | The URI to the full unmasked account number. See “[Get a Potential Payee’s Unmasked Account Number](./potentialPayees.md#get-a-potential-payees-unmasked-account-number).”                                     |
+| unmaskedAccountNumberUri | Opt | string                                           | The URI to the full unmasked account number. See “[Get a Potential Payee’s Unmasked Account Number](?path=docs/apiDomains/potentialPayees.md&branch=develop#get-a-potential-payees-unmasked-account-number).”                                     |
 | additionalInfoRequired   | Req | boolean                                          | Indicates that additional information is required using VerificationToken information.                                                                                                     |
 | merchantData             | Req | [MerchantData](#merchantdata)                    | Information about the merchant found.                                                                                                                                                      |
 | verificationTokens       | Opt | Array of [VerificationToken](#verificationtoken) | Array of verification token information that the consumer needs to provide to verify the merchant relationship.                                                                            |
@@ -801,7 +801,7 @@ Reserved for future use.
 
 | Parameter    | Req | Data Type                                                    | Description                                                                  |
 |---------|----|-----------|-------------------------------------------------|
-| transactions | Req | Array of [TransactionOutputDetail](#transactionoutputdetailv2) | List of transactions. There is an empty array if there is no data to return. |
+| transactions | Req | Array of [TransactionOutputDetailV2](#transactionoutputdetailv2) | List of transactions. There is an empty array if there is no data to return. |
 
 #### TransactionModifyOutput
 
@@ -963,7 +963,7 @@ Reserved for future use.
 |--------------|-----|----------|---------------------------------------------|
 | payeeUri                 | Opt | string                                           | Provides a link to that payee resource. Provided when the potential payee matches an existing payee on the bill payment system.                        |
 | maskedAccountNumber      | Opt | string                                           | Consumer’s masked account number with the merchant. Length: 1–32. Only the last 4 digits are displayed.                                                |
-| unmaskedAccountNumberUri | Opt | string                                           | The URI to the full unmasked account number. See “[Get a Potential Payee’s Unmasked Account Number](./potentialPayees.md#get-a-potential-payees-unmasked-account-number).” |
+| unmaskedAccountNumberUri | Opt | string                                           | The URI to the full unmasked account number. See “[Get a Potential Payee’s Unmasked Account Number](?path=docs/apiDomains/potentialPayees.md#&branch=develop#get-a-potential-payees-unmasked-account-number).” |
 | additionalInfoRequired   | Req | boolean                                          | Indicates that additional information is required using VerificationToken information.                                                                 |
 | merchantData             | Req | [MerchantData](#merchantdata)                    | Information about the merchant found.                                                                                                                  |
 | verificationTokens       | Opt | Array of [VerificationToken](#verificationtoken) | Array of verification token information that the consumer needs to provide to verify the merchant relationship.                                        |

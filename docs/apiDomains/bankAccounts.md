@@ -57,8 +57,8 @@ given routing number.
 
 | Parameter | Req  | Data Type                                               | Description                                                        |
 |-----------|-----|-----------|----------------------------------------------|
-| data      | Cond | [FinancialInstitutionModel](./complexObjects.md#financialinstitutionmodel) | Response data. Condition: Always returned for successful response. |
-| result    | Req  | [ResultType](./complexObjects.md#resulttype)                               | Result information.                                                |
+| data      | Cond | [FinancialInstitutionModel](?path=docs/apiDomains/complexObjects.md&branch=develop#financialinstitutionmodel) | Response data. Condition: Always returned for successful response. |
+| result    | Req  | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                               | Result information.                                                |
 
 ### Sample API Usage
 
@@ -87,8 +87,7 @@ Note
 
 For the authentication request, the client\_id must be configured for
 UserMaintenance. Do not send fiserv.identity.billpay.subscriberId; see
-[Sample API Usage: Authentication Request for User
-Maintenance](../resourcesAndGuides/authenticate.md#sample-api-usage-authentication-request-for-user-maintenance).
+[Sample API Usage: Authentication Request for User Maintenance](?path=docs/resourcesAndGuides/authenticate.md&branch=develop#sample-api-usage-authentication-request-for-user-maintenance).
 
 Because the maintenance grant is scoped to a tenant, the user ID for the
 consumer must be provided in the BankAccounts Get request.
@@ -110,8 +109,8 @@ consumer must be provided in the BankAccounts Get request.
 
 | Parameter | Req | Data Type                                            | Description                                                                                                          |
 |-----------|----|-----------|-----------------------------------------------|
-| data      | Req | Array of [BankAccountGetModel](./complexObjects.md#bankaccountgetmodel) | Collection of all bank accounts available to fund a payment. Empty if there is no data to return or an error occurs. |
-| result    | Req | [ResultType](./complexObjects.md#resulttype)                            | Result information.                                                                                                  |
+| data      | Req | Array of [BankAccountGetModel](?path=docs/apiDomains/complexObjects.md&branch=develop#bankaccountgetmodel) | Collection of all bank accounts available to fund a payment. Empty if there is no data to return or an error occurs. |
+| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                            | Result information.                                                                                                  |
 
 ### Sample API Usage
 
@@ -184,8 +183,8 @@ one of the bank accounts for funding a payment.
 
 | Parameter | Req | Data Type                                            | Description                                                                                                          |
 |-----------|----|-----------|-----------------------------------------------|
-| data      | Req | Array of [BankAccountGetModel](./complexObjects.md#bankaccountgetmodel) | Collection of all bank accounts available to fund a payment. Empty if there is no data to return or an error occurs. |
-| result    | Req | [ResultType](./complexObjects.md#resulttype)                            | Result information.                                                                                                  |
+| data      | Req | Array of [BankAccountGetModel](?path=docs/apiDomains/complexObjects.md&branch=develop#bankaccountgetmodel) | Collection of all bank accounts available to fund a payment. Empty if there is no data to return or an error occurs. |
+| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                            | Result information.                                                                                                  |
 
 ### Sample API Usage
 
@@ -245,8 +244,7 @@ Note
 
 For the authentication request, the client\_id must be configured for
 UserMaintenance. Do not send fiserv.identity.billpay.subscriberId; see
-[Sample API Usage: Authentication Request for User
-Maintenance](../resourcesAndGuides/authenticate.md#sample-api-usage-authentication-request-for-user-maintenance).
+[Sample API Usage: Authentication Request for User Maintenance](?path=docs/resourcesAndGuides/authenticate.md&branch=develop#sample-api-usage-authentication-request-for-user-maintenance).
 
 Because the maintenance grant is scoped to a tenant, the user ID for the
 consumer must be provided in the BankAccounts Get request.
@@ -268,8 +266,8 @@ consumer must be provided in the BankAccounts Get request.
 
 | Parameter | Req | Data Type                                   | Description                         |
 |------------|-----|-----------|---------------------------------------------|
-| data      | Req | [BankAccountGetModel](./complexObjects.md#bankaccountgetmodel) | Information about the bank account. |
-| result    | Req | [ResultType](./complexObjects.md#resulttype)                   | Result information.                 |
+| data      | Req | [BankAccountGetModel](?path=docs/apiDomains/complexObjects.md&branch=develop#bankaccountgetmodel) | Information about the bank account. |
+| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                   | Result information.                 |
 
 ### Sample API Usage
 
@@ -339,8 +337,8 @@ issued bearer token.
 
 | Parameter | Req | Data Type                                   | Description                         |
 |------------|-----|-----------|---------------------------------------------|
-| data      | Req | [BankAccountGetModel](./complexObjects.md#bankaccountgetmodel) | Information about the bank account. |
-| result    | Req | [ResultType](./complexObjects.md#resulttype)                   | Result information.                 |
+| data      | Req | [BankAccountGetModel](?path=docs/apiDomains/complexObjects.md&branch=develop#bankaccountgetmodel) | Information about the bank account. |
+| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                   | Result information.                 |
 
 ### Sample API Usage
 
@@ -398,8 +396,7 @@ Note
 
 For the authentication request, the client\_id must be configured for
 UserMaintenance. Do not send fiserv.identity.billpay.subscriberId; see
-[Sample API Usage: Authentication Request for User
-Maintenance](../resourcesAndGuides/authenticate.md#sample-api-usage-authentication-request-for-user-maintenance).
+[Sample API Usage: Authentication Request for User Maintenance](?path=docs/resourcesAndGuides/authenticate.md&branch=develop#sample-api-usage-authentication-request-for-user-maintenance).
 
 Because the maintenance grant is scoped to a tenant, the user ID for the
 consumer must be provided in the BankAccounts Post request.
@@ -426,15 +423,15 @@ consumer must be provided in the BankAccounts Post request.
 | businessName | Cond | body | string | When isBusiness is true, this is the name of the business. Max length: 40 <br> Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-]\* |
 | primaryAccountOwner | Opt | body | string | Name of the primary owner of this account. If not provided, this value defaults to the consumer’s name. <br> Length: 1-35 <br> Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-]\* |
 | secondaryAccountOwner | Opt | body | string | Name of the secondary owner of this account, if applicable. <br> Length: 1-35 <br> Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-]\* |
-| checkPrintAddress | Opt | body | [USAddress](./complexObjects.md#usaddress) | The U.S. address printed on the checks. If provided, this is the consumer’s address to be printed in the upper left corner of the check. |
-| bankingOptions | Opt | body | [BankingOptions](./complexObjects.md#bankingoptions) | Banking options when banking service is enabled. |
+| checkPrintAddress | Opt | body | [USAddress](?path=docs/apiDomains/complexObjects.md&branch=develop#usaddress) | The U.S. address printed on the checks. If provided, this is the consumer’s address to be printed in the upper left corner of the check. |
+| bankingOptions | Opt | body | [BankingOptions](?path=docs/apiDomains/complexObjects.md&branch=develop#bankingoptions) | Banking options when banking service is enabled. |
 
 ### Response
 
 | Parameter | Req  | Data Type                 | Description                                                        |
 |------------|-----|--------|------------------------------------------------|
-| data      | Cond | [BaseModel](./complexObjects.md#basemodel)   | Response data. Condition: Always returned for successful response. |
-| result    | Req  | [ResultType](./complexObjects.md#resulttype) | Result Information.                                                |
+| data      | Cond | [BaseModel](?path=docs/apiDomains/complexObjects.md&branch=develop#basemodel)   | Response data. Condition: Always returned for successful response. |
+| result    | Req  | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result Information.                                                |
 
 ### Sample API Usage
 
@@ -498,8 +495,7 @@ Note
 
 For the authentication request, the client\_id must be configured for
 UserMaintenance. Do not send fiserv.identity.billpay.subscriberId; see
-[Sample API Usage: Authentication Request for User
-Maintenance](../resourcesAndGuides/authenticate.md#sample-api-usage-authentication-request-for-user-maintenance).
+[Sample API Usage: Authentication Request for User Maintenance](?path=docs/resourcesAndGuides/authenticate.md&branch=develop#sample-api-usage-authentication-request-for-user-maintenance).
 
 Because the maintenance grant is scoped to a tenant, the user ID for the
 consumer must be provided in the BankAccounts Patch request.
@@ -524,14 +520,14 @@ consumer must be provided in the BankAccounts Patch request.
 | businessName | Cond | body | string | When isBusiness is true, this is the name of the business. Cannot have a value when isBusiness is “false”. Max length: 40 <br> Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-]\* |
 | primaryAccountOwner | Opt | body | string | Name of the primary owner of this account. Length: 1-35 <br> Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-]\* <br>
 | secondaryAccountOwner | Opt | body | string | Name of the secondary owner of this account, if applicable. Length: 1-35 <br> Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-]\* |
-| checkPrintAddress | Opt | body | [USAddress](./complexObjects.md#usaddress) | The U.S. address printed on the checks. If provided, this is the consumer’s address to be printed in the upper left corner of the check. |
-| bankingOptions | Opt | body | [BankingOptions](./complexObjects.md#bankingoptions) | Banking options when banking service is enabled. |
+| checkPrintAddress | Opt | body | [USAddress](?path=docs/apiDomains/complexObjects.md&branch=develop#usaddress) | The U.S. address printed on the checks. If provided, this is the consumer’s address to be printed in the upper left corner of the check. |
+| bankingOptions | Opt | body | [BankingOptions](?path=docs/apiDomains/complexObjects.md&branch=develop#bankingoptions) | Banking options when banking service is enabled. |
 
 ### Response
 
 | Parameter | Req  | Data Type                 | Description                                                                                                                  |
 |-------------|-----|-------|-------------------------------------------------|
-| result    | Cond | [ResultType](./complexObjects.md#resulttype) | Result information. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
+| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result information. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
 
 ### Sample API Usage
 
@@ -582,14 +578,14 @@ updated.
 | businessName | Cond | body | string | When isBusiness is true, this is the name of the business. Cannot have a value when isBusiness is “false”. Max length: 40 <br> Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-]\* |
 | primaryAccountOwner | Opt | body | string | Name of the primary owner of this account. Length: 1-35 <br> Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-]\* |
 | secondaryAccountOwner | Opt | body | string | Name of the secondary owner of this account, if applicable. Length: 1-35 <br> Pattern: ^[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-]\* |
-| checkPrintAddress | Opt | body | [USAddress](./complexObjects.md#usaddress) | The U.S. address printed on the checks. If provided, this is the consumer’s address to be printed in the upper left corner of the check. |
-| bankingOptions | Opt | body | [BankingOptions](./complexObjects.md#bankingoptions) | Banking options when banking service is enabled. |
+| checkPrintAddress | Opt | body | [USAddress](?path=docs/apiDomains/complexObjects.md&branch=develop#usaddress) | The U.S. address printed on the checks. If provided, this is the consumer’s address to be printed in the upper left corner of the check. |
+| bankingOptions | Opt | body | [BankingOptions](?path=docs/apiDomains/complexObjects.md&branch=develop#bankingoptions) | Banking options when banking service is enabled. |
 
 ### Response
 
 | Parameter | Req  | Data Type                 | Description                                                                                                                  |
 |-------------|-----|-------|-------------------------------------------------|
-| result    | Cond | [ResultType](./complexObjects.md#resulttype) | Result information. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
+| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result information. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
 
 ### Sample API Usage
 
@@ -623,8 +619,7 @@ Note
 
 For the authentication request, the client\_id must be configured for
 UserMaintenance. Do not send fiserv.identity.billpay.subscriberId; see
-[Sample API Usage: Authentication Request for User
-Maintenance](../resourcesAndGuides/authenticate.md#sample-api-usage-authentication-request-for-user-maintenance).
+[Sample API Usage: Authentication Request for User Maintenance](?path=docs/resourcesAndGuides/authenticate.md&branch=develop#sample-api-usage-authentication-request-for-user-maintenance).
 
 Because the maintenance grant is scoped to a tenant, the user ID for the
 consumer must be provided in the BankAccounts Delete request.
@@ -646,7 +641,7 @@ consumer must be provided in the BankAccounts Delete request.
 
 | Parameter | Req  | Data Type                 | Description                                                                                                                                  |
 |------------|------|-------|-----------------------------------------------|
-| result    | Cond | [ResultType](./complexObjects.md#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
+| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
 
 ### Sample API Usage
 
@@ -683,7 +678,7 @@ This API enables retrieving the unmasked account number for a bank account for a
 | Parameter | Req  | Data Type                 | Description                                                                                                                                  |
 |------------|------|-------|-----------------------------------------------|
 | data      | Req  | string                    | Unmasked account number of the bank account. There is an empty string if there is no data to return.                                         |
-| result    | Cond | [ResultType](./complexObjects.md#resulttype) | Result associated with the request. |
+| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result associated with the request. |
 
 ### Sample API Usage
 
@@ -733,4 +728,4 @@ returns the endpoint shown below.
 | Parameter | Req  | Data Type                 | Description                                                                                                                                  |
 |------------|------|-------|-----------------------------------------------|
 | data      | Req  | string                    | Unmasked account number of the bank account. There is an empty string if there is no data to return.                                         |
-| result    | Cond | [ResultType](./complexObjects.md#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 200). |
+| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 200). |
