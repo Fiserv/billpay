@@ -38,8 +38,8 @@ The Payees Get API returns the list of payees added by the consumer.
 
 | Parameter | Req | Data Type                 | Description         |
 |-----------|-----|---------------------------|---------------------|
-| data      | Req | [PayeeList](./complexObjects.md#payeelist)   | List of payees.     |
-| result    | Req | [ResultType](./complexObjects.md#resulttype) | Result information. |
+| data      | Req | [PayeeList](?path=docs/apiDomains/complexObjects.md&branch=develop#payeelist)   | List of payees.     |
+| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result information. |
 
 ### Sample API Usage
 
@@ -421,8 +421,8 @@ The Payees Get API returns a specific payee added by the consumer.
 
 | Parameter | Req | Data Type                 | Description                  |
 |-----------|-----|---------------------------|------------------------------|
-| data      | Req | [Payee](./complexObjects.md#payee)           | Information about the payee. |
-| result    | Req | [ResultType](./complexObjects.md#resulttype) | Result information.          |
+| data      | Req | [Payee](?path=docs/apiDomains/complexObjects.md&branch=develop#payee)           | Information about the payee. |
+| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result information.          |
 
 ### Sample API Usage
 
@@ -490,7 +490,7 @@ list, so that payment transactions can be made to that payee.
 | Parameter | Req | Param Type | Data Type | Description |
 |-----------|-----|------------|-----------|-------------|
 | overrideAddressValidation | Opt | query | boolean | Indicates whether address validation (city, state, ZIP Code, address combination) must be done or can be skipped. <br> True - Address validation will be skipped. <br> False - Address validation will be done. This is the default. |
-| payeeInfo | Req | body | [PayeeInfo](./complexObjects.md#payeeinfo) | Payee information. |
+| payeeInfo | Req | body | [PayeeInfo](?path=docs/apiDomains/complexObjects.md&branch=develop#payeeinfo) | Payee information. |
 | sourceUri | Cond | body | string | The URI from Potential Payees/ Merchant Search/ Payees / ProbableMerchants. <br> Blank for an unmanaged merchant.<br> Condition: If adding a payee by providing only name, account number, and sourceUri, this is required. (Fiserv must already have a relationship with the merchant.) |
 | sourceUriPayeeZipCode | Cond | body | string | The payee ZIP Code. This is the ZIP Code that the consumer sees on their bill for the merchant. <br> Conditions: If the /api/v1/merchants/Search API returns a value of true for merchantZipRequired, this is required. If the /api/v1/me/probableMerchants API returns a value of true for merchantZipRequired, this is required. <br> Pattern: ^(\d{5}\|\d{9}\|\d{11})$ <br> Valid characters: 0-9 <br> Parsed: Chars 1-5 = Zip5, Chars 6-9 = Zip4, Chars 10-11 = Zip2 |
 
@@ -498,8 +498,8 @@ list, so that payment transactions can be made to that payee.
 
 | Parameter | Req  | Data Type                 | Description                                                        |
 |------------|-----|--------|------------------------------------------------|
-| data      | Cond | [BaseModel](./complexObjects.md#basemodel)   | Response data. Condition: Always returned for successful response. |
-| result    | Req  | [ResultType](./complexObjects.md#resulttype) | Result information.                                                |
+| data      | Cond | [BaseModel](?path=docs/apiDomains/complexObjects.md&branch=develop#basemodel)   | Response data. Condition: Always returned for successful response. |
+| result    | Req  | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result information.                                                |
 
 ### Sample API Usage - Freeform Payee
 
@@ -641,16 +641,16 @@ require updates.
 | nickname | Opt | body | string | The nickname of the payee. Length: 0-30 <br> Pattern: ^\[\x20\x2C-\x2E\x30-\x39\x41-\x5A\x61-\x7A\r\n\]+$ |
 | accountNumber | Opt | body | string | The consumer's account number with the payee. Length: 1-32 <br> Pattern: ^\[a-zA-Z0-9 !"#\$%&amp;-\]{1,32}$ |
 | contactPhoneNumber | Opt | body | string | Phone number used to contact the payee if there are issues posting the payment. Length: 10-12 <br> Pattern:(^\[0-9\]{10}\$)\|(^\(?\[0-9\]{3}\\)?-\[0-9\]{3}-\[0-9\]{4}\$)\|(^\\(?\[0-9\]{3}\\)?\\s?\[0-9\]{3}-\[0-9\]{4}\$) <br> Must be numeric and may contain a dash or space between the numbers at the appropriate placement. The phone number must be valid based on the North American Numbering Plan (for example, the area code cannot begin with a 0 or 1). Example: 234-555-1212 | 
-| address | Opt | body | [USAddress](./complexObjects.md#usaddress) | Payee address information. | 
-| overnightAddress | Opt | body | [USAddress](./complexObjects.md#usaddress) | Address for overnight payments if different from the address. | 
+| address | Opt | body | [USAddress](?path=docs/apiDomains/complexObjects.md&branch=develop#usaddress) | Payee address information. | 
+| overnightAddress | Opt | body | [USAddress](?path=docs/apiDomains/complexObjects.md&branch=develop#usaddress) | Address for overnight payments if different from the address. | 
 | socialTokens | Opt | body | Array of SocialToken | Reserved for future use. |
-| accountTokens | Opt | body | Array of [AccountTokenAddInfo](./complexObjects.md#accounttokenaddinfo) | Reserved for future use. | 
+| accountTokens | Opt | body | Array of [AccountTokenAddInfo](?path=docs/apiDomains/complexObjects.md&branch=develop#accounttokenaddinfo) | Reserved for future use. | 
 
 ### Response
 
 | Parameter | Req  | Data Type                 | Description                                                                                                                                  |
 |-------------|-----|-------|-------------------------------------------------|
-| result    | Cond | [ResultType](./complexObjects.md#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
+| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
 
 ### Sample API Usage
 
@@ -753,7 +753,7 @@ automatic payment plans associated with the payee.
 
 | Parameter | Req  | Data Type                 | Description                                                                                                                                  |
 |------------|------|-------|-----------------------------------------------|
-| result    | Cond | [ResultType](./complexObjects.md#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
+| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
 
 ### Sample API Usage
 
@@ -800,7 +800,7 @@ the endpoint shown below.
 | Parameter | Req  | Data Type                 | Description                                                                                                                                  |
 |------------|------|-------|-----------------------------------------------|
 | data      | Req  | string                    | Unmasked account number of the payee. There is an empty string if there is no data to return.                                                |
-| result    | Cond | [ResultType](./complexObjects.md#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 200). |
+| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 200). |
 
 ## Get Automatic Transaction Options
 
@@ -821,8 +821,8 @@ This API returns a list of automatic transaction options for a payee.
 
 | Parameter | Req  | Data Type                                                   | Description                                                                                                                                  |
 |------------|------|-------------|------------------------------------------|
-| data      | Req  | [AutomaticTransactionOptions](./complexObjects.md#automatictransactionoptions) | Automatic transaction options for the payee.                                                                                                 |
-| result    | Cond | [ResultType](./complexObjects.md#resulttype)                                   | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 200). |
+| data      | Req  | [AutomaticTransactionOptions](?path=docs/apiDomains/complexObjects.md&branch=develop#automatictransactionoptions) | Automatic transaction options for the payee.                                                                                                 |
+| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                                   | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 200). |
 
 ### Sample API Usage
 

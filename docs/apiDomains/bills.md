@@ -63,8 +63,8 @@ with the parameters numberOfDays and startingDate.
 
 | Parameter | Req | Data Type                 | Description                                            |
 |----------|-----|----------|------------------------------------------------|
-| data      | Req | Array of [Bill](./complexObjects.md#bill)    | There is an empty array if there is no data to return. |
-| result    | Req | [ResultType](./complexObjects.md#resulttype) | Result information.                                    |
+| data      | Req | Array of [Bill](?path=docs/apiDomains/complexObjects.md&branch=develop#bill)    | There is an empty array if there is no data to return. |
+| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result information.                                    |
 
 ### Sample API Usage
 
@@ -130,7 +130,7 @@ If the value of the redirect parameter in the request is:
 | Parameter | Req | Data Type                 | Description                                                              |
 |----------|-----|----------|------------------------------------------------|
 | data      | Req | string                    | Bill detail URL. There is an empty string if there is no data to return. |
-| result    | Req | [ResultType](./complexObjects.md#resulttype) | Result information.                                                      |
+| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result information.                                                      |
 
 ### Sample API Usage
 
@@ -184,7 +184,7 @@ The Bills Patch API allows a consumer to file a bill.
 
 | Parameter | Req  | Data Type                 | Description                                                                                                                                  |
 |------------|-----|-----------|---------------------------------------------|
-| result    | Cond | [ResultType](./complexObjects.md#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
+| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
 
 ### Sample API Usage
 

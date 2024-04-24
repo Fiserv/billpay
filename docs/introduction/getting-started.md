@@ -3,7 +3,6 @@
 ## Welcome to Bill Pay!
 
 To get started with the Bill Pay APIs, follow these steps:
-This is a test!
  
 ## Register
 

@@ -36,8 +36,8 @@ consumer.
 
 | Parameter | Req | Data Type | Description | 
 |-----------|-----|-----------|-------------|
-| automaticTransactions | Req | Array of [AutomaticTransactionOutputDetail](./complexObjects.md#automatictransactionoutputdetail) | List of found automatic transactions. There is an empty array if there is no data to return. | 
-| result | Cond | [ResultType](./complexObjects.md#resulttype) | Result information. Condition: Only returned when the request fails. No content returned for success (HTTP status code 200). |
+| automaticTransactions | Req | Array of [AutomaticTransactionOutputDetail](?path=docs/apiDomains/complexObjects.md&branch=develop#automatictransactionoutputdetail) | List of found automatic transactions. There is an empty array if there is no data to return. | 
+| result | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result information. Condition: Only returned when the request fails. No content returned for success (HTTP status code 200). |
 
 ### Sample API Usage
 
@@ -149,8 +149,8 @@ plan.
 
 | Parameter | Req | Data Type | Description| 
 |-----------|-----|-----------|------------|
-| automaticTransactions | Req | [AutomaticTransactionOutputDetail](./complexObjects.md#automatictransactionoutputdetail) | Details for the automatic payment plan. | 
-| result | Cond | [ResultType](./complexObjects.md#resulttype) | Result information. Condition: Only returned when the request fails. No content returned for success (HTTP status code 200). |
+| automaticTransactions | Req | [AutomaticTransactionOutputDetail](?path=docs/apiDomains/complexObjects.md&branch=develop#automatictransactionoutputdetail) | Details for the automatic payment plan. | 
+| result | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result information. Condition: Only returned when the request fails. No content returned for success (HTTP status code 200). |
 
 ### Sample API Usage
 
@@ -216,16 +216,16 @@ consumer specifies the starting date and frequency of payments.
 |-----------|-----|------------|-----------|-------------|
 | fundingAccountUri | Req | body | string | The source funding account URI for the automatic transaction. |
 | destinationUri | Req | body | string | The destination of the automatic transaction. This is a URI for a payee. |
-| billTransactionSchedule | Cond | body | [BillTransactionSchedule](./complexObjects.md#billtransactionschedule) | BillTransactionSchedule defines a transaction schedule for an e-bill automatic payment. <br> Condition: Either billTransactionSchedule or recurringTransactionSchedule is required. |
-| recurringTransactionSchedule | Cond | body | [RecurringTransactionSchedule](./complexObjects.md#recurringtransactionschedule) | RecurringTransactionSchedule defines a transaction schedule for a payee. <br> Condition: Either billTransactionSchedule or recurringTransactionSchedule is required. | 
+| billTransactionSchedule | Cond | body | [BillTransactionSchedule](?path=docs/apiDomains/complexObjects.md&branch=develop#billtransactionschedule) | BillTransactionSchedule defines a transaction schedule for an e-bill automatic payment. <br> Condition: Either billTransactionSchedule or recurringTransactionSchedule is required. |
+| recurringTransactionSchedule | Cond | body | [RecurringTransactionSchedule](?path=docs/apiDomains/complexObjects.md&branch=develop#recurringtransactionschedule) | RecurringTransactionSchedule defines a transaction schedule for a payee. <br> Condition: Either billTransactionSchedule or recurringTransactionSchedule is required. | 
 
 
 ### Response
 
 | Parameter | Req  | Data Type                 | Description                                                        |
 |-------------|-----|-------|-------------------------------------------------|
-| data      | Cond | [BaseModel](./complexObjects.md#basemodel)   | Response data. Condition: Always returned for successful response. |
-| result    | Req  | [ResultType](./complexObjects.md#resulttype) | Result information.                                                |
+| data      | Cond | [BaseModel](?path=docs/apiDomains/complexObjects.md&branch=develop#basemodel)   | Response data. Condition: Always returned for successful response. |
+| result    | Req  | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result information.                                                |
 
 ### Sample API Usage
 
@@ -291,16 +291,16 @@ automatic transaction that has already been set up.
 |-----------|-----|------------|-----------|-------------|
 | automaticTransactionId | Req | path | string | Identifier for the automatic transaction. |
 | fundingAccountUri | Opt | body | string | The source funding account URI for the automatic transaction. |
-| billTransactionSchedule | Opt | body | [BillTransactionSchedulePatch](./complexObjects.md#billtransactionschedulepatch) | BillTransactionSchedule defines a transaction schedule for an e-bill automatic payment. |
-| recurringTransactionSchedule | Opt | body | [RecurringTransactionSchedulePatch](./complexObjects.md#recurringtransactionschedulepatch) | RecurringTransactionSchedule defines a transaction schedule for a payee. |
+| billTransactionSchedule | Opt | body | [BillTransactionSchedulePatch](?path=docs/apiDomains/complexObjects.md&branch=develop#billtransactionschedulepatch) | BillTransactionSchedule defines a transaction schedule for an e-bill automatic payment. |
+| recurringTransactionSchedule | Opt | body | [RecurringTransactionSchedulePatch](?path=docs/apiDomains/complexObjects.md&branch=develop#recurringtransactionschedulepatch) | RecurringTransactionSchedule defines a transaction schedule for a payee. |
 
 
 ### Response
 
 | Parameter | Req  | Data Type                                                    | Description                                                                                                                                                                        |
 |------------|-----|------------|--------------------------------------------|
-| data      | Cond | Array of [TransactionsNotModified](./complexObjects.md#transactionsnotmodified) | List of transactions that could not be modified. Condition: A spawned payment could not be modified. Only applies to transactions generated from a recurring transaction schedule. |
-| result    | Cond | [ResultType](./complexObjects.md#resulttype)                                    | Result information. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204).                                                       |
+| data      | Cond | Array of [TransactionsNotModified](?path=docs/apiDomains/complexObjects.md&branch=develop#transactionsnotmodified) | List of transactions that could not be modified. Condition: A spawned payment could not be modified. Only applies to transactions generated from a recurring transaction schedule. |
+| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                                    | Result information. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204).                                                       |
 
 ### Sample API Usage
 
@@ -342,8 +342,8 @@ that has been set up to be canceled.
 
 | Parameter | Req  | Data Type                                                                    | Description                                                                                                                                                                                                                     |
 |-------------|-----|---------------|----------------------------------------|
-| data      | Cond | Array of [PendingTransactionsNotCancelled](./complexObjects.md#pendingtransactionsnotcancelled) | List of transactions that could not be canceled. Condition: cancelPendingTransactions is true in the request and a payment could not be canceled. Only applies to transactions generated from a recurring transaction schedule. |
-| result    | Cond | [ResultType](./complexObjects.md#resulttype)                                                    | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204).                                                                                    |
+| data      | Cond | Array of [PendingTransactionsNotCancelled](?path=docs/apiDomains/complexObjects.md&branch=develop#pendingtransactionsnotcancelled) | List of transactions that could not be canceled. Condition: cancelPendingTransactions is true in the request and a payment could not be canceled. Only applies to transactions generated from a recurring transaction schedule. |
+| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                                                    | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204).                                                                                    |
 
 ### Sample API Usage
 

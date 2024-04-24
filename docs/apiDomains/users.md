@@ -51,7 +51,7 @@ Note
 For the authentication request, the client\_id must be configured for
 UserMaintenance. Do not send fiserv.identity.billpay.subscriberId; see
 [Sample API Usage: Authentication Request for User
-Maintenance](../resourcesAndGuides/authenticate.md#sample-api-usage-authentication-request-for-user-maintenance).
+Maintenance](?path=docs/resourcesAndGuides/authenticate.md&branch=develop#sample-api-usage-authentication-request-for-user-maintenance).
 
 **When to use:** The FI determines the criteria for enrolling consumers
 in bill payment. This may be done as part of enabling online banking
@@ -94,12 +94,12 @@ sponsor setup.
 | password | Opt | body | string | Length: 8 <br> Consumer's password. <br> Pattern:((?=.\*\[@#\$&\*\])(?=.\*\[a-zA-Z\\d\])\|(?=.\*\\d)(?=.\*\[a-zA-Z\])(?=.\*[a-zA-Z0-9\@#\$&\*\])\|(?=.\*\[a-z\])(?=.\*\[A-Z\])(?=.\*\[a-zA-Z0-9@#\$&\*\]))\[a-zA-Z0-9@#\$&\*\]+ <br> Character types allowed: Uppercase letters, lowercase letters, numbers, and special/punctuation characters (i.e., @#$&amp;\*) <br> Character type required combinations: Must contain at least two of the four character types. For example, the password "a4fs2jkl" contains two character types (lowercase letters and numbers), and thus meets the standard. <br> Specific Restrictions: Password CANNOT contain the user ID anywhere within it. |
 | fiservBillpaySubscriberId | Req | body | string | Used by the user to authenticate with the user’s product(s). Length: 2–32 (no spaces allowed) <br> Pattern: ^\[A-Z0-9_(){}&amp;@!+#.'$,%^\*-\]\* <br> Best practices: This ID should contain at least nine characters. Do not include special characters (such as # or &amp;). Do not use a Social Security number. |
  | fiservBillpayExternalSubscriberId | Req | body | string | A unique customer ID, different from the fiservBillpaySubscriberId, that is used for logging the user in to a Fiserv product. Length: 2–48 (no spaces allowed) <br>  Pattern: ^\[a-zA-Z0-9_(){}&amp;@!+#.'$,%^\*-\]\* <br>  Condition: Required if any of the consumer’s products require it. <br> Best practices: This ID should contain at least nine characters. Do not include special characters (such as # and &amp;). Do not use a Social Security number. |
- | name | Req | body | [Name](./complexObjects.md#name) | Consumer’s name. |  
- | contactEndPoints | Req | body | [Contact Endpoint](./complexObjects.md#contactendpoint) | Contact details of the consumer, such as the consumer’s email address, phone numbers, and address. |
- | identityValidationInformation | Opt | body | [IdentityValidation Information](./complexObjects.md#identityvalidationinformation) | Information that may be used to help confirm the consumer’s identity. |
+ | name | Req | body | [Name](?path=docs/apiDomains/complexObjects.md&branch=develop#name) | Consumer’s name. |  
+ | contactEndPoints | Req | body | [Contact Endpoint](?path=docs/apiDomains/complexObjects.md&branch=develop#contactendpoint) | Contact details of the consumer, such as the consumer’s email address, phone numbers, and address. |
+ | identityValidationInformation | Opt | body | [IdentityValidation Information](?path=docs/apiDomains/complexObjects.md&branch=develop#identityvalidationinformation) | Information that may be used to help confirm the consumer’s identity. |
  | birthDate | Req | body | string | The date of birth of the consumer. The user must be 18 years of age or greater. <br> Format: yyyy-MM-dd |
  | category | Opt | body | string | Client-assigned free-form category that identifies the group the consumer belongs to. Length: 1-32 <br> Pattern: ^\[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-\]\* |
- | taxId | Req | body | string | This is the consumer’s ID for tax purposes, either the user’s Social Security number or the Federal Tax Identification number for their business. Max length: 9 <br> Pattern: ^(?!111111111\|222222222\|333333333\|444444444\|555555555\|777777777\|888888888\| <br> 123456789\|012345678)(?!666\|000\|9\d{2})\d{3}(?!00)\d{2}(?!0{4})\d{4}$ <br> Cannot contain special characters, spaces, or hyphens. <br> Must never contain all zeros in any group (000######, ###00####, #####0000). <br> Must never contain 666 or 900–999 in the first digit group (666######, 900######, 901######, etc.). <br> Must not be all repeated digits or a descending sequence. |
+ | taxId | Req | body | string | This is the consumer’s ID for tax purposes, either the user’s Social Security number or the Federal Tax Identification number for their business. Max length: 9  |
  | locale | Opt | body | string | The language code and associated language location in one combined field. Format: XX-XX (language code and language country separated by hyphen). <br> Valid values for language code: “EN”,”ES” <br> Pattern: \[A-Za-z\]{2}-\[A-Za-z\]{2}$ <br>  “US” is the default value for language country. |
  | occupation | Opt | body | string | The activity a user spends time performing to earn a living. Length: 1-50 <br> Pattern: ^\[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-\]\* |
  | userTimeZone | Cond | body | integer | The time zone for the consumer. Defaults to “-05” for eastern standard time (EST) unless a value is provided. <br> Condition: If Fiserv provides first-tier Customer Care for the client, this field is required. |
@@ -108,8 +108,8 @@ sponsor setup.
 
 | Parameter | Req  | Data Type                 | Description                                                                                                                                  |
 |------------|-----|----------|-----------------------------------------------|
-| data      | Cond | [BaseModel](./complexObjects.md#basemodel)   | Response data. Condition: Always returned for successful response.                                                                           |
-| result    | Cond | [ResultType](./complexObjects.md#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 201). |
+| data      | Cond | [BaseModel](?path=docs/apiDomains/complexObjects.md&branch=develop#basemodel)   | Response data. Condition: Always returned for successful response.                                                                           |
+| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 201). |
 
 ### Sample API Usage
 
@@ -227,8 +227,7 @@ Note
 
 For the authentication request, the client\_id must be configured for
 UserMaintenance. Do not send fiserv.identity.billpay.subscriberId; see
-[Sample API Usage: Authentication Request for User
-Maintenance](../resourcesAndGuides/authenticate.md#sample-api-usage-authentication-request-for-user-maintenance).
+[Sample API Usage: Authentication Request for User Maintenance](?path=docs/resourcesAndGuides/authenticate.md&branch=develop#sample-api-usage-authentication-request-for-user-maintenance).
 
 **When to use:** The FI's system of record for consumer profile data
 should trigger a call to User Patch when an update to a consumer’s
@@ -260,21 +259,21 @@ Examples:
 | isAllowedToSolicit | Opt | body | boolean | Indicates whether or not the consumer may be solicited by Fiserv. This field allows a client to comply with state laws permitting a resident to prohibit solicitation in writing or by telephone. Valid values: <br> true – Yes, Fiserv can send information about additional products or services to this consumer. <br> false – No, Fiserv may not send solicitation information. This is the default. |
 | isEmployee | Opt | body | boolean | Identifies whether a consumer is an employee of the client. Valid values: <br> true – Yes, an employee. <br> false – No, not an employee. |
 | sponsorBillingCategory | Cond | body | string | Length: 1–2 (only alphanumeric characters allowed) <br> Pattern: ^\[a-zA-Z0-9\]+$ <br> Clients that are doing their own billing but want to differentiate between consumers can use this field to communicate the consumer category to Fiserv. Based on client setup. |
-| name | Opt | body | [Name](./complexObjects.md#name) | Consumer’s name. |
-| contactEndPoints | Opt | body | [Contact Endpoint](./complexObjects.md#contactendpoint) | Contact details of the consumer, such as the consumer’s email address, phone numbers, and address. |
+| name | Opt | body | [Name](?path=docs/apiDomains/complexObjects.md&branch=develop#name) | Consumer’s name. |
+| contactEndPoints | Opt | body | [Contact Endpoint](?path=docs/apiDomains/complexObjects.md&branch=develop#contactendpoint) | Contact details of the consumer, such as the consumer’s email address, phone numbers, and address. |
 | birthDate | Opt | body | string | The date of birth of the consumer. The user must be 18 years of age or greater. <br> Format: yyyy-MM-dd |
 | category | Opt | body | string | Client-assigned free-form category that identifies the group the consumer belongs to. Length: 1-32 <br> Pattern: ^\[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-\]\* |
-| identityValidationInformation | Opt | body | [IdentityValidation Information](./complexObjects.md#identityvalidationinformation) | Information that may be used to help confirm the consumer’s identity. |
+| identityValidationInformation | Opt | body | [IdentityValidation Information](?path=docs/apiDomains/complexObjects.md&branch=develop#identityvalidationinformation) | Information that may be used to help confirm the consumer’s identity. |
 | locale | Opt | body | string | The language code and associated language location in one combined field. Format: XX-XX (language code and language country separated by hyphen). <br> Valid values for language code: “EN”,”ES” <br> Pattern: \[A-Za-z\]{2}-\[A-Za-z\]{2}$ <br> “US” is the default value for language country. |
 | occupation | Opt | body | string | The activity a user spends time performing to earn a living. Length: 1-50 <br> Pattern: ^\[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-\]\*  |
-| taxId | Opt | body | string | This is the consumer’s ID for tax purposes, either the user’s Social Security number or the Federal Tax Identification number for their business. Max length: 9 <br> Pattern: ^(?!111111111\|222222222\|333333333\|444444444\|555555555\|777777777\|888888888\|123456789\|012345678) <br> (?!666\|000\|9\d{2})\d{3}(?!00)\d{2}(?!0{4})\d{4}$ <br> Cannot contain special characters, spaces, or hyphens. <br> Must never contain all zeros in any group (000######, ###00####, #####0000). <br> Must never contain 666 or 900–999 in the first digit group (666######, 900######, 901######, etc.). <br> Must not be all repeated digits or a descending sequence. |
+| taxId | Opt | body | string | This is the consumer’s ID for tax purposes, either the user’s Social Security number or the Federal Tax Identification number for their business. Max length: 9  |
 | timeZone | Opt | body | integer | The time zone for the consumer. Defaults to “-05” for eastern standard time (EST) unless a value is provided. <br> If Fiserv provides first-tier Customer Care for the client, this field is required. |
 
 ### Response
 
 | Parameter | Req  | Data Type                 | Description                                                                                                                  |
 |------------|-----|----------|-----------------------------------------------|
-| result    | Cond | [ResultType](./complexObjects.md#resulttype) | Result information. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
+| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result information. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
 
 ### Sample API Usage
 
@@ -357,9 +356,7 @@ the user associated with the issued bearer token.
 
 Note
 
-For the authentication request, see [Sample API Usage: Authentication
-Request for
-Subscriber](../resourcesAndGuides/authenticate.md#sample-api-usage-authentication-request-for-subscriber).
+For the authentication request, see [Sample API Usage: Authentication Request for Subscriber](?path=docs/resourcesAndGuides/authenticate.md&branch=develop#sample-api-usage-authentication-request-for-subscriber).
 
 ### Method and Endpoint
 
@@ -370,21 +367,21 @@ Subscriber](../resourcesAndGuides/authenticate.md#sample-api-usage-authenticatio
 
 | Parameter | Req | Param Type | Data Type | Description |
 |-----------|-----|------------|-----------|-------------|
-| name | Opt | body | [Name](./complexObjects.md#name) | Consumer’s name. |
-| contactEndPoints | Opt | body | [Contact Endpoint](./complexObjects.md#contactendpoint) | Contact details of the consumer, such as the consumer’s email address, phone numbers, and address. |
+| name | Opt | body | [Name](?path=docs/apiDomains/complexObjects.md&branch=develop#name) | Consumer’s name. |
+| contactEndPoints | Opt | body | [Contact Endpoint](?path=docs/apiDomains/complexObjects.md&branch=develop#contactendpoint) | Contact details of the consumer, such as the consumer’s email address, phone numbers, and address. |
 | birthDate | Opt | body | string | The date of birth of the consumer. The user must be 18 years of age or greater. <br> Format: yyyy-MM-dd |
 | category | Opt | body | string | Client-assigned free-form category that identifies the group the consumer belongs to. Length: 1-32 <br> Pattern: ^\[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-\]\* |
-| identityValidationInformation | Opt | body | [IdentityValidation Information](./complexObjects.md#identityvalidationinformation) | Information that may be used to help confirm the consumer’s identity. |
+| identityValidationInformation | Opt | body | [IdentityValidation Information](?path=docs/apiDomains/complexObjects.md&branch=develop#identityvalidationinformation) | Information that may be used to help confirm the consumer’s identity. |
 | locale | Opt | body | string | The language code and associated language location in one combined field. Format: XX-XX (language code and language country separated by hyphen). <br> Valid values for language code: “EN”,”ES” <br> Pattern: \[A-Za-z\]{2}-\[A-Za-z\]{2}$ <br> “US” is the default value for language country. |
 | occupation | Opt | body | string | The activity a user spends time performing to earn a living. Length: 1-50 <br> Pattern: ^\[a-zA-Z0-9_(){}&amp;@!+#.'$,%^ \*-\]\* |
-| taxId | Opt | body | string | This is the consumer’s ID for tax purposes, either the user’s Social Security number or the Federal Tax Identification number for their business. Max length: 9 <br> Pattern: ^(?!111111111\|222222222\|333333333\|444444444\|555555555\|777777777\|888888888\| <br> 123456789\|012345678)(?!666\|000\|9\d{2})\d{3}(?!00)\d{2}(?!0{4})\d{4}$ <br> Cannot contain special characters, spaces, or hyphens. <br> Must never contain all zeros in any group (000######, ###00####, #####0000). <br> Must never contain 666 or 900–999 in the first digit group (666######, 900######, 901######, etc.). <br> Must not be all repeated digits or a descending sequence. |
+| taxId | Opt | body | string | This is the consumer’s ID for tax purposes, either the user’s Social Security number or the Federal Tax Identification number for their business. Max length: 9  |
 | timeZone | Opt | body | integer | The time zone for the consumer. Defaults to “-05” for eastern standard time (EST) unless a value is provided. <br> If Fiserv provides first-tier Customer Care for the client, this field is required. |
 
 ### Response
 
 | Parameter | Req  | Data Type                 | Description                                                                                                                  |
 |------------|-----|----------|-----------------------------------------------|
-| result    | Cond | [ResultType](./complexObjects.md#resulttype) | Result information. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
+| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result information. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
 
 ### Sample API Usage
 
@@ -465,8 +462,7 @@ Note
 
 For the authentication request, the client\_id must be configured for
 UserMaintenance. Do not send fiserv.identity.billpay.subscriberId; see
-[Sample API Usage: Authentication Request for User
-Maintenance](../resourcesAndGuides/authenticate.md#sample-api-usage-authentication-request-for-user-maintenance).
+[Sample API Usage: Authentication Request for User Maintenance](?path=docs/resourcesAndGuides/authenticate.md&branch=develop#sample-api-usage-authentication-request-for-user-maintenance).
 
 **When to use:** Use the User Delete API if the consumer indicates they
 no longer want to utilize bill payment services, or if the consumer
@@ -497,7 +493,7 @@ Examples:
 
 | Parameter | Req  | Data Type                 | Description                                                                                                                                  |
 |------------|------|-------|-----------------------------------------------|
-| result    | Cond | [ResultType](./complexObjects.md#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
+| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
 
 ### Sample API Usage
 
@@ -521,8 +517,7 @@ Note
 
 For the authentication request, the client\_id must be configured for
 UserMaintenance. Do not send fiserv.identity.billpay.subscriberId; see
-[Sample API Usage: Authentication Request for User
-Maintenance](../resourcesAndGuides/authenticate.md#sample-api-usage-authentication-request-for-user-maintenance).
+[Sample API Usage: Authentication Request for User Maintenance](?path=docs/resourcesAndGuides/authenticate.md&branch=develop#sample-api-usage-authentication-request-for-user-maintenance).
 
 Because the maintenance grant is scoped to a tenant, the user ID for the
 consumer must be provided in the User Get request.
@@ -543,8 +538,8 @@ consumer must be provided in the User Get request.
 
 | Parameter | Req  | Data Type                 | Description                                                                                                                                  |
 |------------|-----|----------|-----------------------------------------------|
-| data      | Cond | [UserV2](./complexObjects.md#userv2)         | Consumer information. Condition: Only returned when the request is successful.                                                               |
-| result    | Cond | [ResultType](./complexObjects.md#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 200). |
+| data      | Cond | [UserV2](?path=docs/apiDomains/complexObjects.md&branch=develop#userv2)         | Consumer information. Condition: Only returned when the request is successful.                                                               |
+| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 200). |
 
 ### Sample API Usage
 
@@ -660,8 +655,8 @@ Examples:
 
 | Parameter | Req  | Data Type                 | Description                                                                                                                                  |
 |------------|-----|----------|-----------------------------------------------|
-| data      | Cond | [UserV2](./complexObjects.md#userv2)         | Consumer information. Condition: Only returned when the request is successful.                                                               |
-| result    | Cond | [ResultType](./complexObjects.md#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 200). |
+| data      | Cond | [UserV2](?path=docs/apiDomains/complexObjects.md&branch=develop#userv2)         | Consumer information. Condition: Only returned when the request is successful.                                                               |
+| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 200). |
 
 ### Sample API Usage
 
@@ -769,13 +764,13 @@ user for consent should comply with FCRA s604.
 
 | Parameter   | Req | Param Type | Data Type                    | Description                                                                                                                      |
 |-----------|-----|--------|-------|-------------------------------------------|
-| ConsentList | Req | body       | Array of [Consent](./complexObjects.md#consent) | List of consent items. For example, a consumer may agree to find bills from a bill service provider or a credit bureau, or both. |
+| ConsentList | Req | body       | Array of [Consent](?path=docs/apiDomains/complexObjects.md&branch=develop#consent) | List of consent items. For example, a consumer may agree to find bills from a bill service provider or a credit bureau, or both. |
 
 ### Response
 
 | Parameter | Req  | Data Type                 | Description                                                                                                                  |
 |------------|-----|----------|-----------------------------------------------|
-| result    | Cond | [ResultType](./complexObjects.md#resulttype) | Result information. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
+| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result information. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
 
 ### Sample API Usage
 
@@ -822,7 +817,7 @@ potential payees for the consumer.
 |-----------|-----|-----------|-------------|
 | billDiscoveryUserConsent | Req | boolean | Indicates if the user has given consent to the retrieval of bill information via Bill Discovery. <br> Will be set to true when the: <br> - Consumer has explicitly given consent for Bill Discovery. <br> Will be set to false when the: <br> - Consumer has explicitly refused consent for Bill Discovery. <br> - Consumer has no consent record to be returned. |
 | creditBureauUserConsent | Req | boolean | Indicates if the user has given consent to the retrieval of bill information via credit bureau. <br> Will be set to true when the: <br> - Consumer has explicitly given consent to access credit bureau information for Bill Discovery. <br> Will be set to false when the: <br> - Consumer has explicitly refused consent to access credit bureau information for Bill Discovery. <br> - Consumer has no consent record to be returned |
-| result | Req | [ResultType](./complexObjects.md#resulttype) | Result information. | 
+| result | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result information. | 
 
 ### Sample API Usage
 
@@ -855,8 +850,8 @@ consumer's tenant/sponsor.
 
 | Parameter | Req  | Data Type                 | Description                                                                                                                                  |
 |------------|-----|----------|-----------------------------------------------|
-| data      | Req  | [Features](./complexObjects.md#features)     | Information about features.                                                                                                                  |
-| result    | Cond | [ResultType](./complexObjects.md#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 200). |
+| data      | Req  | [Features](?path=docs/apiDomains/complexObjects.md&branch=develop#features)     | Information about features.                                                                                                                  |
+| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 200). |
 
 ### Sample API Usage
 
@@ -887,10 +882,7 @@ consumer's tenant/sponsor.
 
 This API enables retrieving a consumer’s sensitive information.
 
-The parameter **sensitiveInformationUri** (returned for [Get User
-Information (Managed User)](#get-user-information-managed-user) and [Get
-User Information](#get-user-information)) returns the endpoint shown
-below.
+The parameter **sensitiveInformationUri** (returned for [Get User Information (Managed User)](#get-user-information-managed-user) and [Get User Information](#get-user-information)) returns the endpoint shown below.
 
 ### Method and Endpoint
 
@@ -901,8 +893,8 @@ below.
 
 | Parameter | Req  | Data Type                                         | Description                                                                                                                                  |
 |------------|------|-----------|--------------------------------------------|
-| data      | Req  | [SensitiveInformationV2](./complexObjects.md#sensitiveinformationv2) | Consumer's sensitive information.                                                                                                            |
-| result    | Cond | [ResultType](./complexObjects.md#resulttype)                         | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 200). |
+| data      | Req  | [SensitiveInformationV2](?path=docs/apiDomains/complexObjects.md&branch=develop#sensitiveinformationv2) | Consumer's sensitive information.                                                                                                            |
+| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                         | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 200). |
 
 ## Post eBill Notification Email Delivery Failure
 
@@ -937,7 +929,7 @@ was successfully validated.
 
 | Parameter | Req | Data Type                 | Description                         |
 |------------|-----|----------|-----------------------------------------------|
-| result    | Req | [ResultType](./complexObjects.md#resulttype) | Result associated with the request. |
+| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result associated with the request. |
 
 ### Sample API Usage
 
