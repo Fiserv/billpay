@@ -29,8 +29,8 @@ Here is a sample JWT payload:
 
 ## Start Making Requests
 
-After authentication you will be given an access token and a refresh token. The access token should beused in the authorization header: “Authorization: Bearer <access_token>”.
-The refresh token should be used within the configurable refreshinterval (set during client implementation, default 10 minutes).
+After authentication you will be given an access token and a refresh token. The access token should be used in the authorization header: “Authorization: Bearer <access_token>”.
+The refresh token should be used within the configurable refresh interval (set during client implementation, default 10 minutes).
 
 
 ## Refresh an Access Token
@@ -40,7 +40,7 @@ To renew the access token the standard OAuth refresh token process should be use
 
 ## Session Termination
 
-To end a session before the token expires, initiate a token revocation request: Test123
+To end a session before the token expires, initiate a token revocation request.
 
 
 ___
