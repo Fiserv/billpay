@@ -6,7 +6,7 @@ experience that is simpler, smarter, and faster, and that positions them
 to be first-in-line for their account holders’ digital payment needs. It
 is a collection of simple, powerful, secure, and reliable RESTful APIs
 that provide access to Fiserv’s powerful and industry leading payment
-processing capabilities.
+processing capabilities. 
 
 Integrate with CheckFree Next APIs and enable your consumers to:
 
