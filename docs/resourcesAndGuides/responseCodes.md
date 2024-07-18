@@ -1,4 +1,4 @@
-## HTTP Response Codes
+## Response Codes
 
 CheckFree Next APIs use standard HTTP response codes to indicate the
 success or failure of an API request.
@@ -12,5 +12,5 @@ success or failure of an API request.
 | 400 - Bad Request           | The server cannot process the request due to an apparent client error. We will also return the specific reason why you received this error based on the action you were trying to perform. |
 | 401 - Unauthorized          | Authentication is required and has failed or has not yet been provided (for example, an invalid key).                                                                                      |
 | 403 - Forbidden             | The request was valid, but the server is refusing action.                                                                                                                                  |
-| 404 - Not found             | The server could not find what was requested.                                                                                                                                              |
+| 404 – Not found             | The server could not find what was requested.                                                                                                                                              |
 | 500 - Internal server error | Internal server error      

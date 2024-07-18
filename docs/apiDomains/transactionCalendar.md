@@ -2,7 +2,8 @@
 
 This API allows you to:
 
--   [Get a list of possible transaction dates](#get-transaction-calendar)
+-   [Get a list of possible transaction
+    dates](#get-transaction-calendar)
 
 ## Get Transaction Calendar
 
@@ -35,8 +36,8 @@ upcoming dates for which they can schedule a bill payment transaction.
 
 | Parameter | Req | Data Type                                              | Description                                            |
 |----------|-----|----------|------------------------------------------------|
-| data      | Req | Array of [TransactionCalendar](?path=docs/apiDomains/complexObjects.md&branch=develop#transactioncalendar) | There is an empty array if there is no data to return. |
-| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                              | Result information.                                    |
+| data      | Req | Array of [TransactionCalendar](#transactioncalendar-1) | There is an empty array if there is no data to return. |
+| result    | Req | [ResultType](#resulttype)                              | Result information.                                    |
 
 ### Sample API Usage
 

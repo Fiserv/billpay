@@ -27,7 +27,7 @@ guidelines:
 -   If new properties are added, the client MUST assume they can be
     returned, though the client need not use them.
 
--   Clients MUST provide default "fallback" error handling for
+-   Clients MUST provide default “fallback” error handling for
     unexpected error codes in all cases. Fiserv may return new error
     codes to allow for unexpected error conditions.
 

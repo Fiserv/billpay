@@ -5,11 +5,14 @@ to the payees that support and can deliver bills electronically. For an
 e‑bill capable payee, these APIs can be used to offer and manage e-bill
 activation and service.
 
--   [Begin the process of activating e-bill service for a payee](#get-payee-e-bill-capability)
+-   [Begin the process of activating e-bill service for a
+    payee](#get-payee-e-bill-capability)
 
--   [Complete the process of activating e‑bill service for a payee](#activate-payee-e-bill-service)
+-   [Complete the process of activating e‑bill service for a
+    payee](#activate-payee-e-bill-service)
 
--   [Get e-bill service information for a payee](#get-payee-e-bill-service)
+-   [Get e-bill service information for a
+    payee](#get-payee-e-bill-service)
 
 -   [Change e-bill service for a payee](#change-payee-e-bill-service)
 
@@ -48,8 +51,8 @@ activate e-bill service as part of that flow.
 
 | Parameter | Req | Data Type | Description |
 |-----------|-----|-----------|-------------|
-| data | Req | [EbillCapability](?path=docs/apiDomains/complexObjects.md&branch=develop#ebillcapability) | Information required for e-bill activation. Empty if there is no data to return. |
-| result | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result information. <br> Condition: Only returned when the request fails. No result content returned for success (HTTP status code 200). (Known issue: result is currently being returned in response for success.) |
+| data | Req | [EbillCapability](#ebillcapability) | Information required for e-bill activation. Empty if there is no data to return. |
+| result | Cond | [ResultType](#resulttype) | Result information. <br> Condition: Only returned when the request fails. No result content returned for success (HTTP status code 200). (Known issue: result is currently being returned in response for success.) |
 
 ### Sample API Usage
 
@@ -142,14 +145,14 @@ activation request.
 | Parameter                 | Req | Param Type | Data Type                                               | Description                                |
 |------------|----|-------|-----------|---------------------------------------|
 | id                        | Req | path       | string                                                  | Identifier for the payee.                  |
-| ebillServiceActivateInput | Req | body       | [EbillServiceActivateInput](?path=docs/apiDomains/complexObjects.md&branch=develop#ebillserviceactivateinput) | Information for e-bill service activation. |
+| ebillServiceActivateInput | Req | body       | [EbillServiceActivateInput](#ebillserviceactivateinput) | Information for e-bill service activation. |
 
 ### Response
 
 | Parameter | Req | Data Type                                                 | Description                                              |
 |---------|----|------------|------------------------------------------------|
-| data      | Req | [EbillServiceActivateOutput](?path=docs/apiDomains/complexObjects.md&branch=develop#ebillserviceactivateoutput) | E-bill service information. Empty if the request failed. |
-| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                                 | Result information.                                      |
+| data      | Req | [EbillServiceActivateOutput](#ebillserviceactivateoutput) | E-bill service information. Empty if the request failed. |
+| result    | Req | [ResultType](#resulttype)                                 | Result information.                                      |
 
 ### Sample API Usage
 
@@ -251,8 +254,8 @@ Examples:
 
 | Parameter | Req | Data Type | Description |
 |-----------|-----|-----------|-------------|
-| data | Req | [EbillAccountDetail](?path=docs/apiDomains/complexObjects.md&branch=develop#ebillaccountdetail) | E-bill service information. |
-| result | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result information. <br> Condition: Only returned when the request fails. No result content returned for success. (Known issue: result is currently being returned in response for success.) |
+| data | Req | [EbillAccountDetail](#ebillaccountdetail) | E-bill service information. |
+| result | Cond | [ResultType](#resulttype) | Result information. <br> Condition: Only returned when the request fails. No result content returned for success. (Known issue: result is currently being returned in response for success.) |
 
 ### Sample API Usage
 
@@ -326,7 +329,7 @@ activation.
 
 | Parameter | Req | Data Type | Description |
 |-----------|-----|-----------|-------------|
-| result | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result information. <br> Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
+| result | Cond | [ResultType](#resulttype) | Result information. <br> Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
 
 ### Sample API Usage
 
@@ -372,7 +375,7 @@ payees.
 
 | Parameter | Req  | Data Type                 | Description                                                                                                                                  |
 |---------|------|-----------|-----------------------------------------------|
-| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
+| result    | Cond | [ResultType](#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
 
 ### Sample API Usage
 

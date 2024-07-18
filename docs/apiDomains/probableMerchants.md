@@ -10,7 +10,7 @@ This API allows the calling application to:
 The ProbableMerchants Get API presents "probable" or "likely" merchants
 that a consumer would make payments to. This API returns a list of
 merchants that are typically paid by other bill payment users in that
-consumer's ZIP Code area (the consumer's ZIP Code is identified using
+consumer’s ZIP Code area (the consumer’s ZIP Code is identified using
 the subscriber ID). Local utility companies, financial institutions,
 service companies, etc. may all be returned.
 
@@ -22,7 +22,7 @@ a list of probable merchants or entering a payee name.
 
 Examples:
 
--   Add a new payee to a consumer's existing list of payees.
+-   Add a new payee to a consumer’s existing list of payees.
 
 -   Present a special flow to new users that helps them to get started
     using bill pay functionality.
@@ -36,8 +36,8 @@ Examples:
 
 | Parameter | Req | Data Type                               | Description                 |
 |------------|-----|----------|-----------------------------------------------|
-| data      | Req | [ProbableMerchants](?path=docs/apiDomains/complexObjects.md&branch=develop#probablemerchants) | List of probable merchants. |
-| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)               | Result information.         |
+| data      | Req | [ProbableMerchants](#probablemerchants) | List of probable merchants. |
+| result    | Req | [ResultType](#resulttype)               | Result information.         |
 
 ### Sample API Usage
 

@@ -1,7 +1,7 @@
 ## Authenticate
 
 Authentication to the CheckFree Next APIs is achieved using OAuth 2.0
-via a custom grant. To obtain an access token, a JSON Web Token (JWT)
+via a custom grant.To obtain an access token, a JSON Web Token (JWT)
 must be constructed with this minimum information. All claims are
 required/conditionally required.
 
@@ -33,11 +33,11 @@ Here is a sample JWT payload:
 "fiserv.identity.billpay.channel":"Desktop"  
 }
 ```
-The JWT must be signed with your certificate and encrypted with Fiserv's
+The JWT must be signed with your certificate and encrypted with Fiserv’s
 public key. You will need to provide the public key of your signing
 certificate to Fiserv. Please work with your project manager for full
 requirements and installation. Your project manager will provide
-Fiserv's public key. This JWT then must be signed and encrypted with a
+Fiserv’s public key. This JWT then must be signed and encrypted with a
 certificate that the FI provides. You will need to provide the public
 key of your signing certificate to Fiserv. Please work with your project
 manager for full requirements and installation. Fiserv will provide its
@@ -63,7 +63,7 @@ Fiserv will provide the full endpoint to send the request to.
 | Parameter   | Req | Param Type | Data Type         | Description                                                 |
 |-----------|-----|-------|---------|-----------------------------------------|
 | client\_id  | Req | body       | string            | Fiserv-provided ID; will be assigned during implementation. |
-| grant\_type | Req | body       | "ChallengerGrant" |                                                             |
+| grant\_type | Req | body       | “ChallengerGrant” |                                                             |
 | JWT         | Req | body       | string            | JWT created above                                           |
 | tenantId    | Req | body       | string            | Sponsor ID; will be assigned during implementation.         |
 
@@ -99,7 +99,7 @@ This subscriber-specific grant is scoped to a consumer.
 
 client_id: yourSpecificClientId  
 grant_type: ChallengerGrant  
-JWT: eyJhb...  
+JWT: eyJhb…  
 tenantId: 45678
 
 #### Response (Success)
@@ -143,7 +143,7 @@ This maintenance grant is scoped to a tenant.
 
 client\_id: yourSpecificUserMaintenanceClientId  
 grant\_type: ChallengerGrant  
-JWT: eyJhb...  
+JWT: eyJhb…  
 tenantId: 45678
 
 #### Response
@@ -179,7 +179,7 @@ This grant is scoped to a CheckFree Next user.
 
 client\_id: yourSpecificClientId  
 grant\_type: ChallengerGrant  
-JWT: eyJhb...  
+JWT: eyJhb…  
 tenantId: 45678
 
 #### Response

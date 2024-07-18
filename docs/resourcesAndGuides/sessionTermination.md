@@ -18,7 +18,7 @@ request:
 
 ### Response
 
-HTTP response 200 - OK returned for successful requests.
+HTTP response 200 – OK returned for successful requests.
 
 ### Sample API Usage
 

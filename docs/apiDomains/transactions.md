@@ -2,26 +2,18 @@
 
 This set of APIs allows you to:
 
--   Get a list of transactions
-
-    - [Get Transactions (v1)](#get-transactions-v1) - the valid values that deliveryMethod can return in the response are Electronic and Paper.
-
-    - [Get Transactions (v2)](#get-transactions-v2) - the valid values that deliveryMethod can return in the response are Electronic, CorporateCheck, and DraftCheck.
+-   [Get a list of transactions](#get-transactions)
 
 -   [Create transactions](#create-a-transaction)
 
 -   [Update a transaction](#update-a-transaction)
 
-## Get Transactions (v1)
+## Get Transactions
 
 The Transactions Get API enables the retrieval of transactions for a
 specific consumer. Fiserv validates each individual transaction and
 creates a confirmation number for each one. Fiserv stores the
 transactions and processes them on the requested due date.
-
-Note
-
-The v1 version of Transactions Get will continue to support the values of Electronic and Paper for deliveryMethod in the response. For this functionality, make sure to specify **v1**/me/Transactions.
 
 ### Method and Endpoint
 
@@ -47,8 +39,8 @@ The v1 version of Transactions Get will continue to support the values of Electr
 
 | Parameter | Req | Data Type                                    | Description                                            |
 |----------|-----|----------|------------------------------------------------|
-| data      | Req | Array of [TransactionList](?path=docs/apiDomains/complexObjects.md&branch=develop#transactionlist) | There is an empty array if there is no data to return. |
-| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                    | Result information.                                    |
+| data      | Req | Array of [TransactionList](#transactionlist) | There is an empty array if there is no data to return. |
+| result    | Req | [ResultType](#resulttype)                    | Result information.                                    |
 
 ### Sample API Usage
 
@@ -178,174 +170,6 @@ The v1 version of Transactions Get will continue to support the values of Electr
 }
 }
 ```
-
-## Get Transactions (v2)
-
-The Transactions Get API enables the retrieval of transactions for a
-specific consumer. Fiserv validates each individual transaction and
-creates a confirmation number for each one. Fiserv stores the
-transactions and processes them on the requested due date.
-
-Note
-
-With v2, the valid values that deliveryMethod can return in the response are Electronic, CorporateCheck, and DraftCheck. For this functionality, make sure to specify **v2**/me/Transactions.
-
-### Method and Endpoint
-
-| GET | /api/v2/me/Transactions|
-|-----|----------------------------|
-
-### Request
-
-| Parameter | Req | Param Type | Data Type | Description |
-|-----------|-----|------------|-----------|-------------|
-| startDate | Opt | query | string <br> &lt;date-time&gt; | The desired start date for the list of transactions. Format: yyyy-MM-dd <br> Default is 6 months in the past. |
-| endDate | Opt | query | string <br> &lt;date-time&gt; | The desired end date for the list of transactions. Format: yyyy-MM-dd <br> Default is all transactions scheduled in the future. |
-| sort | Opt | query | string | Sort the response based on the given input. These are the eligible values with which to sort: amount, deliveryDate, payeeName, deliveryTrackingNumber, confirmationNumber, debitDate, fee, note, memo, deliveryMethod, status, transactionType <br> A negative sign (-) before the parameter indicates that the response should be sorted in descending order. For example, “sort=-amount” |
-| start | Opt | query | integer | Specifies the starting record to be fetched. |
-| limit | Opt | query | integer | Specifies the number of records to be fetched. |
-| payeeUri | Opt | query | string | The URI to the payee that this transaction is associated with. |
-| status | Opt | query | string | The status of the payment transaction. Valid values: Pending, Complete, InProcess, Failed Canceled |
-| fundingAccountUri | Opt | query | string | The funding account for the transaction. |
-| minAmount | Opt | query | double | The minimum transaction amount. |
-| maxAmount | Opt | query | double | The maximum transaction amount. | 
-
-### Response
-
-| Parameter | Req | Data Type                                    | Description                                            |
-|----------|-----|----------|------------------------------------------------|
-| data      | Req | Array of [TransactionListV2](?path=docs/apiDomains/complexObjects.md&branch=develop#transactionlistv2) | There is an empty array if there is no data to return. |
-| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                    | Result information.                                    |
-
-### Sample API Usage
-
-#### Request URL
-
-| https://api-checkfreenext-cert.fiservapps.com/api/v2/me/Transactions?startDate=2021-04-20&endDate=2021-05-18 |
-|------------------------------------------------------------------------|
-
-#### Response
-```json
-{
-"data": {
-"transactions": [
-{
-"confirmationNumber": "N8R8C-6RY2L",
-"deliveryMethod": "Electronic",
-"status": "Canceled",
-"statusUri":
-"/api/v2/me/transactions/de3e5a820597428c9a3793a7113b59a3/status",
-"deliveryDate": "2021-05-11",
-"cancelUri": null,
-"amount": 25.5,
-"note": null,
-"memo": null,
-"billItemUri": null,
-"payeeUri": "/api/v1/me/payees/78adc4a26bcd4965926abb2c1a194351",
-"automaticTransactionUri": null,
-"fundingAccountUri":
-"/api/v1/me/bankAccounts/a00c767684124b0baa4f641ccb69dd51",
-"fee": 0.0,
-"debitDate": "2021-05-11",
-"modifiableFields": null,
-"transactionType": "Standard",
-"deliveryTrackingNumber": null,
-"legacyTransactionId": "20210421023206036957",
-"self":
-"/api/v2/me/transactions/de3e5a820597428c9a3793a7113b59a3",
-"id": "de3e5a820597428c9a3793a7113b59a3"
-},
-{
-"confirmationNumber": "MJBT6-49Z7G",
-"deliveryMethod": "DraftCheck",
-"status": "Complete",
-"statusUri":
-"/api/v2/me/transactions/36e75562b1aa43c7b12e7613a9670822/status",
-"deliveryDate": "2021-05-12",
-"cancelUri": null,
-"amount": 74.4200,
-"note": null,
-"memo": null,
-"billItemUri": null,
-"payeeUri": "/api/v1/me/payees/2feed664f6604d43b97c7f457a07caae",
-"automaticTransactionUri": null,
-"fundingAccountUri":
-"/api/v1/me/bankAccounts/923ea9541fa5421fae03025f7a4bc58c",
-"fee": 14.0000,
-"debitDate": "2021-05-12",
-"modifiableFields": null,
-"transactionType": "Overnight",
-"deliveryTrackingNumber": "UPS2018012416111900002",
-"legacyTransactionId": "20210511151325971343",
-"checkNumber": 5003,
-"self":
-"/api/v2/me/transactions/36e75562b1aa43c7b12e7613a9670822",
-"id": "36e75562b1aa43c7b12e7613a9670822"
-},
-{
-"confirmationNumber": "NJB4L-KKFVZ",
-"deliveryMethod": "Electronic",
-"status": "InProcess",
-"statusUri":
-"/api/v2/me/transactions/780065a5939440a0bd3a6aeb014342f4/status",
-"deliveryDate": "2021-05-11",
-"cancelUri": null,
-"amount": 17.3800,
-"note": null,
-"memo": null,
-"billItemUri": null,
-"payeeUri": "/api/v1/me/payees/bea77791fe2743c5bf2fe30c0c53f768",
-"automaticTransactionUri": null,
-"fundingAccountUri":
-"/api/v1/me/bankAccounts/d1b49b05102943f3b8712c76353e7216",
-"fee": 11.1100,
-"debitDate": "2021-05-12",
-"modifiableFields": null,
-"transactionType": "Expedited",
-"deliveryTrackingNumber": null,
-"legacyTransactionId": "20210511025959583812",
-"self":
-"/api/v2/me/transactions/780065a5939440a0bd3a6aeb014342f4",
-"id": "780065a5939440a0bd3a6aeb014342f4"
-},
-{
-"confirmationNumber": "NJB4J-TQRPJ",
-"deliveryMethod": "CorporateCheck",
-"status": "Pending",
-"statusUri":
-"/api/v2/me/transactions/64a0db63ba5b4cc3b562cceaf0ef4951/status",
-"deliveryDate": "2021-05-12",
-"cancelUri":
-"/api/v1/me/transactions/64a0db63ba5b4cc3b562cceaf0ef4951/cancel",
-"amount": 16.33,
-"note": null,
-"memo": null,
-"billItemUri": null,
-"payeeUri": "/api/v1/me/payees/a0518a61e9a44763b6937f37212e581e",
-"automaticTransactionUri": null,
-"fundingAccountUri":
-"/api/v1/me/bankAccounts/710ae3ba5f764d6cbe09797c2399b838",
-"fee": 0.0,
-"debitDate": "2021-05-12",
-"modifiableFields": [
-"amount",
-"note",
-"memo",
-"deliveryDate",
-"fundingAccountUri"
-],
-"transactionType": "Standard",
-"deliveryTrackingNumber": null,
-"legacyTransactionId": "20210420090259280850",
-"self":
-"/api/v2/me/transactions/64a0db63ba5b4cc3b562cceaf0ef4951",
-"id": "64a0db63ba5b4cc3b562cceaf0ef4951"
-}
-]
-}
-}
-```
-
 ## Create a Transaction
 
 The Transactions Post API enables adding new transactions in a single
@@ -383,14 +207,14 @@ Examples:
 | Parameter | Req | Param Type | Data Type | Description |
 |-----------|-----|------------|-----------|-------------|
 | allowDuplicateTransaction | Opt | query | boolean | Indicates that duplicate transactions are allowed. <br> Valid values: <br> true – Allow duplicate transactions <br> false – Check for duplicate transactions. This is the default.<br> A transaction cannot be a duplicate unless the allowDuplicateTransaction flag is true. A duplicate is defined as having the same payee, transaction amount, and transaction date. <br> This does not apply to SameDay Payments. Duplicate transactions are not allowed for SameDay Payments. |
-| transaction | Req | body | Array of [Transaction](?path=docs/apiDomains/complexObjects.md&branch=develop#transaction) | List of transactions to be scheduled for the consumer. Limited to 30 or fewer per request. |
+| transaction | Req | body | Array of [Transaction](#transaction) | List of transactions to be scheduled for the consumer. Limited to 30 or fewer per request. |
 
 ### Response
 
 | Parameter | Req | Data Type                                                                              | Description                                                       |
 |------------|-----|-----------|----------------------------------------------|
-| data      | Req | Array of [TransactionOutputIpsListItemResponse](?path=docs/apiDomains/complexObjects.md&branch=develop#transactionoutputipslistitemresponse) | List of responses for the transactions requested to be scheduled. |
-| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                                                              | Overall result.                                                   |
+| data      | Req | Array of [TransactionOutputIpsListItemResponse](#transactionoutputipslistitemresponse) | List of responses for the transactions requested to be scheduled. |
+| result    | Req | [ResultType](#resulttype)                                                              | Overall result.                                                   |
 
 ### Sample API Usage
 
@@ -513,13 +337,14 @@ To cancel a transaction (does not require Request Body):
 | memo | Opt | body | string | Transaction memo. Maximum of 34 characters. This text will be printed on the check sent to the payee for this payment. A payment memo is only used for payments that are to be processed via a paper check. |
 | note | Opt | body | string | A consumer’s “note to self.” This note is not submitted to the payee. Length: 0–255 <br> Pattern: ^[\\x2A-\\x2E\\x30-\\x39\\x40-\\x5A\\x5F\\x5E\\x61-\\x7A\\x20\\x21\\x23-\\x25]+\$ <br> The note field only allows the following character sets: a-z, A-Z, 0-9, _ @!+#.$,%^\*- | 
 | withdrawNow | Opt | body | boolean | Reserved for future use. |
+| cavv | Opt | body | string | Placeholder for 3-D Secure. Cardholder Authentication Verification Value. Used if the transaction is funded by a card account and the institution is participating in 3-D Secure. |
 
 ### Response
 
 | Parameter | Req      | Data Type                                           | Description                                                                                                     |
 |------------|------|------------|-------------------------------------------|
-| data      | Req/Cond | [TransactionModifyOutput](?path=docs/apiDomains/complexObjects.md&branch=develop#transactionmodifyoutput) | Data about the specific transaction. For a successful cancellation, no data is returned (HTTP status code 204). |
-| result    | Req/Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                           | Result information. For a cancellation, this is only returned when the request fails.                           |
+| data      | Req/Cond | [TransactionModifyOutput](#transactionmodifyoutput) | Data about the specific transaction. For a successful cancellation, no data is returned (HTTP status code 204). |
+| result    | Req/Cond | [ResultType](#resulttype)                           | Result information. For a cancellation, this is only returned when the request fails.                           |
 
 ### Sample API Usage
 

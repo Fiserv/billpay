@@ -14,9 +14,11 @@ future-dated payments.
 
 This set of APIs allows you to:
 
--   [Get a list of card accounts for a consumer](#get-card-accounts-list)
+-   [Get a list of card accounts for a
+    consumer](#get-card-accounts-list)
 
--   [Get a specific card account for a consumer](#get-a-card-account-single)
+-   [Get a specific card account for a
+    consumer](#get-a-card-account-single)
 
 -   [Get information to invoke the 3DS SDK](#get-3ds-info)
 
@@ -46,8 +48,8 @@ to fund a payment.
 
 | Parameter | Req  | Data Type                                            | Description                                                                                                                  |
 |-----------|-----|-----------|-----------------------------------------------|
-| data      | Req  | Array of [CardAccountGetModel](?path=docs/apiDomains/complexObjects.md&branch=develop#cardaccountgetmodel) | There is an empty array if there is no data to return.                                                                       |
-| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                            | Result information. Condition: Only returned when the request fails. No content returned for success (HTTP status code 200). |
+| data      | Req  | Array of [CardAccountGetModel](#cardaccountgetmodel) | There is an empty array if there is no data to return.                                                                       |
+| result    | Cond | [ResultType](#resulttype)                            | Result information. Condition: Only returned when the request fails. No content returned for success (HTTP status code 200). |
 
 ### Sample API Usage
 
@@ -95,8 +97,8 @@ available for funding a bill payment.
 
 | Parameter | Req  | Data Type                                   | Description                         |
 |-----------|-----|-----------|-----------------------------------------------|
-| data      | Req  | [CardAccountGetModel](?path=docs/apiDomains/complexObjects.md&branch=develop#cardaccountgetmodel) | Information about the card account. |
-| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                   | Result information.                 |
+| data      | Req  | [CardAccountGetModel](#cardaccountgetmodel) | Information about the card account. |
+| result    | Cond | [ResultType](#resulttype)                   | Result information.                 |
 
 ### Sample API Usage
 
@@ -144,7 +146,7 @@ GET /api/v1/me/cardAccounts/{id}/3DSInfo
 | Parameter | Req  | Data Type                 | Description                                                                                                                  |
 |---------|-----|-----------|------------------------------------------------|
 | data      | Req  | [3DSInfo](#dsinfo)        | There is an empty array if there is no data to return.                                                                       |
-| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result information. Condition: Only returned when the request fails. No content returned for success (HTTP status code 200). |
+| result    | Cond | [ResultType](#resulttype) | Result information. Condition: Only returned when the request fails. No content returned for success (HTTP status code 200). |
 
 #### 3DSInfo
 
@@ -168,8 +170,8 @@ add a card.
 
 | Parameter | Req | Data Type                                     | Description                            |
 |-----------|-----|-----------|-----------------------------------------------|
-| data      | Req | [CardAccountAddLimits](?path=docs/apiDomains/complexObjects.md&branch=develop#cardaccountaddlimits) | Information about card account limits. |
-| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                     | Result information.                    |
+| data      | Req | [CardAccountAddLimits](#cardaccountaddlimits) | Information about card account limits. |
+| result    | Req | [ResultType](#resulttype)                     | Result information.                    |
 
 ### Sample API Usage
 
@@ -219,14 +221,14 @@ a consumer to enter card account information.
 | nameOnCard | Req | body | string | Name printed on the card. Length: 1–80 | 
 | nickname | Opt | body | string | A description of the card used to help identify it in a list. Length: 1–30 <br> No validations; free-form text. Do not enter any sensitive information such as the account number. |
 | cvv | Cond | body | integer | The CVV number on the card. Must be numeric. Length: 3-4. <br> Pattern: ^[0-9]\* <br> This value is not stored or displayed anywhere. <br> Condition: Required for cards added by consumer. (Not required for cards added by FI.) |
-| billingAddress | Req | body | [USAddress](?path=docs/apiDomains/complexObjects.md&branch=develop#usaddress) | The billing address for the card. |
+| billingAddress | Req | body | [USAddress](#usaddress) | The billing address for the card. |
 
 ### Response
 
 | Parameter | Req | Data Type | Description | 
 |-----------|-----|-----------|-------------|
-| data | Cond | [CardAccountPostResponse](?path=docs/apiDomains/complexObjects.md&branch=develop#cardaccountpostresponse) | Response data. Condition: Always returned for successful response. |
-| result | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result Information. |
+| data | Cond | [CardAccountPostResponse](#cardaccountpostresponse) | Response data. Condition: Always returned for successful response. |
+| result | Req | [ResultType](#resulttype) | Result Information. |
 
 ### Sample API Usage
 
@@ -290,7 +292,7 @@ consumer-added cards only, and an FI can update FI-added cards.
 | Parameter | Req | Param Type | Data Type | Description |
 |-----------|-----|------------|-----------|-------------|
 | cardId | Req | path | string | Identifier for the card account. |
-| billingAddress | Opt | body | [USAddress](?path=docs/apiDomains/complexObjects.md&branch=develop#usaddress) | The billing address for the card. |
+| billingAddress | Opt | body | [USAddress](#usaddress) | The billing address for the card. |
 | expirationMonth | Opt | body | integer | Month in which the card expires. Length: 2. Value: 01–12 <br> Pattern: ^([1-9]\|1[012])$ |
 | expirationYear | Opt | body | integer | Year in which the card expires. Length: 4. Format: yyyy <br>Pattern: ^[0-9]{4}$ |
 | externalAccountDescription | Opt | body | string | External account description that is free-form text, such as: “Bank Name” Visa. Length: 1–32 |
@@ -302,7 +304,7 @@ consumer-added cards only, and an FI can update FI-added cards.
 
 | Parameter | Req  | Data Type                 | Description                                                                                                                  |
 |-------------|-----|-------|-------------------------------------------------|
-| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result information. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
+| result    | Cond | [ResultType](#resulttype) | Result information. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
 
 ### Sample API Usage
 
@@ -355,7 +357,7 @@ cards only, and an FI can delete FI-added cards.
 
 | Parameter | Req  | Data Type                 | Description                                                                                                                                  |
 |------------|------|-------|-----------------------------------------------|
-| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
+| result    | Cond | [ResultType](#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
 
 ### Sample API Usage
 
@@ -369,4 +371,4 @@ cards only, and an FI can delete FI-added cards.
 | 204 No Content |
 |----------------|
 
- 
+# 

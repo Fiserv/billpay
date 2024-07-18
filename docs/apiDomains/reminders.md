@@ -2,7 +2,8 @@
 
 This set of APIs allows the calling application to:
 
--   [Get a list of bill payment reminder models](#get-reminder-models-list)
+-   [Get a list of bill payment reminder
+    models](#get-reminder-models-list)
 
 -   [Get a single reminder model](#get-reminder-model-single)
 
@@ -37,8 +38,8 @@ for that payee by that consumer.
 
 | Parameter | Req  | Data Type                     | Description                                                                                                                                         |
 |------------|-----|----------|-----------------------------------------------|
-| data      | Req  | [ReminderList](?path=docs/apiDomains/complexObjects.md&branch=develop#reminderlist) | Reminder models. There is an empty array if there is no data to return.                                                                             |
-| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)     | Result associated with the request. Condition: Only returned when the request fails. No result content returned for success (HTTP status code 200). |
+| data      | Req  | [ReminderList](#reminderlist) | Reminder models. There is an empty array if there is no data to return.                                                                             |
+| result    | Cond | [ResultType](#resulttype)     | Result associated with the request. Condition: Only returned when the request fails. No result content returned for success (HTTP status code 200). |
 
 ### Sample API Usage
 
@@ -89,8 +90,8 @@ a consumer.
 
 | Parameter | Req | Data Type                 | Description                           |
 |---------|----|-----------|-------------------------------------------------|
-| data      | Req | [Reminder](?path=docs/apiDomains/complexObjects.md&branch=develop#reminder)     | Information about the reminder model. |
-| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result information.                   |
+| data      | Req | [Reminder](#reminder)     | Information about the reminder model. |
+| result    | Req | [ResultType](#resulttype) | Result information.                   |
 
 ### Sample API Usage
 
@@ -168,8 +169,8 @@ set up new bill payment reminders for other payees.
 
 | Parameter | Req  | Data Type                 | Description                                                        |
 |------------|-----|--------|------------------------------------------------|
-| data      | Cond | [BaseModel](?path=docs/apiDomains/complexObjects.md&branch=develop#basemodel)   | Response data. Condition: Always returned for successful response. |
-| result    | Req  | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result information.                                                |
+| data      | Cond | [BaseModel](#basemodel)   | Response data. Condition: Always returned for successful response. |
+| result    | Req  | [ResultType](#resulttype) | Result information.                                                |
 
 ### Sample API Usage
 
@@ -246,7 +247,7 @@ modify an existing payment reminder
 
 | Parameter | Req  | Data Type                 | Description                                                                                                                                  |
 |-------------|-----|-------|-------------------------------------------------|
-| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
+| result    | Cond | [ResultType](#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
 
 ### Sample API Usage
 
@@ -306,7 +307,7 @@ cancel an existing payment reminder.
 
 | Parameter | Req  | Data Type                 | Description                                                                                                                                  |
 |------------|------|-------|-----------------------------------------------|
-| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
+| result    | Cond | [ResultType](#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
 
 ### Sample API Usage
 

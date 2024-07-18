@@ -11,7 +11,8 @@ consent before the bills and billers can be found from various sources.
 
 This set of APIs provides access to a potential payee resource:
 
--   [Determine a consumer's eligibility for bill discovery](#get-consumer-eligibility-for-bill-discovery)
+-   [Determine a consumer's eligibility for bill
+    discovery](#get-consumer-eligibility-for-bill-discovery)
 
 -   [Get a list of potential payees](#get-potential-payees-list)
 
@@ -21,7 +22,8 @@ This set of APIs provides access to a potential payee resource:
 
 -   [Dismiss a potential payee](#dismiss-potential-payee)
 
--   [Get an unmasked potential payee account number](#get-a-potential-payees-unmasked-account-number)
+-   [Get an unmasked potential payee account
+    number](#get-a-potential-payees-unmasked-account-number)
 
 ## Get Consumer Eligibility for Bill Discovery
 
@@ -35,8 +37,8 @@ This API indicates whether a consumer is eligible for bill discovery.
 
 | Parameter | Req | Data Type                                                     | Description                       |
 |---------|----|------------|------------------------------------------------|
-| data      | Req | [BillDiscoveryUserEligibility](?path=docs/apiDomains/complexObjects.md&branch=develop#billdiscoveryusereligibility) | Consumer eligibility information. |
-| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                                     | Result information.               |
+| data      | Req | [BillDiscoveryUserEligibility](#billdiscoveryusereligibility) | Consumer eligibility information. |
+| result    | Req | [ResultType](#resulttype)                                     | Result information.               |
 
 The values returned in the response are dependent on sponsor
 configuration as follows:
@@ -96,8 +98,8 @@ information to add the merchant as a payee.
 
 | Parameter | Req | Data Type                                 | Description               |
 |---------|----|-----------|-------------------------------------------------|
-| data      | Req | [PotentialPayeeList](?path=docs/apiDomains/complexObjects.md&branch=develop#potentialpayeelist) | List of potential payees. |
-| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                 | Result information.       |
+| data      | Req | [PotentialPayeeList](#potentialpayeelist) | List of potential payees. |
+| result    | Req | [ResultType](#resulttype)                 | Result information.       |
 
 ### Sample API Usage
 
@@ -159,8 +161,8 @@ merchant as a payee.
 
 | Parameter | Req | Data Type                         | Description                            |
 |---------|----|-----------|-------------------------------------------------|
-| data      | Req | [PotentialPayee](?path=docs/apiDomains/complexObjects.md&branch=develop#potentialpayee) | Information about the potential payee. |
-| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)         | Result information.                    |
+| data      | Req | [PotentialPayee](#potentialpayee) | Information about the potential payee. |
+| result    | Req | [ResultType](#resulttype)         | Result information.                    |
 
 ### Sample API Usage
 
@@ -214,14 +216,14 @@ payee.
 | Parameter | Req | Param Type | Data Type | Description |
 |-----------|-----|------------|-----------|-------------|
 | id | Req | path | string | Identifier for the potential payee. | 
-| verificationTokens | Cond | body | Array of [VerificationToken](?path=docs/apiDomains/complexObjects.md&branch=develop#verificationtoken) | Array of verification token information provided by the consumer to verify the merchant relationship. <br> Condition: One or more verification tokens are required for this payee. If no verification tokens are required, this array is not required. |
+| verificationTokens | Cond | body | Array of [VerificationToken](#verificationtoken) | Array of verification token information provided by the consumer to verify the merchant relationship. <br> Condition: One or more verification tokens are required for this payee. If no verification tokens are required, this array is not required. |
 
 ### Response
 
 | Parameter | Req | Data Type                                     | Description                            |
 |---------|----|-----------|-------------------------------------------------|
-| data      | Req | [VerificationResponse](?path=docs/apiDomains/complexObjects.md&branch=develop#verificationresponse) | Information about the potential payee. |
-| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                     | Result information.                    |
+| data      | Req | [VerificationResponse](#verificationresponse) | Information about the potential payee. |
+| result    | Req | [ResultType](#resulttype)                     | Result information.                    |
 
 ### Sample API Usage
 
@@ -299,7 +301,7 @@ ToDo list or potential payee list.
 
 | Parameter | Req  | Data Type                 | Description                                                                                                                  |
 |---------|-----|----------|-------------------------------------------------|
-| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result information. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
+| result    | Cond | [ResultType](#resulttype) | Result information. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
 
 ### Sample API Usage
 
@@ -317,7 +319,10 @@ ToDo list or potential payee list.
 
 This API enables retrieving a potential payee’s unmasked account number.
 
-The parameter **unmaskedAccountNumberUri** (returned for [Get Potential Payees](#get-potential-payees-list), [Get Potential Payee](#get-potential-payee-single), and [Verify Potential Payee](#verify-potential-payee)) returns the endpoint shown below.
+The parameter **unmaskedAccountNumberUri** (returned for [Get Potential
+Payees](#get-potential-payees-list), [Get Potential
+Payee](#get-potential-payee-single), and [Verify Potential
+Payee](#verify-potential-payee)) returns the endpoint shown below.
 
 ### Method and Endpoint
 
@@ -335,6 +340,6 @@ The parameter **unmaskedAccountNumberUri** (returned for [Get Potential Payees](
 | Parameter | Req  | Data Type                 | Description                                                                                                                                  |
 |------------|------|-------|-----------------------------------------------|
 | data      | Req  | string                    | Unmasked account number of the potential payee. There is an empty string if there is no data to return.                                      |
-| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 200). |
+| result    | Cond | [ResultType](#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 200). |
 
- #
+# 
