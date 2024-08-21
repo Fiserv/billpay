@@ -29,8 +29,35 @@
 ################################################################################
 header:
   productName: BillPay
-  productionDescription: Bill Pay delivers compelling bill payment experiences in an increasingly competitive space and make it easy for consumers to pay bills and receive and view their bills electronically
+  productionDescription: Transform online billpay experiences through personalization, automation and unmatched connectivity with CheckFree Next. CheckFree Next positions financial institutions to be first in line for their accountholders' digital payments needs by offering intelligent suggestions and putting more automation into the bill pay process to simplify the bill pay experience.
   whoIsItFor:  Provide small businesses with a comprehensive bill pay solution.
-getStarted: /docs/introduction/getting-started.md
-
-
+getStarted: "docs/introduction/getting-started.md"
+benefits:
+  - title: Fast time to market
+    description: Tap into flexible integrations with existing payment platforms to quickly deploy consumer bill pay solutions.
+    icon: assets/images/timetomarket.jpg
+  - title: Unmatched size/scale
+    description: NOW® Network access and an expansive network of billers enables faster payments and offers the real-time capabilities that accountholders expect.
+    icon: assets/images/unmatchedsize.jpg
+  - title: Consumer-centric
+    description: Simplify the bill payer's experience with automation that connects billers to consumer accounts.
+    icon: assets/images/consumer.jpg
+guides:
+  - title: Important to know
+    description: Formatting, dates, field encoding and resource modification.
+    link: "docs/resourcesAndGuides/importantToKnow.md"
+  - title: Response codes 
+    description: Standard response codes indicate the success or failure of an API request.
+    link: "docs/resourcesAndGuides/responseCodes.md"
+  - title: Versioning/compatibility
+    description: If a breaking change is required, a new version will be created.
+    link: "docs/resourcesAndGuides/versioningAndBackwardsCompatibility.md" 
+useCases:
+  - title: Bill Payment
+    subtitle:
+    description: Accept bill payments for one or more businesses and submit the payments for processing to the Fiserv payments services.
+    link: "docs/introduction/getting-started.md"
+  - title: Bill Discovery
+    subtitle:
+    description: Finds bills automatically (based on credit reports and/or biller direct statements) without having to start from a blank slate. 
+    link: "docs/introduction/getting-started.md"
