@@ -17,20 +17,20 @@
       ]
     }
   ],
-  "getStartedFilePath": "docs/getting-started.md",
+  "getStartedFilePath": "docs/introduction/getting-started.md",
   "apiVersions": [
       {
-        "version": "1.0.0",
+        "version": "1.0.1",
         "versionType": "major",
         "releaseNotesPath": "/release-notes/release-notes-1.0.0.md",
-        "apiSpecFileNames": ["openapi-1.0.0"]
+        "apiSpecFileNames": ["api-1.0.0"]
       }
   ],
   "product": {
     "featured": true,
     "logoURL": "https://raw.githubusercontent.com/Fiserv/Developer-Portal-Tenant-API/develop/assets/images/Portal_Logo.png",
-    "description": "Transform online bill pay experiences through personalization, automation and unmatched connectivity with CheckFree next. CheckFree Next positions financial institutions to be first in line for their accountholders' digital payments needs by offering intelligent suggestions and putting more automation into the bill pay process to simplify the bill pay expereince.",
-    "longDescription": "Transform online bill pay experiences through personalization, automation and unmatched connectivity with CheckFree next. CheckFree Next positions financial institutions to be first in line for their accountholders' digital payments needs by offering intelligent suggestions and putting more automation into the bill pay process to simplify the bill pay expereince.",
+    "description": "REPLACE ME",
+    "longDescription": "REPLACE ME",
     "apiSpecification": "/v1/apis/BillPay",
     "layout": "/v1/layouts/BillPay",
     "documentation": "/v1/docs/BillPay",
