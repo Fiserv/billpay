@@ -20,10 +20,10 @@
   "getStartedFilePath": "docs/getting-started.md",
   "apiVersions": [
       {
-        "version": "1.0.0",
+        "version": "1.0.1",
         "versionType": "major",
         "releaseNotesPath": "/release-notes/release-notes-1.0.0.md",
-        "apiSpecFileNames": ["openapi-1.0.0"]
+        "apiSpecFileNames": ["api-1.0.0"]
       }
   ],
   "product": {
