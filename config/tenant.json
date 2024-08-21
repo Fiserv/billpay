@@ -4,7 +4,7 @@
   "brand": "Fiserv",
   "brandLogoURL": "https://raw.githubusercontent.com/Fiserv/Developer-Portal-Tenant-API/develop/assets/images/Fiserv_Logo.jpg",
   "solution": ["financial-institutions", "fintech"],
-  "brandDescription": "Bill Pay delivers compelling bill payment experiences in an increasingly competitive space and make it easy for consumers to pay bills and receive and view their bills electronically",
+  "brandDescription": "Transform online bill pay experiences through personalization, automation and unmatched connectivity with CheckFree Next. CheckFree Next positions financial institutions to be first in line for their accountholders' digital payments needs by offering intelligent suggestions and putting more automation into the bill pay process to simplify the bill pay expereince.",
   "categories": [
     {
       "name": "businessTypes",
@@ -29,8 +29,8 @@
   "product": {
     "featured": true,
     "logoURL": "https://raw.githubusercontent.com/Fiserv/Developer-Portal-Tenant-API/develop/assets/images/Portal_Logo.png",
-    "description": "REPLACE ME",
-    "longDescription":"REPLACE ME",
+    "description": "Transform online bill pay experiences through personalization, automation and unmatched connectivity with CheckFree next. CheckFree Next positions financial institutions to be first in line for their accountholders' digital payments needs by offering intelligent suggestions and putting more automation into the bill pay process to simplify the bill pay expereince.",
+    "longDescription": "Transform online bill pay experiences through personalization, automation and unmatched connectivity with CheckFree next. CheckFree Next positions financial institutions to be first in line for their accountholders' digital payments needs by offering intelligent suggestions and putting more automation into the bill pay process to simplify the bill pay expereince.",
     "apiSpecification": "/v1/apis/BillPay",
     "layout": "/v1/layouts/BillPay",
     "documentation": "/v1/docs/BillPay",
