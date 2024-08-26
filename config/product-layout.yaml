@@ -42,6 +42,37 @@ benefits:
   - title: Consumer-centric
     description: Simplify the bill payer's experience with automation that connects billers to consumer accounts.
     icon: assets/images/consumer.jpg
+featuredFeatures:
+  - title: Bill Discovery
+    featured: true
+    description: Find bills by using information from credit report and biller statements with the consumer’s consent and select to add payees conveniently.
+    relatedDocs:
+      - link:
+        title:
+    relatedAPIs:
+      - type:
+        path:
+        title: 
+  - title: Reminders
+    featured: true
+    description: Receive alerts for due bills without giving up paper.
+    relatedDocs:
+      - link:
+        title:
+    relatedAPIs:
+      - type:
+        path:
+        title: 
+  - title: Automatic Transactions
+    featured: true 
+    description: Automate payments and never be late with a payment again.
+    relatedDocs:
+      - link:
+        title:
+    relatedAPIs:
+      - type:
+        path:
+        title: 
 guides:
   - title: Important to know
     description: Formatting, dates, field encoding and resource modification.
@@ -52,14 +83,3 @@ guides:
   - title: Versioning/compatibility
     description: If a breaking change is required, a new version will be created.
     link: "docs/resourcesAndGuides/versioningAndBackwardsCompatibility.md" 
-useCases:
-  - title: Bill Payment
-    subtitle:
-    description: Accept bill payments for one or more businesses and submit the payments for processing to the Fiserv payments services.
-    link: "docs/introduction/getting-started.md"
-  - title: Bill Discovery
-    subtitle:
-    description: Finds bills automatically (based on credit reports and/or biller direct statements) without having to start from a blank slate. 
-    link: "docs/introduction/getting-started.md"
-
-
