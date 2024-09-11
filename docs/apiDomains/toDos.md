@@ -28,8 +28,8 @@ items and allow the consumer to take action on those items.
 
 | Parameter | Req  | Data Type                 | Description                                                                                                                                         |
 |------------|-----|----------|-----------------------------------------------|
-| data      | Req  | Array of [ToDo](#todo)    | ToDo items. There is an empty array if there is no data to return.                                                                                  |
-| result    | Cond | [ResultType](#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No result content returned for success (HTTP status code 200). |
+| data      | Req  | Array of [ToDo](?path=docs/apiDomains/complexObjects.md&branch=develop#todo)    | ToDo items. There is an empty array if there is no data to return.                                                                                  |
+| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No result content returned for success (HTTP status code 200). |
 
 ### Sample API Usage
 
@@ -68,8 +68,8 @@ The ToDos Get API returns a specific ToDo item for a consumer.
 
 | Parameter | Req | Data Type                 | Description                      |
 |---------|----|-----------|-------------------------------------------------|
-| data      | Req | [ToDo](#todo)             | Information about the ToDo item. |
-| result    | Req | [ResultType](#resulttype) | Result information.              |
+| data      | Req | [ToDo](?path=docs/apiDomains/complexObjects.md&branch=develop#todo)             | Information about the ToDo item. |
+| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result information.              |
 
 ### Sample API Usage
 
@@ -121,7 +121,7 @@ as well.
 
 | Parameter | Req  | Data Type                 | Description                                                                                                                  |
 |------------|-----|----------|-----------------------------------------------|
-| result    | Cond | [ResultType](#resulttype) | Result information. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
+| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result information. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
 
 ### Sample API Usage
 

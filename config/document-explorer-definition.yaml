@@ -65,12 +65,14 @@
         link: docs/resourcesAndGuides/requirementsAndLimitations.md
       - title: Versioning and Backwards Compatibility
         link: docs/resourcesAndGuides/versioningAndBackwardsCompatibility.md
-      - title: Response Codes
+      - title: HTTP Response Codes
         link: docs/resourcesAndGuides/responseCodes.md
+      - title: API Response Codes
+        link: docs/resourcesAndGuides/apiResponseCodes.md
       - title: Important to Know
         link: docs/resourcesAndGuides/importantToKnow.md
       - title: Sample Use Case Implementation
-        link: docs/resourcesAndGuides/sampleUseCaseImplementation.md
+        link: docs/resourcesAndGuides/sampleUseCaseImplementation.md  
       - title: Frequently asked questions
         link: docs/resourcesAndGuides/frequentlyAskedQuestions.md
       - title: API Glossary
