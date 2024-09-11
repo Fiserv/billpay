@@ -86,7 +86,7 @@ Reserved for future use.
 | nickname | Opt | string | The nickname for the account, if one exists. Otherwise, returns null. <br> Pattern: ^[a-zA-Z0-9_(){}&@!+#.'\$, \%\*-]{1,30}$ |
 | accountBalance | Opt | double | The account balance. Reserved for future use. |
 | isPreferred | Req | boolean | Indicates if the account is the preferred account. The preferred account flag indicates the consumer’s preferred choice of bank account used to fund bill payment transactions. |
-| unmaskedAccountNumberUri | Req | string | Link to the unmasked account number for the account. See “[Get an Unmasked Bank Account Number]("#get-an-unmasked-bank-account-number").” |
+| unmaskedAccountNumberUri | Req | string | Link to the unmasked account number for the account. See “[Get an Unmasked Bank Account Number (consumer scoped)](?path=docs/apiDomains/bankAccounts.md&branch=develop#get-an-unmasked-bank-account-number-consumer-scoped).” |
 | routingTransitNumber | Req | string | Routing and transit number for the bank account. Length: 9 <br> Pattern: ^[0-9]{9}$ |
 | isBusiness | Req | boolean | Indicates if the account is a business account. True if it is a business account. |
 | businessName | Cond | string | When isBusiness is true, this is the name of the business. <br> Pattern: ^[a-zA-Z0-9_(){}&@!+#.'$,%^ \*-]\* |
@@ -173,7 +173,7 @@ Reserved for future use.
 |-----------|-----|-----------|-------------|
 | transactionTypes | Req | Array of string | The payment structure for the automatic transaction. Valid values: <br> FixedAmount <br> AmountDue <br> MinimumAmountDue <br> AccountBalance |
 | transactionInitiationTypes | Req | Array of string | Specifies when a transaction should be generated based on bill information. Valid values: <br> DueDate <br> UponReceipt <br> DaysBeforeDueDate |
-| eligibleFundingAccounts | Req | Array of [EligibleFundingAccount]("#eligiblefundingaccount") | A list of eligible funding accounts with the available automatic transaction options. |
+| eligibleFundingAccounts | Req | Array of [EligibleFundingAccount](#eligiblefundingaccount) | A list of eligible funding accounts with the available automatic transaction options. |
 
 #### BillerInfo
 
@@ -319,7 +319,7 @@ Reserved for future use.
 | Parameter | Req | Data Type | Description |
 |-----------|-----|-----------|-------------|
 | trialPeriodDays | Cond | integer | Duration of the trial period. Condition: In the request, paperSuppressionOption is Trial. |
-| activationState | Req | string | Determines the state of the e-bill activation request transaction. This is not provided if the request is not able to be processed. ActivationState represents the different states of an e-bill activation request transaction. The initial state is Pending. All Pending requests are submitted to the biller for approval. The biller will either accept or reject the e-bill activation request. E-bill activation requests that have been accepted by the biller are set to an Accepted state. Those that are rejected will be set to a Rejected state. Valid values: <br> Pending <br> Accepted <br> Rejected <br> NotApplicable <br> <br> NotApplicable is returned when transaction processing failed, stopped, or was cancelled internally, so the transaction state cannot be updated. The calling application/UI should consider this as a failed state. |
+| activationState | Req | string | Determines the state of the e-bill activation request transaction. This is not provided if the request is not able to be processed. ActivationState represents the different states of an e-bill activation request transaction. The initial state is Pending. All Pending requests are submitted to the biller for approval. The biller will either accept or reject the e-bill activation request. E-bill activation requests that have been accepted by the biller are set to an Accepted state. Those that are rejected will be set to a Rejected state. Valid values: <br> Pending <br> Accepted <br> Rejected <br> NotApplicable <br> <br> NotApplicable is returned when transaction processing failed, stopped, or was canceled internally, so the transaction state cannot be updated. The calling application/UI should consider this as a failed state. |
 | activationStateMessage | Opt | string | Optional message that may be associated with the activationState. |
 | self | Req | string | The URI to access the e-bill service item. |
 | id | Req | string | The ID of the e-bill service item. | 
@@ -409,6 +409,44 @@ Reserved for future use.
 | logoUri          | Opt | string                               | URL for the payee logo.                               |
 | payeeList        | Opt | Array of [PayeeDetail](#payeedetail) |                                                       |
 
+#### MessageDetail
+| Parameter        | Req | Data Type                            | Description                                           |
+|------------|-----|-------|-------------------------------------------------|
+| tmsCreated | Req | string | Timestamp when the message was created. Must contain a valid timestamp in the format yyyy-mm-dd hh:mm:ss |
+| fromName | Opt | string | Sender of the message. Length: 1-32 |
+| inquiryReasonCode | Req | string | Reason for the transaction inquiry. Valid values: <br> PaymentNotCredited <br> PaymentCreditedLate <br> PaymentQuestion <br> WrongAmount <br> PaymentProcessingQuestion <br> PaymentCancelQuestion <br> Other |
+| isRead | Req | boolean | Indicates if the message has been read. |
+| messageDirection | Req | string | Direction of the message. Valid values: <br> Inbound <br> Outbound |
+| messageType | Req | string | Product message category. Valid values: <br> TransactionInquiry <br> General |
+| replyText | Opt | string | Text in reply to the original message. |
+| subject | Opt | string | Subject line of the message. Max length: 60 |
+| text | Opt | string | Text of the message. Max length: 2000 |
+| toName | Opt | string | Recipient of the message. Length: 1-32 |
+| transactionId | Cond | string | Unique transaction identifier. Condition: Required if message is a TransactionInquiry. Not allowed if message is a General inquiry. |
+| self | Req | string | The URI to the message resource. |
+| id | Req | string | Unique message identifier. |
+
+#### MessageSummary
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| tmsCreated | Req | string | Timestamp when the message was created. Must contain a valid timestamp in the format yyyy-mm-dd hh:mm:ss |
+| fromName | Opt | string | Sender of the message. Length: 1-32 |
+| isRead | Req | boolean | Indicates if the message has been read. |
+| messageDirection | Req | string | Direction of the message. Valid values: <br> Inbound <br> Outbound |
+| messageId | Req | string | Unique message identifier. |
+| messageUri | Req | string | The URI to the message resource. |
+| messageType | Req | string | Product message category. Valid values: <br> TransactionInquiry <br> General |
+| subject | Opt | string | Subject line of the message. Max length: 60 |
+| toName | Opt | string | Recipient of the message. Length: 1-32 |
+| messageThreadId | Opt | string | Message identifier for the original message. This identifier is used to associate messages related to the original message. |
+
+#### MessagesInfoOutput
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| readCount | Req | integer | Number of messages that have been read. |
+| unreadCount | Req | integer | Number of messages that have not been read. |
+| messageSummary | Cond | Array of [MessageSummary](#messagesummary) | Condition: Return when returnCountsOnly is false or not provided. |
+
 #### Name
 
 | Parameter | Req | Data Type | Description |
@@ -435,7 +473,7 @@ Reserved for future use.
 | name | Req | string | The name of the payee. <br> Length: 2–32 |
 | nickname | Opt | string | The nickname of the payee. Only populated if provided by the consumer. <br> Length: 1-30 |
 | maskedAccountNumber | Cond | string | The masked account number for the payee. Not applicable for payees added as individuals. <br> Length: 1–32 <br> Condition: Populated only if the consumer has provided an account number when adding the payee. |
-| unmaskedAccountNumberUri | Cond | string | The URI to the full, unmasked account number. See “[Get a Payee’s Unmasked Account Number](#get-a-payees-unmasked-account-number).” <br> Not applicable for payees added as individuals. <br> Condition: Populated only if the consumer has provided an account number when adding the payee. |
+| unmaskedAccountNumberUri | Cond | string | The URI to the full, unmasked account number. See “[Get a Payee’s Unmasked Account Number](?path=docs/apiDomains/payees.md&branch=develop#get-a-payees-unmasked-account-number).” <br> Not applicable for payees added as individuals. <br> Condition: Populated only if the consumer has provided an account number when adding the payee. |
 | category | Opt | string | The consumer-defined category of the payee. Applies to bill payment payees only. |
 | contactPhoneNumber | Opt | string | Phone number used to contact the payee if there are issues posting the payment. |
 | merchantUri | Opt | string | The URI to access the merchant directly. |
@@ -553,7 +591,7 @@ Reserved for future use.
 | Parameter                | Req | Data Type                                        | Description                                                                                                                                                                                |
 |--------------|-----|----------|---------------------------------------------|
 | maskedAccountNumber      | Opt | string                                           | Consumer’s masked account number with the merchant. Length: 1–32. Only the last 4 digits are displayed.                                                                                    |
-| unmaskedAccountNumberUri | Opt | string                                           | The URI to the full unmasked account number. See “[Get a Potential Payee’s Unmasked Account Number](#get-a-potential-payees-unmasked-account-number).”                                     |
+| unmaskedAccountNumberUri | Opt | string                                           | The URI to the full unmasked account number. See “[Get a Potential Payee’s Unmasked Account Number](?path=docs/apiDomains/potentialPayees.md&branch=develop#get-a-potential-payees-unmasked-account-number).”                                     |
 | additionalInfoRequired   | Req | boolean                                          | Indicates that additional information is required using VerificationToken information.                                                                                                     |
 | merchantData             | Req | [MerchantData](#merchantdata)                    | Information about the merchant found.                                                                                                                                                      |
 | verificationTokens       | Opt | Array of [VerificationToken](#verificationtoken) | Array of verification token information that the consumer needs to provide to verify the merchant relationship.                                                                            |
@@ -742,7 +780,7 @@ Reserved for future use.
 | destinationUri | Req | string | The destination URI for the given transaction. May identify the payee, bill due alert, and/or e-bill to be paid. <br> If the destination is a payee, the payee must exist and be active for the consumer. <br> If the destination is an e-bill, the e-bill ID must be a valid e-bill ID for the consumer. |
 | withdrawNow | Opt | boolean | Reserved for future use. |
 | memo | Opt | string | Transaction memo. Maximum of 34 characters. |
-| cavv | Opt | string | Placeholder for 3-D Secure. Cardholder Authentication Verification Value. Used if the transaction is funded by a card account and the institution is participating in 3-D Secure. |
+
 
 #### TransactionCalendar
 
@@ -758,6 +796,29 @@ Reserved for future use.
 | Parameter    | Req | Data Type                                                    | Description                                                                  |
 |---------|----|-----------|-------------------------------------------------|
 | transactions | Req | Array of [TransactionOutputDetail](#transactionoutputdetail) | List of transactions. There is an empty array if there is no data to return. |
+
+#### TransactionListV2
+
+| Parameter    | Req | Data Type                                                    | Description                                                                  |
+|---------|----|-----------|-------------------------------------------------|
+| transactions | Req | Array of [TransactionOutputDetailV2](#transactionoutputdetailv2) | List of transactions. There is an empty array if there is no data to return. |
+
+#### TransactionModifyOutput
+
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| self | Cond | string | URI pointing to the transaction itself. Condition: Always returned for a successful response. |
+| id | Cond | string | Unique identifier for the transaction. Condition: Always returned for a successful response. |
+| confirmationNumber | Cond | string | Confirmation number for the payment transaction. Condition: Always returned for a successful response. |
+| deliveryMethod | Cond | string | The delivery method for the transaction if the transaction has been processed. Valid values: "Electronic" "Paper" Condition: If the payment fails risk, deliveryMethod is not returned. |
+| status | Cond | string | The status of the payment transaction. Valid values: "Pending", "Complete", “InProcess”, "Failed", "Canceled" Condition: Always returned for a successful response. |
+| statusUri | Cond | string | The URI to access the transaction status information. Condition: Always returned for a successful response. |
+| deliveryDate | Cond | string | The transaction expected delivery date, populated for pending and completed transactions. Format: yyyy-MM-dd Condition: If the payment fails risk, deliveryDate is not returned. |
+| cancelUri | Cond | string | The URI to access the transaction cancellation (if any). Condition: Returned if payment can be canceled. Only Pending payments can be canceled. <br> Condition: If the payment fails risk, cancelUri is not returned. |
+| transactionType | Cond | string | Type of transaction. Valid values: Standard, Overnight, Expedited <br> Condition: If the payment fails risk, transactionType is not returned. |
+| deliveryTrackingNumber | Cond | string | Tracking number of the transaction. Condition: If the payment fails risk, deliveryTrackingNumber is not returned. |
+| nextAvailableTransactionDate | Cond | string | Next available transaction date. Condition: Returned only if the payment fails risk (transaction date is too early). |
+| legacyTransactionId | Req | string | Server transaction timestamp. |
 
 #### TransactionOptions
 
@@ -787,22 +848,6 @@ Reserved for future use.
 | debitDate | Cond | string | Date that the consumer’s account is to be debited. Format: yyyy-MM-dd <br> Condition: Always returned for successful response. |
 | legacyTransactionId | Req | string | Server transaction timestamp. |
 
-#### TransactionModifyOutput
-
-| Parameter | Req | Data Type | Description |
-|-----------|-----|-----------|-------------|
-| self | Cond | string | URI pointing to the transaction itself. Condition: Always returned for a successful response. |
-| id | Cond | string | Unique identifier for the transaction. Condition: Always returned for a successful response. |
-| confirmationNumber | Cond | string | Confirmation number for the payment transaction. Condition: Always returned for a successful response. |
-| deliveryMethod | Cond | string | The delivery method for the transaction if the transaction has been processed. Valid values: "Electronic" "Paper" Condition: If the payment fails risk, deliveryMethod is not returned. |
-| status | Cond | string | The status of the payment transaction. Valid values: "Pending", "Complete", “InProcess”, "Failed", "Canceled" Condition: Always returned for a successful response. |
-| statusUri | Cond | string | The URI to access the transaction status information. Condition: Always returned for a successful response. |
-| deliveryDate | Cond | string | The transaction expected delivery date, populated for pending and completed transactions. Format: yyyy-MM-dd Condition: If the payment fails risk, deliveryDate is not returned. |
-| cancelUri | Cond | string | The URI to access the transaction cancellation (if any). Condition: Returned if payment can be canceled. Only Pending payments can be canceled. <br> Condition: If the payment fails risk, cancelUri is not returned. |
-| transactionType | Cond | string | Type of transaction. Valid values: Standard, Overnight, Expedited <br> Condition: If the payment fails risk, transactionType is not returned. |
-| deliveryTrackingNumber | Cond | string | Tracking number of the transaction. Condition: If the payment fails risk, deliveryTrackingNumber is not returned. |
-| nextAvailableTransactionDate | Cond | string | Next available transaction date. Condition: Returned only if the payment fails risk (transaction date is too early). |
-| legacyTransactionId | Req | string | Server transaction timestamp. |
 
 #### TransactionOutputDetail
 
@@ -830,6 +875,35 @@ Reserved for future use.
 | deliveryTrackingNumber | Opt | string | Tracking number of the transaction. Only populated for a transaction with the transaction type Overnight. |
 | legacyTransactionId | Req | string | Server transaction timestamp. |
 | checkNumber | Cond | integer | Check number corresponding to completed paper payment. Condition: This is returned when the status of the transaction is Complete and the delivery method is Paper. |
+| clearedCheckDate | Opt | string | Date that the check has cleared. Applies to corporate checks only. |
+
+#### TransactionOutputDetailV2
+
+| Parameter | Req | Data Type | Description |
+|-----------|-----|-----------|-------------|
+| amount | Req | number | The amount of the transaction. |
+| automaticTransactionUri | Opt | string | The URI to the automatic transaction model. If this field is populated, this payment transaction is recurring. |
+| billItemUri | Opt | string | The URI to the bill item associated with this transaction. Populated only if the payment is associated with an e-bill or bill store item. | 
+| debitDate | Opt | string | Date that the consumer’s account was or is to be debited. Format: yyyy-MM-dd |
+| fee | Opt | number | The fee amount for this transaction. |
+| fundingAccountUri | Req | string | The source funding account URI for the given transaction. |
+| note | Opt | string | A consumer’s “note to self.” This note is not submitted to the payee. |
+| memo | Opt | string | Memo describing the payment. This text will be printed on the check sent to the payee for this payment. A payment memo is only used for payments that are to be processed via a paper check. |
+| modifiableFields | Opt | Array of string | List of fields that can be changed for the transaction. For transactions that are in Pending status only. |
+| payeeUri | Req | string | The URI to the payee that this transaction is associated with. |
+| self | Cond | string | Relative Universal Resource Identifier pointing to the payment transaction itself. Condition: Always returned for successful response |
+| id | Cond | string | Unique identifier of the payment transaction. Condition: Always returned for successful response |
+| confirmationNumber | Req | string | Confirmation number for the payment transaction. |
+| deliveryMethod | Opt | string | The delivery method for the transaction if the transaction has been processed. Valid values: "Electronic", "CorporateCheck", “DraftCheck” |
+| status | Req | string | The status of the payment transaction. Valid values: "Pending", "Complete", “InProcess”, "Failed", "Canceled" <br> Typically, immediately upon the scheduling of a transaction, it will be in the Pending status. This is not the case when the transaction is scheduled as expedited SameDay, or if the transaction is funded by credit card (future release) or debit card for payment in the next five processing days. In those cases, the transaction is scheduled directly to InProcess. When a Pending transaction's delivery date becomes within the payee’s lead days (how long it takes to route the money given the delivery method), it moves to InProcess. When the funds are successfully delivered to the transaction destination, the status becomes Completed. If those funds are not delivered successfully, it instead becomes Failed. Finally, if the transaction is successfully canceled in the flow, it transitions to the Canceled status. |
+| statusUri | Req | string | The URI to access the transaction status information. |
+| deliveryDate | Opt | string | The transaction expected delivery date, populated for pending and completed transactions. Format: yyyy-MM-dd |
+| cancelUri | Cond | string | The URI to access the transaction cancellation (if any). <br> Condition: Returned if payment can be canceled. This field should always be populated if a transaction is in Pending status. This field will also be populated if a transaction is funded by credit card (future release) or debit card, and the status is InProcess. |
+| transactionType | Opt | string | Type of transaction. Valid values: Standard, Overnight, Expedited, ServiceFee <br> - If a transaction is scheduled to be paid with an overnight check, then the transaction type is Overnight. <br> - If a transaction is a SameDay electronic payment, then the type is Expedited. <br> - If a transaction corresponds to a service fee charged by an FI to a user, then the transaction type is ServiceFee. <br> <br> Otherwise, regardless of whether the transaction is sent electronically or as a paper check, or whether it is funded by a bank account or a card, it will have a transaction type of Standard. |
+| deliveryTrackingNumber | Opt | string | Tracking number of the transaction. Only populated for a transaction with the transaction type Overnight. |
+| legacyTransactionId | Req | string | Server transaction timestamp. |
+| checkNumber | Cond | integer | Check number corresponding to completed paper payment. Condition: This is returned when the status of the transaction is Complete and the delivery method is CorporateCheck or DraftCheck. Check numbers for draft checks include the check number prefix if there is one identified at the sponsor level. |
+| clearedCheckDate | Opt | string | Date that the check has cleared. Applies to corporate checks only. |
 
 #### TransactionOutputIpsListItemResponse
 
@@ -889,7 +963,7 @@ Reserved for future use.
 |--------------|-----|----------|---------------------------------------------|
 | payeeUri                 | Opt | string                                           | Provides a link to that payee resource. Provided when the potential payee matches an existing payee on the bill payment system.                        |
 | maskedAccountNumber      | Opt | string                                           | Consumer’s masked account number with the merchant. Length: 1–32. Only the last 4 digits are displayed.                                                |
-| unmaskedAccountNumberUri | Opt | string                                           | The URI to the full unmasked account number. See “[Get a Potential Payee’s Unmasked Account Number](#get-a-potential-payees-unmasked-account-number).” |
+| unmaskedAccountNumberUri | Opt | string                                           | The URI to the full unmasked account number. See “[Get a Potential Payee’s Unmasked Account Number](?path=docs/apiDomains/potentialPayees.md#&branch=develop#get-a-potential-payees-unmasked-account-number).” |
 | additionalInfoRequired   | Req | boolean                                          | Indicates that additional information is required using VerificationToken information.                                                                 |
 | merchantData             | Req | [MerchantData](#merchantdata)                    | Information about the merchant found.                                                                                                                  |
 | verificationTokens       | Opt | Array of [VerificationToken](#verificationtoken) | Array of verification token information that the consumer needs to provide to verify the merchant relationship.                                        |

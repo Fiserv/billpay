@@ -25,8 +25,8 @@ also be returned.
 
 | Parameter | Req | Data Type                                     | Description                                                    |
 |---------|----|-----------|-------------------------------------------------|
-| data      | Req | [PayeeGroupListOutput](#payeegrouplistoutput) | List of payee groups. If there are no groups, 204 is returned. |
-| result    | Req | [ResultType](#resulttype)                     | Result information.                                            |
+| data      | Req | [PayeeGroupListOutput](?path=docs/apiDomains/complexObjects.md&branch=develop#payeegrouplistoutput) | List of payee groups. If there are no groups, 204 is returned. |
+| result    | Req | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                     | Result information.                                            |
 
 ### Sample API Usage
 
@@ -70,15 +70,15 @@ want to display the group or not.
 | Parameter | Req | Param Type | Data Type | Description |
 |-----------|-----|------------|-----------|-------------|
 | isVisible | Req | body | boolean | Indicates whether whether the payee group will be displayed. <br> True - Payee group will be displayed. This is the default. <br> False - Payee group will not be displayed. |
-| name | Req | body | string | Unique name for the payee group to be added. Length: 1-32 <br> Pattern: ^\[\x20-\x5A\x5C\x5F-\x7E\]+$ |
-| payeeGroupInfo | Opt | body | Array of [PayeeGroupPayeeItem](#payeegrouppayeeitem) | A list of payees to assign to the group. Any payees found to be invalid will not be added to the group. A warning will be returned in this case. |
+| name | Req | body | string | Unique name for the payee group to be added. Length: 1-32 <br> Pattern: ^\(\x26\(?\!\x23\)\|\[\x20-\x25\x27\x2A-\x2F\x30-\x39\x3A\x3B\x3F\x40-\x5A\x5C\x5F\x61-\x7E\]\)+$ <br> Note: Cannot contain any of the following cross-site scripting special characters: <>=() and cannot contain the characters 0x26 (&) and 0x23 (#) in the sequence &# |
+| payeeGroupInfo | Opt | body | Array of [PayeeGroupPayeeItem](?path=docs/apiDomains/complexObjects.md&branch=develop#payeegrouppayeeitem) | A list of payees to assign to the group. Any payees found to be invalid will not be added to the group. A warning will be returned in this case. |
 
 ### Response
 
 | Parameter | Req  | Data Type                             | Description                                                      |
 |------------|-----|----------|-----------------------------------------------|
-| data      | Cond | [PayeeGroupOutput](#payeegroupoutput) | Response data. Condition: Required when payeeGroupInfo provided. |
-| result    | Req  | [ResultType](#resulttype)             | Result information.                                              |
+| data      | Cond | [PayeeGroupOutput](?path=docs/apiDomains/complexObjects.md&branch=develop#payeegroupoutput) | Response data. Condition: Required when payeeGroupInfo provided. |
+| result    | Req  | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)             | Result information.                                              |
 
 ### Sample API Usage
 
@@ -141,15 +141,15 @@ add the payee to the appropriate group.
 |-----------|-----|------------|-----------|-------------|
 | id | Req | path | string | Identifier for the payee group. |
 | isVisible | Req | body | boolean | Indicates whether whether the payee group will be displayed. <br> True - Payee group will be displayed. This is the default. <br> False - Payee group will not be displayed. |
-| name | Req | body | string | Unique name for the payee group. Length: 1-32 <br> Pattern: ^\[\x20-\x5A\x5C\x5F-\x7E\]+$ |
-| payeeGroupInfo | Opt | body | Array of [PayeeGroupPayeeItem](#payeegrouppayeeitem) | A list of payees to assign to the group. Any payees to be added to or retained in the group should be provided in this array. <br> Note that the following actions will remove **all** payees from a group: <br> - Submitting an empty array <br> - Submitting an array specifying “null” <br> - Not submitting an array. <br> Any payees found to be invalid will not be added to the group. A warning will be returned in this case. | 
+| name | Req | body | string | Unique name for the payee group. Length: 1-32 <br> Pattern: ^\(\x26\(?\!\x23\)\|\[\x20-\x25\x27\x2A-\x2F\x30-\x39\x3A\x3B\x3F\x40-\x5A\x5C\x5F\x61-\x7E\]\)+$ <br> Note: Cannot contain any of the following cross-site scripting special characters: <>=() and cannot contain the characters 0x26 (&) and 0x23 (#) in the sequence &# |
+| payeeGroupInfo | Opt | body | Array of [PayeeGroupPayeeItem](?path=docs/apiDomains/complexObjects.md&branch=develop#payeegrouppayeeitem) | A list of payees to assign to the group. Any payees to be added to or retained in the group should be provided in this array. <br> Note that the following actions will remove **all** payees from a group: <br> - Submitting an empty array <br> - Submitting an array specifying “null” <br> - Not submitting an array. <br> Any payees found to be invalid will not be added to the group. A warning will be returned in this case. | 
 
 ### Response
 
 | Parameter | Req  | Data Type                                   | Description                                                                                                                                  |
 |------------|-----|-----------|----------------------------------------------|
-| data      | Cond | [PutPayeeGroupOutput](#putpayeegroupoutput) | Response data. Condition: Required when payeeGroupInfo provided.                                                                             |
-| result    | Cond | [ResultType](#resulttype)                   | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
+| data      | Cond | [PutPayeeGroupOutput](?path=docs/apiDomains/complexObjects.md&branch=develop#putpayeegroupoutput) | Response data. Condition: Required when payeeGroupInfo provided.                                                                             |
+| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype)                   | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
 
 ### Sample API Usage
 
@@ -226,7 +226,7 @@ longer assigned to any particular group).
 
 | Parameter | Req  | Data Type                 | Description                                                                                                                                  |
 |------------|------|-------|-----------------------------------------------|
-| result    | Cond | [ResultType](#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
+| result    | Cond | [ResultType](?path=docs/apiDomains/complexObjects.md&branch=develop#resulttype) | Result associated with the request. Condition: Only returned when the request fails. No content returned for success (HTTP status code 204). |
 
 ### Sample API Usage
 

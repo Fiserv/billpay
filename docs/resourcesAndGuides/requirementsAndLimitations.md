@@ -12,7 +12,7 @@ Practices, and Performance Considerations*.
 
 In order to deliver an efficient implementation, clients must implement
 caching. Data returned from GET operations must be cached within the
-client’s implementation.
+client's implementation.
 
 When data is changed, clients should invalidate all appropriate
 resources that have been cached. As an example, after a POST
