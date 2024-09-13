@@ -206,7 +206,7 @@ payee.
 
 ### Method and Endpoint
 
-| GET | /api/v1/me/PotentialPayees/{id}/Verify |
+| PUT | /api/v1/me/PotentialPayees/{id}/Verify |
 |-----|----------------------------------------|
 
 ### Request
