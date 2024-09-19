@@ -3802,7 +3802,7 @@ paths:
       x-proxy-name: Delete Reminders
       x-child-product-name: Reminders 
       summary: Allows user to delete existing reminder model
-      descritpion: Allows user to delete existing reminder model.
+      description: Allows user to delete existing reminder model.
       operationId: DeleteReminders
       parameters:
         - name: id
