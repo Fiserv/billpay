@@ -2782,7 +2782,7 @@ paths:
                       code: '0000'
                       description: Success.
   /api/v1/me/payees/{id}/ebillService:
-     get:
+    get:
       tags:
         - Payees
       x-group-name: Payees
