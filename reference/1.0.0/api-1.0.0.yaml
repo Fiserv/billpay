@@ -2782,6 +2782,88 @@ paths:
                       code: '0000'
                       description: Success.
   /api/v1/me/payees/{id}/ebillService:
+     get:
+      tags:
+        - Payees
+      x-group-name: Payees
+      x-proxy-name: Get Ebill Service Details
+      x-child-product-name: Payees
+      summary: Retrieves information on a payee that has been activated for ebill service.
+      description: Retrieves information on a payee that has been activated for ebill service. 
+      operationId: GetEbillService
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EbillAccountDetailIpsResponse'
+              example:
+                autoActivationType: EZActivation
+                activationType: AutoActivation
+                billerThumbnailImageUrl: /api/v1/me/payees/ThumbnailImage1.jpg
+                billTransactionScheduleEligible: true
+                emailAddressShare: true
+                firstEbillReceived: true
+                name:
+                  first: John
+                  last: Smith
+                isTrialPeriod: true
+                paperProcessingStatus: PaperBillsStillSent
+                paperSuppressionIncentiveMessage: PaperSuppressionIncentiveMessage
+                paperSuppressionTermsUrl: /api/v1/me/payees/f45da2f55efa402e88a14259438adf00/ebillService/paperSuppressionTerms
+                promptPaperSuppression: true
+                serviceAddress:
+                  address1: 6000 Perimeter Drive
+                  address2: Mailbox 1034
+                  city: Dublin
+                  state: OH
+                  zipCode: '43017'
+                serviceBusinessName: Biller AT&T
+                serviceDaytimePhoneNumber: '85565465464'
+                serviceEveningPhoneNumber: '85565465464'
+                serviceHolderType: Business
+                status: Active
+                trialPeriodEnd: '2024-07-30'
+                trialPeriodStart: '2024-07-23'
+                transactionScheduleTypesSupported:
+                  - AccountBalance
+                  - AmountDue
+                self: /api/v1/me/payees/f45da2f55efa402e88a14259438adf00/ebillService
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectIpsResponse'
+              example:
+                result:
+                  success: true
+                  resultInfo:
+                    - resultCategory: Info
+                      code: '0000'
+                      description: Success.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectIpsResponse'
+              example:
+                result:
+                  success: true
+                  resultInfo:
+                    - resultCategory: Info
+                      code: '0000'
+                      description: Success.
     post:
       tags:
         - Payees
@@ -3096,89 +3178,6 @@ paths:
                       code: '0000'
                       description: Success.
             text/json:
-              schema:
-                $ref: '#/components/schemas/ObjectIpsResponse'
-              example:
-                result:
-                  success: true
-                  resultInfo:
-                    - resultCategory: Info
-                      code: '0000'
-                      description: Success.
-  /api/v1/me/payees/{id}/ebillService:  
-    get:
-      tags:
-        - Payees
-      x-group-name: Payees
-      x-proxy-name: Get Ebill Service Details
-      x-child-product-name: Payees
-      summary: Retrieves information on a payee that has been activated for ebill service.
-      description: Retrieves information on a payee that has been activated for ebill service. 
-      operationId: GetEbillService
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/EbillAccountDetailIpsResponse'
-              example:
-                autoActivationType: EZActivation
-                activationType: AutoActivation
-                billerThumbnailImageUrl: /api/v1/me/payees/ThumbnailImage1.jpg
-                billTransactionScheduleEligible: true
-                emailAddressShare: true
-                firstEbillReceived: true
-                name:
-                  first: John
-                  last: Smith
-                isTrialPeriod: true
-                paperProcessingStatus: PaperBillsStillSent
-                paperSuppressionIncentiveMessage: PaperSuppressionIncentiveMessage
-                paperSuppressionTermsUrl: /api/v1/me/payees/f45da2f55efa402e88a14259438adf00/ebillService/paperSuppressionTerms
-                promptPaperSuppression: true
-                serviceAddress:
-                  address1: 6000 Perimeter Drive
-                  address2: Mailbox 1034
-                  city: Dublin
-                  state: OH
-                  zipCode: '43017'
-                serviceBusinessName: Biller AT&T
-                serviceDaytimePhoneNumber: '85565465464'
-                serviceEveningPhoneNumber: '85565465464'
-                serviceHolderType: Business
-                status: Active
-                trialPeriodEnd: '2024-07-30'
-                trialPeriodStart: '2024-07-23'
-                transactionScheduleTypesSupported:
-                  - AccountBalance
-                  - AmountDue
-                self: /api/v1/me/payees/f45da2f55efa402e88a14259438adf00/ebillService
-        '204':
-          description: No Content
-        '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ObjectIpsResponse'
-              example:
-                result:
-                  success: true
-                  resultInfo:
-                    - resultCategory: Info
-                      code: '0000'
-                      description: Success.
-        '403':
-          description: Forbidden
-          content:
-            application/json:
               schema:
                 $ref: '#/components/schemas/ObjectIpsResponse'
               example:
