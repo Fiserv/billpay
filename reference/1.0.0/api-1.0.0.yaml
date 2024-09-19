@@ -3105,6 +3105,7 @@ paths:
                     - resultCategory: Info
                       code: '0000'
                       description: Success.
+  /api/v1/me/payees/{id}/ebillService:  
     get:
       tags:
         - Payees
