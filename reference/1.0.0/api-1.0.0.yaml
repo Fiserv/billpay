@@ -12,7 +12,8 @@ paths:
       x-group-name: Automatic Transactions
       x-proxy-name: List Automatic Transactions
       x-child-product-name: AutomaticTransactions
-      summary: Gets a list of automatic transactions for the specified tenant/user combination
+      summary: Returns list of automatic transactions.
+      description: Returns list of automatic transactions.
       operationId: GetAutomaticTransactions
       parameters:
         - name: pageSize
@@ -190,8 +191,8 @@ paths:
       x-group-name: Automatic Transactions
       x-proxy-name: Create Automatic Transaction
       x-child-product-name: AutomaticTransactions
-      summary: Creates a new automatic transaction using the given AutomaticTransaction object
-      description: Note that there can be multiple automatic transactions associated with a single payee
+      summary: Sets up a new automatic model for single payee.
+      description: Sets up a new automatic model for single payee.
       operationId: PostAutomaticTransaction
       requestBody:
         description: ''
@@ -330,7 +331,8 @@ paths:
       x-group-name: Automatic Transactions
       x-proxy-name: Get Automatic Transaction
       x-child-product-name: AutomaticTransactions
-      summary: Gets an automatic transaction given an automatic transaction ID
+      summary: Returns an automatic transaction given an automatic transaction ID.
+      description: Returns an automatic transaction given an automatic transaction ID.
       operationId: GetAutomaticTransactions
       parameters:
         - name: automaticTransactionId
@@ -388,8 +390,8 @@ paths:
       x-group-name: Automatic Transactions
       x-proxy-name: Delete Automatic Transaction
       x-child-product-name: AutomaticTransactions
-      summary: Deletes an existing automatic transaction model that the user owns.
-      description: "Deletes a user's automatic transaction model.\r\nThe operation takes an optional query parameter to determine whether or not spawned, pending transactions should be canceled.\r\nIf the query parameter is not submitted, it defaults to false, and no transactions are canceled."
+      summary: Deletes an automatic transaction model.<br>The operation takes an optional query parameter to determine whether or not spawned, pending transactions should be canceled. If the query parameter is not submitted, it defaults to false, and no transactions are canceled.
+      description: Deletes an automatic transaction model.<br>The operation takes an optional query parameter to determine whether or not spawned, pending transactions should be canceled. If the query parameter is not submitted, it defaults to false, and no transactions are canceled.
       operationId: DeleteAutomaticTransaction
       parameters:
         - name: automaticTransactionId
@@ -444,7 +446,8 @@ paths:
       x-group-name: Automatic Transactions
       x-proxy-name: Update Automatic Transaction
       x-child-product-name: AutomaticTransactions
-      summary: "The Automatic Transactions Patch API enables changes to be done to an automatic transaction that has been already set up.\r\nOnly the Delta changes are send in the request."
+      summary: Enables changes to be done to an automatic transaction that has been already set up.\r\nOnly the Delta changes are sent in the request.
+      description: Enables changes to be done to an automatic transaction that has been already set up.\r\nOnly the Delta changes are sent in the request.
       operationId: PatchAutomaticTransaction
       parameters:
         - name: automaticTransactionId
@@ -507,6 +510,572 @@ paths:
                     - resultCategory: Info
                       code: '0000'
                       description: Success.
+  /api/v1/me/bankAccounts:
+    get:
+      tags:
+        - BankAccounts
+      x-group-name: Bank Accounts
+      x-proxy-name: Get Bank Accounts List
+      x-child-product-name: BankAccounts
+      summary: Retrieves bank accounts list for a user.
+      description: Retrieves bank accounts list for a user.
+      operationId: GetBankAccountsAsync
+      parameters:
+        - name: returnInactiveBankAccounts
+          in: query
+          description: "If true all bank accounts will be returned.\r\n            If false only active accounts will be returned. \r\n            If not present then by default only active accounts will be returned."
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankAccountGetModelListIpsResponse'
+              example:
+                data:
+                  - self: /api/v1/me/bankAccounts/3d815ada-f061-4188-9999-2b993fe8cef2
+                    id: 3d815ada-f061-4188-9999-2b993fe8cef2
+                    modifiableFields:
+                      - nickname
+                      - businessName
+                      - primaryAccountOwner
+                      - secondaryAccountOwner
+                      - checkPrintAddress
+                      - checkPrintAddressInternational
+                    accountType: Checking
+                    maskedAccountNumber: '**********1212'
+                    nickname: Sam-T
+                    accountBalance: 200
+                    isPreferred: true
+                    unmaskedAccountNumberUri: /api/v1/me/bankAccounts/3d815ada-f061-4188-9999-2b993fe8cef2/accountnumber
+                    routingTransitNumber: '031000859'
+                    isBusiness: true
+                    businessName: Biller AT&T
+                    primaryAccountOwner: John
+                    secondaryAccountOwner: James Bond
+                    confirmationStatus: Confirmed
+                    accountStatus: Active
+                    checkPrintAddress:
+                      address1: 6000 Perimeter Drive
+                      address2: Mailbox 1034
+                      city: Dublin
+                      state: OH
+                      zipCode: '43017'
+                    checkPrintAddressInternational:
+                      address1: 1010 EASY ST
+                      address2: Mailbox 456
+                      city: OTTAWA
+                      countryCode: CA
+                      postalCode: K1A 0B1
+                      provinceName: ONTARIO
+                      state: NW
+                  - self: /api/v1/me/bankAccounts/fe746de3-0a79-45d8-9aa8-5f809c885450
+                    id: fe746de3-0a79-45d8-9aa8-5f809c885450
+                    modifiableFields:
+                      - nickname
+                      - isPreferred
+                      - primaryAccountOwner
+                      - secondaryAccountOwner
+                      - checkPrintAddress
+                      - checkPrintAddressInternational
+                    accountType: Savings
+                    maskedAccountNumber: '**********1242'
+                    nickname: AT
+                    accountBalance: 109
+                    isPreferred: false
+                    unmaskedAccountNumberUri: /api/v1/me/bankAccounts/fe746de3-0a79-45d8-9aa8-5f809c885450/accountnumber
+                    routingTransitNumber: '061213027'
+                    isBusiness: false
+                    primaryAccountOwner: Jane
+                    secondaryAccountOwner: Kennedy
+                    confirmationStatus: Confirmed
+                    accountStatus: Active
+                    checkPrintAddress:
+                      address1: 6000 Perimeter Drive
+                      address2: Mailbox 1034
+                      city: Dublin
+                      state: OH
+                      zipCode: '43017'
+                    checkPrintAddressInternational:
+                      address1: 1010 EASY ST
+                      address2: Mailbox 456
+                      city: OTTAWA
+                      countryCode: CA
+                      postalCode: K1A 0B1
+                      provinceName: ONTARIO
+                      state: NW
+                  - self: /api/v1/me/bankAccounts/5199aa99-5c97-4eec-8eb0-51386f6ed7cf
+                    id: 5199aa99-5c97-4eec-8eb0-51386f6ed7cf
+                    accountType: Savings
+                    maskedAccountNumber: '**********1242'
+                    nickname: ''
+                    isPreferred: true
+                    unmaskedAccountNumberUri: /api/v1/me/bankAccounts/5199aa99-5c97-4eec-8eb0-51386f6ed7cf/accountnumber
+                    routingTransitNumber: ''
+                    isBusiness: false
+                    businessName: ''
+                    primaryAccountOwner: ''
+                    secondaryAccountOwner: ''
+                    confirmationStatus: Confirmed
+                    accountStatus: Historical
+                result:
+                  success: true
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectIpsResponse'
+              example:
+                result:
+                  success: true
+                  resultInfo:
+                    - resultCategory: Info
+                      code: '0000'
+                      description: Success.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectIpsResponse'
+              example:
+                result:
+                  success: true
+                  resultInfo:
+                    - resultCategory: Info
+                      code: '0000'
+                      description: Success.
+  /api/v1/me/bankAccounts/{bankAccountCommonId}:
+    get:
+      tags:
+        - BankAccounts
+      x-group-name: Bank Accounts
+      x-proxy-name: Get Bank Account
+      x-child-product-name: BankAccounts
+      summary: Retrieves the bank account information given a bankAccountId.
+      description: Retrieves the bank account information given a bankAccountId.
+      operationId: GetBankAccountAsync
+      parameters:
+        - name: bankAccountCommonId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankAccountGetModelIEnumerableIpsResponse'
+              example:
+                data:
+                  self: /api/v1/me/bankAccounts/f45da2f55efa402e88a14259438adf00
+                  id: f45da2f55efa402e88a14259438adf00
+                  modifiableFields:
+                    - nickname
+                    - businessName
+                    - primaryAccountOwner
+                    - secondaryAccountOwner
+                    - checkPrintAddress
+                    - checkPrintAddressInternational
+                  accountType: Checking
+                  maskedAccountNumber: '********1234'
+                  nickname: A bank account
+                  accountBalance: 100
+                  isPreferred: true
+                  unmaskedAccountNumberUri: /api/v1/me/bankAccounts/f45da2f55efa402e88a14259438adf00/accountnumber
+                  routingTransitNumber: '031000859'
+                  isBusiness: true
+                  businessName: Biller AT&T
+                  primaryAccountOwner: John
+                  secondaryAccountOwner: James Bond
+                  confirmationStatus: Pending
+                  accountStatus: Pending
+                  checkPrintAddress:
+                    address1: 6000 Perimeter Drive
+                    address2: Mailbox 1034
+                    city: Dublin
+                    state: OH
+                    zipCode: '43017'
+                  checkPrintAddressInternational:
+                    address1: 1010 EASY ST
+                    address2: Mailbox 456
+                    city: OTTAWA
+                    countryCode: CA
+                    postalCode: K1A 0B1
+                    provinceName: ONTARIO
+                    state: NW
+                result:
+                  success: true
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectIpsResponse'
+              example:
+                result:
+                  success: true
+                  resultInfo:
+                    - resultCategory: Info
+                      code: '0000'
+                      description: Success.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectIpsResponse'
+              example:
+                result:
+                  success: true
+                  resultInfo:
+                    - resultCategory: Info
+                      code: '0000'
+                      description: Success.
+    delete:
+      tags:
+        - BankAccounts
+      x-group-name: Bank Accounts
+      x-proxy-name: Delete Bank Account
+      x-child-product-name: BankAccounts
+      summary: Deletes a bank account for a user.
+      description: Deletes a bank account for a user.
+      operationId: DeleteBankAccount
+      parameters:
+        - name: bankAccountCommonId
+          in: path
+          description: Id of the bank account
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectIpsResponse'
+              example:
+                result:
+                  success: true
+                  resultInfo:
+                    - resultCategory: Info
+                      code: '0000'
+                      description: Success.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectIpsResponse'
+              example:
+                result:
+                  success: true
+                  resultInfo:
+                    - resultCategory: Info
+                      code: '0000'
+                      description: Success.
+    patch:
+      tags:
+        - BankAccounts
+      x-group-name: Bank Accounts
+      x-proxy-name: Update Bank Account
+      x-child-product-name: BankAccounts
+      summary: Updates a bank account for a user.
+      description: Updates a bank account for a user.
+      operationId: PatchBankAccountByUser
+      parameters:
+        - name: bankAccountCommonId
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: ''
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/BankAccountPatchRequest'
+            example: '343.00'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BankAccountPatchRequest'
+            example: '343.00'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/BankAccountPatchRequest'
+            example: '343.00'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/BankAccountPatchRequest'
+            example: '343.00'
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectIpsResponse'
+              example:
+                result:
+                  success: true
+                  resultInfo:
+                    - resultCategory: Info
+                      code: '0000'
+                      description: Success.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectIpsResponse'
+              example:
+                result:
+                  success: true
+                  resultInfo:
+                    - resultCategory: Info
+                      code: '0000'
+                      description: Success.
+  /api/v1/me/users/{userId}/bankAccounts/{bankAccountCommonId}:
+    get:
+      tags:
+        - BankAccounts
+      x-group-name: Bank Accounts
+      x-proxy-name: Get Bank Account
+      x-child-product-name: BankAccounts
+      summary: Retrieves the bank account information given a bankAccountId for managed user.
+      description: Retrieves the bank account information given a bankAccountId for managed user.
+      operationId: GetBankAccountByTenantsAsync
+      parameters:
+        - name: userId
+          in: path
+          description: User Id
+          required: true
+          schema:
+            type: string
+        - name: bankAccountCommonId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: idType
+          in: query
+          schema:
+            $ref: '#/components/schemas/UserIdType'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankAccountGetModelIEnumerableIpsResponse'
+              example:
+                data:
+                  self: /api/v1/tenants/25725/users/1/bankAccounts/d21c18c5-c4ac-4076-a727-36ed79adccf8
+                  id: d21c18c5-c4ac-4076-a727-36ed79adccf8
+                  modifiableFields:
+                    - nickname
+                    - businessName
+                    - primaryAccountOwner
+                    - secondaryAccountOwner
+                    - checkPrintAddress
+                    - checkPrintAddressInternational
+                    - bankingOptions
+                  accountType: Checking
+                  maskedAccountNumber: '********1234'
+                  nickname: A bank account
+                  accountBalance: 105
+                  isPreferred: true
+                  unmaskedAccountNumberUri: /api/v1/me/bankAccounts/d21c18c5-c4ac-4076-a727-36ed79adccf8/accountnumber
+                  routingTransitNumber: '031000859'
+                  isBusiness: true
+                  businessName: Biller AT&T
+                  primaryAccountOwner: John
+                  secondaryAccountOwner: James Bond
+                  confirmationStatus: Pending
+                  accountStatus: Active
+                  checkPrintAddress:
+                    address1: 6000 Perimeter Drive
+                    address2: Mailbox 1034
+                    city: Dublin
+                    state: OH
+                    zipCode: '43017'
+                  checkPrintAddressInternational:
+                    address1: 1010 EASY ST
+                    address2: Mailbox 456
+                    city: OTTAWA
+                    countryCode: CA
+                    postalCode: K1A 0B1
+                    provinceName: ONTARIO
+                    state: NW
+                  bankingOptions:
+                    isDownloadTransactionsEnabled: false
+                    isSourceTransferAccount: true
+                    isDestinationTransferAccount: true
+                result:
+                  success: true
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectIpsResponse'
+              example:
+                result:
+                  success: true
+                  resultInfo:
+                    - resultCategory: Info
+                      code: '0000'
+                      description: Success.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectIpsResponse'
+              example:
+                result:
+                  success: true
+                  resultInfo:
+                    - resultCategory: Info
+                      code: '0000'
+                      description: Success.
+    delete:
+      tags:
+        - BankAccounts
+      x-group-name: Bank Accounts
+      x-proxy-name: Delete Bank Account
+      x-child-product-name: BankAccounts
+      summary: Deletes bank account for managed user.
+      description: Deletes bank account for managed user.
+      operationId: DeleteBankAccountByTenant
+      parameters:
+        - name: userId
+          in: path
+          description: Challenger User Id
+          required: true
+          schema:
+            type: string
+        - name: bankAccountCommonId
+          in: path
+          description: Id of the bank account
+          required: true
+          schema:
+            type: string
+        - name: idType
+          in: query
+          schema:
+            $ref: '#/components/schemas/UserIdType'
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectIpsResponse'
+              example:
+                result:
+                  success: true
+                  resultInfo:
+                    - resultCategory: Info
+                      code: '0000'
+                      description: Success.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectIpsResponse'
+              example:
+                result:
+                  success: true
+                  resultInfo:
+                    - resultCategory: Info
+                      code: '0000'
+                      description: Success.
+    patch:
+      tags:
+        - BankAccounts
+      operationId: PatchBankAccountByTenant
+      x-group-name: Bank Accounts
+      x-proxy-name: Update Bank Account
+      x-child-product-name: BankAccounts
+      summary: Updates bank account for managed user.
+      description: Updates bank account for managed user.
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: bankAccountCommonId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: idType
+          in: query
+          schema:
+            $ref: '#/components/schemas/UserIdType'
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/BankAccountPatchRequest'
+            example: '343.00'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BankAccountPatchRequest'
+            example: '343.00'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/BankAccountPatchRequest'
+            example: '343.00'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/BankAccountPatchRequest'
+            example: '343.00'
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectIpsResponse'
+              example:
+                result:
+                  success: true
+                  resultInfo:
+                    - resultCategory: Info
+                      code: '0000'
+                      description: Success.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectIpsResponse'
+              example:
+                result:
+                  success: true
+                  resultInfo:
+                    - resultCategory: Info
+                      code: '0000'
+                      description: Success.
   /api/v1/me/bills:
     get:
       tags:
@@ -514,7 +1083,8 @@ paths:
       x-group-name: Bills
       x-proxy-name: Get Bills 
       x-child-product-name: Bills
-      summary: Get list of bills
+      summary: Get list of bills.
+      description: Get list of bills.
       operationId: Get
       parameters:
         - name: numberOfDays
@@ -932,9 +1502,10 @@ paths:
       tags:
         - Bills
       x-group-name: Bills
-      x-proxy-name: Get Bills 
+      x-proxy-name: Get Bills by ID
       x-child-product-name: Bills
-      summary: Retrieves bill item based on bill id
+      summary: Retrieves bill item based on bill id.
+      description: Retrieves bill item based on bill id.
       operationId: GetEbillById
       parameters:
         - name: id
@@ -1113,7 +1684,8 @@ paths:
       x-group-name: Bills
       x-proxy-name: File Bill
       x-child-product-name: Bills
-      summary: Allows subscriber to file a bill
+      summary: Allows user to file a bill.
+      description: Allows user to file a bill.
       operationId: FileBills
       parameters:
         - name: id
@@ -1177,7 +1749,8 @@ paths:
       x-group-name: Bills
       x-proxy-name: Get Bill Details
       x-child-product-name: Bills
-      summary: Retrieves bill detail uri based on bill item id
+      summary: Retrieves bill detail uri based on bill item id.
+      description: Retrieves bill detail uri based on bill item id.
       operationId: GetBillDetailUri
       parameters:
         - name: id
@@ -1213,178 +1786,6 @@ paths:
           description: Unauthorized
         '404':
           description: Not Found
-  /api/v1/me/legalDocumentAgreements:
-    get:
-      tags:
-        - Ldds
-      x-group-name: Ldds
-      x-proxy-name: Get Ldd List
-      x-child-product-name: Ldds
-      summary: Retrieves legal document list.
-      operationId: Get
-      parameters:
-        - name: locale
-          in: query
-          schema:
-            pattern: '[A-Za-z]{2}-[A-Za-z]{2}$'
-            type: string
-        - name: agreementRequired
-          in: query
-          schema:
-            type: boolean
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/LegalDocumentAgreementListIpsResponse'
-              example:
-                - agreementRequired: true
-                  firstTimeAcceptance: true
-                  legalDocumentType: ESIGN
-                  legalDocumentUri: /api/v1/tenants/25725/legalDocuments/00000000-0000-0000-0000-000000000000
-                  locale: en-US
-                - agreementRequired: true
-                  firstTimeAcceptance: true
-                  legalDocumentType: PrivacyPolicy
-                  legalDocumentUri: /api/v1/tenants/25725/legalDocuments/00000000-0000-0000-0000-000000000000
-                  locale: en-US
-                - agreementRequired: true
-                  firstTimeAcceptance: true
-                  legalDocumentType: TCPA
-                  legalDocumentUri: /api/v1/tenants/25725/legalDocuments/00000000-0000-0000-0000-000000000000
-                  locale: en-US
-                - agreementRequired: true
-                  firstTimeAcceptance: true
-                  legalDocumentType: TermsConditions
-                  legalDocumentUri: /api/v1/tenants/25725/legalDocuments/00000000-0000-0000-0000-000000000000
-                  locale: en-US
-        '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ObjectIpsResponse'
-              example:
-                result:
-                  success: true
-                  resultInfo:
-                    - resultCategory: Info
-                      code: '0000'
-                      description: Success.
-    post:
-      tags:
-        - Ldds
-      x-group-name: Ldds
-      x-proxy-name: Accept Ldd
-      x-child-product-name: Ldds
-      summary: Post LDD for user acceptance.
-      operationId: PostLegalDocument
-      requestBody:
-        description: Request of legal document
-        content:
-          application/json-patch+json:
-            schema:
-              $ref: '#/components/schemas/PostLegalDocument'
-            example:
-              legalDocumentId: 00000000-0000-0000-0000-000000000000
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PostLegalDocument'
-            example:
-              legalDocumentId: 00000000-0000-0000-0000-000000000000
-          text/json:
-            schema:
-              $ref: '#/components/schemas/PostLegalDocument'
-            example:
-              legalDocumentId: 00000000-0000-0000-0000-000000000000
-          application/*+json:
-            schema:
-              $ref: '#/components/schemas/PostLegalDocument'
-            example:
-              legalDocumentId: 00000000-0000-0000-0000-000000000000
-      responses:
-        '201':
-          description: Created
-        '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ObjectIpsResponse'
-              example:
-                result:
-                  success: true
-                  resultInfo:
-                    - resultCategory: Info
-                      code: '0000'
-                      description: Success.
-        '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ObjectIpsResponse'
-              example:
-                result:
-                  success: true
-                  resultInfo:
-                    - resultCategory: Info
-                      code: '0000'
-                      description: Success.
-  /api/v1/tenants/{tenantId}/legalDocuments/{id}:
-    get:
-      tags:
-        - Ldds
-      x-group-name: Ldds
-      x-proxy-name: Get Ldd
-      x-child-product-name: Ldds
-      summary: Get specific legal document.
-      operationId: GetLegalDocument
-      parameters:
-        - name: tenantId
-          in: path
-          description: ''
-          required: true
-          schema:
-            type: string
-        - name: id
-          in: path
-          description: ''
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/LegalDocumentIpsResponse'
-  /api/v1/tenants/{tenantId}/legalDocuments:
-    get:
-      tags:
-        - Ldds
-      x-group-name: Ldds
-      x-proxy-name: Get Ldds for Tenant
-      x-child-product-name: Ldds
-      summary: Get legal documents for specific tenant.
-      operationId: GetLegalDocuments
-      parameters:
-        - name: tenantId
-          in: path
-          description: ''
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/LegalDocumentListIpsResponse'
   /api/v1/merchants/Search:
     get:
       tags:
@@ -1392,7 +1793,8 @@ paths:
       x-group-name: Merchants
       x-proxy-name: Search Merchant
       x-child-product-name: Merchants
-      summary: Search Merchant based on merchant name
+      summary: Search merchant based on merchant name.
+      description: Search merchant based on merchant name.
       operationId: SearchMerchant
       parameters:
         - name: name
@@ -1462,53 +1864,6 @@ paths:
                     - resultCategory: Info
                       code: '0000'
                       description: Success.
-  /api/v1/me/payees/{id}/ebillService/paperSuppressionTerms:
-    get:
-      tags:
-        - Payees
-      x-group-name: Payees
-      x-proxy-name: Get Paper Suppression Terms
-      x-child-product-name: Payees
-      operationId: GetPaperSuppressionTerms
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: redirect
-          in: query
-          schema:
-            type: boolean
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PaperSupressionTermsResponseIpsResponse'
-              example:
-                data:
-                  paperSuppressionTermsUrl: https://billdetail-test.getbills.com/eBillCentralSSO/EBAS/ViewDetailDirect?payloadEbas=w+g0GPIMPoplR+==
-                result:
-                  success: true
-                  resultInfo: 
-        '307':
-          description: Redirect
-          content:
-            application/json:
-              schema:
-                type: string
-                format: uri
-              example: https://billdetail-test.getbills.com/eBillCentralSSO/EBAS/ViewDetailDirect?payloadEbas=w+g0GPIMPoplR+==
-        '400':
-          description: Bad Request
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
   /api/v1/me/payees:
     get:
       tags:
@@ -1516,7 +1871,9 @@ paths:
       x-group-name: Payees
       x-proxy-name: Get Payee List
       x-child-product-name: Payees
-      operationId: Get
+      summary: Get a list of payees.
+      description: Get a list of payees.
+      operationId: GetPayees
       parameters:
         - name: returnInactivePayees
           in: query
@@ -1866,8 +2223,9 @@ paths:
       x-group-name: Payees
       x-proxy-name: Add Payee
       x-child-product-name: Payees
-      summary: Creates a new payee using the given payee object
-      operationId: Post
+      summary: Creates a new payee using the given payee object.
+      description: Creates a new payee using the given payee object.
+      operationId: PostPayees
       parameters:
         - name: overrideAddressValidation
           in: query
@@ -2080,7 +2438,9 @@ paths:
       x-group-name: Payees
       x-proxy-name: Get Payee
       x-child-product-name: Payees
-      operationId: Get
+      summary: Get a single payee.
+      description: Get a single payee.
+      operationId: GetPayees
       parameters:
         - name: payeeId
           in: path
@@ -2126,8 +2486,9 @@ paths:
       x-group-name: Payees
       x-proxy-name: Delete Payee
       x-child-product-name: Payees
-      summary: Delete payee from users payee list
-      operationId: Delete
+      summary: Delete a payee.
+      description: Delete a payee.
+      operationId: DeletePayee
       parameters:
         - name: payeeId
           in: path
@@ -2213,9 +2574,11 @@ paths:
       tags:
         - Payees
       x-group-name: Payees
-      x-proxy-name: Modify Payee
+      x-proxy-name: Update Payee
       x-child-product-name: Payees 
-      operationId: Patch
+      summary: Update a payee.
+      description: Update a payee. 
+      operationId: PatchPayees
       parameters:
         - name: payeeId
           in: path
@@ -2320,6 +2683,8 @@ paths:
       x-group-name: Payees
       x-proxy-name: Get Ebill Capability
       x-child-product-name: Payees
+      summary: Returns data for Ebill activation.
+      description: Returns data for Ebill activation. 
       operationId: EbillCapabilityGet
       parameters:
         - name: id
@@ -2421,9 +2786,10 @@ paths:
       tags:
         - Payees
       x-group-name: Payees
-      x-proxy-name: Activate eBill Service
+      x-proxy-name: Activate Ebill Service
       x-child-product-name: Payees
-      summary: Activate ebill service for a payee
+      summary: Activate Ebill service for a payee.
+      description: Activate Ebill service for a payee.
       operationId: PostEbillService
       parameters:
         - name: id
@@ -2561,9 +2927,10 @@ paths:
       tags:
         - Payees
       x-group-name: Payees
-      x-proxy-name: Stop eBill Service
+      x-proxy-name: Stop Ebill Service
       x-child-product-name: Payees  
-      summary: Delete Ebill service of a payee
+      summary: Delete Ebill service for a payee
+      description: Delete Ebill service for a payee.
       operationId: DeleteEbillService
       parameters:
         - name: id
@@ -2640,12 +3007,112 @@ paths:
                     - resultCategory: Info
                       code: '0000'
                       description: Success.
+  /api/v1/me/payees/{payeeId}/payeeAccountNumber:
     get:
       tags:
         - Payees
       x-group-name: Payees
-      x-proxy-name: Get eBill Service Details
+      x-proxy-name: Get Accoount Number
       x-child-product-name: Payees
+      summary: Get unmasked account number for a payee.
+      description: Get unmasked account number for a payee.
+      operationId: GetPayeeAccountNumber
+      parameters:
+        - name: payeeId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StringIpsResponse'
+              example: a5b69e59-d11e-44be-afe2-9735f9e48849
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StringIpsResponse'
+              example: a5b69e59-d11e-44be-afe2-9735f9e48849
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StringIpsResponse'
+              example: a5b69e59-d11e-44be-afe2-9735f9e48849
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ObjectIpsResponse'
+              example:
+                result:
+                  success: true
+                  resultInfo:
+                    - resultCategory: Info
+                      code: '0000'
+                      description: Success.
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectIpsResponse'
+              example:
+                result:
+                  success: true
+                  resultInfo:
+                    - resultCategory: Info
+                      code: '0000'
+                      description: Success.
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ObjectIpsResponse'
+              example:
+                result:
+                  success: true
+                  resultInfo:
+                    - resultCategory: Info
+                      code: '0000'
+                      description: Success.
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ObjectIpsResponse'
+              example:
+                result:
+                  success: true
+                  resultInfo:
+                    - resultCategory: Info
+                      code: '0000'
+                      description: Success.
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectIpsResponse'
+              example:
+                result:
+                  success: true
+                  resultInfo:
+                    - resultCategory: Info
+                      code: '0000'
+                      description: Success.
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ObjectIpsResponse'
+              example:
+                result:
+                  success: true
+                  resultInfo:
+                    - resultCategory: Info
+                      code: '0000'
+                      description: Success.
+    get:
+      tags:
+        - Payees
+      x-group-name: Payees
+      x-proxy-name: Get Ebill Service Details
+      x-child-product-name: Payees
+      summary: Retrieves information on a payee that has been activated for ebill service.
+      description: Retrieves information on a payee that has been activated for ebill service. 
       operationId: GetEbillService
       parameters:
         - name: id
@@ -2725,8 +3192,10 @@ paths:
       tags:
         - Payees
       x-group-name: Payees
-      x-proxy-name: Modify Paper Suppression
+      x-proxy-name: Change Ebill Service
       x-child-product-name: Payees
+      summary: Converts from trial to full Ebill activation for a payee.
+      description: Converts from trial to full Ebill activation for a payee. 
       operationId: PatchEbillServiceSuppressPaper
       parameters:
         - name: id
@@ -2786,8 +3255,10 @@ paths:
       tags:
         - Payees
       x-group-name: Payees
-      x-proxy-name: Get Automatic Transaction Options for Payee
+      x-proxy-name: Get Automatic Transaction Options
       x-child-product-name: Payees
+      summary: Returns a list of automatic transaction options for a payee.
+      description: Returns a list of automatic transaction options for a payee.
       operationId: GetAutomationTransactionOptions
       parameters:
         - name: id
@@ -2869,356 +3340,6 @@ paths:
                     - resultCategory: Info
                       code: '0000'
                       description: Success.
-  /api/v1/me/visa/payees:
-    get:
-      tags:
-        - Payees
-      x-group-name: Payees
-      x-proxy-name: Get Visa Payees
-      x-child-product-name: Payees
-      operationId: GetVisaPayees
-      parameters:
-        - name: returnInactivePayees
-          in: query
-          schema:
-            type: boolean
-            default: false
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PayeeListIpsResponse'
-              example:
-                data:
-                  payees:
-                    - name: Verizon Wireless
-                      nickname: Verizon
-                      maskedAccountNumber: '****7890'
-                      unmaskedAccountNumberUri: /api/v1/me/payees/c341c623-60a6-4f23-85a9-7a83a5ebfc43/payeeAccountNumber
-                      category: Utility
-                      contactPhoneNumber: 614-555-1212
-                      merchantUri: /api/v1/merchants/16996b49-5d0e-4a1d-9d1d-6bc4948781a6
-                      automaticTransactionUris:
-                        - /api/v1/me/automaticTransactions/c40723f4-37b7-41b6-b523-455f3edf1537
-                        - /api/v1/me/automaticTransactions/b69f6324-ca22-4016-9125-a6f161e22d83
-                      address:
-                        address1: 6000 Perimeter Drive
-                        address2: Mailbox 1034
-                        city: Dublin
-                        state: OH
-                        zipCode: '43017'
-                      lastUsedFundingAccountUri: /api/v1/me/bankAccounts/7144a063-1731-4557-b842-54ee84ebc1d3
-                      socialTokens:
-                        - socialToken:
-                            value: test@fiserv.com
-                            type: Email
-                          self: /api/v1/me/payees/c341c623-60a6-4f23-85a9-7a83a5ebfc43/socialTokens/147e2897-ae99-4a80-8776-7df9f3b63e47
-                          id: 147e2897-ae99-4a80-8776-7df9f3b63e47
-                        - socialToken:
-                            value: '6145551212'
-                            type: Phone
-                          self: /api/v1/me/payees/c341c623-60a6-4f23-85a9-7a83a5ebfc43/socialTokens/c5f710d1-291e-4f66-b1b1-65a678e2a54e
-                          id: c5f710d1-291e-4f66-b1b1-65a678e2a54e
-                      accountTokens:
-                        - accountToken:
-                            account:
-                              accountType: Checking
-                              maskedAccountNumber: '***5309'
-                              isPreferred: false
-                              isBusiness: false
-                              confirmationStatus: Confirmed
-                              accountStatus: Active
-                          self: /api/v1/me/payees/c341c623-60a6-4f23-85a9-7a83a5ebfc43/socialTokens/a79391d5-2d60-49d1-bf7f-fc8410398e7b
-                          id: a79391d5-2d60-49d1-bf7f-fc8410398e7b
-                      ebillServiceActivationUri: /api/v1/me/payees/c341c623-60a6-4f23-85a9-7a83a5ebfc43/ebillCapability
-                      ebillServiceActivationType: Lite
-                      ebillServiceUri: /api/v1/me/payees/c341c623-60a6-4f23-85a9-7a83a5ebfc43/ebillService
-                      payeeLogoUrl: https://payeelogos-dev.apps.fog.onefiserv.net/499.png
-                      payeeLogoGeneric: true
-                      modifiableFields:
-                        - Nickname
-                        - Category
-                      status: Active
-                      legacyPayeeId: '1'
-                      ebillServiceActivationStatus: NotApplicable
-                      billTransactionScheduleActive: false
-                      billTransactionScheduleCapable: false
-                      recurringTransactionScheduleActive: false
-                      isPaperTransactionsEnabled: false
-                      isRushDeliveryAvailable: false
-                      self: /api/v1/me/payees/c341c623-60a6-4f23-85a9-7a83a5ebfc43
-                      id: c341c623-60a6-4f23-85a9-7a83a5ebfc43
-                    - name: Comcast
-                      nickname: Comcast
-                      maskedAccountNumber: '****7890'
-                      unmaskedAccountNumberUri: /api/v1/me/payees/4d3d783d-d975-497d-b5c5-5c2809dcd970/payeeAccountNumber
-                      category: Utility
-                      contactPhoneNumber: 614-555-1212
-                      merchantUri: /api/v1/merchants/0742aa0c-c695-4279-8ead-77f4bac59d46
-                      automaticTransactionUris:
-                        - /api/v1/me/automaticTransactions/fad7c173-ef42-43ab-9c76-fc554bac172a
-                        - /api/v1/me/automaticTransactions/f75d08d5-5444-48a2-a168-6979a8bdf359
-                      reminderModelUri: /api/v1/me/payees/4d3d783d-d975-497d-b5c5-5c2809dcd970/reminderModel
-                      address:
-                        address1: 6000 Perimeter Drive
-                        address2: Mailbox 1034
-                        city: Dublin
-                        state: OH
-                        zipCode: '43017'
-                      lastUsedFundingAccountUri: /api/v1/me/bankAccounts/c2e6479f-c937-460c-a349-513104e0a232
-                      socialTokens:
-                        - socialToken:
-                            value: test@fiserv.com
-                            type: Email
-                          self: /api/v1/me/payees/4d3d783d-d975-497d-b5c5-5c2809dcd970/socialTokens/e79009b0-5c9c-4a04-b032-60bf142a1f97
-                          id: e79009b0-5c9c-4a04-b032-60bf142a1f97
-                        - socialToken:
-                            value: '6145551212'
-                            type: Phone
-                          self: /api/v1/me/payees/4d3d783d-d975-497d-b5c5-5c2809dcd970/socialTokens/4a5b19ea-c227-426d-a361-1b8c9700675e
-                          id: 4a5b19ea-c227-426d-a361-1b8c9700675e
-                      accountTokens:
-                        - accountToken:
-                            account:
-                              accountType: Savings
-                              maskedAccountNumber: '***4444'
-                              isPreferred: false
-                              isBusiness: false
-                              confirmationStatus: Confirmed
-                              accountStatus: Active
-                          self: /api/v1/me/payees/4d3d783d-d975-497d-b5c5-5c2809dcd970/socialTokens/2edca170-860e-4e1e-aaae-fc884f376c33
-                          id: 2edca170-860e-4e1e-aaae-fc884f376c33
-                      ebillServiceActivationUri: /api/v1/me/payees/4d3d783d-d975-497d-b5c5-5c2809dcd970/ebillCapability
-                      ebillServiceActivationType: Full
-                      ebillServiceUri: /api/v1/me/payees/4d3d783d-d975-497d-b5c5-5c2809dcd970/ebillService
-                      payeeLogoUrl: https://payeelogos-dev.apps.fog.onefiserv.net/499.png
-                      payeeLogoGeneric: true
-                      modifiableFields:
-                        - Nickname
-                        - Category
-                      status: Active
-                      legacyPayeeId: '2'
-                      ebillServiceActivationStatus: Capable
-                      billTransactionScheduleActive: true
-                      billTransactionScheduleCapable: true
-                      recurringTransactionScheduleActive: true
-                      isPaperTransactionsEnabled: false
-                      isRushDeliveryAvailable: true
-                      self: /api/v1/me/payees/4d3d783d-d975-497d-b5c5-5c2809dcd970
-                      id: 4d3d783d-d975-497d-b5c5-5c2809dcd970
-                    - name: Comcast
-                      nickname: Comcast
-                      maskedAccountNumber: '****7890'
-                      unmaskedAccountNumberUri: /api/v1/me/payees/5e162ffa-27dd-4789-b1de-817eb966ebb9/payeeAccountNumber
-                      category: Utility
-                      contactPhoneNumber: 614-555-1212
-                      merchantUri: /api/v1/merchants/521313ac-719e-4195-9367-a7c186e1aaf6
-                      automaticTransactionUris:
-                        - /api/v1/me/automaticTransactions/a21e1ebb-01ff-4e51-855d-9a13b7a13911
-                        - /api/v1/me/automaticTransactions/a0b1f428-ac5f-4322-8ab6-161fbcbc9c62
-                      reminderModelUri: /api/v1/me/payees/5e162ffa-27dd-4789-b1de-817eb966ebb9/reminderModel
-                      address:
-                        address1: 6000 Perimeter Drive
-                        address2: Mailbox 1034
-                        city: Dublin
-                        state: OH
-                        zipCode: '43017'
-                      lastUsedFundingAccountUri: /api/v1/me/bankAccounts/4126ed92-d641-48cd-950c-c3b9903a70c5
-                      socialTokens:
-                        - socialToken:
-                            value: test@fiserv.com
-                            type: Email
-                          self: /api/v1/me/payees/5e162ffa-27dd-4789-b1de-817eb966ebb9/socialTokens/972571c9-c891-4607-af2a-1483847dbb39
-                          id: 972571c9-c891-4607-af2a-1483847dbb39
-                        - socialToken:
-                            value: '6145551212'
-                            type: Phone
-                          self: /api/v1/me/payees/5e162ffa-27dd-4789-b1de-817eb966ebb9/socialTokens/79cf58bd-deb7-419b-ae7a-b86e5fae0beb
-                          id: 79cf58bd-deb7-419b-ae7a-b86e5fae0beb
-                      accountTokens:
-                        - accountToken:
-                            account:
-                              accountType: Savings
-                              maskedAccountNumber: '***4444'
-                              isPreferred: false
-                              isBusiness: false
-                              confirmationStatus: Confirmed
-                              accountStatus: Active
-                          self: /api/v1/me/payees/5e162ffa-27dd-4789-b1de-817eb966ebb9/socialTokens/97b146cf-2633-49bd-bba9-944ef5e512b3
-                          id: 97b146cf-2633-49bd-bba9-944ef5e512b3
-                      ebillServiceActivationUri: /api/v1/me/payees/5e162ffa-27dd-4789-b1de-817eb966ebb9/ebillCapability
-                      ebillServiceActivationType: Full
-                      ebillServiceUri: /api/v1/me/payees/5e162ffa-27dd-4789-b1de-817eb966ebb9/ebillService
-                      payeeLogoUrl: https://payeelogos-dev.apps.fog.onefiserv.net/499.png
-                      payeeLogoGeneric: true
-                      modifiableFields:
-                        - Nickname
-                        - Category
-                      status: Active
-                      legacyPayeeId: '3'
-                      ebillServiceActivationStatus: Inactive
-                      billTransactionScheduleActive: true
-                      billTransactionScheduleCapable: true
-                      recurringTransactionScheduleActive: true
-                      isPaperTransactionsEnabled: false
-                      isRushDeliveryAvailable: true
-                      self: /api/v1/me/payees/5e162ffa-27dd-4789-b1de-817eb966ebb9
-                      id: 5e162ffa-27dd-4789-b1de-817eb966ebb9
-                    - name: John Smith
-                      nickname: John
-                      category: Friends
-                      contactPhoneNumber: 614-555-1212
-                      automaticTransactionUris:
-                        - /api/v1/me/automaticTransactions/a9e0e993-26c3-4d75-8eec-21e588cbd4f4
-                        - /api/v1/me/automaticTransactions/49defc0e-ae50-4400-8f11-62111d5cd2c2
-                      reminderModelUri: /api/v1/me/payees/2f99684a-d583-4b37-a216-4c4a01ded4f3/reminderModel
-                      lastUsedFundingAccountUri: /api/v1/me/bankAccounts/3de6ca38-f23c-4c0a-b40d-66e8bfbdfc6e
-                      socialTokens:
-                        - socialToken:
-                            value: john.smith@fiserv.com
-                            type: Email
-                          self: /api/v1/me/payees/2f99684a-d583-4b37-a216-4c4a01ded4f3/socialTokens/c7c1bfda-c291-4473-a902-0299ebc8fca1
-                          id: c7c1bfda-c291-4473-a902-0299ebc8fca1
-                        - socialToken:
-                            value: '6145551212'
-                            type: Phone
-                          self: /api/v1/me/payees/2f99684a-d583-4b37-a216-4c4a01ded4f3/socialTokens/52faa015-f484-4ff1-a75c-b7c342d8da83
-                          id: 52faa015-f484-4ff1-a75c-b7c342d8da83
-                      accountTokens:
-                        - accountToken:
-                            account:
-                              accountType: Savings
-                              maskedAccountNumber: '***4444'
-                              isPreferred: false
-                              unmaskedAccountNumberUri: /api/v1/me/bankAccounts/a6773233-05f6-4fc7-9f4b-d8818f2a4f60/fullAccountNumber
-                              isBusiness: false
-                              confirmationStatus: Confirmed
-                              accountStatus: Active
-                          self: /api/v1/me/payees/2f99684a-d583-4b37-a216-4c4a01ded4f3/socialTokens/a6773233-05f6-4fc7-9f4b-d8818f2a4f60
-                          id: a6773233-05f6-4fc7-9f4b-d8818f2a4f60
-                      ebillServiceActivationType: None
-                      payeeLogoGeneric: false
-                      modifiableFields:
-                        - Nickname
-                        - Category
-                        - AccountTokens
-                        - SocialTokens
-                      status: Active
-                      legacyPayeeId: '4'
-                      ebillServiceActivationStatus: Pending
-                      billTransactionScheduleActive: false
-                      billTransactionScheduleCapable: false
-                      recurringTransactionScheduleActive: false
-                      isPaperTransactionsEnabled: false
-                      isRushDeliveryAvailable: false
-                      self: /api/v1/me/payees/2f99684a-d583-4b37-a216-4c4a01ded4f3
-                      id: 2f99684a-d583-4b37-a216-4c4a01ded4f3
-                    - name: Jane Smith
-                      nickname: Jane
-                      category: Friends
-                      contactPhoneNumber: 614-233-4532
-                      automaticTransactionUris:
-                        - /api/v1/me/automaticTransactions/7339710a-c8b0-4755-83d0-e9b1d103609a
-                        - /api/v1/me/automaticTransactions/6fab7135-14a7-4c4b-a12d-718d5ac3ad1f
-                      reminderModelUri: /api/v1/me/payees/35fe9cbd-0450-4bd1-9eed-110b1e4049c6/reminderModel
-                      lastUsedFundingAccountUri: /api/v1/me/bankAccounts/3fd046df-a2a6-4f17-823f-a5a3bb71be46
-                      socialTokens:
-                        - socialToken:
-                            value: jane.smith@fiserv.com
-                            type: Email
-                          self: /api/v1/me/payees/35fe9cbd-0450-4bd1-9eed-110b1e4049c6/socialTokens/d0062f2f-efe6-405a-b1ad-0647b5170d5c
-                          id: d0062f2f-efe6-405a-b1ad-0647b5170d5c
-                        - socialToken:
-                            value: '6142334532'
-                            type: Phone
-                          self: /api/v1/me/payees/35fe9cbd-0450-4bd1-9eed-110b1e4049c6/socialTokens/43ab0d86-65e0-4e8c-9ffa-25ef87bcd74a
-                          id: 43ab0d86-65e0-4e8c-9ffa-25ef87bcd74a
-                      ebillServiceActivationType: None
-                      payeeLogoGeneric: false
-                      modifiableFields:
-                        - Nickname
-                        - Category
-                        - AccountTokens
-                        - SocialTokens
-                      status: Active
-                      source: BillServiceProvider
-                      legacyPayeeId: '5'
-                      ebillServiceActivationStatus: NotApplicable
-                      billTransactionScheduleActive: false
-                      billTransactionScheduleCapable: false
-                      recurringTransactionScheduleActive: false
-                      isPaperTransactionsEnabled: false
-                      isRushDeliveryAvailable: false
-                      self: /api/v1/me/payees/35fe9cbd-0450-4bd1-9eed-110b1e4049c6
-                      id: 35fe9cbd-0450-4bd1-9eed-110b1e4049c6
-                    - name: Jane Smith
-                      nickname: Jane
-                      category: Friends
-                      contactPhoneNumber: 614-233-4532
-                      automaticTransactionUris:
-                        - /api/v1/me/automaticTransactions/7339710a-c8b0-4755-83d0-e9b1d103609a
-                        - /api/v1/me/automaticTransactions/1a42421e-3347-4b01-b0d8-6ad254e30e73
-                      reminderModelUri: /api/v1/me/payees/35fe9cbd-0450-4bd1-9eed-110b1e4049c6/reminderModel
-                      lastUsedFundingAccountUri: /api/v1/me/bankAccounts/3fd046df-a2a6-4f17-823f-a5a3bb71be46
-                      socialTokens:
-                        - socialToken:
-                            value: jane.smith@fiserv.com
-                            type: Email
-                          self: /api/v1/me/payees/35fe9cbd-0450-4bd1-9eed-110b1e4049c6/socialTokens/d0062f2f-efe6-405a-b1ad-0647b5170d5c
-                          id: d0062f2f-efe6-405a-b1ad-0647b5170d5c
-                        - socialToken:
-                            value: '6142334532'
-                            type: Phone
-                          self: /api/v1/me/payees/35fe9cbd-0450-4bd1-9eed-110b1e4049c6/socialTokens/43ab0d86-65e0-4e8c-9ffa-25ef87bcd74a
-                          id: 43ab0d86-65e0-4e8c-9ffa-25ef87bcd74a
-                      ebillServiceActivationType: None
-                      payeeLogoGeneric: false
-                      modifiableFields:
-                        - Nickname
-                        - Category
-                        - AccountTokens
-                        - SocialTokens
-                      status: Active
-                      source: BillServiceProvider
-                      legacyPayeeId: '15'
-                      ebillServiceActivationStatus: NotApplicable
-                      billTransactionScheduleActive: false
-                      billTransactionScheduleCapable: false
-                      recurringTransactionScheduleActive: false
-                      isPaperTransactionsEnabled: false
-                      isRushDeliveryAvailable: false
-                      self: /api/v1/me/payees/35fe9cbd-0450-4bd1-9eed-110b1e4049c6
-                      id: 35fe9cbd-0450-4bd1-9eed-110b1e4049c6
-                result:
-                  success: true
-        '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ObjectIpsResponse'
-              example:
-                result:
-                  success: true
-                  resultInfo:
-                    - resultCategory: Info
-                      code: '0000'
-                      description: Success.
-        '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ObjectIpsResponse'
-              example:
-                result:
-                  success: true
-                  resultInfo:
-                    - resultCategory: Info
-                      code: '0000'
-                      description: Success.
   /api/v1/me/PotentialPayees:
     get:
       tags:
@@ -3226,6 +3347,8 @@ paths:
       x-group-name: PotentialPayees
       x-proxy-name: Get Potential Payees
       x-child-product-name: PotentialPayees
+      summary: Returns a list of all potential payees.
+      description: Returns a list of all potential payees.
       operationId: GetPotentialPayees
       parameters:
         - name: excludeDormantAccounts
@@ -3306,8 +3429,10 @@ paths:
       tags:
         - PotentialPayees
       x-group-name: PotentialPayees
-      x-proxy-name: Add Potential Payees
+      x-proxy-name: Verify Potential Payee
       x-child-product-name: PotentialPayees
+      summary: Verification for a potential payee.
+      description: Verification for a potential payee.
       operationId: PutPotentialPayee
       parameters:
         - name: id
@@ -3379,8 +3504,10 @@ paths:
       tags:
         - PotentialPayees
       x-group-name: PotentialPayees
-      x-proxy-name: Dismiss Potential Payees
+      x-proxy-name: Dismiss Potential Payee
       x-child-product-name: PotentialPayees
+      summary: Dismiss a potential payee. 
+      description: Dismiss a potential payee.
       operationId: DismissPotentialPayee
       parameters:
         - name: id
@@ -3415,44 +3542,6 @@ paths:
                     - resultCategory: Info
                       code: '0000'
                       description: Success.
-  /api/v1/me/PotentialPayees/{id}/payeeAccountNumber:
-    get:
-      tags:
-        - PotentialPayees
-      x-group-name: PotentialPayees
-      x-proxy-name: Get Potential Payee Account Number
-      x-child-product-name: PotentialPayees  
-      operationId: GetPayeeAccountNumber
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/StringIpsResponse'
-              example:
-                data: 8c4a9a13-b377-4257-9d9e-b55b66077a5f
-                result:
-                  success: true
-        '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ObjectIpsResponse'
-              example:
-                result:
-                  success: true
-                  resultInfo:
-                    - resultCategory: Info
-                      code: '0000'
-                      description: Success.
   /api/v1/me/PotentialPayees/eligibility:
     get:
       tags:
@@ -3461,6 +3550,7 @@ paths:
       x-proxy-name: Get Potential Payee Eligibility
       x-child-product-name: PotentialPayees
       summary: Return the bill discovery user eligibility.
+      description: Return the bill discovery user eligibility.
       operationId: GetUserEligibility
       responses:
         '200':
@@ -3498,6 +3588,7 @@ paths:
       x-proxy-name: Get Reminders
       x-child-product-name: Reminders
       summary: Returns a list of a user's bill payment reminder models
+      description: Returns a list of a user's bill payment reminder models.
       operationId: GetReminders
       responses:
         '200':
@@ -3535,6 +3626,7 @@ paths:
       x-proxy-name: Post Reminders
       x-child-product-name: Reminders  
       summary: Enables a user to set up a new bill payment reminder model for one of their payees
+      description: Enables a user to set up a new bill payment reminder model for one of their payees.
       operationId: PostReminders
       requestBody:
         description: Reminder
@@ -3585,9 +3677,10 @@ paths:
       tags:
         - Reminders
       x-group-name: Reminders
-      x-proxy-name: Get Reminders by ID
+      x-proxy-name: Get Reminder by ID
       x-child-product-name: Reminders  
-      summary: Returns reminder details based on Reminder ID
+      summary: Returns reminder details based on Reminder ID.
+      description: Returns reminder details based on Reminder ID.
       operationId: GetRemindersById
       parameters:
         - name: id
@@ -3629,9 +3722,10 @@ paths:
       tags:
         - Reminders
       x-group-name: Reminders
-      x-proxy-name: Modify Reminder
+      x-proxy-name: Modify Reminders
       x-child-product-name: Reminders  
-      summary: Allows user to modify existing reminder model
+      summary: Allows user to modify existing reminder model.
+      description: Allows user to modify existing reminder model.
       operationId: PatchReminders
       parameters:
         - name: id
@@ -3705,9 +3799,10 @@ paths:
       tags:
         - Reminders
       x-group-name: Reminders
-      x-proxy-name: Delete Reminder
+      x-proxy-name: Delete Reminders
       x-child-product-name: Reminders 
       summary: Allows user to delete existing reminder model
+      descritpion: Allows user to delete existing reminder model.
       operationId: DeleteReminders
       parameters:
         - name: id
@@ -3752,8 +3847,9 @@ paths:
       x-group-name: ToDos
       x-proxy-name: Get ToDos
       x-child-product-name: ToDos
-      summary: Get todos
-      operationId: Get
+      summary: Retrieves ToDo items.
+      description: Retrieves ToDo items.
+      operationId: GetToDos
       responses:
         '200':
           description: Success
@@ -3848,8 +3944,9 @@ paths:
       x-group-name: ToDos
       x-proxy-name: Get ToDo
       x-child-product-name: ToDos
-      summary: Get single todo
-      operationId: Get
+      summary: Retrieves a single ToDo item.
+      description: Retrieves a single ToDo item.
+      operationId: GetToDo
       parameters:
         - name: id
           in: path
@@ -3897,8 +3994,9 @@ paths:
       x-group-name: ToDos
       x-proxy-name: Dismiss ToDo
       x-child-product-name: ToDos
-      summary: Dismiss individual Todo
-      operationId: Patch
+      summary: Dismiss a single ToDo item.
+      description: Dismiss a single ToDo item.
+      operationId: PatchToDos
       parameters:
         - name: id
           in: path
@@ -3942,7 +4040,9 @@ paths:
       x-group-name: TransactionCalendar
       x-proxy-name: Get Transaction Calendar
       x-child-product-name: TransactionCalendar
-      operationId: Get
+      summary: Retrieves potential payment dates.
+      description: Retrieves potential payment dates.
+      operationId: GetTransactionCalendar
       parameters:
         - name: transactionDestinationUri
           in: query
@@ -4165,9 +4265,10 @@ paths:
       tags:
         - Transactions
       x-group-name: Transactions
-      x-proxy-name: Add a List of Transactions
+      x-proxy-name: Add List of Transactions
       x-child-product-name: Transactions
-      summary: Save a list of transactions
+      summary: Adds a list of new transactions.
+      description: Adds a list of new transactions.
       operationId: PostTransaction
       parameters:
         - name: allowDuplicateTransaction
@@ -4213,9 +4314,10 @@ paths:
       tags:
         - Transactions
       x-group-name: Transactions
-      x-proxy-name: Get a List of Transactions
+      x-proxy-name: Get List of Transactions
       x-child-product-name: Transactions
-      summary: Return a list of transactions
+      summary: Returns a list of transactions.<br>Can return electronic and paper.
+      description: Returns a list of transactions.<br>Can return electronic and paper.
       operationId: GetTransactions
       parameters:
         - name: startDate
@@ -4286,50 +4388,6 @@ paths:
                     - resultCategory: Info
                       code: '0000'
                       description: Success.
-  /api/v1/me/visa/transactions:
-    post:
-      tags:
-        - Transactions
-      x-group-name: Transactions
-      x-proxy-name: Add a Visa Transaction
-      x-child-product-name: Transactions
-      summary: Schedule a single immediate transaction
-      operationId: PostVisaTransaction
-      requestBody:
-        content:
-          application/json-patch+json:
-            schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/VisaTransaction'
-          application/json:
-            schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/VisaTransaction'
-          text/json:
-            schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/VisaTransaction'
-          application/*+json:
-            schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/VisaTransaction'
-      responses:
-        '201':
-          description: Created
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VisaTransactionOutputIpsListItemResponseListIpsResponse'
-        '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BaseModelIpsListItemResponseListIpsResponse'
   /api/v1/me/Transactions/{transactionId}/cancel:
     patch:
       tags:
@@ -4337,8 +4395,9 @@ paths:
       x-group-name: Transactions
       x-proxy-name: Cancel Transaction
       x-child-product-name: Transactions
-      summary: Cancel Patch
-      operationId: CancelPatch
+      summary: Cancel a transaction.
+      description: Cancel a transaction.
+      operationId: PatchTransaction
       parameters:
         - name: transactionId
           in: path
@@ -4371,8 +4430,9 @@ paths:
       x-group-name: Transactions
       x-proxy-name: Modify Transaction
       x-child-product-name: Transactions
-      summary: Patch Transaction
-      operationId: Patch
+      summary: Modify a transaction.
+      description: Modify a transaction.
+      operationId: PatchTransaction
       parameters:
         - name: transactionId
           in: path
@@ -4426,9 +4486,10 @@ paths:
       tags:
         - Transactions
       x-group-name: Transactions
-      x-proxy-name: Get a List of Transactions
+      x-proxy-name: Get List of Transactions
       x-child-product-name: Transactions
-      summary: V2 - Return a list of transactions
+      summary: Get a list of transactions.<br>Can return electronic, corporatecheck, and draftcheck.
+      description: Get a list of transactions.<br>Can return electronic, corporatecheck, and draftcheck.
       operationId: GetTransactionsV2
       parameters:
         - name: startDate
@@ -4499,171 +4560,16 @@ paths:
                     - resultCategory: Info
                       code: '0000'
                       description: Success.
-  /api/v1/me/Transactions/{transactionid}:
-    get:
-      tags:
-        - Transactions
-      x-group-name: Transactions
-      x-proxy-name: Get Transaction Detail
-      x-child-product-name: Transactions
-      summary: "Return transaction detail by transaction ID\r\n<param name=\"transactionID\"></param><returns></returns>"
-      operationId: GetTransactionDetail
-      parameters:
-        - name: transactionID
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/TransactionOutputDetailIpsResponse'
-        '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ObjectIpsResponse'
-              example:
-                result:
-                  success: true
-                  resultInfo:
-                    - resultCategory: Info
-                      code: '0000'
-                      description: Success.
-  /api/v2/me/Transactions/{transactionid}:
-    get:
-      tags:
-        - Transactions
-      x-group-name: Transactions
-      x-proxy-name: Get Transaction Detail 
-      x-child-product-name: Transactions
-      summary: V2 - Return transaction detail by transaction ID
-      operationId: GetTransactionDetailV2
-      parameters:
-        - name: transactionID
-          in: path
-          description: ''
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/TransactionOutputDetailV2IpsResponse'
-        '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ObjectIpsResponse'
-              example:
-                result:
-                  success: true
-                  resultInfo:
-                    - resultCategory: Info
-                      code: '0000'
-                      description: Success.
   /api/v1/me:
-    get:
-      tags:
-        - Users
-      x-group-name: Users
-      x-proxy-name: Get User
-      x-child-product-name: Users
-      summary: Get user call.
-      operationId: Get
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UserIpsResponse'
-              example:
-                userId: 6409093e-51fe-469f-8e9a-fb91c540c5f2
-                hasPayees: true
-                name:
-                  firstName: John
-                  lastName: Johnson
-                  middleName: M
-                  nickname: Johnny
-                  prefix: Dr
-                businessName: Johnson
-                contactEndPoints:
-                  - status: Active
-                    endPointType: Phone
-                    phone:
-                      phoneType: Mobile
-                      value: 91-8694522121
-                  - status: Active
-                    endPointType: Phone
-                    phone:
-                      phoneType: Day
-                      value: '8694522451'
-                  - status: Active
-                    endPointType: Phone
-                    phone:
-                      phoneType: Evening
-                      value: 91-8697822121
-                  - status: Active
-                    endPointType: Email
-                    email:
-                      value: test@abc.com
-                  - status: Active
-                    endPointType: Address
-                    address:
-                      addressType: USAddress
-                      usAddress:
-                        address1: 6000 Perimeter Drive
-                        address2: Ste 3A
-                        address3: Mailbox 1034
-                        city: Dublin
-                        state: OH
-                        zipCode: '43017'
-                category: VIP member
-                sensitiveInformationUri: /api/v1/me/SensitiveInformation
-                timeZone: 5
-                country: US
-                status: Unspecified
-                lastLoginDate: '2024-07-23T15:20:09.1907715+00:00'
-                languageCode: EN
-                languageCountry: US
-                locale: EN-US
-                newUser: true
-                occupation: Accountants
-                modifiableFields:
-                  - middleName
-                  - lastName
-                  - usAddress
-                  - occupation
-        '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ObjectIpsResponse'
-              example:
-                result:
-                  success: true
-                  resultInfo:
-                    - resultCategory: Info
-                      code: '0000'
-                      description: Success.
     patch:
       tags:
         - Users
       x-group-name: Users
-      x-proxy-name: Modify User
+      x-proxy-name: Update User
       x-child-product-name: Users
-      summary: Patch D2C user.
-      operationId: ModifyUser
+      summary: Update a user.
+      description: Update a user.
+      operationId: PatchUser
       requestBody:
         description: ''
         content:
@@ -4858,9 +4764,10 @@ paths:
       tags:
         - Users
       x-group-name: Users
-      x-proxy-name: Get User
+      x-proxy-name: Get User Info
       x-child-product-name: Users
-      summary: V2 Get user call for subscriber.
+      summary: Get user information.
+      description: Get user information.
       operationId: GetV2
       responses:
         '200':
@@ -4968,7 +4875,8 @@ paths:
       x-group-name: Users
       x-proxy-name: Add Consents
       x-child-product-name: Users
-      summary: Post consents.
+      summary: Record user's consent information.
+      description: Record user's consent information.
       operationId: PostConsent
       requestBody:
         content:
@@ -5010,7 +4918,8 @@ paths:
       x-group-name: Users
       x-proxy-name: Get Consents
       x-child-product-name: Users
-      summary: Get consent information.
+      summary: Returns a user's consent information.
+      description: Returns a user's consent information.
       operationId: GetConsents
       responses:
         '200':
@@ -5038,48 +4947,6 @@ paths:
                     - resultCategory: Info
                       code: '0000'
                       description: Success.
-  /api/v1/me/Users:
-    post:
-      tags:
-        - Users
-      x-group-name: Users
-      x-proxy-name: Add User
-      x-child-product-name: Users
-      summary: Post user.
-      operationId: PostUserAsync
-      requestBody:
-        description: ''
-        content:
-          application/json-patch+json:
-            schema:
-              $ref: '#/components/schemas/ManagedUser'
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ManagedUser'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/ManagedUser'
-          application/*+json:
-            schema:
-              $ref: '#/components/schemas/ManagedUser'
-      responses:
-        '201':
-          description: Created
-        '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ObjectIpsResponse'
-              example:
-                result:
-                  success: true
-                  resultInfo:
-                    - resultCategory: Info
-                      code: '0000'
-                      description: Success.
-        '403':
-          description: Forbidden
   /api/v2/me/Users:
     post:
       tags:
@@ -5087,7 +4954,8 @@ paths:
       x-group-name: Users
       x-proxy-name: Add User
       x-child-product-name: Users
-      summary: Post user v2.
+      summary: Enroll a new user.
+      description: Enroll a new user.
       operationId: PostUserV2Async
       requestBody:
         description: ''
@@ -5122,392 +4990,6 @@ paths:
                       description: Success.
         '403':
           description: Forbidden
-  /api/v1/me/preferences/{id}:
-    delete:
-      tags:
-        - Users
-      x-group-name: Users
-      x-proxy-name: Delete User Preference
-      x-child-product-name: Users
-      summary: To delete the user preference.
-      operationId: DeletePreference
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        '204':
-          description: No Content
-        '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ObjectIpsResponse'
-              example:
-                result:
-                  success: true
-                  resultInfo:
-                    - resultCategory: Info
-                      code: '0000'
-                      description: Success.
-        '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ObjectIpsResponse'
-              example:
-                result:
-                  success: true
-                  resultInfo:
-                    - resultCategory: Info
-                      code: '0000'
-                      description: Success.
-    patch:
-      tags:
-        - Users
-      x-group-name: Users
-      x-proxy-name: Modify User Preference
-      x-child-product-name: Users
-      summary: To Update the User Preference Based On User Preference Id.
-      operationId: PatchUserPreference
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json-patch+json:
-            schema:
-              $ref: '#/components/schemas/PreferencesPatchRequest'
-            example: '343.00'
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PreferencesPatchRequest'
-            example: '343.00'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/PreferencesPatchRequest'
-            example: '343.00'
-          application/*+json:
-            schema:
-              $ref: '#/components/schemas/PreferencesPatchRequest'
-            example: '343.00'
-      responses:
-        '204':
-          description: No Content
-        '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ObjectIpsResponse'
-              example:
-                result:
-                  success: true
-                  resultInfo:
-                    - resultCategory: Info
-                      code: '0000'
-                      description: Success.
-        '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ObjectIpsResponse'
-              example:
-                result:
-                  success: true
-                  resultInfo:
-                    - resultCategory: Info
-                      code: '0000'
-                      description: Success.
-  /api/v1/me/preferences:
-    get:
-      tags:
-        - Users
-      x-group-name: Users
-      x-proxy-name: Get User Preferences
-      x-child-product-name: Users
-      summary: To get the user preferences.
-      operationId: GetPreferences
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PreferenceListIpsResponse'
-              example:
-                data:
-                  preferences:
-                    - preferenceName: ONBO_COMPLETED
-                      preferenceValue: 'true'
-                      self: /api/v1/me/preferences/6ae57ee0-7f4e-48c6-ac16-d55710546254
-                      id: 6ae57ee0-7f4e-48c6-ac16-d55710546254
-                    - preferenceName: LAST_VIEWED_ONBO_PAGE
-                      preferenceValue: ONBO_WELCOME
-                      self: /api/v1/me/preferences/32b72371-510a-4a59-8caa-b75a59665c4b
-                      id: 32b72371-510a-4a59-8caa-b75a59665c4b
-                result:
-                  success: true
-        '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ObjectIpsResponse'
-              example:
-                result:
-                  success: true
-                  resultInfo:
-                    - resultCategory: Info
-                      code: '0000'
-                      description: Success.
-    post:
-      tags:
-        - Users
-      x-group-name: Users
-      x-proxy-name: Add User Preference
-      x-child-product-name: Users
-      summary: Add user preferences
-      operationId: PostUserPreferences
-      requestBody:
-        description: ''
-        content:
-          application/json-patch+json:
-            schema:
-              $ref: '#/components/schemas/PreferencesPostRequestList'
-            example:
-              preferences:
-                - preferenceName: ONBO_COMPLETED
-                  preferenceValue: 'true'
-                  listItemId: 1
-                - preferenceName: LAST_VIEWED_ONBO_PAGE
-                  preferenceValue: ONBO_WELCOME
-                  listItemId: 2
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PreferencesPostRequestList'
-            example:
-              preferences:
-                - preferenceName: ONBO_COMPLETED
-                  preferenceValue: 'true'
-                  listItemId: 1
-                - preferenceName: LAST_VIEWED_ONBO_PAGE
-                  preferenceValue: ONBO_WELCOME
-                  listItemId: 2
-          text/json:
-            schema:
-              $ref: '#/components/schemas/PreferencesPostRequestList'
-            example:
-              preferences:
-                - preferenceName: ONBO_COMPLETED
-                  preferenceValue: 'true'
-                  listItemId: 1
-                - preferenceName: LAST_VIEWED_ONBO_PAGE
-                  preferenceValue: ONBO_WELCOME
-                  listItemId: 2
-          application/*+json:
-            schema:
-              $ref: '#/components/schemas/PreferencesPostRequestList'
-            example:
-              preferences:
-                - preferenceName: ONBO_COMPLETED
-                  preferenceValue: 'true'
-                  listItemId: 1
-                - preferenceName: LAST_VIEWED_ONBO_PAGE
-                  preferenceValue: ONBO_WELCOME
-                  listItemId: 2
-      responses:
-        '201':
-          description: Created
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PreferencesPostResponseIpsResponse'
-              example:
-                data:
-                  preferences:
-                    - listItemId: 1
-                      data:
-                        self: /api/v1/me/preferences/ddb7d20f936a4f40b385da701aac0e8f
-                        id: ddb7d20f936a4f40b385da701aac0e8f
-                      result:
-                        success: true
-                    - listItemId: 2
-                      data:
-                        self: /api/v1/me/preferences/6394e7e178d44b6fbe76ec2302753c26
-                        id: 6394e7e178d44b6fbe76ec2302753c26
-                      result:
-                        success: true
-                result:
-                  success: true
-        '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ObjectIpsResponse'
-              example:
-                result:
-                  success: true
-                  resultInfo:
-                    - resultCategory: Info
-                      code: '0000'
-                      description: Success.
-        '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ObjectIpsResponse'
-              example:
-                result:
-                  success: true
-                  resultInfo:
-                    - resultCategory: Info
-                      code: '0000'
-                      description: Success.
-  /api/v1/me/users/{userId}:
-    delete:
-      tags:
-        - Users
-      x-group-name: Users
-      x-proxy-name: Delete User
-      x-child-product-name: Users
-      summary: Deletes an existing user
-      description: "The operation takes an optional query parameter Id Type to determine whether or not User Id Type is specified\r\nIf the query parameter is not submitted, it defaults to CheckFreeNextUserId Type, and no delete operation are canceled."
-      operationId: DeleteUser
-      parameters:
-        - name: userId
-          in: path
-          description: Challenger identity of the user
-          required: true
-          schema:
-            type: string
-        - name: idType
-          in: query
-          description: Id Type of User
-          schema:
-            $ref: '#/components/schemas/UserIdType'
-      responses:
-        '204':
-          description: No Content
-        '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ObjectIpsResponse'
-              example:
-                result:
-                  success: true
-                  resultInfo:
-                    - resultCategory: Info
-                      code: '0000'
-                      description: Success.
-        '403':
-          description: Forbidden
-    get:
-      tags:
-        - Users
-      x-group-name: Users
-      x-proxy-name: Get User Info
-      x-child-product-name: Users
-      summary: Get User Information
-      description: This API will return user information.
-      operationId: Get
-      parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UserIpsResponse'
-              example:
-                userId: 6c7b5a79-3ee6-4639-a0b7-e30b49a86ba2
-                hasPayees: true
-                name:
-                  firstName: John
-                  lastName: Johnson
-                  middleName: M
-                  nickname: Johnny
-                  prefix: Dr
-                businessName: Johnson
-                contactEndPoints:
-                  - status: Active
-                    endPointType: Phone
-                    phone:
-                      phoneType: Mobile
-                      value: 91-8694522121
-                  - status: Active
-                    endPointType: Phone
-                    phone:
-                      phoneType: Day
-                      value: '8694522451'
-                  - status: Active
-                    endPointType: Phone
-                    phone:
-                      phoneType: Evening
-                      value: 91-8697822121
-                  - status: Active
-                    endPointType: Email
-                    email:
-                      value: test@abc.com
-                  - status: Active
-                    endPointType: Address
-                    address:
-                      addressType: USAddress
-                      usAddress:
-                        address1: 6000 Perimeter Drive
-                        address2: Ste 3A
-                        address3: Mailbox 1034
-                        city: Dublin
-                        state: OH
-                        zipCode: '43017'
-                category: VIP member
-                sensitiveInformationUri: /api/v1/me/SensitiveInformation
-                timeZone: 5
-                country: US
-                status: Unspecified
-                lastLoginDate: '2024-07-23T15:20:09.2841801+00:00'
-                languageCode: EN
-                languageCountry: US
-                locale: EN-US
-                newUser: true
-                occupation: Accountants
-                modifiableFields:
-                  - middleName
-                  - lastName
-                  - usAddress
-                  - occupation
-        '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ObjectIpsResponse'
-              example:
-                result:
-                  success: true
-                  resultInfo:
-                    - resultCategory: Info
-                      code: '0000'
-                      description: Success.
-        '403':
-          description: Forbidden
   /api/v2/me/users/{userId}:
     delete:
       tags:
@@ -5515,8 +4997,8 @@ paths:
       x-group-name: Users
       x-proxy-name: Delete User
       x-child-product-name: Users
-      summary: Deletes an existing user
-      description: "The operation takes an optional query parameter Id Type to determine whether or not User Id Type is specified\r\nIf the query parameter is not submitted, it defaults to CheckFreeNextUserId Type, and no delete operation are canceled."
+      summary: Deletes a managed user.
+      description: Deletes a managed user.<br>The operation takes an optional query parameter Id Type to determine whether or not User Id Type is specified. If the query parameter is not submitted, it defaults to CheckFreeNextUserId Type, and no delete operation are canceled.
       operationId: DeleteUser
       parameters:
         - name: userId
@@ -5552,10 +5034,10 @@ paths:
       tags:
         - Users
       x-group-name: Users
-      x-proxy-name: Get User Info
+      x-proxy-name: Get Managed User Info
       x-child-product-name: Users
-      summary: V2 - Get User Information
-      description: This API will return user information.
+      summary: Get managed user information.
+      description: Get managed user information.
       operationId: GetV2
       parameters:
         - name: userId
@@ -5668,67 +5150,15 @@ paths:
                       description: Success.
         '403':
           description: Forbidden
-  /api/v1/me/Users/{userId}:
-    patch:
-      tags:
-        - Users
-      x-group-name: Users
-      x-proxy-name: Modify User
-      x-child-product-name: Users
-      summary: Patch user.
-      operationId: ModifyUser
-      parameters:
-        - name: userId
-          in: path
-          description: ''
-          required: true
-          schema:
-            type: string
-      requestBody:
-        description: ''
-        content:
-          application/json-patch+json:
-            schema:
-              $ref: '#/components/schemas/ManagedUserPatchRequest'
-            example: '343.00'
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ManagedUserPatchRequest'
-            example: '343.00'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/ManagedUserPatchRequest'
-            example: '343.00'
-          application/*+json:
-            schema:
-              $ref: '#/components/schemas/ManagedUserPatchRequest'
-            example: '343.00'
-      responses:
-        '204':
-          description: No Content
-        '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ObjectIpsResponse'
-              example:
-                result:
-                  success: true
-                  resultInfo:
-                    - resultCategory: Info
-                      code: '0000'
-                      description: Success.
-        '403':
-          description: Forbidden
   /api/v2/me/Users/{userId}:
     patch:
       tags:
         - Users
       x-group-name: Users
-      x-proxy-name: Modify User
+      x-proxy-name: Update Managed User
       x-child-product-name: Users
-      summary: Patch user V2.
+      summary: Update a managed user.
+      description: Update a managed user.
       operationId: ModifyUserV2
       parameters:
         - name: userId
@@ -5783,9 +5213,10 @@ paths:
       tags:
         - Users
       x-group-name: Users
-      x-proxy-name: Get List of Probable Merchants
+      x-proxy-name: Get Probable Merchants
       x-child-product-name: Users
-      summary: Get probable merchants for the user
+      summary: Get list of probable merchants for the user.
+      description: Get list of probable merchants for the user.
       operationId: GetProbableMerchants
       responses:
         '200':
