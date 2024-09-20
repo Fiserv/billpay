@@ -37,7 +37,7 @@ benefits:
     description: Tap into flexible integrations with existing payment platforms to quickly deploy consumer bill pay solutions.
     icon: assets/images/timetomarket.jpg
   - title: Unmatched size/scale
-    description: NOW® Network access and an expansive network of billers enables faster payments and offers the real-time capabilities that accountholders expect.
+    description: NOW® Network access and an expansive network of billers enables faster payments and offers real-time capabilities.
     icon: assets/images/unmatchedsize.jpg
   - title: Consumer-centric
     description: Simplify the bill payer's experience with automation that connects billers to consumer accounts.
@@ -47,8 +47,8 @@ featuredFeatures:
     featured: true
     description: Find bills by using information from credit report and biller statements with the consumer’s consent and select to add payees conveniently.
     relatedDocs:
-      - link:
-        title:
+      - link: "docs/introduction/overview.md"
+        title: Overview
     relatedAPIs:
       - type:
         path:
@@ -57,28 +57,28 @@ featuredFeatures:
     featured: true
     description: Receive alerts for due bills without giving up paper.
     relatedDocs:
-      - link:
-        title:
+      - link: "docs/introduction/overview.md"
+        title: Overview
     relatedAPIs:
-      - type:
+      - type: 
         path:
         title: 
   - title: Automatic Transactions
     featured: true 
     description: Automate payments and never be late with a payment again.
     relatedDocs:
-      - link:
-        title:
+      - link: "docs/introduction/overview.md"
+        title: Overview
     relatedAPIs:
-      - type:
+      - type: 
         path:
-        title: 
+        title:
 guides:
   - title: Important to know
     description: Formatting, dates, field encoding and resource modification.
     link: "docs/resourcesAndGuides/importantToKnow.md"
   - title: Response codes 
-    description: Standard response codes indicate the success or failure of an API request.
+    description: Standard response codes indicate the success or failure of a request.
     link: "docs/resourcesAndGuides/responseCodes.md"
   - title: Versioning/compatibility
     description: If a breaking change is required, a new version will be created.
