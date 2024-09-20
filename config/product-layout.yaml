@@ -78,7 +78,7 @@ guides:
     description: Formatting, dates, field encoding and resource modification.
     link: "docs/resourcesAndGuides/importantToKnow.md"
   - title: Response codes 
-    description: Standard response codes indicate success or failure of a request.
+    description: Standard response codes indicate the success or failure of a request.
     link: "docs/resourcesAndGuides/responseCodes.md"
   - title: Versioning/compatibility
     description: If a breaking change is required, a new version will be created.
