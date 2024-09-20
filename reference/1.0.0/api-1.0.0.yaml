@@ -446,8 +446,8 @@ paths:
       x-group-name: Automatic Transactions
       x-proxy-name: Update Automatic Transaction
       x-child-product-name: AutomaticTransactions
-      summary: Enables changes to be done to an automatic transaction that has been already set up.\r\nOnly the Delta changes are sent in the request.
-      description: Enables changes to be done to an automatic transaction that has been already set up.\r\nOnly the Delta changes are sent in the request.
+      summary: Enables changes to be done to an automatic transaction that has been already set up.<br>Only the Delta changes are sent in the request.
+      description: Enables changes to be done to an automatic transaction that has been already set up.<br>Only the Delta changes are sent in the request.
       operationId: PatchAutomaticTransaction
       parameters:
         - name: automaticTransactionId
@@ -851,7 +851,7 @@ paths:
       tags:
         - BankAccounts
       x-group-name: Bank Accounts
-      x-proxy-name: Get Bank Account
+      x-proxy-name: Get Bank Account Managed User
       x-child-product-name: BankAccounts
       summary: Retrieves the bank account information given a bankAccountId for managed user.
       description: Retrieves the bank account information given a bankAccountId for managed user.
@@ -954,7 +954,7 @@ paths:
       tags:
         - BankAccounts
       x-group-name: Bank Accounts
-      x-proxy-name: Delete Bank Account
+      x-proxy-name: Delete Bank Account Managed User 
       x-child-product-name: BankAccounts
       summary: Deletes bank account for managed user.
       description: Deletes bank account for managed user.
@@ -1010,7 +1010,7 @@ paths:
         - BankAccounts
       operationId: PatchBankAccountByTenant
       x-group-name: Bank Accounts
-      x-proxy-name: Update Bank Account
+      x-proxy-name: Update Bank Account Managed User
       x-child-product-name: BankAccounts
       summary: Updates bank account for managed user.
       description: Updates bank account for managed user.
@@ -1502,7 +1502,7 @@ paths:
       tags:
         - Bills
       x-group-name: Bills
-      x-proxy-name: Get Bills by ID
+      x-proxy-name: Get Bill by ID
       x-child-product-name: Bills
       summary: Retrieves bill item based on bill id.
       description: Retrieves bill item based on bill id.
@@ -3094,7 +3094,7 @@ paths:
       tags:
         - Payees
       x-group-name: Payees
-      x-proxy-name: Get Accoount Number
+      x-proxy-name: Get Account Number
       x-child-product-name: Payees
       summary: Get unmasked account number for a payee.
       description: Get unmasked account number for a payee.
@@ -4314,7 +4314,7 @@ paths:
       tags:
         - Transactions
       x-group-name: Transactions
-      x-proxy-name: Get List of Transactions
+      x-proxy-name: Get List of Transactions v1
       x-child-product-name: Transactions
       summary: Returns a list of transactions.<br>Can return electronic and paper.
       description: Returns a list of transactions.<br>Can return electronic and paper.
@@ -4486,7 +4486,7 @@ paths:
       tags:
         - Transactions
       x-group-name: Transactions
-      x-proxy-name: Get List of Transactions
+      x-proxy-name: Get List of Transactions v2
       x-child-product-name: Transactions
       summary: Get a list of transactions.<br>Can return electronic, corporatecheck, and draftcheck.
       description: Get a list of transactions.<br>Can return electronic, corporatecheck, and draftcheck.
