@@ -665,12 +665,13 @@ Reserved for future use.
 | nextTransactionDate | Opt | string | Date of the next payment transaction to be scheduled. If there is not a next payment (such as when a model is terminated due to reaching the end of the model), this field is not populated. <br> Note: Not used for POST. |
 | maximumTransactionCount | Opt | integer | The maximum number of transactions that this automatic transaction model should process before ending. Should not be submitted alongside endDate. |
 | remainingTransactionCount | Opt | integer | The number of transactions remaining before this automatic payment model ends. <br> Note: Not used for POST. |
-| memo | Opt | string | Transaction memo. Maximum length: 34 <br> Pattern: ^[a-zA-Z0-9_(){}&@!+#.'$,%^ \*-]\* |
+| memo | Opt | string | Transaction memo. Maximum length: 34 <br> Pattern: ^(&amp;(?\!#)\|\[\\w\\s~\!@#\$%\*\\-+{}\\\\\|;:'",\\./?`\])*\$ <br> Note: Cannot contain any of the following cross-site scripting special characters: <>\[\]^=() and cannot contain the characters 0x26 (&) and 0x23 (#) in the sequence &#. |
 | transactionScheduledAlert | Req | boolean | Indicates if the consumer is notified when a transaction is scheduled. <br> True - Notify the consumer when a transaction is scheduled. <br> False - Do not notify the consumer when a transaction is scheduled. This is the default. |
 | transactionSentAlert| Req | boolean | Indicates if the consumer is notified when a transaction is processed. <br> True - Notify the consumer when a transaction is processed. <br> False - Do not notify the consumer when a transaction is processed. This is the default. |
 | recurringScheduleExpireAlert | Req | boolean | Indicates if the consumer is notified when the final transaction from a recurring model is scheduled. <br> True - Notify the consumer when the final transaction from the recurring model is scheduled. <br> False - Do not notify the consumer when the final transaction from the recurring model is scheduled. This is the default. |
 | duration | Req | string | The duration of recurring model. Valid values: UntilSubscriberCancels, XNumberOfPayments, SpecificEndDate <br> Note: Not used for POST. |
 | nextTransactionGenerationDate | Opt | string | Date when the next payment will be generated/spawned. This date may not correspond to the date of the next actual payment, because that payment could already have been spawned. This field will not be returned when there is no next payment to be spawned. <br> Note: Not used for POST. |
+| debitDate | Opt | string | Debit date for the transaction in yyyy-MM-dd format. |
 
 #### RecurringTransactionSchedulePatch
 
@@ -681,8 +682,9 @@ Reserved for future use.
 | endTransactionAmount | Opt | double | Amount for the last transaction. This will be provided by the consumer if the last transaction amount is different from the rest of the transactions in the recurring model. <br> Pattern: ^\\d+(\\.\\d{1,2})?$ |
 | frequency | Opt | string | The frequency that transactions will be scheduled to the payee. Valid values: <br> Weekly, Every2Weeks, Every4Weeks, TwiceAMonth, Monthly, Every2Months, Every3Months, Every4Months, Every6Months, Annually |
 | initiationDate | Opt | string | The date of the first scheduled transaction. Format: yyyy-MM-dd |
+| debitDate | Opt | string | Debit date for the transaction in yyyy-MM-dd format. |
 | maximumTransactionCount | Opt | integer | The maximum number of transactions that this automatic transaction model should process before ending. Should not be submitted alongside endDate. |
-| memo | Opt | string | Transaction memo. Maximum length: 34 <br> Pattern: ^[a-zA-Z0-9_(){}&@!+#.'$,%^ \*-]\* |
+| memo | Opt | string | Transaction memo. Maximum length: 34 <br> Pattern: ^(&amp;(?\!#)\|\[\\w\\s~\!@#\$%\*\\-+{}\\\\\|;:'",\\./?`\])*\$ <br> Note: Cannot contain any of the following cross-site scripting special characters: <>\[\]^=() and cannot contain the characters 0x26 (&) and 0x23 (#) in the sequence &#. |
 | transactionScheduledAlert | Opt | boolean | Indicates if the consumer is notified when a transaction is scheduled. <br> True - Notify the consumer when a transaction is scheduled. <br> False - Do not notify the consumer when a transaction is scheduled. This is the default. |
 | transactionSentAlert | Opt | boolean | Indicates if the consumer is notified when a transaction is processed. <br> True - Notify the consumer when a transaction is processed. <br> False - Do not notify the consumer when a transaction is processed. This is the default. |
 | recurringScheduleExpireAlert | Opt | boolean | Indicates if the consumer is notified when the final transaction from a recurring model is scheduled. <br> True - Notify the consumer when the final transaction from the recurring model is scheduled. <br> False - Do not notify the consumer when the final transaction from the recurring model is scheduled. This is the default. |
@@ -775,11 +777,12 @@ Reserved for future use.
 | listItemId | Req | integer | Serial number for this transaction that was sent in a request containing multiple transactions. Use this number to identify the response for each transaction in the request, because the sequence of responses may not match the sequence of requests due to web services infrastructure. Each listItemId must be unique within a request. | 
 | amount | Req | double | The amount of the transaction. The transaction amount must be within tenant/sponsor limits (minimum and maximum). <br> Pattern: ^\\d+(\\.\\d{1,2})?$ <br> A payment funded with a bank account that is Pending Confirmation cannot be scheduled with an amount that exceeds the Fiserv cumulative unconfirmed payment limit. This does not apply to SameDay Payments. | 
 | deliveryDate | Req | string | The date for the transaction in yyyy-MM-dd format. <br> This date may not be in the past and may not be more than 365 days in the future. This date may not be earlier than the earliest available payment date for the selected payee. <br> Generally, the Fiserv system will not allow a payment to be scheduled for a date that is not a bank processing date (weekends and Federal Reserve Board recognized holidays). However, this will depend on the merchant’s configuration. For example, some MoneyGram merchants accept payments on weekends. <br> When the payee is Overnight Check (ONC) capable and the current time is before the cutoff time for ONC, the payment will be added as an ONC payment. <br> A payment funded with a bank account that is Pending Confirmation cannot be scheduled with a payment date greater than 45 days after the bank account was added. <br> For SameDay Payments, this date must be current date. | 
+| debitDate | Opt | string | Debit date for the transaction in yyyy-MM-dd format. |
 | fundingAccountUri | Req | string | The source funding account URI for the given transaction. Account types that are eligible to be used are those enabled for Bill Payment (service) for the tenant/sponsor. <br> If account confirmation is enabled for the tenant/sponsor, only accounts that are Confirmed or Pending Confirmation can be used to schedule a payment. |
-| note | Opt | string | A consumer’s “note to self.” This note is not submitted to the payee. Length: 0–255 <br> Pattern: ^[\\x2A-\\x2E\\x30-\\x39\\x40-\\x5A\\x5F\\x5E\\x61-\\x7A\\x20\\x21\\x23-\\x25]+$ <br> The note field only allows the following character sets: a-z, A-Z, 0-9, _ @!+#.\$,%^\*- <br> This note is a convenience feature. If the payment is scheduled successfully but Fiserv is unable to store the payment note, you will receive only a warning, not an error. |
+| note | Opt | string | A consumer’s “note to self.” This note is not submitted to the payee. Length: 0–255 <br> Pattern: ^(&amp;(?\!#)\|\[\\w\\s~\!@#\$%\*\\-+{}\\\\\|;:'",\\./?`\])*\$ <br> Note: Cannot contain any of the following cross-site scripting special characters: <>\[\]^=() and cannot contain the characters 0x26 (&) and 0x23 (#) in the sequence &#. <br> This note is a convenience feature. If the payment is scheduled successfully but Fiserv is unable to store the payment note, you will receive only a warning, not an error. |
 | destinationUri | Req | string | The destination URI for the given transaction. May identify the payee, bill due alert, and/or e-bill to be paid. <br> If the destination is a payee, the payee must exist and be active for the consumer. <br> If the destination is an e-bill, the e-bill ID must be a valid e-bill ID for the consumer. |
 | withdrawNow | Opt | boolean | Reserved for future use. |
-| memo | Opt | string | Transaction memo. Maximum of 34 characters. |
+| memo | Opt | string | Transaction memo. Maximum of 34 characters. <br> Pattern: ^(&amp;(?\!#)\|\[\\w\\s~\!@#\$%\*\\-+{}\\\\\|;:'",\\./?`\])*\$ <br> Note: Cannot contain any of the following cross-site scripting special characters: <>\[\]^=() and cannot contain the characters 0x26 (&) and 0x23 (#) in the sequence &#. |
 
 
 #### TransactionCalendar
@@ -904,6 +907,7 @@ Reserved for future use.
 | legacyTransactionId | Req | string | Server transaction timestamp. |
 | checkNumber | Cond | integer | Check number corresponding to completed paper payment. Condition: This is returned when the status of the transaction is Complete and the delivery method is CorporateCheck or DraftCheck. Check numbers for draft checks include the check number prefix if there is one identified at the sponsor level. |
 | clearedCheckDate | Opt | string | Date that the check has cleared. Applies to corporate checks only. |
+| payeeInfo | Req | [TransactionPayeeInfo](#transactionpayeeinfo) | Payee details at the time of the transaction. |
 
 #### TransactionOutputIpsListItemResponse
 
@@ -911,7 +915,16 @@ Reserved for future use.
 |-----------|-----|---------|------------------------------------------------|
 | listItemId | Req  | integer                                 | Serial number that was sent in the request for a transaction. Use this number to identify the payment response to a payment request, because the sequence of responses may not match the sequence of requests due to web services infrastructure. |
 | data       | Cond | [TransactionOutput](#transactionoutput) | Data about the specific transaction. Condition: Always returned for successful response                                                                                                                                                           |
-| result     | Req  | [ResultType](#resulttype)               | Result associated with the specific transaction.                                                                                                                                                                                                  |
+| result     | Req  | [ResultType](#resulttype)               | Result associated with the specific transaction.                                                                                                                                            
+
+#### TransactionPayeeInfo
+
+| Parameter           | Req | Data Type | Description                        |
+|---------------------|-----|-----------|------------------------------------|
+| name                | Req | string    | The name of the payee at the time of the transaction. |
+| nickname            | Opt | string    | The nickname of the payee at the time of the transaction.  |
+| maskedAccountNumber | Opt | string    | The masked account number for the consumer with the payee at the time of the transaction. |
+| overnightAddress    | Opt | [USAddress](#usaddress) | Address for overnight payments. Only applicable for Overnight transactions. |
 
 #### TransactionsNotModified
 
@@ -924,10 +937,10 @@ Reserved for future use.
 
 | Parameter | Req | Data Type | Description |
 |-----------|-----|-----------|-------------|
-| address1 | Req | string | Address line 1 information. Length: 1-32 <br> Cannot contain any of the following special characters: &lt;&gt;=&() <br> Pattern: ^(?=.\*\\w)^[a-zA-Z0-9_@!+#.$,/%^ \*-]\* <br> At least one character must be an alphanumeric character. |
-| address2 | Opt | string | Any additional address information. Max length: 32 <br> <p>Cannot contain any of the following special characters: &lt;&gt;=&() <br> Pattern: ^[a-zA-Z0-9_@!+#.$,/%^ \*-]\* |
-| address3 | Opt | string | Any additional address information. Max length: 32 <br> Cannot contain any of the following special characters: &lt;&gt;=&() <br> Pattern: ^[a-zA-Z0-9_@!+#.$,/%^ \*-]\* <br> <strong>Payees GET</strong>: address3 is not currently returned in the response. |
-| city | Req | string | The city name for the given address. Length: 1-32 <br> Cannot contain any of the following special characters: &lt;&gt;=&() <br> Pattern: ^[a-zA-Z0-9_ @!+#.$,%^\*-]\* <br> If the first three characters of the city name are "APO" or "FPO," the address is treated as a military address. |
+| address1 | Req | string | Address line 1 information. Length: 1-32 <br> Pattern: ^(?=.\*\\w)^[a-zA-Z0-9_@!+#.$,/%^ \*-]\* <br> At least one character must be an alphanumeric character. |
+| address2 | Opt | string | Any additional address information. Max length: 32 <br> Pattern: ^[a-zA-Z0-9_@!+#.$,/%^ \*-]\* |
+| address3 | Opt | string | Any additional address information. Max length: 32 <br> Pattern: ^[a-zA-Z0-9_@!+#.$,/%^ \*-]\* <br> <strong>Payees GET</strong>: address3 is not currently returned in the response. |
+| city | Req | string | The city name for the given address. Length: 1-32 <br> Pattern: ^[a-zA-Z0-9_ @!+#.$,%^\*-]\* <br> If the first three characters of the city name are "APO" or "FPO," the address is treated as a military address. |
 | state | Req | string | The state for the given address. Valid characters: A–Z <br> Length: 2 <br> Pattern: ^[A-Z]\* |
 | zipCode | Req | string | ZIP Code. Length: 5, 9, or 11 <br> Pattern: ^(\\d{5}\|\\d{9}\|\\d{11})$ <br> Valid characters: 0–9 <br> 5 digits are required for this field. 9 or 11 digits are optional. <br> Parsed: Chars 1-5 = Zip5 (must be a valid five-digit ZIP Code), Chars 6-9 = Zip4, Chars 10-11 = Zip2 |
 
