@@ -509,9 +509,10 @@ To cancel a transaction (does not require Request Body):
 | transactionId | Req | path | string | Identifier for the transaction. |
 | amount | Opt | body | double | The amount of the transaction. <br> Pattern: ^\\d+(\\.\\d{1,2})?$ |
 | deliveryDate | Opt | body | string | The date that the payment transaction is to be delivered to its destination in yyyy-MM-dd format. | 
+| debitDate | Opt | body | string | Debit date for the transaction in yyyy-MM-dd format. |
 | fundingAccountUri | Opt | body | string | The funding account URI for the transaction. Account types that are eligible to be used are those enabled for Bill Payment (service) for the tenant/sponsor. |
-| memo | Opt | body | string | Transaction memo. Maximum of 34 characters. This text will be printed on the check sent to the payee for this payment. A payment memo is only used for payments that are to be processed via a paper check. |
-| note | Opt | body | string | A consumer’s “note to self.” This note is not submitted to the payee. Length: 0–255 <br> Pattern: ^[\\x2A-\\x2E\\x30-\\x39\\x40-\\x5A\\x5F\\x5E\\x61-\\x7A\\x20\\x21\\x23-\\x25]+\$ <br> The note field only allows the following character sets: a-z, A-Z, 0-9, _ @!+#.$,%^\*- | 
+| memo | Opt | body | string | Transaction memo. Maximum of 34 characters. This text will be printed on the check sent to the payee for this payment. A payment memo is only used for payments that are to be processed via a paper check. <br> Pattern: ^(&amp;(?\!#)\|\[\\w\\s~\!@#\$%\*\\-+{}\\\\\|;:'",\\./?`\])*\$ <br> Note: Cannot contain any of the following cross-site scripting special characters: <>\[\]^=() and cannot contain the characters 0x26 (&) and 0x23 (#) in the sequence &#. |
+| note | Opt | body | string | A consumer’s “note to self.” This note is not submitted to the payee. Length: 0–255 <br> Pattern: ^(&amp;(?\!#)\|\[\\w\\s~\!@#\$%\*\\-+{}\\\\\|;:'",\\./?`\])*\$ <br> Note: Cannot contain any of the following cross-site scripting special characters: <>\[\]^=() and cannot contain the characters 0x26 (&) and 0x23 (#) in the sequence &#. | 
 | withdrawNow | Opt | body | boolean | Reserved for future use. |
 
 ### Response
