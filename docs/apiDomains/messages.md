@@ -155,7 +155,7 @@ The POST TransactionMessages API enables a consumer to submit a transaction-rela
 |  financeChargeAmount       | Opt |  body     | string    | Amount of the finance charge. |
 | isFinanceChargeWaived        | Cond |  body     |  boolean   | Indicates whether the finance charge (if applicable) is waived. Condition: Required if financeChargeAmount is provided. |
 | billerContactName       | Opt |  body     |  string   | Name of the contact at the biller. Length: Up to 32 <br> Pattern: ^\[\x20\x2C-\x2E\x30-\x39\x41-\x5A\x61-\x7A\\'\]+$ |
-| billerContactPhone        | Opt |  body     |  string   | Contact’s phone number at the biller. Length: 10-12 <br> Pattern:  \(^\[0-9\]{10}\$)\|\(^\\\(?\[0-9\]{3}\\)?-\[0-9\]{3}-\[0-9\]{4}\$\)\|(^\\\(?\[0-9\]{3}\\\)?\\s?\[0-9\]{3}-\[0-9\]{4}$\) <br> Must be numeric and may contain a dash or space between the numbers at the appropriate placement. The phone number must be valid based on the North American Numbering Plan (for example, the area code cannot begin with a 0 or 1). Example: 234-555-1212  |
+| billerContactPhone        | Opt |  body     |  string   | Contact’s phone number at the biller. Length: 10-12 <br> Pattern:  \(^\[0-9\]{10}$)\|\(^\\\(?\[0-9\]{3}\\)?-\[0-9\]{3}-\[0-9\]{4}$\)\|(^\\\(?\[0-9\]{3}\\\)?\\s?\[0-9\]{3}-\[0-9\]{4}$\) <br> Must be numeric and may contain a dash or space between the numbers at the appropriate placement. The phone number must be valid based on the North American Numbering Plan (for example, the area code cannot begin with a 0 or 1). Example: 234-555-1212  |
 | billerContactDate        | Opt |  body     | string    | Date when the biller was contacted. Length: 10 <br> Must contain a valid date in the format yyyy-MM-dd. |
 
 ### Response

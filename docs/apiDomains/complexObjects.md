@@ -51,7 +51,7 @@ Reserved for future use.
 |-----------|-----|-----------|-------------|
 | accountType | Req | string | The type of bank account. Valid values: "Checking", "Savings", "InstallmentLoan", "IndividualRetirement", "CommercialLoan", "MoneyMarket", "LineOfCredit", "Brokerage", "SpecialDeposit" |
 | maskedAccountNumber | Req | string | The account number in masked form, for presentment in a user interface. For example, “***********4656” |
-| nickname | Opt | string | The nickname for the account, if one exists. Otherwise, returns null. <br> Pattern: ^[a-zA-Z0-9_(){}&@!+#.'\$, \%\*-]{1,30}$ |
+| nickname | Opt | string | The nickname for the account, if one exists. Otherwise, returns null. <br> Pattern: ^[a-zA-Z0-9_(){}&@!+#.'$, %\*-]{1,30}$ |
 | accountBalance | Opt | double | The account balance. |
 | isPreferred | Req | boolean | Indicates if the account is the preferred account. The preferred account flag indicates the consumer’s preferred choice of bank account used to fund bill payment transactions. |
 | unmaskedAccountNumberUri | Req | string | Link to the unmasked account number for the account. |
@@ -83,7 +83,7 @@ Reserved for future use.
 | modifiableFields | Req | Array of string | List of fields that can be changed for the bank account. |
 | accountType | Req | string | The type of bank account. Valid values: "Checking", "Savings", "InstallmentLoan", "IndividualRetirement", "CommercialLoan", "MoneyMarket", "LineOfCredit", "Brokerage", "SpecialDeposit" |
 | maskedAccountNumber | Req | string | The account number in masked form, for presentment in a user interface. For example, “***********4656” |
-| nickname | Opt | string | The nickname for the account, if one exists. Otherwise, returns null. <br> Pattern: ^[a-zA-Z0-9_(){}&@!+#.'\$, \%\*-]{1,30}$ |
+| nickname | Opt | string | The nickname for the account, if one exists. Otherwise, returns null. <br> Pattern: ^[a-zA-Z0-9_(){}&@!+#.'$, %\*-]{1,30}$ |
 | accountBalance | Opt | double | The account balance. Reserved for future use. |
 | isPreferred | Req | boolean | Indicates if the account is the preferred account. The preferred account flag indicates the consumer’s preferred choice of bank account used to fund bill payment transactions. |
 | unmaskedAccountNumberUri | Req | string | Link to the unmasked account number for the account. See “[Get an Unmasked Bank Account Number (consumer scoped)](?path=docs/apiDomains/bankAccounts.md&branch=develop#get-an-unmasked-bank-account-number-consumer-scoped).” |
@@ -379,7 +379,7 @@ Reserved for future use.
 | first | Req | string | First name of the consumer. <br> Length: 1–32 <br> Pattern: ^[a-zA-Z][a-zA-Z0-9_(){}&@!+#.$,%\*-]\* |
 | last | Req | string | Last name of the consumer. <br> Length: 1–32 <br> Pattern: ^[a-zA-Z][a-zA-Z0-9_(){}&@!+#. $,%\*-]\* <br> Last name is required, regardless of consumer type. <br> If this is an account for an individual, this is the individual consumer’s last name. If this is an account for a business, this is the last name of a principal owner of the business or a person to contact. |
 | middle | Opt | string | Middle name of the consumer. <br> Length: 0–32 <br> Pattern: ^[a-zA-Z][a-zA-Z0-9_(){}&@!+#.$,%\*-]\* |
-| nickname | Opt | string | Short name used to refer to the consumer. <br> For example, BOB is a nickname for ROBERT. <br> Length: 1–30 <br> Pattern: ^[a-zA-Z0-9_(){}&@!+#.'\$, \%\*-]{1,30}$ <br> When provided, at least one character is required. |
+| nickname | Opt | string | Short name used to refer to the consumer. <br> For example, BOB is a nickname for ROBERT. <br> Length: 1–30 <br> Pattern: ^[a-zA-Z0-9_(){}&@!+#.'$, %\*-]{1,30}$ <br> When provided, at least one character is required. |
 | prefix | Opt | string | A title relating to the consumer, such as DR., MR., or MS. <br> Length: 1–6 <br> Pattern: ^[a-zA-Z][a-zA-Z0-9_(){}&@!+#.$,%\*-]\* |
 
 #### Merchant
@@ -454,7 +454,7 @@ Reserved for future use.
 | firstName | Req | string | First name of the consumer. Length: 1–32 <br> Pattern: ^[a-zA-Z][a-zA-Z0-9_(){}&@!+#.$,%\*-]\* |
 | lastName | Req | string | Last name of the consumer. Length: 1–32 <br> Pattern: ^[a-zA-Z][a-zA-Z0-9_(){}&@!+#. $,%\*-]\* |
 | middleName | Opt | string | Middle name of the consumer. Length: 0–32 <br> Pattern: ^[a-zA-Z][a-zA-Z0-9_(){}&@!+#.$,%\*-]\* |
-| nickname | Opt | string | Short name used to refer to the consumer. Length: 0–30 <br> For example, BOB is a nickname for ROBERT. <br> Pattern: ^[a-zA-Z0-9_(){}&@!+#.'\$, \%\*-]{1,30}$ |
+| nickname | Opt | string | Short name used to refer to the consumer. Length: 0–30 <br> For example, BOB is a nickname for ROBERT. <br> Pattern: ^[a-zA-Z0-9_(){}&@!+#.'$, %\*-]{1,30}$ |
 | prefix | Opt | string | A title relating to the consumer, such as DR., MR., or MS. Length: 0–6 <br> Pattern: ^[a-zA-Z][a-zA-Z0-9_(){}&@!+#.$,%\*-]\* |
 
 #### PaperSuppressionOption
@@ -559,8 +559,8 @@ Reserved for future use.
 |-----------|-----|-----------|-------------|
 | name | Req | string | The name of the payee.<br> Pattern: ^[\\x20-\\x5A\\x5C\\x5F-\\x7E]+$ <br> Length: 2–32 |
 | nickname | Opt | string | The nickname of the payee. Length: 1-30 <br> Pattern: ^[\\x20\\x2C-\\x2E\\x30-\\x39\\x41-\\x5A\\x61-\\x7A\\r\\n]+$ |
-| accountNumber | Opt | string | The consumer’s account number with the payee. Length: 1–32 <br> Pattern: ^[a-zA-Z0-9 !"#\$\%&-]{1,32}$ |
-| contactPhoneNumber | Cond | string | Phone number used to contact the payee if there are issues posting the transaction. Length: 10-12 <br> Pattern: (^[0-9]{10}\$)\|(^\\(?[0-9]{3}\\)?-[0-9]{3}-[0-9]{4}\$)\|(^\\(?[0-9]{3}\\)?\\s?[0-9]{3}-[0-9]{4}$) <br> Must be numeric and may contain a dash or space between the numbers at the appropriate placement. The phone number must be valid based on the North American Numbering Plan (for example, the area code cannot begin with a 0 or 1). Example: 234-555-1212 <br> Condition: Required when sourceUri is not supplied when adding the payee. |
+| accountNumber | Opt | string | The consumer’s account number with the payee. Length: 1–32 <br> Pattern: ^[a-zA-Z0-9 !"#$%&-]{1,32}$ |
+| contactPhoneNumber | Cond | string | Phone number used to contact the payee if there are issues posting the transaction. Length: 10-12 <br> Pattern: (^[0-9]{10}$)\|(^\\(?[0-9]{3}\\)?-[0-9]{3}-[0-9]{4}$)\|(^\\(?[0-9]{3}\\)?\\s?[0-9]{3}-[0-9]{4}$) <br> Must be numeric and may contain a dash or space between the numbers at the appropriate placement. The phone number must be valid based on the North American Numbering Plan (for example, the area code cannot begin with a 0 or 1). Example: 234-555-1212 <br> Condition: Required when sourceUri is not supplied when adding the payee. |
 | address | Cond | [USAddress](#usaddress) | Payee address information. <br> Condition: Required when sourceUri is not supplied when adding the payee. |
 | overnightAddress | Opt | [USAddress](#usaddress) | Address for overnight payments if one exists for the payee. | 
 | socialTokens | Opt | Array of SocialToken | Reserved for future use. |
@@ -584,7 +584,7 @@ Reserved for future use.
 | Parameter | Req | Data Type | Description |
 |-----------|-----|-----------|-------------|
 | phoneType | Req | string | The type of phone number. Valid values: Day, Evening, Mobile |
-| value | Req | string | The phone number value. <br> Pattern:(^[0-9]{10}\$)\|(^\\(?[0-9]{3}\\)?-[0-9]{3}-[0-9]{4}\$)\|(^\\(?[0-9]{3}\\)?\\s?[0-9]{3}-[0-9]{4}$) | For a user enrollment, all non-numeric characters shall be removed and if there is a leading “1,” it is removed. It may contain a dash or space between the numbers at the appropriate placement. The phone number must be valid based on the North American Numbering Plan (for example, the area code cannot begin with a 0 or 1). |
+| value | Req | string | The phone number value. <br> Pattern:(^[0-9]{10}$)\|(^\\(?[0-9]{3}\\)?-[0-9]{3}-[0-9]{4}$)\|(^\\(?[0-9]{3}\\)?\\s?[0-9]{3}-[0-9]{4}$) | For a user enrollment, all non-numeric characters shall be removed and if there is a leading “1,” it is removed. It may contain a dash or space between the numbers at the appropriate placement. The phone number must be valid based on the North American Numbering Plan (for example, the area code cannot begin with a 0 or 1). |
 
 #### PotentialPayee
 
@@ -665,7 +665,7 @@ Reserved for future use.
 | nextTransactionDate | Opt | string | Date of the next payment transaction to be scheduled. If there is not a next payment (such as when a model is terminated due to reaching the end of the model), this field is not populated. <br> Note: Not used for POST. |
 | maximumTransactionCount | Opt | integer | The maximum number of transactions that this automatic transaction model should process before ending. Should not be submitted alongside endDate. |
 | remainingTransactionCount | Opt | integer | The number of transactions remaining before this automatic payment model ends. <br> Note: Not used for POST. |
-| memo | Opt | string | Transaction memo. Maximum length: 34 <br> Pattern: ^(&amp;(?\!#)\|\[\\w\\s~\!@#\$%\*\\-+{}\\\\\|;:'",\\./?`\])*\$ <br> Note: Cannot contain any of the following cross-site scripting special characters: <>\[\]^=() and cannot contain the characters 0x26 (&) and 0x23 (#) in the sequence &#. |
+| memo | Opt | string | Transaction memo. Maximum length: 34 <br> Pattern: ^(&amp;(?\!#)\|\[\\w\\s~\!@#$%\*\\-+{}\\\\\|;:'",\\./?`\])*$ <br> Note: Cannot contain any of the following cross-site scripting special characters: <>\[\]^=() and cannot contain the characters 0x26 (&) and 0x23 (#) in the sequence &#. |
 | transactionScheduledAlert | Req | boolean | Indicates if the consumer is notified when a transaction is scheduled. <br> True - Notify the consumer when a transaction is scheduled. <br> False - Do not notify the consumer when a transaction is scheduled. This is the default. |
 | transactionSentAlert| Req | boolean | Indicates if the consumer is notified when a transaction is processed. <br> True - Notify the consumer when a transaction is processed. <br> False - Do not notify the consumer when a transaction is processed. This is the default. |
 | recurringScheduleExpireAlert | Req | boolean | Indicates if the consumer is notified when the final transaction from a recurring model is scheduled. <br> True - Notify the consumer when the final transaction from the recurring model is scheduled. <br> False - Do not notify the consumer when the final transaction from the recurring model is scheduled. This is the default. |
@@ -684,7 +684,7 @@ Reserved for future use.
 | initiationDate | Opt | string | The date of the first scheduled transaction. Format: yyyy-MM-dd |
 | debitDate | Opt | string | Debit date for the transaction in yyyy-MM-dd format. |
 | maximumTransactionCount | Opt | integer | The maximum number of transactions that this automatic transaction model should process before ending. Should not be submitted alongside endDate. |
-| memo | Opt | string | Transaction memo. Maximum length: 34 <br> Pattern: ^(&amp;(?\!#)\|\[\\w\\s~\!@#\$%\*\\-+{}\\\\\|;:'",\\./?`\])*\$ <br> Note: Cannot contain any of the following cross-site scripting special characters: <>\[\]^=() and cannot contain the characters 0x26 (&) and 0x23 (#) in the sequence &#. |
+| memo | Opt | string | Transaction memo. Maximum length: 34 <br> Pattern: ^(&amp;(?\!#)\|\[\\w\\s~\!@#$%\*\\-+{}\\\\\|;:'",\\./?`\])*$ <br> Note: Cannot contain any of the following cross-site scripting special characters: <>\[\]^=() and cannot contain the characters 0x26 (&) and 0x23 (#) in the sequence &#. |
 | transactionScheduledAlert | Opt | boolean | Indicates if the consumer is notified when a transaction is scheduled. <br> True - Notify the consumer when a transaction is scheduled. <br> False - Do not notify the consumer when a transaction is scheduled. This is the default. |
 | transactionSentAlert | Opt | boolean | Indicates if the consumer is notified when a transaction is processed. <br> True - Notify the consumer when a transaction is processed. <br> False - Do not notify the consumer when a transaction is processed. This is the default. |
 | recurringScheduleExpireAlert | Opt | boolean | Indicates if the consumer is notified when the final transaction from a recurring model is scheduled. <br> True - Notify the consumer when the final transaction from the recurring model is scheduled. <br> False - Do not notify the consumer when the final transaction from the recurring model is scheduled. This is the default. |
@@ -779,10 +779,10 @@ Reserved for future use.
 | deliveryDate | Req | string | The date for the transaction in yyyy-MM-dd format. <br> This date may not be in the past and may not be more than 365 days in the future. This date may not be earlier than the earliest available payment date for the selected payee. <br> Generally, the Fiserv system will not allow a payment to be scheduled for a date that is not a bank processing date (weekends and Federal Reserve Board recognized holidays). However, this will depend on the merchant’s configuration. For example, some MoneyGram merchants accept payments on weekends. <br> When the payee is Overnight Check (ONC) capable and the current time is before the cutoff time for ONC, the payment will be added as an ONC payment. <br> A payment funded with a bank account that is Pending Confirmation cannot be scheduled with a payment date greater than 45 days after the bank account was added. <br> For SameDay Payments, this date must be current date. | 
 | debitDate | Opt | string | Debit date for the transaction in yyyy-MM-dd format. |
 | fundingAccountUri | Req | string | The source funding account URI for the given transaction. Account types that are eligible to be used are those enabled for Bill Payment (service) for the tenant/sponsor. <br> If account confirmation is enabled for the tenant/sponsor, only accounts that are Confirmed or Pending Confirmation can be used to schedule a payment. |
-| note | Opt | string | A consumer’s “note to self.” This note is not submitted to the payee. Length: 0–255 <br> Pattern: ^(&amp;(?\!#)\|\[\\w\\s~\!@#\$%\*\\-+{}\\\\\|;:'",\\./?`\])*\$ <br> Note: Cannot contain any of the following cross-site scripting special characters: <>\[\]^=() and cannot contain the characters 0x26 (&) and 0x23 (#) in the sequence &#. <br> This note is a convenience feature. If the payment is scheduled successfully but Fiserv is unable to store the payment note, you will receive only a warning, not an error. |
+| note | Opt | string | A consumer’s “note to self.” This note is not submitted to the payee. Length: 0–255 <br> Pattern: ^(&amp;(?\!#)\|\[\\w\\s~\!@#$%\*\\-+{}\\\\\|;:'",\\./?`\])*$ <br> Note: Cannot contain any of the following cross-site scripting special characters: <>\[\]^=() and cannot contain the characters 0x26 (&) and 0x23 (#) in the sequence &#. <br> This note is a convenience feature. If the payment is scheduled successfully but Fiserv is unable to store the payment note, you will receive only a warning, not an error. |
 | destinationUri | Req | string | The destination URI for the given transaction. May identify the payee, bill due alert, and/or e-bill to be paid. <br> If the destination is a payee, the payee must exist and be active for the consumer. <br> If the destination is an e-bill, the e-bill ID must be a valid e-bill ID for the consumer. |
 | withdrawNow | Opt | boolean | Reserved for future use. |
-| memo | Opt | string | Transaction memo. Maximum of 34 characters. <br> Pattern: ^(&amp;(?\!#)\|\[\\w\\s~\!@#\$%\*\\-+{}\\\\\|;:'",\\./?`\])*\$ <br> Note: Cannot contain any of the following cross-site scripting special characters: <>\[\]^=() and cannot contain the characters 0x26 (&) and 0x23 (#) in the sequence &#. |
+| memo | Opt | string | Transaction memo. Maximum of 34 characters. <br> Pattern: ^(&amp;(?\!#)\|\[\\w\\s~\!@#$%\*\\-+{}\\\\\|;:'",\\./?`\])*$ <br> Note: Cannot contain any of the following cross-site scripting special characters: <>\[\]^=() and cannot contain the characters 0x26 (&) and 0x23 (#) in the sequence &#. |
 
 
 #### TransactionCalendar
@@ -990,6 +990,6 @@ Reserved for future use.
 
 | Parameter | Req | Data Type | Description |
 |-----------|-----|-----------|-------------|
-| description | Req | string | Description of an element that is part of the verification of the merchant relationship. Max length: 1000 <br> Pattern: [a-zA-Z0-9_()\\r\|\\n{}@!+#.\$,\%^ \*-]{1,1000}$ |
-| value | Cond | string | Value of the element. Max length: 1000 <br> Pattern: [a-zA-Z0-9_()\\r\|\\n{}@!+#.\$,\%^ \*-]{1,1000}$ <br> Condition: Required on input when passing in a verification token. <br> For the Potential Payees Get API, this defaults to null unless specific data should be pre-populated. |
+| description | Req | string | Description of an element that is part of the verification of the merchant relationship. Max length: 1000 <br> Pattern: [a-zA-Z0-9_()\\r\|\\n{}@!+#.$,%^ \*-]{1,1000}$ |
+| value | Cond | string | Value of the element. Max length: 1000 <br> Pattern: [a-zA-Z0-9_()\\r\|\\n{}@!+#.$,%^ \*-]{1,1000}$ <br> Condition: Required on input when passing in a verification token. <br> For the Potential Payees Get API, this defaults to null unless specific data should be pre-populated. |
 | type | Opt | string | The type of this value to provide a clear indication to the UI. Valid values: String, Number, Currency | 
